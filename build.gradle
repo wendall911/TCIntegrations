@@ -174,23 +174,23 @@ publishing {
 
 curseforge {
     if (project.hasProperty('ticurseApiKey')) {
-    apiKey = project.ticurseApiKey
-    project {
-        id = project.tscurseId
-        changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt')
-        releaseType = cf_release_type
-        addGameVersion(minecraft_version)
-        mainArtifact(jar) {
-            relations {
-                requiredLibrary 'mantle'
-                requiredLibrary 'tinkers-construct'
-                optionalLibrary 'configured'
-                optionalLibrary 'catalogue'
-                optionalLibrary 'immersive-engineering'
-                optionalLibrary 'botania'
+        apiKey = project.ticurseApiKey
+        project {
+            id = project.ticurseId
+            changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt')
+            releaseType = cf_release_type
+            addGameVersion(minecraft_version)
+            mainArtifact(jar) {
+                relations {
+                    requiredLibrary 'mantle'
+                    requiredLibrary 'tinkers-construct'
+                    optionalLibrary 'configured'
+                    optionalLibrary 'catalogue'
+                    optionalLibrary 'immersive-engineering'
+                    optionalLibrary 'botania'
+                }
             }
         }
-    }
     }
 }
 

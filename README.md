@@ -1,5 +1,5 @@
-# Tinkers' Integrations and Tweaks [![Project](http://cf.way2muchnoise.eu/full_294667_downloads.svg)](https://minecraft.curseforge.com/projects/294667)
-![Minecraft](http://cf.way2muchnoise.eu/versions/For%20MC_294667_all.svg)
+# Tinkers' Integrations and Tweaks [![Project](http://cf.way2muchnoise.eu/full_602680_downloads.svg)](https://minecraft.curseforge.com/projects/602680)
+![Minecraft](http://cf.way2muchnoise.eu/versions/For%20MC_602680_all.svg)
 ![Forge](https://img.shields.io/badge/Forge-39.0+-green.svg?longCache=true&style=flat)
 ![MIT](https://img.shields.io/badge/license-MIT-blue.svg?longCache=true&style=flat)
 
@@ -8,11 +8,11 @@ A Minecraft 1.18+ mod designed to provide modpack integrations with other mods f
 
 Download latest (1.18.1):
 
-[![Download](https://curse.nikky.moe/api/img/294667?logo)](https://curse.nikky.moe/api/url/294667)
+[![Download](https://curse.nikky.moe/api/img/602680?logo)](https://curse.nikky.moe/api/url/602680)
 
 All Downloads:
 
-[![Files](https://curse.nikky.moe/api/img/294667/files?logo)](https://minecraft.curseforge.com/projects/294667/files)
+[![Files](https://curse.nikky.moe/api/img/602680/files?logo)](https://minecraft.curseforge.com/projects/602680/files)
 
 ## Links of Interest
 

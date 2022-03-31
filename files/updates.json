@@ -1,10 +1,11 @@
 {
   "homepage": "https://minecraft.curseforge.com/projects/tcintegrations",
   "1.18.1": {
+    "1.0.0.1": "https://github.com/wendall911/TCIntegrations/releases/tag/1.0.0.2",
     "1.0.0.1": "https://github.com/wendall911/TCIntegrations/releases/tag/1.0.0.1"
   },
   "promos": {
-    "1.18.1-latest": "1.0.0.1",
-    "1.18.1-recommended": "1.0.0.1"
+    "1.18.1-latest": "1.0.0.2",
+    "1.18.1-recommended": "1.0.0.2"
   }
 }
