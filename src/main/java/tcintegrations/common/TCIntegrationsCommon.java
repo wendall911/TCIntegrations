@@ -9,6 +9,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 import tcintegrations.common.json.ConfigEnabledCondition;
 import tcintegrations.common.TCIntegrationsModule;
+import tcintegrations.TCIntegrations;
 
 public final class TCIntegrationsCommon extends TCIntegrationsModule {
 

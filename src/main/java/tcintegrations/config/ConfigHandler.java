@@ -33,6 +33,8 @@ public final class ConfigHandler {
 
         private static final Common CONFIG;
 
+        public static BooleanValue ENABLE_BRONZE_RECIPE;
+
         static {
             Pair<Common,ForgeConfigSpec> specPair = new ForgeConfigSpec.Builder().configure(Common::new);
 
@@ -40,7 +42,11 @@ public final class ConfigHandler {
             CONFIG = specPair.getLeft();
         }
 
-        Common(ForgeConfigSpec.Builder builder) {}
+        Common(ForgeConfigSpec.Builder builder) {
+            ENABLE_BRONZE_RECIPE = builder
+                .comment("Enables bronze recipe. 3 copper + 1 quartz = 4 bronze")
+                .define("ENABLE_BRONZE_RECIPE", true);
+        }
 
     }
 

@@ -33,6 +33,7 @@ public class ConfigEnabledCondition implements ICondition, LootItemCondition {
 
     public static final ResourceLocation ID = new ResourceLocation(TCIntegrations.MODID, "config");
     public static final ConfigSerializer SERIALIZER = new ConfigSerializer();
+
     /* Map of config names to condition cache */
     private static final Map<String,ConfigEnabledCondition> PROPS = new HashMap<>();
 
@@ -40,7 +41,7 @@ public class ConfigEnabledCondition implements ICondition, LootItemCondition {
     private final BooleanSupplier supplier;
 
     /* Properties */
-    //public static final ConfigEnabledCondition SPAWN_WITH_BOOK = add("spawn_with_book", Config.COMMON.shouldSpawnWithTinkersBook);
+    public static final ConfigEnabledCondition BRONZE_RECIPE = add("bronze_recipe", ConfigHandler.Common.ENABLE_BRONZE_RECIPE);
 
     @Override
     public ResourceLocation getID() {
@@ -63,55 +64,59 @@ public class ConfigEnabledCondition implements ICondition, LootItemCondition {
     }
 
     private static class ConfigSerializer implements Serializer<ConfigEnabledCondition>, IConditionSerializer<ConfigEnabledCondition> {
+
         @Override
         public ResourceLocation getID() {
-        return ID;
+            return ID;
         }
 
         @Override
         public void write(JsonObject json, ConfigEnabledCondition value) {
-        json.addProperty("prop", value.configName);
+            json.addProperty("prop", value.configName);
         }
 
         @Override
         public ConfigEnabledCondition read(JsonObject json) {
-        String prop = GsonHelper.getAsString(json, "prop");
-        ConfigEnabledCondition config = PROPS.get(prop.toLowerCase(Locale.ROOT));
-        if (config == null) {
-            throw new JsonSyntaxException("Invalid property name '" + prop + "'");
-        }
-        return config;
+            String prop = GsonHelper.getAsString(json, "prop");
+            ConfigEnabledCondition config = PROPS.get(prop.toLowerCase(Locale.ROOT));
+
+            if (config == null) {
+                throw new JsonSyntaxException("Invalid property name '" + prop + "'");
+            }
+
+            return config;
         }
 
         @Override
         public void serialize(JsonObject json, ConfigEnabledCondition condition, JsonSerializationContext context) {
-        write(json, condition);
+            write(json, condition);
         }
 
         @Override
         public ConfigEnabledCondition deserialize(JsonObject json, JsonDeserializationContext context) {
-        return read(json);
+            return read(json);
         }
     }
 
     /**
-    * Adds a condition
-    * @param prop     Property name
-    * @param supplier Boolean supplier
-    * @return Added condition
-    */
+     * Adds a condition
+     * @param prop     Property name
+     * @param supplier Boolean supplier
+     * @return Added condition
+     */
     private static ConfigEnabledCondition add(String prop, BooleanSupplier supplier) {
         ConfigEnabledCondition conf = new ConfigEnabledCondition(prop, supplier);
         PROPS.put(prop.toLowerCase(Locale.ROOT), conf);
+
         return conf;
     }
 
     /**
-    * Adds a condition
-    * @param prop     Property name
-    * @param supplier Config value
-    * @return Added condition
-    */
+     * Adds a condition
+     * @param prop     Property name
+     * @param supplier Config value
+     * @return Added condition
+     */
     private static ConfigEnabledCondition add(String prop, BooleanValue supplier) {
         return add(prop, supplier::get);
     }
@@ -120,4 +125,5 @@ public class ConfigEnabledCondition implements ICondition, LootItemCondition {
     public String toString() {
         return "config_setting_enabled(\"" + this.configName + "\")";
     }
+
 }

@@ -1,18 +1,30 @@
 {
-  "type": "tconstruct:alloy",
-  "inputs": [
+  "type": "forge:conditional",
+  "recipes": [
     {
-      "tag": "forge:molten_copper",
-      "amount": 270
-    },
-    {
-      "tag": "tconstruct:molten_quartz",
-      "amount": 100
+      "conditions": [
+        {
+          "type": "forge:true"
+        }
+      ],
+      "recipe": {
+        "type": "tconstruct:alloy",
+        "inputs": [
+          {
+            "tag": "forge:molten_copper",
+            "amount": 270
+          },
+          {
+            "tag": "tconstruct:molten_quartz",
+            "amount": 100
+          }
+        ],
+        "result": {
+          "fluid": "tconstruct:molten_bronze",
+          "amount": 360
+        },
+        "temperature": 700
+      }
     }
-  ],
-  "result": {
-    "fluid": "tconstruct:molten_bronze",
-    "amount": 360
-  },
-  "temperature": 700
+  ]
 }

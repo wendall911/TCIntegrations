@@ -6,6 +6,9 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.world.level.block.Block;
 
+import net.minecraftforge.common.crafting.conditions.TrueCondition;
+import net.minecraftforge.common.crafting.ConditionalRecipe;
+
 import slimeknights.tconstruct.common.data.BaseRecipeProvider;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.ICommonRecipeHelper;
@@ -14,6 +17,7 @@ import slimeknights.tconstruct.library.recipe.alloying.AlloyRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.smeltery.data.Byproduct;
 
+import tcintegrations.common.json.ConfigEnabledCondition;
 import tcintegrations.data.tcon.SmelteryCompat;
 import tcintegrations.items.TCIntegrationsItems;
 
@@ -58,10 +62,15 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
     private void addAlloyRecipes(Consumer<FinishedRecipe> consumer) {
         String folder = "smeltery/alloys/";
 
-        AlloyRecipeBuilder.alloy(TinkerFluids.moltenBronze.get(), FluidValues.INGOT * 4)
-            .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT * 3)
-            .addInput(TinkerFluids.moltenQuartz.getLocalTag(), FluidValues.GEM)
-            .save(consumer, prefix(TinkerFluids.moltenBronze, folder));
+        ConditionalRecipe.builder()
+            // TODO: Fix ConfigEnabledCondition. No idea why it isn't registering properly
+            //.addCondition(ConfigEnabledCondition.BRONZE_RECIPE)
+            .addCondition(TrueCondition.INSTANCE)
+            .addRecipe(
+                AlloyRecipeBuilder.alloy(TinkerFluids.moltenBronze.get(), FluidValues.INGOT * 4)
+                    .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT * 3)
+                    .addInput(TinkerFluids.moltenQuartz.getLocalTag(), FluidValues.GEM)::save)
+            .build(consumer, prefix(TinkerFluids.moltenBronze, folder));
     }
 
 }
