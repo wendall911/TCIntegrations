@@ -1,0 +1,45 @@
+modLoader="javafml"
+loaderVersion="[38,)"
+license="MIT"
+
+[[mods]]
+  modId="tcintegrations"
+  displayName="Tinkers' Integrations and Tweaks"
+  description="Tinkers' Construct Mod Integraions and Tweaks."
+  version="${file.jarVersion}"
+  displayURL="https://github.com/wendall911/TCIntegrations"
+  updateJSONURL="https://raw.githubusercontent.com/wendall911/TCIntegrations/1.18.1/files/updates.json"
+  authors="wendall911"
+  credits="ashar42"
+  logoFile=""
+
+[[dependencies.tcintegrations]]
+    modId="forge"
+    mandatory=true
+    versionRange="[39,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.tcintegrations]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18,]"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.tcintegrations]]
+    modId="tconstruct"
+    mandatory=true
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.tcintegrations]]
+    modId="immersiveengineering"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
+[[dependencies.tcintegrations]]
+    modId="botania"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
