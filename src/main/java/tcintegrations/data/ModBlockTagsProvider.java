@@ -6,6 +6,7 @@ import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -37,6 +38,8 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     protected void addTags() {
         this.tag(TagManager.Blocks.BRONZE).add(TCIntegrationsItems.BRONZE.get());
         this.tag(Tags.Blocks.STORAGE_BLOCKS).addTag(TagManager.Blocks.BRONZE);
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(TagManager.Blocks.BRONZE);
+        this.tag(BlockTags.NEEDS_STONE_TOOL).addTag(TagManager.Blocks.BRONZE);
 
         TagsProvider.TagAppender<Block> builder = this.tag(TinkerTags.Blocks.ANVIL_METAL);
 
