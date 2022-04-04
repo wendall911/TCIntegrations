@@ -14,6 +14,7 @@ import tcintegrations.data.client.ModItemModelProvider;
 import tcintegrations.data.loot.ModLootTables;
 import tcintegrations.data.recipes.ModRecipesProvider;
 import tcintegrations.data.tcon.FluidTagProvider;
+import tcintegrations.data.tcon.ModifierRecipeProvider;
 import tcintegrations.data.tcon.material.MaterialDataProvider;
 import tcintegrations.data.tcon.material.MaterialRecipeProvider;
 import tcintegrations.data.tcon.material.MaterialRenderInfoProvider;
@@ -42,6 +43,7 @@ public final class DataGenerators {
         gen.addProvider(blockTags);
         gen.addProvider(new ModItemTagsProvider(gen, blockTags, existingFileHelper));
         gen.addProvider(new FluidTagProvider(gen, existingFileHelper));
+        gen.addProvider(new ModifierRecipeProvider(gen));
         gen.addProvider(new ModRecipesProvider(gen));
         gen.addProvider(new ModLootTables(gen));
         gen.addProvider(new MaterialRenderInfoProvider(gen, materialSprites));

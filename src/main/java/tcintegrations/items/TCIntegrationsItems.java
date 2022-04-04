@@ -23,6 +23,8 @@ import slimeknights.mantle.registration.object.MetalItemObject;
 
 import tcintegrations.client.CreativeTabBase;
 import tcintegrations.common.TCIntegrationsModule;
+import tcintegrations.items.tool.modifiers.DiamondModifier;
+import tcintegrations.items.tool.modifiers.EmeraldModifier;
 import tcintegrations.items.tool.modifiers.ManaItemModifier;
 import tcintegrations.TCIntegrations;
 
@@ -35,6 +37,8 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
 
     public static MetalItemObject BRONZE;
 
+    public static RegistryObject<DiamondModifier> DIAMOND_MODIFIER;
+    public static RegistryObject<EmeraldModifier> EMERALD_MODIFIER;
     public static RegistryObject<ManaItemModifier> MANA_MODIFIER;
 
     public static void init() {
@@ -54,6 +58,8 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         );
 
         // Modifiers
+        DIAMOND_MODIFIER = MODIFIERS_REGISTRY.register("diamond", DiamondModifier::new);
+        EMERALD_MODIFIER = MODIFIERS_REGISTRY.register("emerald", EmeraldModifier::new);
         MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaItemModifier::new);
     }
 
