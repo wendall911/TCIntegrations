@@ -45,6 +45,10 @@ ca1fc501bf7b543d021a3834c2544e59c5b02430 data/tconstruct/recipes/smeltery/meltin
 64dc4d809b844090897ae8e0a23f32ab760205dd data/tconstruct/recipes/tools/materials/manasteel/ingot.json
 34634368e344c318e55ca229f26cc9870f202e2e data/tconstruct/recipes/tools/materials/manasteel/nugget.json
 a29ced4cd633104ab42346db6f789139379f1f6e data/tconstruct/recipes/tools/materials/melting/manasteel.json
+09ebf30e74e36f981954658f7278ee5f5a10cc9c data/tconstruct/recipes/tools/modifiers/salvage/upgrade/diamond.json
+afb75649466ab311843b46a16ce059322cfe634b data/tconstruct/recipes/tools/modifiers/salvage/upgrade/emerald.json
+72b048661e69a8b77390e987bd00bc5592477db4 data/tconstruct/recipes/tools/modifiers/upgrade/diamond.json
+d9718af875bc13091236bd8cd700e0a70cad8f88 data/tconstruct/recipes/tools/modifiers/upgrade/emerald.json
 3eeed4e83c8dfcd58938fe4eda8b822ccd8960d9 data/tconstruct/tags/blocks/anvil_metal.json
 dd75f04f18bd5f1d69f1c16ae75daa8954a5898f data/tconstruct/tags/fluids/spilling/metal/average.json
 dd75f04f18bd5f1d69f1c16ae75daa8954a5898f data/tconstruct/tags/fluids/tooltips/metal.json
