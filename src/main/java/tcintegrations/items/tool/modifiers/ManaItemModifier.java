@@ -21,6 +21,7 @@ public class ManaItemModifier extends Modifier {
     @Override
     public void onInventoryTick(IToolStackView tool, int level, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if (!world.isClientSide
+                && holder.tickCount % 20 == 0
                 && holder instanceof Player player
                 && tool.getDamage() > 0
                 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)) {
