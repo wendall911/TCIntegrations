@@ -1,14 +1,14 @@
 modLoader="javafml"
-loaderVersion="[38,)"
+loaderVersion="${loader_version_range}"
 license="MIT"
 
 [[mods]]
   modId="tcintegrations"
   displayName="Tinkers' Integrations and Tweaks"
   description="Tinkers' Construct Mod Integraions and Tweaks."
-  version="${file.jarVersion}"
+  version="${version}"
   displayURL="https://github.com/wendall911/TCIntegrations"
-  updateJSONURL="https://raw.githubusercontent.com/wendall911/TCIntegrations/1.18.1/files/updates.json"
+  updateJSONURL="https://raw.githubusercontent.com/wendall911/TCIntegrations/1.18.2/files/updates.json"
   authors="wendall911"
   credits="ashar42"
   logoFile=""
@@ -16,13 +16,13 @@ license="MIT"
 [[dependencies.tcintegrations]]
     modId="forge"
     mandatory=true
-    versionRange="[39,)"
+    versionRange="${forge_version_range}"
     ordering="NONE"
     side="BOTH"
 [[dependencies.tcintegrations]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.18,]"
+    versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
 [[dependencies.tcintegrations]]
