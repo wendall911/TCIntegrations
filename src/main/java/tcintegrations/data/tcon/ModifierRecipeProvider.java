@@ -34,22 +34,6 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         // upgrades
         String upgradeFolder = "tools/modifiers/upgrade/";
         String upgradeSalvage = "tools/modifiers/salvage/upgrade/";
-
-        ModifierRecipeBuilder.modifier(TCIntegrationsItems.EMERALD_MODIFIER.get())
-            .addInput(Tags.Items.GEMS_EMERALD)
-            .addSalvage(Items.EMERALD, 0.5f)
-            .setMaxLevel(1)
-            .setSlots(SlotType.UPGRADE, 1)
-            .saveSalvage(consumer, prefix(TCIntegrationsItems.EMERALD_MODIFIER, upgradeSalvage))
-            .save(consumer, prefix(TCIntegrationsItems.EMERALD_MODIFIER, upgradeFolder));
-
-        ModifierRecipeBuilder.modifier(TCIntegrationsItems.DIAMOND_MODIFIER.get())
-            .addInput(Tags.Items.GEMS_DIAMOND)
-            .addSalvage(Items.DIAMOND, 0.65f)
-            .setMaxLevel(1)
-            .setSlots(SlotType.UPGRADE, 1)
-            .saveSalvage(consumer, prefix(TCIntegrationsItems.DIAMOND_MODIFIER, upgradeSalvage))
-            .save(consumer, prefix(TCIntegrationsItems.DIAMOND_MODIFIER, upgradeFolder));
     }
 
 }

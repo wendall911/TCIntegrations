@@ -2,10 +2,13 @@ package tcintegrations.data.tcon.material;
 
 import net.minecraft.data.DataGenerator;
 
+import net.minecraft.data.HashCache;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialRenderInfoProvider;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
 
 import tcintegrations.data.tcon.material.MaterialIds;
+
+import java.io.IOException;
 
 public class MaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvider {
 

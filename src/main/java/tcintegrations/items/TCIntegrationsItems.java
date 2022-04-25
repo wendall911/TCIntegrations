@@ -14,17 +14,16 @@ import net.minecraft.world.level.material.MaterialColor;
 
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
-import net.minecraftforge.registries.RegistryObject;
 
 import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.mantle.registration.ModelFluidAttributes;
 import slimeknights.mantle.registration.object.FluidObject;
 import slimeknights.mantle.registration.object.MetalItemObject;
 
+import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
+
 import tcintegrations.client.CreativeTabBase;
 import tcintegrations.common.TCIntegrationsModule;
-import tcintegrations.items.tool.modifiers.DiamondModifier;
-import tcintegrations.items.tool.modifiers.EmeraldModifier;
 import tcintegrations.items.tool.modifiers.ManaItemModifier;
 import tcintegrations.TCIntegrations;
 
@@ -37,9 +36,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
 
     public static MetalItemObject BRONZE;
 
-    public static RegistryObject<DiamondModifier> DIAMOND_MODIFIER;
-    public static RegistryObject<EmeraldModifier> EMERALD_MODIFIER;
-    public static RegistryObject<ManaItemModifier> MANA_MODIFIER;
+    public static StaticModifier<ManaItemModifier> MANA_MODIFIER;
 
     public static void init() {
         ITEM_TAB_GROUP = new CreativeTabBase(TCIntegrations.MODID + ".items", () -> new ItemStack(BRONZE.getNugget()));
@@ -58,8 +55,6 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         );
 
         // Modifiers
-        DIAMOND_MODIFIER = MODIFIERS_REGISTRY.register("diamond", DiamondModifier::new);
-        EMERALD_MODIFIER = MODIFIERS_REGISTRY.register("emerald", EmeraldModifier::new);
         MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaItemModifier::new);
     }
 

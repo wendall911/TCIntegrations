@@ -1,41 +1,44 @@
 package tcintegrations.common;
 
+import java.util.Collections;
+import java.util.Objects;
+
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
-import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import net.minecraftforge.common.Tags.IOptionalNamedTag;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import tcintegrations.TCIntegrations;
 
 public final class TagManager {
 
     public static final class Items {
-        public static final IOptionalNamedTag<Item> BRONZE = forgeTag("storage_blocks/bronze");
-        public static final IOptionalNamedTag<Item> BRONZE_INGOTS = forgeTag("ingots/bronze");
-        public static final IOptionalNamedTag<Item> BRONZE_NUGGETS = forgeTag("nuggets/bronze");
+        public static final TagKey<Item> BRONZE = forgeTag("storage_blocks/bronze");
+        public static final TagKey<Item> BRONZE_INGOTS = forgeTag("ingots/bronze");
+        public static final TagKey<Item> BRONZE_NUGGETS = forgeTag("nuggets/bronze");
 
-        private static Tag.Named<Item> create(String id) {
-            return ItemTags.createOptional(identifier(id));
+        private static TagKey<Item> create(String id) {
+            return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
         }
 
-        private static IOptionalNamedTag<Item> forgeTag(String name) {
-            return ItemTags.createOptional(forgeLoc(name));
+        private static TagKey<Item> forgeTag(String name) {
+            return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(forgeLoc(name), Collections.emptySet());
         }
+
+
     }
 
     public static final class Blocks {
-        public static final IOptionalNamedTag<Block> BRONZE = forgeTag("storage_blocks/bronze");
+        public static final TagKey<Block> BRONZE = forgeTag("storage_blocks/bronze");
 
-        private static Tag.Named<Block> create(String id) {
-            return BlockTags.createOptional(identifier(id));
+        private static TagKey<Block> create(String id) {
+            return Objects.requireNonNull(ForgeRegistries.BLOCKS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
         }
 
-        private static IOptionalNamedTag<Block> forgeTag(String name) {
-            return BlockTags.createOptional(forgeLoc(name));
+        private static TagKey<Block> forgeTag(String name) {
+            return Objects.requireNonNull(ForgeRegistries.BLOCKS.tags()).createOptionalTagKey(forgeLoc(name), Collections.emptySet());
         }
     }
 

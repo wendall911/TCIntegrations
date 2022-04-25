@@ -4,7 +4,6 @@ import java.util.function.Consumer;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.common.crafting.conditions.TrueCondition;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
@@ -17,7 +16,6 @@ import slimeknights.tconstruct.library.recipe.alloying.AlloyRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.smeltery.data.Byproduct;
 
-import tcintegrations.common.json.ConfigEnabledCondition;
 import tcintegrations.data.tcon.SmelteryCompat;
 import tcintegrations.items.TCIntegrationsItems;
 

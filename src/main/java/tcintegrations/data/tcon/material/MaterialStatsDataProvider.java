@@ -2,6 +2,7 @@ package tcintegrations.data.tcon.material;
 
 import net.minecraft.data.DataGenerator;
 
+import net.minecraft.data.HashCache;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
 import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
@@ -11,6 +12,8 @@ import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 import static net.minecraft.world.item.Tiers.DIAMOND;
 
 import tcintegrations.data.tcon.material.MaterialIds;
+
+import java.io.IOException;
 
 public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider {
 

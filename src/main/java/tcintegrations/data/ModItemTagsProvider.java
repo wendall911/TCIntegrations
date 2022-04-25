@@ -6,16 +6,14 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.Tags;
 
 import tcintegrations.common.TagManager;
-import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
 
@@ -41,15 +39,15 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         getBuilder(TagManager.Items.BRONZE_NUGGETS).add(TCIntegrationsItems.BRONZE.getNugget());
     }
 
-    private void builder(Tag.Named<Item> tag) {
+    private void builder(TagKey<Item> tag) {
         getBuilder(tag);
     }
 
-    private void builder(Tag.Named<Item> tag, ItemLike... items) {
+    private void builder(TagKey<Item> tag, ItemLike... items) {
         getBuilder(tag).add(Arrays.stream(items).map(ItemLike::asItem).toArray(Item[]::new));
     }
 
-    protected TagsProvider.TagAppender<Item> getBuilder(Tag.Named<Item> tag) {
+    protected TagsProvider.TagAppender<Item> getBuilder(TagKey<Item> tag) {
         return tag(tag);
     }
 

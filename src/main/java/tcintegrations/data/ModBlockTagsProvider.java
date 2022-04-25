@@ -7,9 +7,8 @@ import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -50,11 +49,11 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         addMetalTags(TCIntegrationsItems.BRONZE);
     }
 
-    private void builder(Tag.Named<Block> tag, IBlockProvider... items) {
+    private void builder(TagKey<Block> tag, IBlockProvider... items) {
         getBuilder(tag).add(Arrays.stream(items).map(IBlockProvider::asBlock).toArray(Block[]::new));
     }
 
-    protected TagsProvider.TagAppender<Block> getBuilder(Tag.Named<Block> tag) {
+    protected TagsProvider.TagAppender<Block> getBuilder(TagKey<Block> tag) {
         return tag(tag);
     }
 
