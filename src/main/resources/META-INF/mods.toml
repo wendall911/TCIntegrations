@@ -1,6 +1,7 @@
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="MIT"
+issueTrackerURL="https://github.com/wendall911/TCIntegrations/issues"
 
 [[mods]]
   modId="tcintegrations"
@@ -11,7 +12,7 @@ license="MIT"
   updateJSONURL="https://raw.githubusercontent.com/wendall911/TCIntegrations/1.18.2/files/updates.json"
   authors="wendall911"
   credits="ashar42"
-  logoFile=""
+  logoFile="logo.png"
 
 [[dependencies.tcintegrations]]
     modId="forge"
