@@ -27,7 +27,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-		generateBronzeModels();
+        generateBronzeModels();
     }
 
     private void generateBronzeModels() {

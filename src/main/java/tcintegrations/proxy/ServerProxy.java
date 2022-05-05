@@ -7,10 +7,10 @@ import tcintegrations.TCIntegrations;
 public final class ServerProxy extends CommonProxy {
 
     public ServerProxy() {
-		TCIntegrations.BUS.addListener(this::serverSetup);
+        TCIntegrations.BUS.addListener(this::serverSetup);
     }
 
-	private void serverSetup(FMLDedicatedServerSetupEvent event) {
+    private void serverSetup(FMLDedicatedServerSetupEvent event) {
     }
 
 }
