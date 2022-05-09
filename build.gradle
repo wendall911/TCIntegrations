@@ -44,11 +44,6 @@ repositories {
         name = 'Progwml6 maven'
         url = 'https://dvs1.progwml6.com/files/maven'
     }
-    maven {
-        // CraftTweaker, Immersive Engineering
-        name = 'BlameJared Maven'
-        url = 'https://maven.blamejared.com'
-    }
     maven { // TOP
         name 'McJty maven'
         url "https://maven.k-4u.nl"
@@ -59,6 +54,13 @@ repositories {
     }
     flatDir {
         dirs 'libs'
+    }
+    maven {
+        name = "Curse Maven"
+        url = "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
     }
 }
 
@@ -120,21 +122,19 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     implementation fg.deobf("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}")
-    //implementation fg.deobf("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tic_version}")
+    implementation fg.deobf("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tic_version}")
 
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
 
-    runtimeOnly fg.deobf("blusunrize.immersiveengineering:ImmersiveEngineering:${minecraft_version}-${ie_version}")
     runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_short_version}-${probe_version}") {
         transitive = false
     }
 
-    implementation fg.deobf("vazkii.botania:Botania:${minecraft_version}-${botania_version}")
-
-    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${minecraft_version}-${curios_version}")
-
-    runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}")
+    implementation fg.deobf("curse.maven:botania-225643:3755269")
+    runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:3755665")
+    runtimeOnly fg.deobf("curse.maven:patchouli-306770:3729975")
+    runtimeOnly fg.deobf("curse.maven:curios-309927:3748873")
 
     implementation fg.deobf(fileTree(dir: 'libs', include: '*.jar'))
 }
