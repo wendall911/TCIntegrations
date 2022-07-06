@@ -2,7 +2,6 @@ package tcintegrations.data.tcon.material;
 
 import net.minecraft.data.DataGenerator;
 
-import net.minecraft.data.HashCache;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
 import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
@@ -10,10 +9,8 @@ import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
 import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
 import static net.minecraft.world.item.Tiers.DIAMOND;
-
-import tcintegrations.data.tcon.material.MaterialIds;
-
-import java.io.IOException;
+import static net.minecraft.world.item.Tiers.STONE;
+import static net.minecraft.world.item.Tiers.WOOD;
 
 public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider {
 
@@ -29,6 +26,16 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
     @Override
     protected void addMaterialStats() {
         // head order is durability, mining speed, mining level, damage
+
+        // tier 1 (mod integration)
+        addMaterialStats(MaterialIds.livingWood,
+                new HeadMaterialStats(60, 2F, WOOD,0F),
+                HandleMaterialStats.DEFAULT,
+                ExtraMaterialStats.DEFAULT);
+        addMaterialStats(MaterialIds.livingRock,
+                new HeadMaterialStats(130, 4F, STONE, 1F),
+                HandleMaterialStats.DEFAULT.withDurability(1.2F).withAttackDamage(1.2F),
+                ExtraMaterialStats.DEFAULT);
 
         // tier 3 (mod integration)
         addMaterialStats(MaterialIds.manaSteel,

@@ -2,13 +2,8 @@ package tcintegrations.data.tcon.material;
 
 import net.minecraft.data.DataGenerator;
 
-import net.minecraft.data.HashCache;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialRenderInfoProvider;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
-
-import tcintegrations.data.tcon.material.MaterialIds;
-
-import java.io.IOException;
 
 public class MaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvider {
 
@@ -23,7 +18,8 @@ public class MaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvid
 
     @Override
     protected void addMaterialRenderInfo() {
-
+        buildRenderInfo(MaterialIds.livingWood).color(0x5E2409).fallbacks("wood", "stick", "primitive");
+        buildRenderInfo(MaterialIds.livingRock).color(0xDFE2D4).fallbacks("rock");
         buildRenderInfo(MaterialIds.manaSteel).color(0x3389FF).fallbacks("metal");
     }
 

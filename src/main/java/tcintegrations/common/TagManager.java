@@ -19,6 +19,9 @@ public final class TagManager {
         public static final TagKey<Item> BRONZE_INGOTS = forgeTag("ingots/bronze");
         public static final TagKey<Item> BRONZE_NUGGETS = forgeTag("nuggets/bronze");
 
+        // Botania
+        public static final TagKey<Item> BOTANIA_LIVINGWOOD_LOGS = create("livingwood_logs");
+
         private static TagKey<Item> create(String id) {
             return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
         }

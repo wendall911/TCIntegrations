@@ -2,13 +2,7 @@ package tcintegrations.data.tcon.material;
 
 import net.minecraft.data.DataGenerator;
 
-import net.minecraft.data.HashCache;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
-
-import tcintegrations.data.tcon.material.MaterialIds;
-import tcintegrations.items.TCIntegrationsItems;
-
-import java.io.IOException;
 
 public class MaterialDataProvider extends AbstractMaterialDataProvider {
 
@@ -23,6 +17,8 @@ public class MaterialDataProvider extends AbstractMaterialDataProvider {
 
     @Override
     protected void addMaterials() {
+        addMaterial(MaterialIds.livingWood, 1, ORDER_GENERAL, true);
+        addMaterial(MaterialIds.livingRock, 1, ORDER_GENERAL, true);
         addCompatMetalMaterial(MaterialIds.manaSteel, 3, ORDER_COMPAT + ORDER_GENERAL);
     }
 

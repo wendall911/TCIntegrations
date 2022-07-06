@@ -1,3 +1,5 @@
+bc649815d4f390a95302070bdf1b76e32c85c733 assets/tcintegrations/tinkering/materials/livingrock.json
+c63dd73fb7ceaacc2823c4a3ac8e5e3e8ecd9e5f assets/tcintegrations/tinkering/materials/livingwood.json
 274b052d2f035507bdaad4849cd9105805ad7622 assets/tcintegrations/tinkering/materials/manasteel.json
 cc406be88c4eb1512f9e55b282b13ceddb8dbc2f data/forge/tags/blocks/storage_blocks.json
 daa35f5c0c2d235504f032c0b59bc853cc0456e0 data/forge/tags/blocks/storage_blocks/bronze.json
@@ -11,8 +13,15 @@ a4b0bda00e05deca67f1b7ba78f49573eb0afc23 data/minecraft/tags/blocks/mineable/pic
 a4b0bda00e05deca67f1b7ba78f49573eb0afc23 data/minecraft/tags/blocks/needs_stone_tool.json
 f40d397b71a49536012114d17905e00000250fc2 data/tcintegrations/loot_tables/blocks/bronze_block.json
 939d8207056ef8b551926ec34ef33adadf136f93 data/tcintegrations/tags/fluids/manasteel.json
+89ef497625fdd6bbe5dd369e4fd9839ac032bbbf data/tcintegrations/tags/items/livingwood_logs.json
+4094574032fe2d8103932b259086e8a8b2f8a591 data/tcintegrations/tinkering/materials/definition/livingrock.json
+4094574032fe2d8103932b259086e8a8b2f8a591 data/tcintegrations/tinkering/materials/definition/livingwood.json
 3a7ab239783ce0a175d682054637a4d23ed0522b data/tcintegrations/tinkering/materials/definition/manasteel.json
+28566df926c7ec08ac86617f9bf1eb688892b951 data/tcintegrations/tinkering/materials/stats/livingrock.json
+4b256dd77ac0e3b1a528cf3362aa1521cf02e2ea data/tcintegrations/tinkering/materials/stats/livingwood.json
 3ca1f25b6d61f55bf2958ce57d0989a870908fd7 data/tcintegrations/tinkering/materials/stats/manasteel.json
+97dfc38b8986507402da6fb116e648312b957c74 data/tcintegrations/tinkering/materials/traits/livingrock.json
+1966612e7f6962270305cbad2772d33a9848d0c9 data/tcintegrations/tinkering/materials/traits/livingwood.json
 545a99319a7feaaa6678be8e5e0cb0f6564f1725 data/tcintegrations/tinkering/materials/traits/manasteel.json
 0fe3eeac7bad044381452a6f182cbe4a5024dc17 data/tconstruct/recipes/smeltery/alloys/molten_bronze.json
 d14dc61759de9d60a63a4d15b4622e0beed248bb data/tconstruct/recipes/smeltery/casting/metal/manasteel/block.json
@@ -41,6 +50,9 @@ efdf91e59176ff9039561457d6f7296d5c498edb data/tconstruct/recipes/smeltery/meltin
 5e61c0ddc3270723d028259577edb3283a1720d8 data/tconstruct/recipes/smeltery/melting/metal/manasteel/sheetmetal.json
 ca1fc501bf7b543d021a3834c2544e59c5b02430 data/tconstruct/recipes/smeltery/melting/metal/manasteel/wire.json
 0f33fd077dc6cf88bd9a034bca0d184382120b24 data/tconstruct/recipes/tools/materials/casting/manasteel.json
+6a3e02a32b21d144c9f1b301df5c375806a29a3b data/tconstruct/recipes/tools/materials/livingrock.json
+4ac27bb15fe8d633d3f016718bbd11d4a8603a8d data/tconstruct/recipes/tools/materials/livingwood/logs.json
+8502009a7233f975996ee6cf32f609a77c37ebbc data/tconstruct/recipes/tools/materials/livingwood/planks.json
 9f2fbe47798e19e925aebf82f8f8bc241c8d0847 data/tconstruct/recipes/tools/materials/manasteel/block.json
 64dc4d809b844090897ae8e0a23f32ab760205dd data/tconstruct/recipes/tools/materials/manasteel/ingot.json
 34634368e344c318e55ca229f26cc9870f202e2e data/tconstruct/recipes/tools/materials/manasteel/nugget.json
@@ -48,3 +60,5 @@ a29ced4cd633104ab42346db6f789139379f1f6e data/tconstruct/recipes/tools/materials
 3eeed4e83c8dfcd58938fe4eda8b822ccd8960d9 data/tconstruct/tags/blocks/anvil_metal.json
 dd75f04f18bd5f1d69f1c16ae75daa8954a5898f data/tconstruct/tags/fluids/spilling/metal/average.json
 dd75f04f18bd5f1d69f1c16ae75daa8954a5898f data/tconstruct/tags/fluids/tooltips/metal.json
+175e73e4ae67f0b54d4b098a8fd7b85ab5403dbe data/tconstruct/tags/items/wood_variants/logs.json
+5e6b48372842f66f46632b87d5953a0f07d5a819 data/tconstruct/tags/items/wood_variants/planks.json

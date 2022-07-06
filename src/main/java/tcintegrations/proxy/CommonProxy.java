@@ -1,5 +1,11 @@
 package tcintegrations.proxy;
 
+import net.minecraft.world.item.Item;
+import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import tcintegrations.config.ConfigHandler;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
@@ -7,9 +13,24 @@ import tcintegrations.items.TCIntegrationsItems;
 public class CommonProxy {
 
     CommonProxy() {
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
         ConfigHandler.init();
         TCIntegrationsItems.init();
-        ModIntegration.init();
+        registerListeners(bus);
+    }
+
+    public void registerListeners(IEventBus bus) {
+        bus.register(RegistryListener.class);
+    }
+
+    public static final class RegistryListener {
+
+        @SubscribeEvent(priority = EventPriority.HIGHEST)
+        public static void registerItems(RegistryEvent.Register<Item> event) {
+            ModIntegration.init(event.getRegistry());
+        }
+
     }
 
 }

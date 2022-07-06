@@ -24,6 +24,7 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 import tcintegrations.client.CreativeTabBase;
 import tcintegrations.common.TCIntegrationsModule;
+import tcintegrations.items.tool.modifiers.LivingwoodModifier;
 import tcintegrations.items.tool.modifiers.ManaItemModifier;
 import tcintegrations.TCIntegrations;
 
@@ -37,6 +38,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
     public static MetalItemObject BRONZE;
 
     public static StaticModifier<ManaItemModifier> MANA_MODIFIER;
+    public static StaticModifier<LivingwoodModifier> LIVINGWOOD_MODIFIER;
 
     public static void init() {
         ITEM_TAB_GROUP = new CreativeTabBase(TCIntegrations.MODID + ".items", () -> new ItemStack(BRONZE.getNugget()));
@@ -56,6 +58,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
 
         // Modifiers
         MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaItemModifier::new);
+        LIVINGWOOD_MODIFIER = MODIFIERS_REGISTRY.register("livingwood", LivingwoodModifier::new);
     }
 
     private static FluidAttributes.Builder hotBuilder() {

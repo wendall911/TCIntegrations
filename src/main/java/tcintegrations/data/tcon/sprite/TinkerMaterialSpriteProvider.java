@@ -1,7 +1,5 @@
 package tcintegrations.data.tcon.sprite;
 
-import net.minecraft.resources.ResourceLocation;
-
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
 import slimeknights.tconstruct.library.client.data.spritetransformer.GreyToColorMapping;
 import slimeknights.tconstruct.tools.data.sprite.TinkerPartSpriteProvider;
@@ -17,6 +15,16 @@ public class TinkerMaterialSpriteProvider extends AbstractMaterialSpriteProvider
 
     @Override
     protected void addAllMaterials() {
+        // tier 1
+        buildMaterial(MaterialIds.livingWood)
+            .meleeHarvest()
+            .fallbacks("wood", "stick", "primitive")
+            .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF330704).addARGB(102, 0xFF380A04).addARGB(140, 0xFF4B190A).addARGB(178, 0xFF511E0B).addARGB(216, 0xFF54210D).addARGB(255, 0xFF5E2409).build());
+        buildMaterial(MaterialIds.livingRock)
+            .meleeHarvest()
+            .fallbacks("rock")
+            .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF9B7E64).addARGB(102, 0xFFA89C78).addARGB(140, 0xFFB1A283).addARGB(178, 0xFFB9AA97).addARGB(216, 0xFFCDCBC1).addARGB(255, 0xFFF4F2EC).build());
+        // tier 3
         buildMaterial(MaterialIds.manaSteel)
             .meleeHarvest().statType(TinkerPartSpriteProvider.PLATE)
             .fallbacks("metal")

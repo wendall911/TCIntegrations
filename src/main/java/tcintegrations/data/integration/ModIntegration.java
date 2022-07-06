@@ -1,14 +1,11 @@
 package tcintegrations.data.integration;
 
-import java.util.function.Supplier;
-
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.registries.IForgeRegistry;
 
+import tcintegrations.common.CreativeTabs;
 import tcintegrations.common.TCIntegrationsModule;
 
 public final class ModIntegration extends TCIntegrationsModule {
@@ -17,20 +14,31 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String IE_MODID = "immersiveengineering";
     public static final String TCON_MODID = "tconstruct";
 
-    public static void init() {
+    public static Item BOTANIA_LIVINGWOOD_PLANKS;
+
+    public static IForgeRegistry<Item> ITEM_REGISTRY;
+
+    public static void init(IForgeRegistry<Item> registry) {
         String dataGen = System.getenv("DATA_GEN");
 
+        ITEM_REGISTRY = registry;
+
         if (dataGen != null && dataGen.contains("all")) {
+            BOTANIA_LIVINGWOOD_PLANKS = registerItem(botaniaLoc("livingwood_planks"));
         }
 
     }
 
-    private static RegistryObject<Item> registerItem(String name, DeferredRegister<Item> registry) {
-        return registerItem(name, () -> new Item(new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)), registry);
+    private static Item registerItem(ResourceLocation loc) {
+        Item item = (new Item(new Item.Properties().tab(CreativeTabs.INTEGRATION_TAB_GROUP))).setRegistryName(loc);
+
+        ITEM_REGISTRY.register(item);
+
+        return item;
     }
 
-    private static <T extends Item> RegistryObject<T> registerItem(String name, Supplier<T> item, DeferredRegister<Item> registry) {
-        return registry.register(name, item);
+    public static ResourceLocation botaniaLoc(String name) {
+        return getLoc(BOTANIA_MODID, name);
     }
 
     public static ResourceLocation tconLoc(String name) {

@@ -13,7 +13,9 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.Tags;
 
+import slimeknights.tconstruct.common.TinkerTags;
 import tcintegrations.common.TagManager;
+import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
 
@@ -37,6 +39,19 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
         getBuilder(TagManager.Items.BRONZE_INGOTS).add(TCIntegrationsItems.BRONZE.getIngot());
         getBuilder(TagManager.Items.BRONZE_NUGGETS).add(TCIntegrationsItems.BRONZE.getNugget());
+
+        // Botania
+        addBotaniaLogVariants(TagManager.Items.BOTANIA_LIVINGWOOD_LOGS, "livingwood");
+        this.tag(TinkerTags.Items.VARIANT_LOGS).addTag(TagManager.Items.BOTANIA_LIVINGWOOD_LOGS);
+        this.tag(TinkerTags.Items.VARIANT_PLANKS).addOptional(ModIntegration.botaniaLoc("livingwood_planks"));
+    }
+
+    private void addBotaniaLogVariants(TagKey<Item> tag, String type) {
+        getBuilder(tag)
+            .addOptional(ModIntegration.botaniaLoc(type + "_log"))
+            .addOptional(ModIntegration.botaniaLoc("stripped_" + type + "_log"))
+            .addOptional(ModIntegration.botaniaLoc(type))
+            .addOptional(ModIntegration.botaniaLoc("stripped_" + type));
     }
 
     private void builder(TagKey<Item> tag) {

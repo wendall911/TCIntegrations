@@ -7,8 +7,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
-import slimeknights.tconstruct.tools.data.sprite.TinkerPartSpriteProvider;
-
 import tcintegrations.data.client.ModBlockStateProvider;
 import tcintegrations.data.client.ModItemModelProvider;
 import tcintegrations.data.loot.ModLootTables;
@@ -35,7 +33,6 @@ public final class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
         TinkerMaterialSpriteProvider materialSprites = new TinkerMaterialSpriteProvider();
-        TinkerPartSpriteProvider partSprites = new TinkerPartSpriteProvider();
         MaterialDataProvider materials = new MaterialDataProvider(gen);
 
         gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
