@@ -131,10 +131,11 @@ dependencies {
         transitive = false
     }
 
-    implementation fg.deobf("curse.maven:botania-225643:3755269")
-    runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:3755665")
-    runtimeOnly fg.deobf("curse.maven:patchouli-306770:3729975")
-    runtimeOnly fg.deobf("curse.maven:curios-309927:3748873")
+    implementation fg.deobf("curse.maven:botania-225643:${botania_version}")
+    implementation fg.deobf("curse.maven:tinkersurvival-294667:${tinkersurvival_version}")
+    runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:${ie_version}")
+    runtimeOnly fg.deobf("curse.maven:patchouli-306770:${patchouli_version}")
+    runtimeOnly fg.deobf("curse.maven:curios-309927:${curios_version}")
 
     implementation fg.deobf(fileTree(dir: 'libs', include: '*.jar'))
 }
