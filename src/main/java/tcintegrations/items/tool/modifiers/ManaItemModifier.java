@@ -5,12 +5,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
-import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import vazkii.botania.api.mana.ManaItemHandler;
 
-public class ManaItemModifier extends Modifier {
+public class ManaItemModifier extends NoLevelsModifier {
 
     private static final int MANA_PER_DAMAGE = 60;
 
