@@ -1,6 +1,7 @@
 {
     "modifier.tcintegrations": {
         "livingwood": "#5E2409",
-        "mana": "#3389FF"
+        "mana": "#3389FF",
+        "terra": "#62EF30"
     }
 }
