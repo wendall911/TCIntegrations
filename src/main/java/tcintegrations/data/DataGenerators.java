@@ -49,6 +49,7 @@ public final class DataGenerators {
         gen.addProvider(new MaterialRecipeProvider(gen));
         gen.addProvider(new SmelteryRecipeProvider(gen));
         gen.addProvider(materials);
+        gen.addProvider(new EntityTypeTagProvider(gen, existingFileHelper));
     }
 
 }

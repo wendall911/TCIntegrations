@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
@@ -42,6 +43,14 @@ public final class TagManager {
 
         private static TagKey<Block> forgeTag(String name) {
             return Objects.requireNonNull(ForgeRegistries.BLOCKS.tags()).createOptionalTagKey(forgeLoc(name), Collections.emptySet());
+        }
+    }
+
+    public static final class EntityTypes {
+        public static final TagKey<EntityType<?>> ELEMENTAL_SEVERING_MOBS = create("elemental_severing_mods");
+
+        private static TagKey<EntityType<?>> create(String id) {
+            return Objects.requireNonNull(ForgeRegistries.ENTITIES.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
         }
     }
 
