@@ -1,11 +1,13 @@
 package tcintegrations.proxy;
 
 import net.minecraft.world.item.Item;
+
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
 import tcintegrations.config.ConfigHandler;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
