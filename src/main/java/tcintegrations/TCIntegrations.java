@@ -1,5 +1,7 @@
 package tcintegrations;
 
+import java.util.Random;
+
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
@@ -19,6 +21,7 @@ public class TCIntegrations {
 
     public static final String MODID = "tcintegrations";
     public static final Logger LOGGER = LogManager.getFormatterLogger(TCIntegrations.MODID);
+    public static final Random RANDOM = new Random();
 
     public static TCIntegrations INSTANCE;
     public static IEventBus BUS;

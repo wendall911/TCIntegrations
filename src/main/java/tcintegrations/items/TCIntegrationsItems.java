@@ -24,10 +24,11 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 import tcintegrations.client.CreativeTabBase;
 import tcintegrations.common.TCIntegrationsModule;
+import tcintegrations.items.tool.modifiers.ElementalModifier;
 import tcintegrations.items.tool.modifiers.LivingwoodModifier;
 import tcintegrations.items.tool.modifiers.ManaItemModifier;
-import tcintegrations.TCIntegrations;
 import tcintegrations.items.tool.modifiers.TerraModifier;
+import tcintegrations.TCIntegrations;
 
 public final class TCIntegrationsItems extends TCIntegrationsModule {
 
@@ -41,6 +42,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
     public static StaticModifier<ManaItemModifier> MANA_MODIFIER;
     public static StaticModifier<LivingwoodModifier> LIVINGWOOD_MODIFIER;
     public static StaticModifier<TerraModifier> TERRA_MODIFIER;
+    public static StaticModifier<ElementalModifier> ELEMENTAL_MODIFIER;
 
     public static void init() {
         ITEM_TAB_GROUP = new CreativeTabBase(TCIntegrations.MODID + ".items", () -> new ItemStack(BRONZE.getNugget()));
@@ -62,6 +64,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaItemModifier::new);
         LIVINGWOOD_MODIFIER = MODIFIERS_REGISTRY.register("livingwood", LivingwoodModifier::new);
         TERRA_MODIFIER = MODIFIERS_REGISTRY.register("terra", TerraModifier::new);
+        ELEMENTAL_MODIFIER = MODIFIERS_REGISTRY.register("elemental", ElementalModifier::new);
     }
 
     private static FluidAttributes.Builder hotBuilder() {

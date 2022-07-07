@@ -54,6 +54,18 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
                 .setMaxLevel(1)
                 .saveSalvage(botaniaConsumer, prefix(TCIntegrationsItems.TERRA_MODIFIER, compatSalvage))
                 .save(botaniaConsumer, prefix(TCIntegrationsItems.TERRA_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsItems.ELEMENTAL_MODIFIER)
+                .setTools(TinkerTags.Items.MELEE_PRIMARY)
+                .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
+                .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
+                .addInput(ModTags.Items.MYSTICAL_FLOWERS)
+                .addInput(ModTags.Items.DOUBLE_MYSTICAL_FLOWERS)
+                .addInput(ModTags.Items.LIVINGWOOD_LOGS_GLIMMERING)
+                .setSlots(SlotType.UPGRADE, 1)
+                .setMaxLevel(1)
+                .saveSalvage(botaniaConsumer, prefix(TCIntegrationsItems.ELEMENTAL_MODIFIER, compatSalvage))
+                .save(botaniaConsumer, prefix(TCIntegrationsItems.ELEMENTAL_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {
