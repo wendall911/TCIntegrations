@@ -6,11 +6,13 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import tcintegrations.config.ConfigHandler;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
+import tcintegrations.network.NetworkHandler;
 
 public class CommonProxy {
 
@@ -23,10 +25,15 @@ public class CommonProxy {
     }
 
     public void registerListeners(IEventBus bus) {
-        bus.register(RegistryListener.class);
+        bus.register(Listeners.class);
     }
 
-    public static final class RegistryListener {
+    public static final class Listeners {
+
+        @SubscribeEvent
+        public static void setup(FMLCommonSetupEvent event) {
+            NetworkHandler.init();
+        }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerItems(RegistryEvent.Register<Item> event) {

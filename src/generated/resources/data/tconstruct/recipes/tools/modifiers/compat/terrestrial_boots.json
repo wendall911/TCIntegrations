@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "botania",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "botania:terrasteel_ingots"
+    },
+    {
+      "tag": "botania:terrasteel_ingots"
+    },
+    {
+      "tag": "botania:terrasteel_ingots"
+    },
+    {
+      "item": "botania:livingwood_twig"
+    },
+    {
+      "item": "botania:rune_winter"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/boots"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "result": {
+    "name": "tcintegrations:terrestrial",
+    "level": 1
+  },
+  "max_level": 1
+}

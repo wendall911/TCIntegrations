@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "botania",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "botania:elementium_ingots"
+    },
+    {
+      "tag": "botania:elementium_ingots"
+    },
+    {
+      "tag": "botania:elementium_ingots"
+    },
+    {
+      "item": "botania:livingwood_twig"
+    },
+    {
+      "tag": "botania:glimmering_livingwood_logs"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "result": {
+    "name": "tcintegrations:great_fairy",
+    "level": 1
+  },
+  "max_level": 1
+}

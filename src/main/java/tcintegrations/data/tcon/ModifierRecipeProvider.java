@@ -12,6 +12,7 @@ import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 
+import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.lib.ModTags;
 
 import tcintegrations.data.integration.ModIntegration;
@@ -66,6 +67,66 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
                 .setMaxLevel(1)
                 .saveSalvage(botaniaConsumer, prefix(TCIntegrationsItems.ELEMENTAL_MODIFIER, compatSalvage))
                 .save(botaniaConsumer, prefix(TCIntegrationsItems.ELEMENTAL_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRESTRIAL_MODIFIER)
+                .setTools(TinkerTags.Items.HELMETS)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModItems.livingwoodTwig)
+                .addInput(ModItems.runeSpring)
+                .setSlots(SlotType.UPGRADE, 1)
+                .setMaxLevel(1)
+                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_helmets"), compatSalvage))
+                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_helmets"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRESTRIAL_MODIFIER)
+                .setTools(TinkerTags.Items.CHESTPLATES)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModItems.livingwoodTwig)
+                .addInput(ModItems.runeSummer)
+                .setSlots(SlotType.UPGRADE, 1)
+                .setMaxLevel(1)
+                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_chestplates"), compatSalvage))
+                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_chestplates"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRESTRIAL_MODIFIER)
+                .setTools(TinkerTags.Items.LEGGINGS)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModItems.livingwoodTwig)
+                .addInput(ModItems.runeAutumn)
+                .setSlots(SlotType.UPGRADE, 1)
+                .setMaxLevel(1)
+                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_leggings"), compatSalvage))
+                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_leggings"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRESTRIAL_MODIFIER)
+                .setTools(TinkerTags.Items.BOOTS)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModTags.Items.INGOTS_TERRASTEEL)
+                .addInput(ModItems.livingwoodTwig)
+                .addInput(ModItems.runeWinter)
+                .setSlots(SlotType.UPGRADE, 1)
+                .setMaxLevel(1)
+                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatSalvage))
+                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsItems.GREAT_FAIRY_MODIFIER)
+                .setTools(TinkerTags.Items.ARMOR)
+                .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
+                .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
+                .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
+                .addInput(ModItems.livingwoodTwig)
+                .addInput(ModTags.Items.LIVINGWOOD_LOGS_GLIMMERING)
+                .setSlots(SlotType.UPGRADE, 1)
+                .setMaxLevel(1)
+                .saveSalvage(botaniaConsumer, prefix(TCIntegrationsItems.GREAT_FAIRY_MODIFIER, compatSalvage))
+                .save(botaniaConsumer, prefix(TCIntegrationsItems.GREAT_FAIRY_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

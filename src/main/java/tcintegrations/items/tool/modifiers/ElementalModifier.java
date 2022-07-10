@@ -2,13 +2,12 @@ package tcintegrations.items.tool.modifiers;
 
 import java.util.List;
 
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
@@ -20,7 +19,7 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import tcintegrations.common.TagManager;
-import vazkii.botania.common.entity.EntityPixie;
+import tcintegrations.util.BotaniaHelper;
 
 import tcintegrations.TCIntegrations;
 
@@ -29,32 +28,21 @@ public class ElementalModifier extends ManaItemModifier {
     private static final int MANA_PER_DAMAGE = 70;
 
     @Override
-    public int getManaPerDamage() {
-        return MANA_PER_DAMAGE;
+    public int getManaPerDamage(Player player) {
+        return BotaniaHelper.getManaPerDamageBonus(player, MANA_PER_DAMAGE);
     }
 
     @Override
     public int afterEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damageDealt) {
         Player player = context.getPlayerAttacker();
-        ItemStack stack = player.getItemInHand(InteractionHand.MAIN_HAND);
 
-        if (TCIntegrations.RANDOM.nextFloat() <= 0.05F) {
-            EntityPixie pixie = new EntityPixie(player.level);
+        if (player != null && !player.level.isClientSide) {
+            final ServerPlayer sp = (ServerPlayer) player;
+            ItemStack stack = sp.getItemInHand(InteractionHand.MAIN_HAND);
 
-            pixie.setPos(player.getX(), player.getY() + 2, player.getZ());
-
-            float dmg = 4;
-
-            if (!stack.isEmpty()) {
-                dmg += 2;
+            if (TCIntegrations.RANDOM.nextFloat() <= 0.05F) {
+                BotaniaHelper.spawnPixie(sp, stack, context.getLivingTarget());
             }
-
-            pixie.setProps(context.getLivingTarget(), player, 0, dmg);
-            pixie.finalizeSpawn(
-                    (ServerLevelAccessor) player.level,
-                    player.level.getCurrentDifficultyAt(pixie.blockPosition()),
-                    MobSpawnType.EVENT, null, null);
-            player.level.addFreshEntity(pixie);
         }
 
         return 0;
