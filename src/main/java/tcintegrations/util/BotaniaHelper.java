@@ -17,7 +17,7 @@ import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.entity.EntityPixie;
 
 import tcintegrations.common.capabilities.CapabilityRegistry;
-import tcintegrations.items.armor.modifiers.TerrastrialModifier;
+import tcintegrations.items.armor.modifiers.TerrestrialModifier;
 import vazkii.botania.xplat.IXplatAbstractions;
 
 import java.util.List;
@@ -37,7 +37,7 @@ public class BotaniaHelper {
 
         pixie.setPos(sp.getX(), sp.getY() + 2, sp.getZ());
 
-        if (TerrastrialModifier.hasArmorSet(sp)) {
+        if (TerrestrialModifier.hasArmorSet(sp)) {
             pixie.setApplyPotionEffect(new MobEffectInstance(potions[sp.level.random.nextInt(potions.length)], 40, 0));
         }
 

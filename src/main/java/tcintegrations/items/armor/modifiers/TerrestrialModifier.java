@@ -24,7 +24,7 @@ import tcintegrations.network.BotaniaSetData;
 import tcintegrations.network.NetworkHandler;
 import tcintegrations.util.BotaniaHelper;
 
-public class TerrastrialModifier extends NoLevelsModifier {
+public class TerrestrialModifier extends NoLevelsModifier {
 
     private static final int MANA_PER_DAMAGE = 70;
 
