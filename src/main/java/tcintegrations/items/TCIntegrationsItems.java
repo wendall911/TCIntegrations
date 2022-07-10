@@ -25,7 +25,7 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 import tcintegrations.client.CreativeTabBase;
 import tcintegrations.common.TCIntegrationsModule;
-import tcintegrations.items.armor.modifiers.TerrafirmModifier;
+import tcintegrations.items.armor.modifiers.TerrastrialModifier;
 import tcintegrations.items.tool.modifiers.ElementalModifier;
 import tcintegrations.items.tool.modifiers.LivingwoodModifier;
 import tcintegrations.items.tool.modifiers.ManaItemModifier;
@@ -45,7 +45,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
     public static StaticModifier<LivingwoodModifier> LIVINGWOOD_MODIFIER;
     public static StaticModifier<TerraModifier> TERRA_MODIFIER;
     public static StaticModifier<ElementalModifier> ELEMENTAL_MODIFIER;
-    public static StaticModifier<TerrafirmModifier> TERRAFIRM_MODIFIER;
+    public static StaticModifier<TerrastrialModifier> TERRESTRIAL_MODIFIER;
 
     public static void init() {
         ITEM_TAB_GROUP = new CreativeTabBase(TCIntegrations.MODID + ".items", () -> new ItemStack(BRONZE.getNugget()));
@@ -71,7 +71,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
             LIVINGWOOD_MODIFIER = MODIFIERS_REGISTRY.register("livingwood", LivingwoodModifier::new);
             TERRA_MODIFIER = MODIFIERS_REGISTRY.register("terra", TerraModifier::new);
             ELEMENTAL_MODIFIER = MODIFIERS_REGISTRY.register("elemental", ElementalModifier::new);
-            TERRAFIRM_MODIFIER = MODIFIERS_REGISTRY.register("terrafirm", TerrafirmModifier::new);
+            TERRESTRIAL_MODIFIER = MODIFIERS_REGISTRY.register("terrestrial", TerrastrialModifier::new);
         }
     }
 

@@ -13,29 +13,29 @@ import net.minecraftforge.common.util.LazyOptional;
 
 public class BotaniaSet {
 
-    private boolean terrafirm = false;
+    private boolean terrestrial = false;
     private boolean greatfairy = false;
 
     public static Tag writeNBT(Capability<BotaniaSet> capability, BotaniaSet instance, Direction side) {
         CompoundTag tag = new CompoundTag();
 
-        tag.putBoolean("terrafirm", instance.hasTerrafirm());
+        tag.putBoolean("terrestrial", instance.hasTerrestrial());
         tag.putBoolean("greatfairy", instance.hasGreatFairy());
 
         return tag;
     }
 
     public static void readNBT(Capability<BotaniaSet> capability, BotaniaSet instance, Direction side, Tag nbt) {
-        instance.setTerrafirm(((CompoundTag) nbt).getBoolean("terrafirm"));
+        instance.setTerrestrial(((CompoundTag) nbt).getBoolean("terrestrial"));
         instance.setGreatfairy(((CompoundTag) nbt).getBoolean("greatfairy"));
     }
 
-    public void setTerrafirm(boolean terrafirm) {
-        this.terrafirm = terrafirm;
+    public void setTerrestrial(boolean terrestrial) {
+        this.terrestrial = terrestrial;
     }
 
-    public boolean hasTerrafirm() {
-        return this.terrafirm;
+    public boolean hasTerrestrial() {
+        return this.terrestrial;
     }
 
     public void setGreatfairy(boolean greatfairy) {

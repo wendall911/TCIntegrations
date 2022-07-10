@@ -22,6 +22,9 @@
     "modifier.tcintegrations.terra.flavor": "Bursts!",
     "modifier.tcintegrations.terra.description": "When swinging at full power, creates a Mana burst that deals 7 points of damage!",
     "modifier.tcintegrations.elemental": "Elemental",
-    "modifier.tcintegrations.terra.flavor": "Pixies, heads, oh my!",
-    "modifier.tcintegrations.terra.description": "When attacking, a 5% chance to spawn a pixie friend! Increased severing chance against select mobs."
+    "modifier.tcintegrations.elemental.flavor": "Pixies, heads, oh my!",
+    "modifier.tcintegrations.elemental.description": "When attacking, a 5% chance to spawn a pixie friend! Increased severing chance against select mobs.",
+    "modifier.tcintegrations.terrestrial": "Terrestrial",
+    "modifier.tcintegrations.terrestrial.flavor": "A real agglomeration!",
+    "modifier.tcintegrations.terrestrial.description": "A full set: Passively generates mana. 20% decrase of Mana cost on all Tinkers' items. Passive regeneration of 2 health every 4 seconds."
 }

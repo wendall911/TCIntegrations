@@ -1,6 +1,7 @@
 package tcintegrations.util;
 
 import com.google.common.collect.Iterables;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -16,12 +17,11 @@ import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.entity.EntityPixie;
 
 import tcintegrations.common.capabilities.CapabilityRegistry;
-import tcintegrations.items.armor.modifiers.TerrafirmModifier;
+import tcintegrations.items.armor.modifiers.TerrastrialModifier;
 import vazkii.botania.xplat.IXplatAbstractions;
 
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.Supplier;
 
 public class BotaniaHelper {
 
@@ -32,13 +32,13 @@ public class BotaniaHelper {
         MobEffects.WEAKNESS
     };
 
-    public static void spawnPixie(Player player, ItemStack stack, ToolAttackContext context) {
-        EntityPixie pixie = new EntityPixie(player.level);
+    public static void spawnPixie(ServerPlayer sp, ItemStack stack, ToolAttackContext context) {
+        EntityPixie pixie = new EntityPixie(sp.level);
 
-        pixie.setPos(player.getX(), player.getY() + 2, player.getZ());
+        pixie.setPos(sp.getX(), sp.getY() + 2, sp.getZ());
 
-        if (TerrafirmModifier.hasArmorSet(player)) {
-            pixie.setApplyPotionEffect(new MobEffectInstance(potions[player.level.random.nextInt(potions.length)], 40, 0));
+        if (TerrastrialModifier.hasArmorSet(sp)) {
+            pixie.setApplyPotionEffect(new MobEffectInstance(potions[sp.level.random.nextInt(potions.length)], 40, 0));
         }
 
         float dmg = 4;
@@ -47,12 +47,12 @@ public class BotaniaHelper {
             dmg += 2;
         }
 
-        pixie.setProps(context.getLivingTarget(), player, 0, dmg);
+        pixie.setProps(context.getLivingTarget(), sp, 0, dmg);
         pixie.finalizeSpawn(
-                (ServerLevelAccessor) player.level,
-                player.level.getCurrentDifficultyAt(pixie.blockPosition()),
+                (ServerLevelAccessor) sp.level,
+                sp.level.getCurrentDifficultyAt(pixie.blockPosition()),
                 MobSpawnType.EVENT, null, null);
-        player.level.addFreshEntity(pixie);
+        sp.level.addFreshEntity(pixie);
     }
 
 
@@ -60,7 +60,7 @@ public class BotaniaHelper {
         AtomicReference<Double> decreaseModifier = new AtomicReference<>(1.0);
 
         player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
-            if (data.hasTerrafirm()) {
+            if (data.hasTerrestrial()) {
                 decreaseModifier.set(0.8);
             }
             else if (data.hasGreatFairy()) {

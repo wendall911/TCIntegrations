@@ -16,15 +16,15 @@ import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
-import tcintegrations.TCIntegrations;
+import vazkii.botania.api.mana.ManaItemHandler;
+
 import tcintegrations.common.capabilities.CapabilityRegistry;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.network.BotaniaSetData;
 import tcintegrations.network.NetworkHandler;
 import tcintegrations.util.BotaniaHelper;
-import vazkii.botania.api.mana.ManaItemHandler;
 
-public class TerrafirmModifier extends NoLevelsModifier {
+public class TerrastrialModifier extends NoLevelsModifier {
 
     private static final int MANA_PER_DAMAGE = 70;
 
@@ -45,6 +45,8 @@ public class TerrafirmModifier extends NoLevelsModifier {
                         hasArmorSetItem(sp, EquipmentSlot.CHEST) &&
                         hasArmorSetItem(sp, EquipmentSlot.LEGS) &&
                         hasArmorSetItem(sp, EquipmentSlot.FEET);
+
+                data.setTerrestrial(hasSet);
 
                 NetworkHandler.INSTANCE.send(
                         PacketDistributor.PLAYER.with(() -> sp),
@@ -75,13 +77,17 @@ public class TerrafirmModifier extends NoLevelsModifier {
         if (!world.isClientSide
                 && holder instanceof Player player
                 && itemSlot == EquipmentSlot.HEAD.getIndex() // Only fire for one armor item
-                && hasArmorSet(player)) {
-            // Heal player
-            if (player.tickCount % 80 == 0) {
-                int food = player.getFoodData().getFoodLevel();
+        ) {
+            final ServerPlayer sp = (ServerPlayer) player;
 
-                if (food > 0 && food < 18 && player.isHurt()) {
-                    player.heal(1F);
+            if (hasArmorSet(sp)) {
+                // Heal player
+                if (sp.tickCount % 80 == 0) {
+                    int food = sp.getFoodData().getFoodLevel();
+
+                    if (food > 0 && food < 18 && sp.isHurt()) {
+                        sp.heal(1F);
+                    }
                 }
             }
 
@@ -110,14 +116,14 @@ public class TerrafirmModifier extends NoLevelsModifier {
 
         if (armor.isBroken()) return false;
 
-        return armor.getUpgrades().getLevel(TCIntegrationsItems.TERRAFIRM_MODIFIER.getId()) > 0;
+        return armor.getUpgrades().getLevel(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId()) > 0;
     }
 
-    public static boolean hasArmorSet(Player player) {
+    public static boolean hasArmorSet(ServerPlayer sp) {
         AtomicBoolean hasSet = new AtomicBoolean(false);
 
-        player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
-            hasSet.set(data.hasTerrafirm());
+        sp.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
+            hasSet.set(data.hasTerrestrial());
         });
 
         return hasSet.get();

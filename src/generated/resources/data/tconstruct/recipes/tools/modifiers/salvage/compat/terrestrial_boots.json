@@ -7,11 +7,11 @@
     }
   ],
   "tools": {
-    "tag": "tconstruct:modifiable/armor/helmets"
+    "tag": "tconstruct:modifiable/armor/boots"
   },
   "slots": {
     "upgrades": 1
   },
-  "modifier": "tcintegrations:terrafirm",
+  "modifier": "tcintegrations:terrestrial",
   "min_level": 1
 }

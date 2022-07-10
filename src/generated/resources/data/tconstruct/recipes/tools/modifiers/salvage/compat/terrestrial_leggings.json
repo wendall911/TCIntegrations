@@ -12,6 +12,6 @@
   "slots": {
     "upgrades": 1
   },
-  "modifier": "tcintegrations:terrafirm",
+  "modifier": "tcintegrations:terrestrial",
   "min_level": 1
 }

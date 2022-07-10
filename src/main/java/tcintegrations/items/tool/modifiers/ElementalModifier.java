@@ -2,6 +2,7 @@ package tcintegrations.items.tool.modifiers;
 
 import java.util.List;
 
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.player.Player;
@@ -34,10 +35,14 @@ public class ElementalModifier extends ManaItemModifier {
     @Override
     public int afterEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damageDealt) {
         Player player = context.getPlayerAttacker();
-        ItemStack stack = player.getItemInHand(InteractionHand.MAIN_HAND);
 
-        if (TCIntegrations.RANDOM.nextFloat() <= 0.05F) {
-            BotaniaHelper.spawnPixie(player, stack, context);
+        if (player != null && !player.level.isClientSide) {
+            final ServerPlayer sp = (ServerPlayer) player;
+            ItemStack stack = sp.getItemInHand(InteractionHand.MAIN_HAND);
+
+            if (TCIntegrations.RANDOM.nextFloat() <= 0.05F) {
+                BotaniaHelper.spawnPixie(sp, stack, context);
+            }
         }
 
         return 0;

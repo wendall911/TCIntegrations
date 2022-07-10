@@ -20,17 +20,17 @@
       "item": "botania:livingwood_twig"
     },
     {
-      "item": "botania:rune_summer"
+      "item": "botania:rune_winter"
     }
   ],
   "tools": {
-    "tag": "tconstruct:modifiable/armor/chestplate"
+    "tag": "tconstruct:modifiable/armor/boots"
   },
   "slots": {
     "upgrades": 1
   },
   "result": {
-    "name": "tcintegrations:terrafirm",
+    "name": "tcintegrations:terrestrial",
     "level": 1
   },
   "max_level": 1

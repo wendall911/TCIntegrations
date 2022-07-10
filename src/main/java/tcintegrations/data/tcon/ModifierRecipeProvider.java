@@ -68,7 +68,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
                 .saveSalvage(botaniaConsumer, prefix(TCIntegrationsItems.ELEMENTAL_MODIFIER, compatSalvage))
                 .save(botaniaConsumer, prefix(TCIntegrationsItems.ELEMENTAL_MODIFIER, compatFolder));
 
-        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRAFIRM_MODIFIER)
+        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRESTRIAL_MODIFIER)
                 .setTools(TinkerTags.Items.HELMETS)
                 .addInput(ModTags.Items.INGOTS_TERRASTEEL)
                 .addInput(ModTags.Items.INGOTS_TERRASTEEL)
@@ -77,10 +77,10 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
                 .addInput(ModItems.runeSpring)
                 .setSlots(SlotType.UPGRADE, 1)
                 .setMaxLevel(1)
-                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRAFIRM_MODIFIER.getId() + "_helmets"), compatSalvage))
-                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRAFIRM_MODIFIER.getId() + "_helmets"), compatFolder));
+                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_helmets"), compatSalvage))
+                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_helmets"), compatFolder));
 
-        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRAFIRM_MODIFIER)
+        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRESTRIAL_MODIFIER)
                 .setTools(TinkerTags.Items.CHESTPLATES)
                 .addInput(ModTags.Items.INGOTS_TERRASTEEL)
                 .addInput(ModTags.Items.INGOTS_TERRASTEEL)
@@ -89,10 +89,10 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
                 .addInput(ModItems.runeSummer)
                 .setSlots(SlotType.UPGRADE, 1)
                 .setMaxLevel(1)
-                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRAFIRM_MODIFIER.getId() + "_chestplates"), compatSalvage))
-                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRAFIRM_MODIFIER.getId() + "_chestplates"), compatFolder));
+                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_chestplates"), compatSalvage))
+                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_chestplates"), compatFolder));
 
-        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRAFIRM_MODIFIER)
+        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRESTRIAL_MODIFIER)
                 .setTools(TinkerTags.Items.LEGGINGS)
                 .addInput(ModTags.Items.INGOTS_TERRASTEEL)
                 .addInput(ModTags.Items.INGOTS_TERRASTEEL)
@@ -101,10 +101,10 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
                 .addInput(ModItems.runeAutumn)
                 .setSlots(SlotType.UPGRADE, 1)
                 .setMaxLevel(1)
-                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRAFIRM_MODIFIER.getId() + "_leggings"), compatSalvage))
-                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRAFIRM_MODIFIER.getId() + "_leggings"), compatFolder));
+                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_leggings"), compatSalvage))
+                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_leggings"), compatFolder));
 
-        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRAFIRM_MODIFIER)
+        ModifierRecipeBuilder.modifier(TCIntegrationsItems.TERRESTRIAL_MODIFIER)
                 .setTools(TinkerTags.Items.BOOTS)
                 .addInput(ModTags.Items.INGOTS_TERRASTEEL)
                 .addInput(ModTags.Items.INGOTS_TERRASTEEL)
@@ -113,8 +113,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
                 .addInput(ModItems.runeWinter)
                 .setSlots(SlotType.UPGRADE, 1)
                 .setMaxLevel(1)
-                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRAFIRM_MODIFIER.getId() + "_boots"), compatSalvage))
-                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRAFIRM_MODIFIER.getId() + "_boots"), compatFolder));
+                .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatSalvage))
+                .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

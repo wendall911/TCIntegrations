@@ -12,22 +12,22 @@ import tcintegrations.common.capabilities.CapabilityRegistry;
 
 public class BotaniaSetData implements IData {
 
-    private boolean terrafirm;
-    private boolean greatfairy;
+    private final boolean terrestrial;
+    private final boolean greatfairy;
 
-    public BotaniaSetData(boolean terrafirm, boolean greatfairy) {
-        this.terrafirm = terrafirm;
+    public BotaniaSetData(boolean terrestrial, boolean greatfairy) {
+        this.terrestrial = terrestrial;
         this.greatfairy = greatfairy;
     }
 
     public BotaniaSetData(FriendlyByteBuf buf) {
-        terrafirm = buf.readBoolean();
+        terrestrial = buf.readBoolean();
         greatfairy = buf.readBoolean();
     }
 
     @Override
     public void toBytes(FriendlyByteBuf buf) {
-        buf.writeBoolean(terrafirm);
+        buf.writeBoolean(terrestrial);
         buf.writeBoolean(greatfairy);
     }
 
@@ -36,8 +36,8 @@ public class BotaniaSetData implements IData {
         if (ctx.get().getDirection() == NetworkDirection.PLAY_TO_CLIENT) {
             ctx.get().enqueueWork(() -> {
                 Minecraft.getInstance().player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
-                    data.setTerrafirm(terrafirm);
-                    data.setGreatfairy(greatfairy);
+                    data.setTerrestrial(this.terrestrial);
+                    data.setGreatfairy(this.greatfairy);
                 });
             });
         }
