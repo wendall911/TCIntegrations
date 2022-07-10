@@ -13,13 +13,15 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.handler.ModSounds;
 
+import tcintegrations.util.BotaniaHelper;
+
 public class TerraModifier extends ManaItemModifier {
 
     private static final int MANA_PER_DAMAGE = 100;
 
     @Override
-    public int getManaPerDamage() {
-        return MANA_PER_DAMAGE;
+    public int getManaPerDamage(Player player) {
+        return BotaniaHelper.getManaPerDamageBonus(player, MANA_PER_DAMAGE);
     }
 
     @Override
@@ -30,7 +32,7 @@ public class TerraModifier extends ManaItemModifier {
 
         source.bypassArmor();
 
-        if (player.getAttackStrengthScale(0F) == 1 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage() * 2, true)) {
+        if (player.getAttackStrengthScale(0F) == 1 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage(player) * 2, true)) {
             player.level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
             ToolAttackUtil.attackEntitySecondary(source, 7.0F, context.getTarget(), context.getLivingTarget(), true);
         }
