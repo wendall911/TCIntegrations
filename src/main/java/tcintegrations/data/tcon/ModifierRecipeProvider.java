@@ -115,6 +115,18 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
                 .setMaxLevel(1)
                 .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatSalvage))
                 .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsItems.GREAT_FAIRY_MODIFIER)
+                .setTools(TinkerTags.Items.ARMOR)
+                .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
+                .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
+                .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
+                .addInput(ModItems.livingwoodTwig)
+                .addInput(ModTags.Items.LIVINGWOOD_LOGS_GLIMMERING)
+                .setSlots(SlotType.UPGRADE, 1)
+                .setMaxLevel(1)
+                .saveSalvage(botaniaConsumer, prefix(TCIntegrationsItems.GREAT_FAIRY_MODIFIER, compatSalvage))
+                .save(botaniaConsumer, prefix(TCIntegrationsItems.GREAT_FAIRY_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

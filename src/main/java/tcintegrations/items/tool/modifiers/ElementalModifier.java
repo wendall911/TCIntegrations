@@ -41,7 +41,7 @@ public class ElementalModifier extends ManaItemModifier {
             ItemStack stack = sp.getItemInHand(InteractionHand.MAIN_HAND);
 
             if (TCIntegrations.RANDOM.nextFloat() <= 0.05F) {
-                BotaniaHelper.spawnPixie(sp, stack, context);
+                BotaniaHelper.spawnPixie(sp, stack, context.getLivingTarget());
             }
         }
 

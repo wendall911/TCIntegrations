@@ -1,27 +1,27 @@
 package tcintegrations.util;
 
 import com.google.common.collect.Iterables;
+
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
+
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ServerLevelAccessor;
 
-import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
-
 import vazkii.botania.api.mana.IManaItem;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.entity.EntityPixie;
-
-import tcintegrations.common.capabilities.CapabilityRegistry;
-import tcintegrations.items.armor.modifiers.TerrestrialModifier;
 import vazkii.botania.xplat.IXplatAbstractions;
 
-import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
+import tcintegrations.common.capabilities.CapabilityRegistry;
+import tcintegrations.items.armor.modifiers.GreatFairyModifier;
 
 public class BotaniaHelper {
 
@@ -32,12 +32,12 @@ public class BotaniaHelper {
         MobEffects.WEAKNESS
     };
 
-    public static void spawnPixie(ServerPlayer sp, ItemStack stack, ToolAttackContext context) {
+    public static void spawnPixie(ServerPlayer sp, ItemStack stack, LivingEntity target) {
         EntityPixie pixie = new EntityPixie(sp.level);
 
         pixie.setPos(sp.getX(), sp.getY() + 2, sp.getZ());
 
-        if (TerrestrialModifier.hasArmorSet(sp)) {
+        if (GreatFairyModifier.hasArmorSet(sp)) {
             pixie.setApplyPotionEffect(new MobEffectInstance(potions[sp.level.random.nextInt(potions.length)], 40, 0));
         }
 
@@ -47,7 +47,7 @@ public class BotaniaHelper {
             dmg += 2;
         }
 
-        pixie.setProps(context.getLivingTarget(), sp, 0, dmg);
+        pixie.setProps(target, sp, 0, dmg);
         pixie.finalizeSpawn(
                 (ServerLevelAccessor) sp.level,
                 sp.level.getCurrentDifficultyAt(pixie.blockPosition()),

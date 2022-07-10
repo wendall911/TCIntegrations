@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "conditions": [
+    {
+      "modid": "botania",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "modifier": "tcintegrations:great_fairy",
+  "min_level": 1
+}

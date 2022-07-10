@@ -14,20 +14,20 @@ import net.minecraftforge.common.util.LazyOptional;
 public class BotaniaSet {
 
     private boolean terrestrial = false;
-    private boolean greatfairy = false;
+    private boolean greatFairy = false;
 
     public static Tag writeNBT(Capability<BotaniaSet> capability, BotaniaSet instance, Direction side) {
         CompoundTag tag = new CompoundTag();
 
         tag.putBoolean("terrestrial", instance.hasTerrestrial());
-        tag.putBoolean("greatfairy", instance.hasGreatFairy());
+        tag.putBoolean("great_fairy", instance.hasGreatFairy());
 
         return tag;
     }
 
     public static void readNBT(Capability<BotaniaSet> capability, BotaniaSet instance, Direction side, Tag nbt) {
         instance.setTerrestrial(((CompoundTag) nbt).getBoolean("terrestrial"));
-        instance.setGreatfairy(((CompoundTag) nbt).getBoolean("greatfairy"));
+        instance.setGreatFairy(((CompoundTag) nbt).getBoolean("great_fairy"));
     }
 
     public void setTerrestrial(boolean terrestrial) {
@@ -38,12 +38,12 @@ public class BotaniaSet {
         return this.terrestrial;
     }
 
-    public void setGreatfairy(boolean greatfairy) {
-        this.greatfairy = greatfairy;
+    public void setGreatFairy(boolean greatFairy) {
+        this.greatFairy = greatFairy;
     }
 
     public boolean hasGreatFairy() {
-        return this.greatfairy;
+        return this.greatFairy;
     }
 
     public static class Provider implements ICapabilitySerializable<Tag> {
