@@ -15,6 +15,7 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 
+import net.minecraftforge.fml.ModList;
 import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.mantle.registration.ModelFluidAttributes;
 import slimeknights.mantle.registration.object.FluidObject;
@@ -49,9 +50,11 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         GENERAL_TOOLTIP_BLOCK_ITEM = (b) -> new BlockTooltipItem(b, new Item.Properties().tab(ITEM_TAB_GROUP));
 
         // Fluids
-        MANASTEEL = FLUID_REGISTRY.register(
-                "manasteel", hotBuilder().temperature(1250), Material.LAVA, 13);
-
+        if (ModList.get().isLoaded("botania")) {
+            MANASTEEL = FLUID_REGISTRY.register(
+                    "manasteel", hotBuilder().temperature(1250), Material.LAVA, 13);
+        }
+        
         // Metals
         BRONZE = METAL_BLOCK_REGISTRY.registerMetal(
             "bronze",
@@ -61,10 +64,12 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         );
 
         // Modifiers
-        MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaItemModifier::new);
-        LIVINGWOOD_MODIFIER = MODIFIERS_REGISTRY.register("livingwood", LivingwoodModifier::new);
-        TERRA_MODIFIER = MODIFIERS_REGISTRY.register("terra", TerraModifier::new);
-        ELEMENTAL_MODIFIER = MODIFIERS_REGISTRY.register("elemental", ElementalModifier::new);
+        if (ModList.get().isLoaded("botania")) {
+            MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaItemModifier::new);
+            LIVINGWOOD_MODIFIER = MODIFIERS_REGISTRY.register("livingwood", LivingwoodModifier::new);
+            TERRA_MODIFIER = MODIFIERS_REGISTRY.register("terra", TerraModifier::new);
+            ELEMENTAL_MODIFIER = MODIFIERS_REGISTRY.register("elemental", ElementalModifier::new);
+        }
     }
 
     private static FluidAttributes.Builder hotBuilder() {
