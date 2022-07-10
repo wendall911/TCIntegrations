@@ -64,6 +64,8 @@ public class TerrestrialModifier extends NoLevelsModifier {
             final ServerPlayer sp = (ServerPlayer) player;
 
             sp.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
+                data.setTerrestrial(false);
+
                 NetworkHandler.INSTANCE.send(
                         PacketDistributor.PLAYER.with(() -> sp),
                         new BotaniaSetData(false, data.hasGreatFairy())
@@ -76,8 +78,8 @@ public class TerrestrialModifier extends NoLevelsModifier {
     public void onInventoryTick(IToolStackView tool, int level, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if (!world.isClientSide
                 && holder instanceof Player player
-                && itemSlot == EquipmentSlot.HEAD.getIndex() // Only fire for one armor item
-        ) {
+                // Only fire for one armor item
+                && itemSlot == EquipmentSlot.HEAD.getIndex()) {
             final ServerPlayer sp = (ServerPlayer) player;
 
             if (hasArmorSet(sp)) {
