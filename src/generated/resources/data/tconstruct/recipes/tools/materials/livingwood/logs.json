@@ -1,5 +1,11 @@
 {
   "type": "tconstruct:material",
+  "conditions": [
+    {
+      "modid": "botania",
+      "type": "forge:mod_loaded"
+    }
+  ],
   "ingredient": {
     "tag": "tcintegrations:livingwood_logs"
   },

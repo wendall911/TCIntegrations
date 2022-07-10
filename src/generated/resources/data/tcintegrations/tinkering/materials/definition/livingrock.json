@@ -1,4 +1,8 @@
 {
+  "condition": {
+    "modid": "botania",
+    "type": "forge:mod_loaded"
+  },
   "craftable": true,
   "tier": 1,
   "sortOrder": 0,
