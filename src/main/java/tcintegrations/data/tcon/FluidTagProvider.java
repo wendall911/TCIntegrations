@@ -8,8 +8,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import slimeknights.mantle.registration.object.FluidObject;
 
 import slimeknights.tconstruct.common.TinkerTags;
-import slimeknights.tconstruct.common.TinkerTags.Fluids;
-import slimeknights.tconstruct.fluids.TinkerFluids;
 
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
@@ -30,22 +28,22 @@ public class FluidTagProvider extends FluidTagsProvider {
     public void addTags() {
         tagAll(TCIntegrationsItems.MANASTEEL);
 
-        this.tag(TinkerTags.Fluids.METAL_TOOLTIPS).addTags(
-            TCIntegrationsItems.MANASTEEL.getForgeTag()
+        this.tag(TinkerTags.Fluids.METAL_TOOLTIPS).addOptionalTag(
+            TCIntegrationsItems.MANASTEEL.getForgeTag().location()
         );
 
         this.tag(TinkerTags.Fluids.AVERAGE_METAL_SPILLING)
-            .addTag(TCIntegrationsItems.MANASTEEL.getForgeTag());
+            .addOptionalTag(TCIntegrationsItems.MANASTEEL.getForgeTag().location());
     }
 
     /** Tags this fluid using local tags */
     private void tagLocal(FluidObject<?> fluid) {
-        tag(fluid.getLocalTag()).add(fluid.getStill(), fluid.getFlowing());
+        tag(fluid.getLocalTag()).addOptional(fluid.getStill().getRegistryName()).addOptional(fluid.getFlowing().getRegistryName());
     }
 
     private void tagAll(FluidObject<?> fluid) {
         tagLocal(fluid);
-        tag(fluid.getForgeTag()).addTag(fluid.getLocalTag());
+        tag(fluid.getForgeTag()).addOptionalTag(fluid.getLocalTag().location());
     }
 
 }

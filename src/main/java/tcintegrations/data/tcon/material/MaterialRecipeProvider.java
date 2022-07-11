@@ -51,7 +51,6 @@ public class MaterialRecipeProvider extends BaseRecipeProvider implements IMater
         String folder = "tools/materials/";
 
         compatMeltingCasting(consumer, MaterialIds.manaSteel, TCIntegrationsItems.MANASTEEL, folder);
-
     }
 
 }

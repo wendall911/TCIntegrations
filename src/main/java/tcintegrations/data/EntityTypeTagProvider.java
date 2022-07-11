@@ -6,9 +6,10 @@ import net.minecraft.data.tags.EntityTypeTagsProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+import vazkii.botania.common.lib.LibEntityNames;
+
 import tcintegrations.TCIntegrations;
 import tcintegrations.common.TagManager;
-import vazkii.botania.common.lib.LibEntityNames;
 
 public class EntityTypeTagProvider extends EntityTypeTagsProvider {
 

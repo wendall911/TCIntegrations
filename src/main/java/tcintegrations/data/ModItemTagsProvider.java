@@ -14,6 +14,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.Tags;
 
 import slimeknights.tconstruct.common.TinkerTags;
+
 import tcintegrations.common.TagManager;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
@@ -42,7 +43,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
         // Botania
         addBotaniaLogVariants(TagManager.Items.BOTANIA_LIVINGWOOD_LOGS, "livingwood");
-        this.tag(TinkerTags.Items.VARIANT_LOGS).addTag(TagManager.Items.BOTANIA_LIVINGWOOD_LOGS);
+        this.tag(TinkerTags.Items.VARIANT_LOGS).addOptionalTag(TagManager.Items.BOTANIA_LIVINGWOOD_LOGS.location());
         this.tag(TinkerTags.Items.VARIANT_PLANKS).addOptional(ModIntegration.botaniaLoc("livingwood_planks"));
     }
 

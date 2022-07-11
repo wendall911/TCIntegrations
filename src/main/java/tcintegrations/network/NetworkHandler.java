@@ -5,6 +5,7 @@ import java.util.function.Function;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
@@ -24,7 +25,9 @@ public final class NetworkHandler {
     public static void init() {
         int id = 0;
 
-        registerMessage(id++, BotaniaSetData.class, BotaniaSetData::new);
+        if (ModList.get().isLoaded("botania")) {
+            registerMessage(id++, BotaniaSetData.class, BotaniaSetData::new);
+        }
     }
 
     private static <T extends IData> void registerMessage(int idx, Class<T> type, Function<FriendlyByteBuf, T> decoder) {

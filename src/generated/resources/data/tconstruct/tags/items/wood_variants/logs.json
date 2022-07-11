@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "#tcintegrations:livingwood_logs"
+    {
+      "id": "#tcintegrations:livingwood_logs",
+      "required": false
+    }
   ]
 }

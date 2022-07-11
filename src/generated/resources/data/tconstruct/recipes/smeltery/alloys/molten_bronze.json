@@ -1,5 +1,11 @@
 {
   "type": "forge:conditional",
+  "conditions": [
+    {
+      "modid": "botania",
+      "type": "forge:mod_loaded"
+    }
+  ],
   "recipes": [
     {
       "conditions": [

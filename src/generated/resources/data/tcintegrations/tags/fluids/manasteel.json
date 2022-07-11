@@ -1,7 +1,13 @@
 {
   "replace": false,
   "values": [
-    "tcintegrations:manasteel",
-    "tcintegrations:flowing_manasteel"
+    {
+      "id": "tcintegrations:manasteel",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_manasteel",
+      "required": false
+    }
   ]
 }

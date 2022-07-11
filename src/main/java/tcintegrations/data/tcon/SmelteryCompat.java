@@ -17,7 +17,7 @@ import tcintegrations.items.TCIntegrationsItems;
 /** Enum holding all relevant smeltery compat */
 public enum SmelteryCompat {
 
-    MANASTEEL (TCIntegrationsItems.MANASTEEL, Byproduct.IRON, Byproduct.GOLD);
+    MANASTEEL (TCIntegrationsItems.MANASTEEL, "botania", Byproduct.IRON, Byproduct.GOLD);
 
     @Getter
     private final String name = this.name().toLowerCase(Locale.US);
@@ -29,20 +29,24 @@ public enum SmelteryCompat {
     private final boolean hasDust;
     @Getter
     private final Byproduct[] byproducts;
+    @Getter
+    private final String modid;
 
-    SmelteryCompat(FluidObject<? extends ForgeFlowingFluid> fluid, boolean hasDust) {
+    SmelteryCompat(FluidObject<? extends ForgeFlowingFluid> fluid, String modid, boolean hasDust) {
         this.fluid = fluid;
         this.isOre = false;
         this.byproducts = new Byproduct[0];
         this.hasDust = hasDust;
+        this.modid = modid;
     }
 
     /** Byproducts means its an ore, no byproucts are alloys */
-    SmelteryCompat(FluidObject<? extends ForgeFlowingFluid> fluid, Byproduct... byproducts) {
+    SmelteryCompat(FluidObject<? extends ForgeFlowingFluid> fluid, String modid, Byproduct... byproducts) {
         this.fluid = fluid;
         this.isOre = byproducts.length > 0;
         this.byproducts = byproducts;
         this.hasDust = true;
+        this.modid = modid;
     }
 
     /** Gets teh fluid for this compat */

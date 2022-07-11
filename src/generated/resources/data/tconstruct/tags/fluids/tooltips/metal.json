@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
-    "#forge:manasteel"
+    {
+      "id": "#forge:manasteel",
+      "required": false
+    }
   ]
 }

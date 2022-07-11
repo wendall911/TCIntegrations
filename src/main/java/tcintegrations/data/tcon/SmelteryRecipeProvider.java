@@ -1,5 +1,7 @@
 package tcintegrations.data.tcon;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import net.minecraft.data.DataGenerator;
@@ -16,6 +18,7 @@ import slimeknights.tconstruct.library.recipe.alloying.AlloyRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.smeltery.data.Byproduct;
 
+import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.data.tcon.SmelteryCompat;
 import tcintegrations.items.TCIntegrationsItems;
 
@@ -44,8 +47,12 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         // Molten objects with Bucket, Block, Ingot, and Nugget forms with standard values
         String metalFolder = folder + "metal/";
 
+        Map<String, Consumer<FinishedRecipe>> modConsumers = new HashMap<>();
+
+        modConsumers.put("botania", withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID)));
+
         for (SmelteryCompat compat : SmelteryCompat.values()) {
-            this.metalTagCasting(consumer, compat.getFluid(), compat.getName(), metalFolder, false);
+            this.metalTagCasting(modConsumers.get(compat.getModid()), compat.getFluid(), compat.getName(), metalFolder, false);
         }
     }
 
@@ -54,11 +61,14 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
 
         // ores
         String metalFolder = folder + "metal/";
-        metalMelting(consumer, TCIntegrationsItems.MANASTEEL.get(), "manasteel", false, metalFolder, false, Byproduct.IRON);
+        Consumer<FinishedRecipe> botaniaConsumer = withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID));
+
+        metalMelting(botaniaConsumer, TCIntegrationsItems.MANASTEEL.get(), "manasteel", false, metalFolder, false, Byproduct.IRON);
     }
 
     private void addAlloyRecipes(Consumer<FinishedRecipe> consumer) {
         String folder = "smeltery/alloys/";
+        Consumer<FinishedRecipe> botaniaConsumer = withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID));
 
         ConditionalRecipe.builder()
             // TODO: Fix ConfigEnabledCondition. No idea why it isn't registering properly
@@ -68,7 +78,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
                 AlloyRecipeBuilder.alloy(TinkerFluids.moltenBronze.get(), FluidValues.INGOT * 4)
                     .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT * 3)
                     .addInput(TinkerFluids.moltenQuartz.getLocalTag(), FluidValues.GEM)::save)
-            .build(consumer, prefix(TinkerFluids.moltenBronze, folder));
+            .build(botaniaConsumer, prefix(TinkerFluids.moltenBronze, folder));
     }
 
 }
