@@ -2,6 +2,11 @@ package tcintegrations.items.armor.modifiers;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -12,7 +17,9 @@ import net.minecraft.world.level.Level;
 
 import net.minecraftforge.network.PacketDistributor;
 
-import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import org.jetbrains.annotations.NotNull;
+
+import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
@@ -27,12 +34,29 @@ import tcintegrations.network.NetworkHandler;
 import tcintegrations.TCIntegrations;
 import tcintegrations.util.BotaniaHelper;
 
-public class GreatFairyModifier extends NoLevelsModifier {
+public class GreatFairyModifier extends Modifier {
 
     private static final int MANA_PER_DAMAGE = 70;
 
     public int getManaPerDamage(Player player) {
         return BotaniaHelper.getManaPerDamageBonus(player, MANA_PER_DAMAGE);
+    }
+
+    @Override
+    public @NotNull Component getDisplayName(int level) {
+        return applyStyle(new TranslatableComponent(getTranslationKey()));
+    }
+
+    @Override
+    public MutableComponent applyStyle(MutableComponent component) {
+        Player player = Minecraft.getInstance().player;
+
+        if (hasArmorSet(player)) {
+            return component.withStyle(style -> style.withColor(getTextColor()));
+        }
+        else {
+            return component.withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.STRIKETHROUGH);
+        }
     }
 
     @Override
@@ -94,7 +118,8 @@ public class GreatFairyModifier extends NoLevelsModifier {
         if (context.getEntity() instanceof Player player
                 && !player.level.isClientSide
                 && source.getEntity() instanceof LivingEntity attacker
-                && isDirectDamage) {
+                && isDirectDamage
+                && hasArmorSet(player)) {
             final ServerPlayer sp = (ServerPlayer) player;
             final Float chance = switch(slotType) {
                 case HEAD -> 0.11F;
@@ -121,10 +146,10 @@ public class GreatFairyModifier extends NoLevelsModifier {
         return armor.getUpgrades().getLevel(TCIntegrationsItems.GREAT_FAIRY_MODIFIER.getId()) > 0;
     }
 
-    public static boolean hasArmorSet(ServerPlayer sp) {
+    public static boolean hasArmorSet(Player player) {
         AtomicBoolean hasSet = new AtomicBoolean(false);
 
-        sp.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
+        player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
             hasSet.set(data.hasGreatFairy());
         });
 

@@ -2,6 +2,11 @@ package tcintegrations.items.armor.modifiers;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -11,7 +16,9 @@ import net.minecraft.world.level.Level;
 
 import net.minecraftforge.network.PacketDistributor;
 
-import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import org.jetbrains.annotations.NotNull;
+
+import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
@@ -24,12 +31,29 @@ import tcintegrations.network.BotaniaSetData;
 import tcintegrations.network.NetworkHandler;
 import tcintegrations.util.BotaniaHelper;
 
-public class TerrestrialModifier extends NoLevelsModifier {
+public class TerrestrialModifier extends Modifier {
 
     private static final int MANA_PER_DAMAGE = 70;
 
     public int getManaPerDamage(Player player) {
         return BotaniaHelper.getManaPerDamageBonus(player, MANA_PER_DAMAGE);
+    }
+
+    @Override
+    public @NotNull Component getDisplayName(int level) {
+        return applyStyle(new TranslatableComponent(getTranslationKey()));
+    }
+
+    @Override
+    public MutableComponent applyStyle(MutableComponent component) {
+        Player player = Minecraft.getInstance().player;
+
+        if (hasArmorSet(player)) {
+            return component.withStyle(style -> style.withColor(getTextColor()));
+        }
+        else {
+            return component.withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.STRIKETHROUGH);
+        }
     }
 
     @Override
@@ -121,10 +145,10 @@ public class TerrestrialModifier extends NoLevelsModifier {
         return armor.getUpgrades().getLevel(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId()) > 0;
     }
 
-    public static boolean hasArmorSet(ServerPlayer sp) {
+    public static boolean hasArmorSet(Player player) {
         AtomicBoolean hasSet = new AtomicBoolean(false);
 
-        sp.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
+        player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
             hasSet.set(data.hasTerrestrial());
         });
 
