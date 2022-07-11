@@ -3,8 +3,10 @@ package tcintegrations.util;
 import com.google.common.collect.Iterables;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -21,7 +23,6 @@ import vazkii.botania.common.entity.EntityPixie;
 import vazkii.botania.xplat.IXplatAbstractions;
 
 import tcintegrations.common.capabilities.CapabilityRegistry;
-import tcintegrations.items.armor.modifiers.GreatFairyModifier;
 
 public class BotaniaHelper {
 
@@ -37,7 +38,7 @@ public class BotaniaHelper {
 
         pixie.setPos(sp.getX(), sp.getY() + 2, sp.getZ());
 
-        if (GreatFairyModifier.hasArmorSet(sp)) {
+        if (hasGreatFairyArmorSet(sp)) {
             pixie.setApplyPotionEffect(new MobEffectInstance(potions[sp.level.random.nextInt(potions.length)], 40, 0));
         }
 
@@ -86,6 +87,37 @@ public class BotaniaHelper {
         }
 
         return false;
+    }
+
+    public static boolean hasTerrestrialArmorSet() {
+        Player player = Minecraft.getInstance().player;
+
+        return hasTerrestrialArmorSet(player);
+    }
+
+    public static boolean hasTerrestrialArmorSet(Player player) {
+        AtomicBoolean hasSet = new AtomicBoolean(false);
+
+        player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
+            hasSet.set(data.hasTerrestrial());
+        });
+
+        return hasSet.get();
+    }
+
+    public static boolean hasGreatFairyArmorSet() {
+        Player player = Minecraft.getInstance().player;
+
+        return hasGreatFairyArmorSet(player);
+    }
+    public static boolean hasGreatFairyArmorSet(Player player) {
+        AtomicBoolean hasSet = new AtomicBoolean(false);
+
+        player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
+            hasSet.set(data.hasGreatFairy());
+        });
+
+        return hasSet.get();
     }
 
 }

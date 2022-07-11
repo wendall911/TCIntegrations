@@ -1,9 +1,6 @@
 package tcintegrations.items.armor.modifiers;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -49,9 +46,7 @@ public class GreatFairyModifier extends Modifier {
 
     @Override
     public MutableComponent applyStyle(MutableComponent component) {
-        Player player = Minecraft.getInstance().player;
-
-        if (hasArmorSet(player)) {
+        if (BotaniaHelper.hasGreatFairyArmorSet()) {
             return component.withStyle(style -> style.withColor(getTextColor()));
         }
         else {
@@ -119,7 +114,7 @@ public class GreatFairyModifier extends Modifier {
                 && !player.level.isClientSide
                 && source.getEntity() instanceof LivingEntity attacker
                 && isDirectDamage
-                && hasArmorSet(player)) {
+                && BotaniaHelper.hasGreatFairyArmorSet(player)) {
             final ServerPlayer sp = (ServerPlayer) player;
             final Float chance = switch(slotType) {
                 case HEAD -> 0.11F;
@@ -144,16 +139,6 @@ public class GreatFairyModifier extends Modifier {
         if (armor.isBroken()) return false;
 
         return armor.getUpgrades().getLevel(TCIntegrationsItems.GREAT_FAIRY_MODIFIER.getId()) > 0;
-    }
-
-    public static boolean hasArmorSet(Player player) {
-        AtomicBoolean hasSet = new AtomicBoolean(false);
-
-        player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
-            hasSet.set(data.hasGreatFairy());
-        });
-
-        return hasSet.get();
     }
 
 }

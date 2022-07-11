@@ -1,9 +1,6 @@
 package tcintegrations.items.armor.modifiers;
 
-import java.util.concurrent.atomic.AtomicBoolean;
-
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -46,9 +43,7 @@ public class TerrestrialModifier extends Modifier {
 
     @Override
     public MutableComponent applyStyle(MutableComponent component) {
-        Player player = Minecraft.getInstance().player;
-
-        if (hasArmorSet(player)) {
+        if (BotaniaHelper.hasTerrestrialArmorSet()) {
             return component.withStyle(style -> style.withColor(getTextColor()));
         }
         else {
@@ -106,7 +101,7 @@ public class TerrestrialModifier extends Modifier {
                 && itemSlot == EquipmentSlot.HEAD.getIndex()) {
             final ServerPlayer sp = (ServerPlayer) player;
 
-            if (hasArmorSet(sp)) {
+            if (BotaniaHelper.hasTerrestrialArmorSet(sp)) {
                 // Heal player
                 if (sp.tickCount % 80 == 0) {
                     int food = sp.getFoodData().getFoodLevel();
@@ -143,16 +138,6 @@ public class TerrestrialModifier extends Modifier {
         if (armor.isBroken()) return false;
 
         return armor.getUpgrades().getLevel(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId()) > 0;
-    }
-
-    public static boolean hasArmorSet(Player player) {
-        AtomicBoolean hasSet = new AtomicBoolean(false);
-
-        player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
-            hasSet.set(data.hasTerrestrial());
-        });
-
-        return hasSet.get();
     }
 
 }
