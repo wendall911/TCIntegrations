@@ -222,6 +222,7 @@ curseforge {
                     optionalLibrary 'catalogue'
                     optionalLibrary 'immersive-engineering'
                     optionalLibrary 'botania'
+                    optionalLibrary 'create'
                 }
             }
         }
