@@ -10,7 +10,7 @@
     "tag": "tconstruct:modifiable/melee/primary"
   },
   "slots": {
-    "upgrades": 1
+    "abilities": 1
   },
   "modifier": "tcintegrations:mechanical_arm",
   "min_level": 1

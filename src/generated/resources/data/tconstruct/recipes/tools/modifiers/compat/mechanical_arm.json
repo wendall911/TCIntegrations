@@ -15,7 +15,7 @@
     "tag": "tconstruct:modifiable/melee/primary"
   },
   "slots": {
-    "upgrades": 1
+    "abilities": 1
   },
   "result": {
     "name": "tcintegrations:mechanical_arm",
