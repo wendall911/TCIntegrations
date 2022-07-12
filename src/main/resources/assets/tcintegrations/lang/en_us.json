@@ -33,5 +33,8 @@
     "modifier.tcintegrations.moderate": "Moderate",
     "modifier.tcintegrations.moderate.flavor": "Moderate Mining",
     "modifier.tcintegrations.moderate.description": "Tool mines faster when in moderate temperatures",
-    "modifier.tcintegrations.moderate.mining_speed": "Moderate Speed"
+    "modifier.tcintegrations.moderate.mining_speed": "Moderate Speed",
+    "modifier.tcintegrations.mechanical_arm": "Mechanical Arm",
+    "modifier.tcintegrations.mechanical_arm.flavor": "So strong!",
+    "modifier.tcintegrations.mechanical_arm.description": "Adds ability to attack with any melee weapon in the offhand."
 }

@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "create",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "create:mechanical_arm"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/melee/primary"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "result": {
+    "name": "tcintegrations:mechanical_arm",
+    "level": 1
+  },
+  "max_level": 1
+}
