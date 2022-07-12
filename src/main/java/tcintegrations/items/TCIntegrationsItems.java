@@ -30,6 +30,7 @@ import tcintegrations.items.armor.modifiers.TerrestrialModifier;
 import tcintegrations.items.tool.modifiers.ElementalModifier;
 import tcintegrations.items.tool.modifiers.LivingwoodModifier;
 import tcintegrations.items.tool.modifiers.ManaItemModifier;
+import tcintegrations.items.tool.modifiers.ModerateModifier;
 import tcintegrations.items.tool.modifiers.TerraModifier;
 import tcintegrations.TCIntegrations;
 
@@ -48,6 +49,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
     public static StaticModifier<ElementalModifier> ELEMENTAL_MODIFIER;
     public static StaticModifier<TerrestrialModifier> TERRESTRIAL_MODIFIER;
     public static StaticModifier<GreatFairyModifier> GREAT_FAIRY_MODIFIER;
+    public static StaticModifier<ModerateModifier> MODERATE_MODIFIER;
 
     public static void init() {
         ITEM_TAB_GROUP = new CreativeTabBase(TCIntegrations.MODID + ".items", () -> new ItemStack(BRONZE.getNugget()));
@@ -76,6 +78,8 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
             TERRESTRIAL_MODIFIER = MODIFIERS_REGISTRY.register("terrestrial", TerrestrialModifier::new);
             GREAT_FAIRY_MODIFIER = MODIFIERS_REGISTRY.register("great_fairy", GreatFairyModifier::new);
         }
+
+        MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);
     }
 
     private static FluidAttributes.Builder hotBuilder() {

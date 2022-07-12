@@ -1,0 +1,8 @@
+{
+  "default": [
+    {
+      "name": "tcintegrations:moderate",
+      "level": 1
+    }
+  ]
+}

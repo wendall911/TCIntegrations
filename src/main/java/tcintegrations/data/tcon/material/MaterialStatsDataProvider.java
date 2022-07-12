@@ -8,6 +8,8 @@ import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
 import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
 import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
+import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
+
 import static net.minecraft.world.item.Tiers.DIAMOND;
 import static net.minecraft.world.item.Tiers.STONE;
 import static net.minecraft.world.item.Tiers.WOOD;
@@ -39,8 +41,12 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
 
         // tier 3 (mod integration)
         addMaterialStats(MaterialIds.manaSteel,
-                new HeadMaterialStats(775, 6f, DIAMOND, 2.75f),
-                HandleMaterialStats.DEFAULT.withDurability(1.05f).withMiningSpeed(1.05f).withAttackSpeed(1.05f),
+                new HeadMaterialStats(775, 6F, DIAMOND, 2.75F),
+                HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.05F).withAttackSpeed(1.05F),
+                ExtraMaterialStats.DEFAULT);
+        addMaterialStats(brass,
+                new HeadMaterialStats(730, 6.0F, DIAMOND, 2.25F),
+                HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.15F),
                 ExtraMaterialStats.DEFAULT);
     }
 

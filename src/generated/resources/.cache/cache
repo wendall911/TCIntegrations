@@ -77,3 +77,5 @@ f7d732748fba956f30eca5584e7c2e50c0ef2f21 data/tconstruct/tags/fluids/spilling/me
 f7d732748fba956f30eca5584e7c2e50c0ef2f21 data/tconstruct/tags/fluids/tooltips/metal.json
 0df4214355f9709130c2769748465b9489626f26 data/tconstruct/tags/items/wood_variants/logs.json
 5e6b48372842f66f46632b87d5953a0f07d5a819 data/tconstruct/tags/items/wood_variants/planks.json
+93bd260781139ce778ca6f0bbb67ae2d9b30e562 data/tconstruct/tinkering/materials/stats/brass.json
+19b4ef3734d7711a492d225903e5e21df1b55537 data/tconstruct/tinkering/materials/traits/brass.json

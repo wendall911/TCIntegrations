@@ -7,6 +7,8 @@ import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataPr
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
+import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
+
 public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvider {
 
     public MaterialTraitsDataProvider(DataGenerator gen, AbstractMaterialDataProvider materials) {
@@ -23,6 +25,7 @@ public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvide
         addDefaultTraits(MaterialIds.livingWood, TciModifierIds.livingwood);
         addDefaultTraits(MaterialIds.livingRock, TinkerModifiers.stonebound);
         addDefaultTraits(MaterialIds.manaSteel, ModifierIds.ductile, TciModifierIds.mana);
+        addDefaultTraits(brass, TciModifierIds.moderate);
     }
 
 }
