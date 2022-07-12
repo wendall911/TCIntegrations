@@ -13,6 +13,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String BOTANIA_MODID = "botania";
     public static final String IE_MODID = "immersiveengineering";
     public static final String TCON_MODID = "tconstruct";
+    public static final String CREATE_MODID = "create";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
 

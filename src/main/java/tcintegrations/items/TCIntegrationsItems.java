@@ -21,16 +21,9 @@ import slimeknights.mantle.registration.ModelFluidAttributes;
 import slimeknights.mantle.registration.object.FluidObject;
 import slimeknights.mantle.registration.object.MetalItemObject;
 
-import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
-
 import tcintegrations.client.CreativeTabBase;
 import tcintegrations.common.TCIntegrationsModule;
-import tcintegrations.items.armor.modifiers.GreatFairyModifier;
-import tcintegrations.items.armor.modifiers.TerrestrialModifier;
-import tcintegrations.items.tool.modifiers.ElementalModifier;
-import tcintegrations.items.tool.modifiers.LivingwoodModifier;
-import tcintegrations.items.tool.modifiers.ManaItemModifier;
-import tcintegrations.items.tool.modifiers.TerraModifier;
+import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.TCIntegrations;
 
 public final class TCIntegrationsItems extends TCIntegrationsModule {
@@ -42,19 +35,12 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
 
     public static MetalItemObject BRONZE;
 
-    public static StaticModifier<ManaItemModifier> MANA_MODIFIER;
-    public static StaticModifier<LivingwoodModifier> LIVINGWOOD_MODIFIER;
-    public static StaticModifier<TerraModifier> TERRA_MODIFIER;
-    public static StaticModifier<ElementalModifier> ELEMENTAL_MODIFIER;
-    public static StaticModifier<TerrestrialModifier> TERRESTRIAL_MODIFIER;
-    public static StaticModifier<GreatFairyModifier> GREAT_FAIRY_MODIFIER;
-
     public static void init() {
         ITEM_TAB_GROUP = new CreativeTabBase(TCIntegrations.MODID + ".items", () -> new ItemStack(BRONZE.getNugget()));
         GENERAL_TOOLTIP_BLOCK_ITEM = (b) -> new BlockTooltipItem(b, new Item.Properties().tab(ITEM_TAB_GROUP));
 
         // Fluids
-        if (ModList.get().isLoaded("botania")) {
+        if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
             MANASTEEL = FLUID_REGISTRY.register(
                     "manasteel", hotBuilder().temperature(1250), Material.LAVA, 13);
         }
@@ -66,16 +52,6 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
             GENERAL_TOOLTIP_BLOCK_ITEM,
             new Item.Properties().tab(ITEM_TAB_GROUP)
         );
-
-        // Modifiers
-        if (ModList.get().isLoaded("botania")) {
-            MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaItemModifier::new);
-            LIVINGWOOD_MODIFIER = MODIFIERS_REGISTRY.register("livingwood", LivingwoodModifier::new);
-            TERRA_MODIFIER = MODIFIERS_REGISTRY.register("terra", TerraModifier::new);
-            ELEMENTAL_MODIFIER = MODIFIERS_REGISTRY.register("elemental", ElementalModifier::new);
-            TERRESTRIAL_MODIFIER = MODIFIERS_REGISTRY.register("terrestrial", TerrestrialModifier::new);
-            GREAT_FAIRY_MODIFIER = MODIFIERS_REGISTRY.register("great_fairy", GreatFairyModifier::new);
-        }
     }
 
     private static FluidAttributes.Builder hotBuilder() {

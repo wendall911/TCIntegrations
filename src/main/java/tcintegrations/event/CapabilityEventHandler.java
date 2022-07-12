@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 
 import tcintegrations.common.capabilities.BotaniaSet;
 import tcintegrations.TCIntegrations;
+import tcintegrations.data.integration.ModIntegration;
 
 @Mod.EventBusSubscriber(modid= TCIntegrations.MODID)
 public class CapabilityEventHandler {
@@ -19,7 +20,7 @@ public class CapabilityEventHandler {
     @SubscribeEvent
     public static void addCapability(AttachCapabilitiesEvent<Entity> event) {
         if (event.getObject() instanceof Player && !(event.getObject() instanceof FakePlayer)) {
-            if (ModList.get().isLoaded("botania")) {
+            if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
                 event.addCapability(
                     new ResourceLocation(TCIntegrations.MODID, "botaniaset"),
                     new BotaniaSet.Provider()

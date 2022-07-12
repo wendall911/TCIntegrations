@@ -12,6 +12,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import tcintegrations.config.ConfigHandler;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
+import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.network.NetworkHandler;
 
 public class CommonProxy {
@@ -21,6 +22,7 @@ public class CommonProxy {
 
         ConfigHandler.init();
         TCIntegrationsItems.init();
+        TCIntegrationsModifiers.init();
         registerListeners(bus);
     }
 

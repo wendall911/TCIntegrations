@@ -23,7 +23,7 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import vazkii.botania.api.mana.ManaItemHandler;
 
 import tcintegrations.common.capabilities.CapabilityRegistry;
-import tcintegrations.items.TCIntegrationsItems;
+import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.network.BotaniaSetData;
 import tcintegrations.network.NetworkHandler;
 import tcintegrations.util.BotaniaHelper;
@@ -137,7 +137,7 @@ public class TerrestrialModifier extends Modifier {
 
         if (armor.isBroken()) return false;
 
-        return armor.getUpgrades().getLevel(TCIntegrationsItems.TERRESTRIAL_MODIFIER.getId()) > 0;
+        return armor.getUpgrades().getLevel(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId()) > 0;
     }
 
 }

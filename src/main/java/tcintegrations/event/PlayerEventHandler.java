@@ -10,6 +10,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 
 import tcintegrations.common.capabilities.CapabilityRegistry;
+import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.network.BotaniaSetData;
 import tcintegrations.network.NetworkHandler;
 import tcintegrations.TCIntegrations;
@@ -24,7 +25,7 @@ public class PlayerEventHandler {
         if (player != null && !player.level.isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
 
-            if (ModList.get().isLoaded("botania")) {
+            if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
                 sp.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
 
                     NetworkHandler.INSTANCE.send(
