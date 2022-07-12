@@ -25,7 +25,7 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 import vazkii.botania.api.mana.ManaItemHandler;
 
 import tcintegrations.common.capabilities.CapabilityRegistry;
-import tcintegrations.items.TCIntegrationsItems;
+import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.network.BotaniaSetData;
 import tcintegrations.network.NetworkHandler;
 import tcintegrations.TCIntegrations;
@@ -138,7 +138,7 @@ public class GreatFairyModifier extends Modifier {
 
         if (armor.isBroken()) return false;
 
-        return armor.getUpgrades().getLevel(TCIntegrationsItems.GREAT_FAIRY_MODIFIER.getId()) > 0;
+        return armor.getUpgrades().getLevel(TCIntegrationsModifiers.GREAT_FAIRY_MODIFIER.getId()) > 0;
     }
 
 }
