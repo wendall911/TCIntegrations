@@ -4,6 +4,7 @@ import net.minecraftforge.fml.ModList;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.data.integration.ModIntegration;
+import tcintegrations.items.armor.modifiers.EngineersGogglesModifier;
 import tcintegrations.items.armor.modifiers.GreatFairyModifier;
 import tcintegrations.items.armor.modifiers.TerrestrialModifier;
 import tcintegrations.items.tool.modifiers.ElementalModifier;
@@ -23,6 +24,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<GreatFairyModifier> GREAT_FAIRY_MODIFIER;
     public static StaticModifier<ModerateModifier> MODERATE_MODIFIER;
     public static StaticModifier<MechanicalArmModifier> MECHANICAL_ARM_MODIFIER;
+    public static StaticModifier<EngineersGogglesModifier> ENGINEERS_GOGGLES_MODIFIER;
 
     public static void init() {
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
@@ -36,6 +38,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModList.get().isLoaded(ModIntegration.CREATE_MODID)) {
             MECHANICAL_ARM_MODIFIER = MODIFIERS_REGISTRY.register("mechanical_arm", MechanicalArmModifier::new);
+            ENGINEERS_GOGGLES_MODIFIER = MODIFIERS_REGISTRY.register("engineers_goggles", EngineersGogglesModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);

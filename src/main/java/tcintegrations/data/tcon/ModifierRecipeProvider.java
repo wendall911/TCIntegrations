@@ -4,6 +4,7 @@ import com.simibubi.create.AllBlocks;
 
 import java.util.function.Consumer;
 
+import com.simibubi.create.AllItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
@@ -133,10 +134,18 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.MECHANICAL_ARM_MODIFIER)
                 .setTools(TinkerTags.Items.MELEE_PRIMARY)
                 .addInput(AllBlocks.MECHANICAL_ARM.asStack().getItem())
-                .setSlots(SlotType.UPGRADE, 1)
+                .setSlots(SlotType.ABILITY, 1)
                 .setMaxLevel(1)
                 .saveSalvage(createConsumer, prefix(TCIntegrationsModifiers.MECHANICAL_ARM_MODIFIER, compatSalvage))
                 .save(createConsumer, prefix(TCIntegrationsModifiers.MECHANICAL_ARM_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ENGINEERS_GOGGLES_MODIFIER)
+                .setTools(TinkerTags.Items.HELMETS)
+                .addInput(AllItems.GOGGLES.get())
+                .setSlots(SlotType.ABILITY, 1)
+                .setMaxLevel(1)
+                .saveSalvage(createConsumer, prefix(TCIntegrationsModifiers.ENGINEERS_GOGGLES_MODIFIER, compatSalvage))
+                .save(createConsumer, prefix(TCIntegrationsModifiers.ENGINEERS_GOGGLES_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

@@ -36,5 +36,8 @@
     "modifier.tcintegrations.moderate.mining_speed": "Moderate Speed",
     "modifier.tcintegrations.mechanical_arm": "Mechanical Arm",
     "modifier.tcintegrations.mechanical_arm.flavor": "So strong!",
-    "modifier.tcintegrations.mechanical_arm.description": "Adds ability to attack with any melee weapon in the offhand."
+    "modifier.tcintegrations.mechanical_arm.description": "Adds ability to attack with any melee weapon in the offhand.",
+    "modifier.tcintegrations.engineers_goggles": "Engineer's Goggles",
+    "modifier.tcintegrations.engineers_goggles.flavor": "Showing Stress",
+    "modifier.tcintegrations.engineers_goggles.description": "Works as expected. Can show stress of machine and fluid capacity in tanks."
 }
