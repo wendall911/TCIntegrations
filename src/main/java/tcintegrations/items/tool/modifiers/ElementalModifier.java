@@ -28,13 +28,13 @@ public class ElementalModifier extends ManaItemModifier {
     private static final int MANA_PER_DAMAGE = 70;
 
     @Override
-    public int getManaPerDamage(Player player) {
+    public int getManaPerDamage(ServerPlayer player) {
         return BotaniaHelper.getManaPerDamageBonus(player, MANA_PER_DAMAGE);
     }
 
     @Override
     public int afterEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damageDealt) {
-        Player player = context.getPlayerAttacker();
+        final Player player = context.getPlayerAttacker() != null ? (Player) context.getPlayerAttacker() : null;
 
         if (player != null && !player.level.isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
@@ -56,13 +56,13 @@ public class ElementalModifier extends ManaItemModifier {
 
         Entity entity = context.getParamOrNull(LootContextParams.THIS_ENTITY);
 
-        if (entity != null && entity.getType().is(TagManager.EntityTypes.ELEMENTAL_SEVERING_MOBS)) {
+        if (entity != null && !entity.level.isClientSide && entity.getType().is(TagManager.EntityTypes.ELEMENTAL_SEVERING_MOBS)) {
             if (generatedLoot.stream().noneMatch(stack -> stack.is(Tags.Items.HEADS))) {
                 List<SeveringRecipe> recipes = SeveringRecipeCache.findRecipe(context.getLevel().getRecipeManager(), entity.getType());
 
                 if (!recipes.isEmpty()) {
                     float chance = 0.0769F;
-                    EntityType entityType = entity.getType();
+                    EntityType<?> entityType = entity.getType();
 
                     if (entityType == EntityType.SKELETON || entityType == EntityType.WITHER_SKELETON) {
                         chance = 0.1154F;

@@ -1,5 +1,6 @@
 package tcintegrations.items.tool.modifiers;
 
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
@@ -20,21 +21,25 @@ public class TerraModifier extends ManaItemModifier {
     private static final int MANA_PER_DAMAGE = 100;
 
     @Override
-    public int getManaPerDamage(Player player) {
-        return BotaniaHelper.getManaPerDamageBonus(player, MANA_PER_DAMAGE);
+    public int getManaPerDamage(ServerPlayer sp) {
+        return BotaniaHelper.getManaPerDamageBonus(sp, MANA_PER_DAMAGE);
     }
 
     @Override
     public int afterEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damageDealt) {
-        Player player = context.getPlayerAttacker();
-        DamageSource source = DamageSource.playerAttack(player);
-        ItemStack stack = player.getItemInHand(InteractionHand.MAIN_HAND);
+        final Player player = context.getPlayerAttacker() != null ? (Player) context.getPlayerAttacker() : null;
 
-        source.bypassArmor();
+        if (player != null && !player.level.isClientSide) {
+            final ServerPlayer sp = (ServerPlayer) player;
+            DamageSource source = DamageSource.playerAttack(sp);
+            ItemStack stack = sp.getItemInHand(InteractionHand.MAIN_HAND);
 
-        if (player.getAttackStrengthScale(0F) == 1 && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage(player) * 2, true)) {
-            player.level.playSound(null, player.getX(), player.getY(), player.getZ(), ModSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
-            ToolAttackUtil.attackEntitySecondary(source, 7.0F, context.getTarget(), context.getLivingTarget(), true);
+            source.bypassArmor();
+
+            if (sp.getAttackStrengthScale(0F) == 1 && ManaItemHandler.instance().requestManaExactForTool(stack, sp, getManaPerDamage(sp) * 2, true)) {
+                sp.level.playSound(null, sp.getX(), sp.getY(), sp.getZ(), ModSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+                ToolAttackUtil.attackEntitySecondary(source, 7.0F, context.getTarget(), context.getLivingTarget(), true);
+            }
         }
 
         return 0;

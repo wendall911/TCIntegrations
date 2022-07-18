@@ -26,14 +26,15 @@ import tcintegrations.common.capabilities.CapabilityRegistry;
 import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.network.BotaniaSetData;
 import tcintegrations.network.NetworkHandler;
+import tcintegrations.util.BotaniaClientHelper;
 import tcintegrations.util.BotaniaHelper;
 
 public class TerrestrialModifier extends Modifier {
 
     private static final int MANA_PER_DAMAGE = 70;
 
-    public int getManaPerDamage(Player player) {
-        return BotaniaHelper.getManaPerDamageBonus(player, MANA_PER_DAMAGE);
+    public int getManaPerDamage(ServerPlayer sp) {
+        return BotaniaHelper.getManaPerDamageBonus(sp, MANA_PER_DAMAGE);
     }
 
     @Override
@@ -43,7 +44,7 @@ public class TerrestrialModifier extends Modifier {
 
     @Override
     public MutableComponent applyStyle(MutableComponent component) {
-        if (BotaniaHelper.hasTerrestrialArmorSet()) {
+        if (BotaniaClientHelper.hasTerrestrialArmorSet()) {
             return component.withStyle(style -> style.withColor(getTextColor()));
         }
         else {
@@ -95,36 +96,37 @@ public class TerrestrialModifier extends Modifier {
 
     @Override
     public void onInventoryTick(IToolStackView tool, int level, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
-        if (!world.isClientSide
-                && holder instanceof Player player
-                // Only fire for one armor item
-                && itemSlot == EquipmentSlot.HEAD.getIndex()) {
+        final Player player = holder instanceof Player ? (Player) holder : null;
+
+        if (player != null && !player.level.isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
 
-            if (BotaniaHelper.hasTerrestrialArmorSet(sp)) {
-                // Heal player
-                if (sp.tickCount % 80 == 0) {
-                    int food = sp.getFoodData().getFoodLevel();
+            // Only fire for one armor item
+            if (itemSlot == EquipmentSlot.HEAD.getIndex()) {
 
-                    if (food > 0 && food < 18 && sp.isHurt()) {
-                        sp.heal(1F);
+                if (BotaniaHelper.hasTerrestrialArmorSet(sp)) {
+                    // Heal player
+                    if (sp.tickCount % 80 == 0) {
+                        int food = sp.getFoodData().getFoodLevel();
+
+                        if (food > 0 && food < 18 && sp.isHurt()) {
+                            sp.heal(1F);
+                        }
                     }
+                }
+
+                // Mana generation
+                if (sp.tickCount % 10 == 0) {
+                    BotaniaHelper.dispatchManaExact(sp, 10);
                 }
             }
 
-            // Mana generation
-            if (player.tickCount % 10 == 0) {
-                BotaniaHelper.dispatchManaExact(player, 10);
+            // Heal armor if damaged and has mana source
+            if (sp.tickCount % 20 == 0
+                    && tool.getDamage() > 0
+                    && ManaItemHandler.instance().requestManaExactForTool(stack, sp, getManaPerDamage(sp) * 2, true)) {
+                tool.setDamage(tool.getDamage() - 1);
             }
-        }
-
-        // Heal armor if damaged and has mana source
-        if (!world.isClientSide
-                && holder.tickCount % 20 == 0
-                && holder instanceof Player player
-                && tool.getDamage() > 0
-                && ManaItemHandler.instance().requestManaExactForTool(stack, player, getManaPerDamage(player) * 2, true)) {
-            tool.setDamage(tool.getDamage() - 1);
         }
     }
 

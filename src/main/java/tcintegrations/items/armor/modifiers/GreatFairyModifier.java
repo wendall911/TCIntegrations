@@ -29,6 +29,7 @@ import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.network.BotaniaSetData;
 import tcintegrations.network.NetworkHandler;
 import tcintegrations.TCIntegrations;
+import tcintegrations.util.BotaniaClientHelper;
 import tcintegrations.util.BotaniaHelper;
 
 public class GreatFairyModifier extends Modifier {
@@ -46,7 +47,7 @@ public class GreatFairyModifier extends Modifier {
 
     @Override
     public MutableComponent applyStyle(MutableComponent component) {
-        if (BotaniaHelper.hasGreatFairyArmorSet()) {
+        if (BotaniaClientHelper.hasGreatFairyArmorSet()) {
             return component.withStyle(style -> style.withColor(getTextColor()));
         }
         else {

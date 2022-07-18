@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -72,7 +71,7 @@ public class BotaniaHelper {
         return (int) (mana * decreaseModifier.get());
     }
 
-    public static boolean dispatchManaExact(Player player, int manaToSend) {
+    public static boolean dispatchManaExact(ServerPlayer player, int manaToSend) {
         List<ItemStack> items = ManaItemHandler.INSTANCE.get().getManaItems(player);
         List<ItemStack> acc = ManaItemHandler.INSTANCE.get().getManaAccesories(player);
 
@@ -89,12 +88,6 @@ public class BotaniaHelper {
         return false;
     }
 
-    public static boolean hasTerrestrialArmorSet() {
-        Player player = Minecraft.getInstance().player;
-
-        return hasTerrestrialArmorSet(player);
-    }
-
     public static boolean hasTerrestrialArmorSet(Player player) {
         AtomicBoolean hasSet = new AtomicBoolean(false);
 
@@ -105,11 +98,6 @@ public class BotaniaHelper {
         return hasSet.get();
     }
 
-    public static boolean hasGreatFairyArmorSet() {
-        Player player = Minecraft.getInstance().player;
-
-        return hasGreatFairyArmorSet(player);
-    }
     public static boolean hasGreatFairyArmorSet(Player player) {
         AtomicBoolean hasSet = new AtomicBoolean(false);
 
