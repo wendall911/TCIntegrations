@@ -18,6 +18,7 @@ import slimeknights.tconstruct.library.recipe.alloying.AlloyRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.smeltery.data.Byproduct;
 
+import tcintegrations.common.json.ConfigEnabledCondition;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.data.tcon.SmelteryCompat;
 import tcintegrations.items.TCIntegrationsItems;
@@ -68,17 +69,15 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
 
     private void addAlloyRecipes(Consumer<FinishedRecipe> consumer) {
         String folder = "smeltery/alloys/";
-        Consumer<FinishedRecipe> botaniaConsumer = withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID));
 
         ConditionalRecipe.builder()
-            // TODO: Fix ConfigEnabledCondition. No idea why it isn't registering properly
-            //.addCondition(ConfigEnabledCondition.BRONZE_RECIPE)
+            .addCondition(ConfigEnabledCondition.BRONZE_RECIPE)
             .addCondition(TrueCondition.INSTANCE)
             .addRecipe(
                 AlloyRecipeBuilder.alloy(TinkerFluids.moltenBronze.get(), FluidValues.INGOT * 4)
                     .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT * 3)
                     .addInput(TinkerFluids.moltenQuartz.getLocalTag(), FluidValues.GEM)::save)
-            .build(botaniaConsumer, prefix(TinkerFluids.moltenBronze, folder));
+            .build(consumer, prefix(TinkerFluids.moltenBronze, folder));
     }
 
 }

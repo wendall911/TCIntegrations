@@ -11,7 +11,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import tcintegrations.common.TCIntegrationsCommon;
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.proxy.ClientProxy;
 import tcintegrations.proxy.ServerProxy;
@@ -33,8 +32,6 @@ public class TCIntegrations {
         MinecraftForge.EVENT_BUS.register(INSTANCE);
 
         TCIntegrationsModule.initRegistries(TCIntegrations.BUS);
-
-        BUS.register(new TCIntegrationsCommon());
 
         DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
     }
