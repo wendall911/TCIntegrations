@@ -225,6 +225,8 @@ curseforge {
                     optionalLibrary 'immersive-engineering'
                     optionalLibrary 'botania'
                     optionalLibrary 'create'
+                    optionalLibrary 'ars-nouveau'
+                    optionalLibrary 'tinkersurvival'
                 }
             }
         }
