@@ -44,3 +44,9 @@ issueTrackerURL="https://github.com/wendall911/TCIntegrations/issues"
     versionRange="[0,]"
     ordering="AFTER"
     side="BOTH"
+[[dependencies.tcintegrations]]
+    modId="aquaculture"
+    mandatory=false
+    versionRange="[0,]"
+    ordering="AFTER"
+    side="BOTH"
