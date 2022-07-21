@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "aquaculture",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "aquaculture:neptunium_ingot"
+    },
+    {
+      "item": "aquaculture:neptunium_ingot"
+    },
+    {
+      "item": "aquaculture:neptunium_ingot"
+    },
+    {
+      "item": "aquaculture:tin_can"
+    },
+    {
+      "item": "aquaculture:redstone_hook"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "result": {
+    "name": "tcintegrations:poseidon",
+    "level": 1
+  },
+  "max_level": 1
+}
