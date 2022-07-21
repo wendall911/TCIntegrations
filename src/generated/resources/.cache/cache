@@ -50,6 +50,7 @@ e81d330c9c0c4b7c5acea9b12fd40c7e359228d1 data/tconstruct/recipes/smeltery/meltin
 18b8347be63bc9071887e6b4496a4911fc5eb1f5 data/tconstruct/recipes/smeltery/melting/metal/manasteel/rod.json
 f3b12e365ad99341014aba7e370b657c61437688 data/tconstruct/recipes/smeltery/melting/metal/manasteel/sheetmetal.json
 7017fd4e44df007c92fc4f9ae1761030c0f9d448 data/tconstruct/recipes/smeltery/melting/metal/manasteel/wire.json
+7402b5c48864eb0638cc9c0bc8aedad6dc881fe4 data/tconstruct/recipes/tools/materials/casting/brass.json
 0f33fd077dc6cf88bd9a034bca0d184382120b24 data/tconstruct/recipes/tools/materials/casting/manasteel.json
 f950edd5581859c6df7d6a594dd8dc1e28c7e53f data/tconstruct/recipes/tools/materials/livingrock.json
 1da314ebc636807a895793c58270c427ef3cff54 data/tconstruct/recipes/tools/materials/livingwood/logs.json
@@ -57,6 +58,7 @@ f950edd5581859c6df7d6a594dd8dc1e28c7e53f data/tconstruct/recipes/tools/materials
 97717c760469ffe00760e8617240763c16ce665c data/tconstruct/recipes/tools/materials/manasteel/block.json
 acbb31e4503371da9d72d28c6fd462296ba38eb7 data/tconstruct/recipes/tools/materials/manasteel/ingot.json
 154a06543c79940c70c2eb7480cd37f94dac4127 data/tconstruct/recipes/tools/materials/manasteel/nugget.json
+b08f1865265a5028b8b4b583a3bec8536f940926 data/tconstruct/recipes/tools/materials/melting/brass.json
 a29ced4cd633104ab42346db6f789139379f1f6e data/tconstruct/recipes/tools/materials/melting/manasteel.json
 652bed06031c80100f163d4c32a1996d37cf2e6d data/tconstruct/recipes/tools/modifiers/compat/elemental.json
 d311b05fb6b56a29dd7f090d59910025b08b2110 data/tconstruct/recipes/tools/modifiers/compat/engineers_goggles.json

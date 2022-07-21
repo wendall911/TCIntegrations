@@ -10,7 +10,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import slimeknights.mantle.recipe.helper.ItemOutput;
 import slimeknights.tconstruct.common.data.BaseRecipeProvider;
+import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
+import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
 
 import vazkii.botania.common.block.ModBlocks;
 
@@ -50,6 +52,7 @@ public class MaterialRecipeProvider extends BaseRecipeProvider implements IMater
     private void addMaterialSmeltery(Consumer<FinishedRecipe> consumer) {
         String folder = "tools/materials/";
 
+        compatMeltingCasting(consumer, brass, TinkerFluids.moltenBrass, folder);
         compatMeltingCasting(consumer, MaterialIds.manaSteel, TCIntegrationsItems.MANASTEEL, folder);
     }
 
