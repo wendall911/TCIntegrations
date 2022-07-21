@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "aquaculture",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "aquaculture:neptunium_ingot"
+    },
+    {
+      "item": "aquaculture:neptunium_ingot"
+    },
+    {
+      "item": "aquaculture:neptunium_ingot"
+    },
+    {
+      "item": "aquaculture:fish_fillet_raw"
+    },
+    {
+      "item": "aquaculture:iron_hook"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/melee_or_harvest"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "result": {
+    "name": "tcintegrations:siren",
+    "level": 1
+  },
+  "max_level": 1
+}
