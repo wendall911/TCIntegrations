@@ -45,8 +45,12 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
                 HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.05F).withAttackSpeed(1.05F),
                 ExtraMaterialStats.DEFAULT);
         addMaterialStats(brass,
-                new HeadMaterialStats(730, 6.0F, DIAMOND, 2.25F),
+                new HeadMaterialStats(730, 6F, DIAMOND, 2.25F),
                 HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.15F),
+                ExtraMaterialStats.DEFAULT);
+        addMaterialStats(MaterialIds.neptunium,
+                new HeadMaterialStats(765, 7F, DIAMOND, 2.65F),
+                HandleMaterialStats.DEFAULT.withDurability(1.15F).withMiningSpeed(1.25F).withAttackSpeed(1.2F),
                 ExtraMaterialStats.DEFAULT);
     }
 

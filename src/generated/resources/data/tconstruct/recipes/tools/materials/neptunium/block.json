@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:storage_blocks/neptunium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "aquaculture",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:storage_blocks/neptunium"
+  },
+  "value": 9,
+  "needed": 1,
+  "material": "tcintegrations:neptunium",
+  "leftover": {
+    "tag": "forge:ingots/neptunium"
+  }
+}

@@ -8,6 +8,9 @@
         "great_fairy": "#CC5FE4",
         "moderate": "#EDD578",
         "mechanical_arm": "#C4974B",
-        "engineers_goggles": "#3A6E7B"
+        "engineers_goggles": "#3A6E7B",
+        "water_powered": "#1AF5B9",
+        "poseidon": "#07A378",
+        "siren": "#8CFBDC"
     }
 }

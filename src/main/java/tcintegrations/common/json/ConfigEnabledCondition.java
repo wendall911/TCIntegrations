@@ -25,8 +25,8 @@ import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.IConditionSerializer;
 
 import tcintegrations.config.ConfigHandler;
-import tcintegrations.common.TCIntegrationsCommon;
 import tcintegrations.TCIntegrations;
+import tcintegrations.proxy.CommonProxy;
 
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class ConfigEnabledCondition implements ICondition, LootItemCondition {
@@ -60,7 +60,7 @@ public class ConfigEnabledCondition implements ICondition, LootItemCondition {
 
     @Override
     public LootItemConditionType getType() {
-        return TCIntegrationsCommon.LOOT_CONFIG;
+        return CommonProxy.LOOT_CONFIG;
     }
 
     private static class ConfigSerializer implements Serializer<ConfigEnabledCondition>, IConditionSerializer<ConfigEnabledCondition> {

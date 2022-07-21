@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "tcintegrations:neptunium",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_neptunium",
+      "required": false
+    }
+  ]
+}

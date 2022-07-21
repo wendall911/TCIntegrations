@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "modid": "aquaculture",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/neptunium"
+  },
+  "result": {
+    "fluid": "tcintegrations:neptunium",
+    "amount": 90
+  },
+  "temperature": 950,
+  "time": 65
+}

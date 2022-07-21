@@ -139,6 +139,7 @@ dependencies {
     implementation fg.deobf("curse.maven:flywheel-486392:${flywheel_version}")
     implementation fg.deobf("curse.maven:arsnouveau-401955:${arsnouveau_version}")
     implementation fg.deobf("curse.maven:geckolib-388172:${geckolib_version}")
+    implementation fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
     runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:${ie_version}")
     runtimeOnly fg.deobf("curse.maven:patchouli-306770:${patchouli_version}")
     runtimeOnly fg.deobf("curse.maven:curios-309927:${curios_version}")
@@ -227,6 +228,7 @@ curseforge {
                     optionalLibrary 'create'
                     optionalLibrary 'ars-nouveau'
                     optionalLibrary 'tinkersurvival'
+                    optionalLibrary 'aquaculture'
                 }
             }
         }

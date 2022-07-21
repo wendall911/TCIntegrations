@@ -14,6 +14,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String IE_MODID = "immersiveengineering";
     public static final String TCON_MODID = "tconstruct";
     public static final String CREATE_MODID = "create";
+    public static final String AQUACULTURE_MODID = "aquaculture";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
 
@@ -40,14 +41,6 @@ public final class ModIntegration extends TCIntegrationsModule {
 
     public static ResourceLocation botaniaLoc(String name) {
         return getLoc(BOTANIA_MODID, name);
-    }
-
-    public static ResourceLocation tconLoc(String name) {
-        return getLoc(TCON_MODID, name);
-    }
-
-    public static ResourceLocation ieLoc(String name) {
-        return getLoc(IE_MODID, name);
     }
 
     private static ResourceLocation getLoc(String modid, String name) {

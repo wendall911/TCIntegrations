@@ -4,6 +4,10 @@
     {
       "id": "#forge:storage_blocks/manasteel",
       "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/neptunium",
+      "required": false
     }
   ]
 }
