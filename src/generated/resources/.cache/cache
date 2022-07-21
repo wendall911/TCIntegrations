@@ -101,6 +101,7 @@ d311b05fb6b56a29dd7f090d59910025b08b2110 data/tconstruct/recipes/tools/modifiers
 4116496cb6a80d11e1c83a3b5c507053ee83515f data/tconstruct/recipes/tools/modifiers/compat/great_fairy.json
 3e9c869f81dbaa1e50ec21398fb3972f38258fa2 data/tconstruct/recipes/tools/modifiers/compat/mechanical_arm.json
 90f6dfabab95290dd60072c4f97298238dd2aa3e data/tconstruct/recipes/tools/modifiers/compat/poseidon.json
+37426b8e71834607f3989e24ed33228556dff036 data/tconstruct/recipes/tools/modifiers/compat/siren.json
 ec64365c1c3bc97a9aa643e92872ce1c5a86195f data/tconstruct/recipes/tools/modifiers/compat/terra.json
 e6be1a03cb7a300d5537b73be8ec02824604eef4 data/tconstruct/recipes/tools/modifiers/compat/terrestrial_boots.json
 cfa3eb1e11e7270e6d12a5abb72f1eaa8cbab3a0 data/tconstruct/recipes/tools/modifiers/compat/terrestrial_chestplates.json
@@ -111,6 +112,7 @@ cfa3eb1e11e7270e6d12a5abb72f1eaa8cbab3a0 data/tconstruct/recipes/tools/modifiers
 958343f5af86a3ee738c5254ef346b723d5749fe data/tconstruct/recipes/tools/modifiers/salvage/compat/great_fairy.json
 a9fc8962a1ca2c47898667d6f279bd2a41c39f37 data/tconstruct/recipes/tools/modifiers/salvage/compat/mechanical_arm.json
 c6667a14b956c7d7828219c411d9024f3215e733 data/tconstruct/recipes/tools/modifiers/salvage/compat/poseidon.json
+e37cadaebd1d7c65f82e2222bf78574868be0e8c data/tconstruct/recipes/tools/modifiers/salvage/compat/siren.json
 6a441f6401e4a186a8c89ae36f0df4354c6c8301 data/tconstruct/recipes/tools/modifiers/salvage/compat/terra.json
 be15d642470f085abad31a478cdbe3bfcef6a486 data/tconstruct/recipes/tools/modifiers/salvage/compat/terrestrial_boots.json
 928b9ca69c4a8aca52cebff7f8579a4f267c0ab1 data/tconstruct/recipes/tools/modifiers/salvage/compat/terrestrial_chestplates.json

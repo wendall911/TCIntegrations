@@ -53,5 +53,7 @@
     "modifier.tcintegrations.poseidon.description": "Adds abilities found on corresponding Neptunium armor pieces.",
     "modifier.tcintegrations.siren": "Siren",
     "modifier.tcintegrations.siren.flavor": "Musical!",
-    "modifier.tcintegrations.siren.description": "Adds abilities found on corresponding Neptunium tools."
+    "modifier.tcintegrations.siren.description": "Adds abilities found on corresponding Neptunium tools.",
+    "modifier.tcintegrations.siren.mining_speed": "Siren Speed",
+    "modifier.tcintegrations.siren.attack_damage": "Siren Damage"
 }

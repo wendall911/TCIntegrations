@@ -1,10 +1,13 @@
 package tcintegrations.data.tcon;
 
-import com.simibubi.create.AllBlocks;
-
 import java.util.function.Consumer;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
+
+import com.teammetallurgy.aquaculture.api.fishing.Hooks;
+import com.teammetallurgy.aquaculture.init.AquaItems;
+
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
@@ -150,15 +153,27 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.POSEIDON_MODIFIER)
             .setTools(TinkerTags.Items.ARMOR)
-            .addInput(ModIntegration.AQUACULTURE_NEPTUNIUM_INGOT)
-            .addInput(ModIntegration.AQUACULTURE_NEPTUNIUM_INGOT)
-            .addInput(ModIntegration.AQUACULTURE_NEPTUNIUM_INGOT)
-            .addInput(ModIntegration.AQUACULTURE_TIN_CAN)
-            .addInput(ModIntegration.AQUACULTURE_REDSTONE_HOOK)
+            .addInput(AquaItems.NEPTUNIUM_INGOT.get())
+            .addInput(AquaItems.NEPTUNIUM_INGOT.get())
+            .addInput(AquaItems.NEPTUNIUM_INGOT.get())
+            .addInput(AquaItems.TIN_CAN.get())
+            .addInput(Hooks.REDSTONE.getItem())
             .setSlots(SlotType.ABILITY, 1)
             .setMaxLevel(1)
             .saveSalvage(aquacultureConsumer, prefix(TCIntegrationsModifiers.POSEIDON_MODIFIER, compatSalvage))
             .save(aquacultureConsumer, prefix(TCIntegrationsModifiers.POSEIDON_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SIREN_MODIFIER)
+            .setTools(TinkerTags.Items.MELEE_OR_HARVEST)
+            .addInput(AquaItems.NEPTUNIUM_INGOT.get())
+            .addInput(AquaItems.NEPTUNIUM_INGOT.get())
+            .addInput(AquaItems.NEPTUNIUM_INGOT.get())
+            .addInput(AquaItems.FISH_FILLET.get())
+            .addInput(Hooks.IRON.getItem())
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(aquacultureConsumer, prefix(TCIntegrationsModifiers.SIREN_MODIFIER, compatSalvage))
+            .save(aquacultureConsumer, prefix(TCIntegrationsModifiers.SIREN_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

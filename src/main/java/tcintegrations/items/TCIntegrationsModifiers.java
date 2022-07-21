@@ -15,6 +15,7 @@ import tcintegrations.items.modifiers.tool.LivingwoodModifier;
 import tcintegrations.items.modifiers.tool.ManaItemModifier;
 import tcintegrations.items.modifiers.tool.MechanicalArmModifier;
 import tcintegrations.items.modifiers.tool.ModerateModifier;
+import tcintegrations.items.modifiers.tool.SirenModifier;
 import tcintegrations.items.modifiers.tool.TerraModifier;
 import tcintegrations.items.modifiers.traits.WaterPowered;
 
@@ -31,6 +32,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<EngineersGogglesModifier> ENGINEERS_GOGGLES_MODIFIER;
     public static StaticModifier<WaterPowered> WATER_POWERED_MODIFIER;
     public static StaticModifier<PoseidonModifier> POSEIDON_MODIFIER;
+    public static StaticModifier<SirenModifier> SIREN_MODIFIER;
 
     public static void init() {
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
@@ -50,6 +52,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
         if (ModList.get().isLoaded(ModIntegration.AQUACULTURE_MODID)) {
             WATER_POWERED_MODIFIER = MODIFIERS_REGISTRY.register("water_powered", WaterPowered::new);
             POSEIDON_MODIFIER = MODIFIERS_REGISTRY.register("poseidon", PoseidonModifier::new);
+            SIREN_MODIFIER = MODIFIERS_REGISTRY.register("siren", SirenModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);
