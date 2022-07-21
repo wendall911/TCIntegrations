@@ -1,7 +1,7 @@
 {
   "default": [
     {
-      "name": "tconstruct:sturdy",
+      "name": "tcintegrations:water_powered",
       "level": 1
     }
   ]
