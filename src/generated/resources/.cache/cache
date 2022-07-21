@@ -1,7 +1,7 @@
 bc649815d4f390a95302070bdf1b76e32c85c733 assets/tcintegrations/tinkering/materials/livingrock.json
 c63dd73fb7ceaacc2823c4a3ac8e5e3e8ecd9e5f assets/tcintegrations/tinkering/materials/livingwood.json
 274b052d2f035507bdaad4849cd9105805ad7622 assets/tcintegrations/tinkering/materials/manasteel.json
-aa11d7e1e37e4af12b7b562f36e5ab2cdcd64fed assets/tcintegrations/tinkering/materials/neptunium.json
+c5ea19f8e07ba5b02d7510f8509df4c796f97469 assets/tcintegrations/tinkering/materials/neptunium.json
 cc406be88c4eb1512f9e55b282b13ceddb8dbc2f data/forge/tags/blocks/storage_blocks.json
 daa35f5c0c2d235504f032c0b59bc853cc0456e0 data/forge/tags/blocks/storage_blocks/bronze.json
 58f0dec7b6bb63d76f5cfb05296148f9bf778cf7 data/forge/tags/fluids/manasteel.json
@@ -71,7 +71,7 @@ e81d330c9c0c4b7c5acea9b12fd40c7e359228d1 data/tconstruct/recipes/smeltery/meltin
 18b8347be63bc9071887e6b4496a4911fc5eb1f5 data/tconstruct/recipes/smeltery/melting/metal/manasteel/rod.json
 f3b12e365ad99341014aba7e370b657c61437688 data/tconstruct/recipes/smeltery/melting/metal/manasteel/sheetmetal.json
 7017fd4e44df007c92fc4f9ae1761030c0f9d448 data/tconstruct/recipes/smeltery/melting/metal/manasteel/wire.json
-7402b5c48864eb0638cc9c0bc8aedad6dc881fe4 data/tconstruct/recipes/tools/materials/casting/brass.json
+02ee38781f404bf20a0c02865833ccef0fe086b9 data/tconstruct/recipes/smeltery/melting/metal/neptunium/block.json
 157ef0de1dd25610d666e3c845d2b12f5dba78c4 data/tconstruct/recipes/smeltery/melting/metal/neptunium/coin.json
 3849e5227404ef2db28fa5898fb28381ec684a41 data/tconstruct/recipes/smeltery/melting/metal/neptunium/dust.json
 d93b997ed1918ee64cda35bbd8a3382068daf6e2 data/tconstruct/recipes/smeltery/melting/metal/neptunium/gear.json
@@ -81,6 +81,7 @@ c1783e4d86f4f714991b6fe91b6adc585b53056a data/tconstruct/recipes/smeltery/meltin
 1b4abc65d9d79aef0650d02d385dc9105871ab9e data/tconstruct/recipes/smeltery/melting/metal/neptunium/rod.json
 aad633c4a594ec0ee9f4df4f59252ed5aa7c701f data/tconstruct/recipes/smeltery/melting/metal/neptunium/sheetmetal.json
 eacb6eb9650793f3a6ac5998f323503b5c971f31 data/tconstruct/recipes/smeltery/melting/metal/neptunium/wire.json
+7402b5c48864eb0638cc9c0bc8aedad6dc881fe4 data/tconstruct/recipes/tools/materials/casting/brass.json
 0f33fd077dc6cf88bd9a034bca0d184382120b24 data/tconstruct/recipes/tools/materials/casting/manasteel.json
 4b1fd049008a40b1f9d358760ef04b65769d99e3 data/tconstruct/recipes/tools/materials/casting/neptunium.json
 f950edd5581859c6df7d6a594dd8dc1e28c7e53f data/tconstruct/recipes/tools/materials/livingrock.json
