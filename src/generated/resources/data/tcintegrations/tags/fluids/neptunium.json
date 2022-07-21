@@ -2,11 +2,11 @@
   "replace": false,
   "values": [
     {
-      "id": "#forge:storage_blocks/manasteel",
+      "id": "tcintegrations:neptunium",
       "required": false
     },
     {
-      "id": "#forge:storage_blocks/neptunium",
+      "id": "tcintegrations:flowing_neptunium",
       "required": false
     }
   ]

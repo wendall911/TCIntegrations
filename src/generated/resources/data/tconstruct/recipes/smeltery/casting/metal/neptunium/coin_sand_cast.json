@@ -1,0 +1,28 @@
+{
+  "type": "tconstruct:casting_table",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:coins/neptunium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "aquaculture",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "cast": {
+    "tag": "tconstruct:casts/single_use/coin"
+  },
+  "cast_consumed": true,
+  "fluid": {
+    "tag": "forge:neptunium",
+    "amount": 30
+  },
+  "result": {
+    "tag": "forge:coins/neptunium"
+  },
+  "cooling_time": 37
+}

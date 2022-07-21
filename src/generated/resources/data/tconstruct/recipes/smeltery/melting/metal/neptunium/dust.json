@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:dusts/neptunium",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "aquaculture",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:dusts/neptunium"
+  },
+  "result": {
+    "fluid": "tcintegrations:neptunium",
+    "amount": 90
+  },
+  "temperature": 950,
+  "time": 49
+}

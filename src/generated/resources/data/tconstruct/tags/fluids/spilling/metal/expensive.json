@@ -2,10 +2,6 @@
   "replace": false,
   "values": [
     {
-      "id": "#forge:manasteel",
-      "required": false
-    },
-    {
       "id": "#forge:neptunium",
       "required": false
     }
