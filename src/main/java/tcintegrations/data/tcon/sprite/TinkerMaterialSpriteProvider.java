@@ -29,6 +29,10 @@ public class TinkerMaterialSpriteProvider extends AbstractMaterialSpriteProvider
             .meleeHarvest().statType(TinkerPartSpriteProvider.PLATE)
             .fallbacks("metal")
             .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF001944).addARGB(102, 0xFF00296D).addARGB(140, 0xFF0043A5).addARGB(178, 0xFF186ACE).addARGB(216, 0xFF3389FF).addARGB(255, 0xFF59A6EF).build());
+        buildMaterial(MaterialIds.neptunium)
+            .meleeHarvest().statType(TinkerPartSpriteProvider.PLATE)
+            .fallbacks("metal")
+            .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF01140F).addARGB(102, 0xFF03503A).addARGB(140, 0xFF056B50).addARGB(178, 0xFF0AE2A7).addARGB(216, 0xFF17F4B8).addARGB(255, 0xFF8CFBDC).build());
     }
 
 }

@@ -27,13 +27,17 @@ public class FluidTagProvider extends FluidTagsProvider {
     @Override
     public void addTags() {
         tagAll(TCIntegrationsItems.MANASTEEL);
+        tagAll(TCIntegrationsItems.NEPTUNIUM);
 
-        this.tag(TinkerTags.Fluids.METAL_TOOLTIPS).addOptionalTag(
-            TCIntegrationsItems.MANASTEEL.getForgeTag().location()
-        );
+        this.tag(TinkerTags.Fluids.METAL_TOOLTIPS)
+            .addOptionalTag(TCIntegrationsItems.MANASTEEL.getForgeTag().location())
+            .addOptionalTag(TCIntegrationsItems.NEPTUNIUM.getForgeTag().location());
 
         this.tag(TinkerTags.Fluids.AVERAGE_METAL_SPILLING)
             .addOptionalTag(TCIntegrationsItems.MANASTEEL.getForgeTag().location());
+
+        this.tag(TinkerTags.Fluids.EXPENSIVE_METAL_SPILLING)
+            .addOptionalTag(TCIntegrationsItems.NEPTUNIUM.getForgeTag().location());
     }
 
     /** Tags this fluid using local tags */

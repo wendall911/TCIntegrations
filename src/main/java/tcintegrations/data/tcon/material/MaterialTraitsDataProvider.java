@@ -26,6 +26,7 @@ public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvide
         addDefaultTraits(MaterialIds.livingRock, TinkerModifiers.stonebound);
         addDefaultTraits(MaterialIds.manaSteel, ModifierIds.ductile, TciModifierIds.mana);
         addDefaultTraits(brass, TciModifierIds.moderate);
+        addDefaultTraits(MaterialIds.neptunium, ModifierIds.sturdy);
     }
 
 }

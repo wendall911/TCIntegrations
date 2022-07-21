@@ -51,6 +51,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         Map<String, Consumer<FinishedRecipe>> modConsumers = new HashMap<>();
 
         modConsumers.put("botania", withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID)));
+        modConsumers.put("aquaculture", withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID)));
 
         for (SmelteryCompat compat : SmelteryCompat.values()) {
             this.metalTagCasting(modConsumers.get(compat.getModid()), compat.getFluid(), compat.getName(), metalFolder, false);
@@ -63,8 +64,10 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         // ores
         String metalFolder = folder + "metal/";
         Consumer<FinishedRecipe> botaniaConsumer = withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID));
+        Consumer<FinishedRecipe> aquacultureConsumer = withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID));
 
         metalMelting(botaniaConsumer, TCIntegrationsItems.MANASTEEL.get(), "manasteel", false, metalFolder, false, Byproduct.IRON);
+        metalMelting(aquacultureConsumer, TCIntegrationsItems.NEPTUNIUM.get(), "neptunium", false, metalFolder, false);
     }
 
     private void addAlloyRecipes(Consumer<FinishedRecipe> consumer) {

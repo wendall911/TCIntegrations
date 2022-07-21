@@ -32,6 +32,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
     public static Function<Block,? extends BlockItem> GENERAL_TOOLTIP_BLOCK_ITEM;
 
     public static FluidObject<ForgeFlowingFluid> MANASTEEL;
+    public static FluidObject<ForgeFlowingFluid> NEPTUNIUM;
 
     public static MetalItemObject BRONZE;
 
@@ -42,7 +43,12 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         // Fluids
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
             MANASTEEL = FLUID_REGISTRY.register(
-                    "manasteel", hotBuilder().temperature(1250), Material.LAVA, 13);
+                "manasteel", hotBuilder().temperature(1250), Material.LAVA, 13);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.AQUACULTURE_MODID)) {
+            NEPTUNIUM = FLUID_REGISTRY.register(
+                "neptunium", hotBuilder().temperature(1250), Material.LAVA, 14);
         }
         
         // Metals
