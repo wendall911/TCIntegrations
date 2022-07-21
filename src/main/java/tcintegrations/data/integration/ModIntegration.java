@@ -17,6 +17,9 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String AQUACULTURE_MODID = "aquaculture";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
+    public static Item AQUACULTURE_NEPTUNIUM_INGOT;
+    public static Item AQUACULTURE_TIN_CAN;
+    public static Item AQUACULTURE_REDSTONE_HOOK;
 
     public static IForgeRegistry<Item> ITEM_REGISTRY;
 
@@ -27,6 +30,9 @@ public final class ModIntegration extends TCIntegrationsModule {
 
         if (dataGen != null && dataGen.contains("all")) {
             BOTANIA_LIVINGWOOD_PLANKS = registerItem(botaniaLoc("livingwood_planks"));
+            AQUACULTURE_NEPTUNIUM_INGOT = registerItem(aquacultureLoc("neptunium_ingot"));
+            AQUACULTURE_TIN_CAN = registerItem(aquacultureLoc("tin_can"));
+            AQUACULTURE_REDSTONE_HOOK = registerItem(aquacultureLoc("redstone_hook"));
         }
 
     }

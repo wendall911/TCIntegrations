@@ -44,5 +44,14 @@
     "modifier.tcintegrations.mechanical_arm.description": "Adds ability to attack with any melee weapon in the offhand.",
     "modifier.tcintegrations.engineers_goggles": "Engineer's Goggles",
     "modifier.tcintegrations.engineers_goggles.flavor": "Showing Stress",
-    "modifier.tcintegrations.engineers_goggles.description": "Works as expected. Can show stress of machine and fluid capacity in tanks."
+    "modifier.tcintegrations.engineers_goggles.description": "Works as expected. Can show stress of machine and fluid capacity in tanks.",
+    "modifier.tcintegrations.water_powered": "Water Powered",
+    "modifier.tcintegrations.water_powered.flavor": "Wet is best",
+    "modifier.tcintegrations.water_powered.description": "Tool resists damage while in water",
+    "modifier.tcintegrations.poseidon": "Poseidon",
+    "modifier.tcintegrations.poseidon.flavor": "Mythical",
+    "modifier.tcintegrations.poseidon.description": "Adds abilities found on corresponding Neptunium armor pieces.",
+    "modifier.tcintegrations.siren": "Siren",
+    "modifier.tcintegrations.siren.flavor": "Musical!",
+    "modifier.tcintegrations.siren.description": "Adds abilities found on corresponding Neptunium tools."
 }
