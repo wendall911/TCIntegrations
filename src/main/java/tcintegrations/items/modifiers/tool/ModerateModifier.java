@@ -1,6 +1,7 @@
 package tcintegrations.items.modifiers.tool;
 
 import javax.annotation.Nullable;
+
 import java.util.List;
 
 import net.minecraft.Util;
@@ -14,11 +15,13 @@ import net.minecraft.world.item.TooltipFlag;
 
 import net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed;
 
+import slimeknights.mantle.client.TooltipKey;
+
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
-import slimeknights.tconstruct.library.utils.TooltipKey;
+
 import tcintegrations.TCIntegrations;
 
 public class ModerateModifier extends NoLevelsModifier {
