@@ -1,4 +1,4 @@
-package tcintegrations.items.tool.modifiers;
+package tcintegrations.items.modifiers.tool;
 
 import javax.annotation.Nullable;
 import java.util.List;

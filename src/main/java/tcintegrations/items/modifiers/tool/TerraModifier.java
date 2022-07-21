@@ -1,4 +1,4 @@
-package tcintegrations.items.tool.modifiers;
+package tcintegrations.items.modifiers.tool;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;

@@ -4,15 +4,15 @@ import net.minecraftforge.fml.ModList;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.data.integration.ModIntegration;
-import tcintegrations.items.armor.modifiers.EngineersGogglesModifier;
-import tcintegrations.items.armor.modifiers.GreatFairyModifier;
-import tcintegrations.items.armor.modifiers.TerrestrialModifier;
-import tcintegrations.items.tool.modifiers.ElementalModifier;
-import tcintegrations.items.tool.modifiers.LivingwoodModifier;
-import tcintegrations.items.tool.modifiers.ManaItemModifier;
-import tcintegrations.items.tool.modifiers.MechanicalArmModifier;
-import tcintegrations.items.tool.modifiers.ModerateModifier;
-import tcintegrations.items.tool.modifiers.TerraModifier;
+import tcintegrations.items.modifiers.armor.EngineersGogglesModifier;
+import tcintegrations.items.modifiers.armor.GreatFairyModifier;
+import tcintegrations.items.modifiers.armor.TerrestrialModifier;
+import tcintegrations.items.modifiers.tool.ElementalModifier;
+import tcintegrations.items.modifiers.tool.LivingwoodModifier;
+import tcintegrations.items.modifiers.tool.ManaItemModifier;
+import tcintegrations.items.modifiers.tool.MechanicalArmModifier;
+import tcintegrations.items.modifiers.tool.ModerateModifier;
+import tcintegrations.items.modifiers.tool.TerraModifier;
 
 public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 

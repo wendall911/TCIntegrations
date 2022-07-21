@@ -1,4 +1,4 @@
-package tcintegrations.items.armor.modifiers;
+package tcintegrations.items.modifiers.armor;
 
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;

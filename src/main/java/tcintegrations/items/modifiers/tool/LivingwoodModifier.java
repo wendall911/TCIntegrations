@@ -1,4 +1,4 @@
-package tcintegrations.items.tool.modifiers;
+package tcintegrations.items.modifiers.tool;
 
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;

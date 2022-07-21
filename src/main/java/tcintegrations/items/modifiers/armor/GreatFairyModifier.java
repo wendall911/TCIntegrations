@@ -1,4 +1,4 @@
-package tcintegrations.items.armor.modifiers;
+package tcintegrations.items.modifiers.armor;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
