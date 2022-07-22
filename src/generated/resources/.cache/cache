@@ -17,6 +17,7 @@ f40d397b71a49536012114d17905e00000250fc2 data/tcintegrations/loot_tables/blocks/
 29e38ce38fd4e9200a7bde91764085e122c5955c data/tcintegrations/tags/entity_types/elemental_severing_mods.json
 63c5cfa90160be499144f18bb78f687693c1d0ce data/tcintegrations/tags/fluids/manasteel.json
 7f6b1c7b86170c50e4334697f4f51236d13e3478 data/tcintegrations/tags/fluids/neptunium.json
+19aed9789c20ec7cb7950da5f94f6b66fe3e12d6 data/tcintegrations/tags/fluids/source_gem.json
 89ef497625fdd6bbe5dd369e4fd9839ac032bbbf data/tcintegrations/tags/items/livingwood_logs.json
 58843842865f0cdf5aca7b905188538af7c883a0 data/tcintegrations/tinkering/materials/definition/livingrock.json
 58843842865f0cdf5aca7b905188538af7c883a0 data/tcintegrations/tinkering/materials/definition/livingwood.json
@@ -61,6 +62,9 @@ d3a0fa7970dee4226ab4d55f540ab7af1e0f49f1 data/tconstruct/recipes/smeltery/castin
 5960e4c64484aeaabb084be158d7480e210471e4 data/tconstruct/recipes/smeltery/casting/metal/neptunium/rod_sand_cast.json
 945c898d6d028ff6bd44ac7fa37f5d593a764cdc data/tconstruct/recipes/smeltery/casting/metal/neptunium/wire_gold_cast.json
 c0225db49ea32a31515f3144e9702c9176fbe704 data/tconstruct/recipes/smeltery/casting/metal/neptunium/wire_sand_cast.json
+8b99e8f13f254a9d3fd0b470d079a3343a0e4894 data/tconstruct/recipes/smeltery/casting/source_gem/blocksource_gem.json
+9a783ca96c15870c28642065df23e32c4500cee8 data/tconstruct/recipes/smeltery/casting/source_gem/gem_gold_cast.json
+cccae1140f84d8452475db09b447c4eb087be1e0 data/tconstruct/recipes/smeltery/casting/source_gem/gem_sand_cast.json
 d87920c6f9cb9ebc863de1d96a952f11a06bde8c data/tconstruct/recipes/smeltery/melting/metal/manasteel/block.json
 30bbc26b11715d395767e653722c2fcc4bcb778e data/tconstruct/recipes/smeltery/melting/metal/manasteel/coin.json
 c203bc55284c82edd9763c2993bc36d7a34da60d data/tconstruct/recipes/smeltery/melting/metal/manasteel/dust.json
@@ -121,6 +125,7 @@ d8fbdf5253ea452a77827131f84c54373d16a07e data/tconstruct/recipes/tools/modifiers
 3f1e815f2b71cb52bf1ad4f2669cc233a680ce9e data/tconstruct/tags/blocks/anvil_metal.json
 f7d732748fba956f30eca5584e7c2e50c0ef2f21 data/tconstruct/tags/fluids/spilling/metal/average.json
 219d0ca600e31b9e9b0cadbce3d46b9c34f7b883 data/tconstruct/tags/fluids/spilling/metal/expensive.json
+bcf57ebb7d16de702236c7e77981d9259353c870 data/tconstruct/tags/fluids/tooltips/gem_small.json
 39a70454a66173f5d1da42eb643ed045d07e6d40 data/tconstruct/tags/fluids/tooltips/metal.json
 0df4214355f9709130c2769748465b9489626f26 data/tconstruct/tags/items/wood_variants/logs.json
 5e6b48372842f66f46632b87d5953a0f07d5a819 data/tconstruct/tags/items/wood_variants/planks.json

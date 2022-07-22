@@ -55,8 +55,8 @@ public class MaterialRecipeProvider extends BaseRecipeProvider implements IMater
         String folder = "tools/materials/";
 
         compatMeltingCasting(consumer, brass, TinkerFluids.moltenBrass, folder);
-        compatMeltingCasting(consumer, MaterialIds.manaSteel, TCIntegrationsItems.MANASTEEL, folder);
-        compatMeltingCasting(consumer, MaterialIds.neptunium, TCIntegrationsItems.NEPTUNIUM, folder);
+        compatMeltingCasting(consumer, MaterialIds.manaSteel, TCIntegrationsItems.MOLTEN_MANASTEEL, folder);
+        compatMeltingCasting(consumer, MaterialIds.neptunium, TCIntegrationsItems.MOLTEN_NEPTUNIUM, folder);
     }
 
 }

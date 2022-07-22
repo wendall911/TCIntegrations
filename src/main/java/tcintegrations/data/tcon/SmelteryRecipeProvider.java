@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+import com.hollingsworth.arsnouveau.setup.BlockRegistry;
+import com.hollingsworth.arsnouveau.setup.ItemsRegistry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 
@@ -16,11 +18,11 @@ import slimeknights.tconstruct.library.data.recipe.ICommonRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
 import slimeknights.tconstruct.library.recipe.alloying.AlloyRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.FluidValues;
+import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
 import slimeknights.tconstruct.smeltery.data.Byproduct;
 
 import tcintegrations.common.json.ConfigEnabledCondition;
 import tcintegrations.data.integration.ModIntegration;
-import tcintegrations.data.tcon.SmelteryCompat;
 import tcintegrations.items.TCIntegrationsItems;
 
 public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelteryRecipeHelper, ICommonRecipeHelper {
@@ -49,9 +51,15 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         String metalFolder = folder + "metal/";
 
         Map<String, Consumer<FinishedRecipe>> modConsumers = new HashMap<>();
+        Consumer<FinishedRecipe> arsConsumer = withCondition(consumer, modLoaded(ModIntegration.ARS_MODID));
 
         modConsumers.put("botania", withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID)));
         modConsumers.put("aquaculture", withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID)));
+
+        this.gemCasting(arsConsumer, TCIntegrationsItems.MOLTEN_SOURCE_GEM, ItemsRegistry.SOURCE_GEM.asItem(), folder + "source_gem/gem");
+        ItemCastingRecipeBuilder.basinRecipe(BlockRegistry.SOURCE_GEM_BLOCK)
+            .setFluidAndTime(TCIntegrationsItems.MOLTEN_SOURCE_GEM, false, FluidValues.SMALL_GEM_BLOCK)
+            .save(arsConsumer, prefix(TCIntegrationsItems.MOLTEN_SOURCE_GEM, folder + "source_gem/block"));
 
         for (SmelteryCompat compat : SmelteryCompat.values()) {
             this.metalTagCasting(modConsumers.get(compat.getModid()), compat.getFluid(), compat.getName(), metalFolder, false);
@@ -66,8 +74,8 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         Consumer<FinishedRecipe> botaniaConsumer = withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID));
         Consumer<FinishedRecipe> aquacultureConsumer = withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID));
 
-        metalMelting(botaniaConsumer, TCIntegrationsItems.MANASTEEL.get(), "manasteel", false, metalFolder, false, Byproduct.IRON);
-        metalMelting(aquacultureConsumer, TCIntegrationsItems.NEPTUNIUM.get(), "neptunium", false, metalFolder, false);
+        metalMelting(botaniaConsumer, TCIntegrationsItems.MOLTEN_MANASTEEL.get(), "manasteel", false, metalFolder, false, Byproduct.IRON);
+        metalMelting(aquacultureConsumer, TCIntegrationsItems.MOLTEN_NEPTUNIUM.get(), "neptunium", false, metalFolder, false);
     }
 
     private void addAlloyRecipes(Consumer<FinishedRecipe> consumer) {

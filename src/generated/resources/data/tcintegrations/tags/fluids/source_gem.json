@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "tcintegrations:source_gem",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_source_gem",
+      "required": false
+    }
+  ]
+}
