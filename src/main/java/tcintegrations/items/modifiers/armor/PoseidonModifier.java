@@ -69,13 +69,13 @@ public class PoseidonModifier extends NoLevelsModifier {
             boolean isSubmerged = sp.isUnderWater() && sp.isInWater() && sp.isInWaterRainOrBubble();
 
             if (isSubmerged) {
-                if (itemSlot == EquipmentSlot.HEAD.getIndex() && !sp.hasEffect(MobEffects.NIGHT_VISION)) {
+                if (itemSlot == EquipmentSlot.HEAD.getIndex()) {
                     // Underwater vision
-                    sp.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 20, 0, false, false, false));
+                    sp.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 40, 0, false, false, false));
                 }
-                else if (itemSlot == EquipmentSlot.CHEST.getIndex() && !sp.hasEffect(MobEffects.WATER_BREATHING)) {
+                else if (itemSlot == EquipmentSlot.CHEST.getIndex()) {
                     // Underwater breathing
-                    sp.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 20, 0, false, false, false));
+                    sp.addEffect(new MobEffectInstance(MobEffects.WATER_BREATHING, 40, 0, false, false, false));
                 }
                 else if (itemSlot == EquipmentSlot.LEGS.getIndex() && !sp.isCrouching()) {
                     // Weightless

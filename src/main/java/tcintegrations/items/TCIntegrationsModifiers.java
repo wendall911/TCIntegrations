@@ -6,6 +6,8 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.data.integration.ModIntegration;
+import tcintegrations.items.modifiers.armor.ArsNouveauModifier;
+import tcintegrations.items.modifiers.armor.EnchantersShieldModifier;
 import tcintegrations.items.modifiers.armor.EngineersGogglesModifier;
 import tcintegrations.items.modifiers.armor.GreatFairyModifier;
 import tcintegrations.items.modifiers.armor.PoseidonModifier;
@@ -33,6 +35,8 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<WaterPowered> WATER_POWERED_MODIFIER;
     public static StaticModifier<PoseidonModifier> POSEIDON_MODIFIER;
     public static StaticModifier<SirenModifier> SIREN_MODIFIER;
+    public static StaticModifier<ArsNouveauModifier> ARS_MODIFIER;
+    public static StaticModifier<EnchantersShieldModifier> ENCHANTERS_SHIELD_MODIFIER;
 
     public static void init() {
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
@@ -53,6 +57,11 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             WATER_POWERED_MODIFIER = MODIFIERS_REGISTRY.register("water_powered", WaterPowered::new);
             POSEIDON_MODIFIER = MODIFIERS_REGISTRY.register("poseidon", PoseidonModifier::new);
             SIREN_MODIFIER = MODIFIERS_REGISTRY.register("siren", SirenModifier::new);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.ARS_MODID)) {
+            ARS_MODIFIER = MODIFIERS_REGISTRY.register("ars_nouveau", ArsNouveauModifier::new);
+            ENCHANTERS_SHIELD_MODIFIER = MODIFIERS_REGISTRY.register("enchanters_shield", EnchantersShieldModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);

@@ -31,8 +31,9 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
     public static CreativeTabBase ITEM_TAB_GROUP;
     public static Function<Block,? extends BlockItem> GENERAL_TOOLTIP_BLOCK_ITEM;
 
-    public static FluidObject<ForgeFlowingFluid> MANASTEEL;
-    public static FluidObject<ForgeFlowingFluid> NEPTUNIUM;
+    public static FluidObject<ForgeFlowingFluid> MOLTEN_MANASTEEL;
+    public static FluidObject<ForgeFlowingFluid> MOLTEN_NEPTUNIUM;
+    public static FluidObject<ForgeFlowingFluid> MOLTEN_SOURCE_GEM;
 
     public static MetalItemObject BRONZE;
 
@@ -42,13 +43,18 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
 
         // Fluids
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
-            MANASTEEL = FLUID_REGISTRY.register(
+            MOLTEN_MANASTEEL = FLUID_REGISTRY.register(
                 "manasteel", hotBuilder().temperature(1250), Material.LAVA, 13);
         }
 
         if (ModList.get().isLoaded(ModIntegration.AQUACULTURE_MODID)) {
-            NEPTUNIUM = FLUID_REGISTRY.register(
+            MOLTEN_NEPTUNIUM = FLUID_REGISTRY.register(
                 "neptunium", hotBuilder().temperature(1250), Material.LAVA, 14);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.ARS_MODID)) {
+            MOLTEN_SOURCE_GEM = FLUID_REGISTRY.register(
+                "source_gem", hotBuilder().temperature(1780), Material.LAVA, 14);
         }
         
         // Metals

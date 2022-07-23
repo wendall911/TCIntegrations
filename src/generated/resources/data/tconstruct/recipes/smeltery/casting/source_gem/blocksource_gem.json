@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:casting_basin",
+  "conditions": [
+    {
+      "modid": "ars_nouveau",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "fluid": {
+    "tag": "tcintegrations:source_gem",
+    "amount": 400
+  },
+  "result": "ars_nouveau:source_gem_block",
+  "cooling_time": 168
+}

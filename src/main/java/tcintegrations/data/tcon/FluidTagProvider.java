@@ -26,18 +26,22 @@ public class FluidTagProvider extends FluidTagsProvider {
 
     @Override
     public void addTags() {
-        tagAll(TCIntegrationsItems.MANASTEEL);
-        tagAll(TCIntegrationsItems.NEPTUNIUM);
+        tagAll(TCIntegrationsItems.MOLTEN_MANASTEEL);
+        tagAll(TCIntegrationsItems.MOLTEN_NEPTUNIUM);
+        tagLocal(TCIntegrationsItems.MOLTEN_SOURCE_GEM);
 
         this.tag(TinkerTags.Fluids.METAL_TOOLTIPS)
-            .addOptionalTag(TCIntegrationsItems.MANASTEEL.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.NEPTUNIUM.getForgeTag().location());
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_MANASTEEL.getForgeTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_NEPTUNIUM.getForgeTag().location());
 
         this.tag(TinkerTags.Fluids.AVERAGE_METAL_SPILLING)
-            .addOptionalTag(TCIntegrationsItems.MANASTEEL.getForgeTag().location());
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_MANASTEEL.getForgeTag().location());
 
         this.tag(TinkerTags.Fluids.EXPENSIVE_METAL_SPILLING)
-            .addOptionalTag(TCIntegrationsItems.NEPTUNIUM.getForgeTag().location());
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_NEPTUNIUM.getForgeTag().location());
+
+        this.tag(TinkerTags.Fluids.SMALL_GEM_TOOLTIPS)
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_SOURCE_GEM.getLocalTag().location());
     }
 
     /** Tags this fluid using local tags */

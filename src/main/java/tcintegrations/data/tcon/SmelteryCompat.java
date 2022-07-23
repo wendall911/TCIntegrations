@@ -17,8 +17,8 @@ import tcintegrations.items.TCIntegrationsItems;
 /** Enum holding all relevant smeltery compat */
 public enum SmelteryCompat {
 
-    MANASTEEL (TCIntegrationsItems.MANASTEEL, "botania", Byproduct.IRON, Byproduct.GOLD),
-    NEPTUNIUM (TCIntegrationsItems.NEPTUNIUM, "aquaculture");
+    MANASTEEL (TCIntegrationsItems.MOLTEN_MANASTEEL, "botania", Byproduct.IRON, Byproduct.GOLD),
+    NEPTUNIUM (TCIntegrationsItems.MOLTEN_NEPTUNIUM, "aquaculture");
 
     @Getter
     private final String name = this.name().toLowerCase(Locale.US);

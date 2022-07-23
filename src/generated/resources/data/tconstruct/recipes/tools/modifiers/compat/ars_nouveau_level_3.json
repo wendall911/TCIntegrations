@@ -1,0 +1,42 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "ars_nouveau",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "ars_nouveau:end_fiber"
+    },
+    {
+      "item": "ars_nouveau:end_fiber"
+    },
+    {
+      "item": "ars_nouveau:end_fiber"
+    },
+    {
+      "item": "ars_nouveau:end_fiber"
+    },
+    {
+      "item": "ars_nouveau:end_fiber"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "requirements": {
+    "name": "tcintegrations:ars_nouveau",
+    "level": 2,
+    "error": "recipe.tcintegrations.modifier.ars_nouveau.level_3"
+  },
+  "result": {
+    "name": "tcintegrations:ars_nouveau",
+    "level": 1
+  },
+  "max_level": 3
+}
