@@ -2,6 +2,9 @@ package tcintegrations.data.tcon;
 
 import java.util.function.Consumer;
 
+import com.hollingsworth.arsnouveau.setup.BlockRegistry;
+import com.hollingsworth.arsnouveau.setup.ItemsRegistry;
+
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
 
@@ -12,9 +15,13 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.Tags;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.data.BaseRecipeProvider;
 import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
+import slimeknights.tconstruct.library.recipe.modifiers.ModifierMatch;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 
@@ -23,6 +30,7 @@ import vazkii.botania.common.lib.ModTags;
 
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsModifiers;
+import tcintegrations.TCIntegrations;
 
 public class ModifierRecipeProvider extends BaseRecipeProvider {
 
@@ -50,6 +58,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         Consumer<FinishedRecipe> botaniaConsumer = withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID));
         Consumer<FinishedRecipe> createConsumer = withCondition(consumer, modLoaded(ModIntegration.CREATE_MODID));
         Consumer<FinishedRecipe> aquacultureConsumer = withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID));
+        Consumer<FinishedRecipe> arsConsumer = withCondition(consumer, modLoaded(ModIntegration.ARS_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -174,6 +183,61 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .setMaxLevel(1)
             .saveSalvage(aquacultureConsumer, prefix(TCIntegrationsModifiers.SIREN_MODIFIER, compatSalvage))
             .save(aquacultureConsumer, prefix(TCIntegrationsModifiers.SIREN_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ARS_MODIFIER)
+                .setTools(TinkerTags.Items.ARMOR)
+                .addInput(ItemsRegistry.MAGE_FIBER)
+                .addInput(ItemsRegistry.MAGE_FIBER)
+                .addInput(ItemsRegistry.MAGE_FIBER)
+                .addInput(ItemsRegistry.MAGE_FIBER)
+                .addInput(ItemsRegistry.MAGE_FIBER)
+                .setSalvageLevelRange(1, 1)
+                .setMaxLevel(1)
+                .setSlots(SlotType.UPGRADE, 1)
+                .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_1"))
+                .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_1"));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ARS_MODIFIER)
+                .setTools(TinkerTags.Items.ARMOR)
+                .addInput(ItemsRegistry.BLAZE_FIBER)
+                .addInput(ItemsRegistry.BLAZE_FIBER)
+                .addInput(ItemsRegistry.BLAZE_FIBER)
+                .addInput(ItemsRegistry.BLAZE_FIBER)
+                .addInput(ItemsRegistry.BLAZE_FIBER)
+                .setSalvageLevelRange(2, 2)
+                .setMaxLevel(2)
+                .setSlots(SlotType.UPGRADE, 1)
+                .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.ARS_MODIFIER, 1))
+                .setRequirementsError("recipe." + TCIntegrations.MODID + ".modifier." + TCIntegrationsModifiers.ARS_MODIFIER.getId().getPath() + ".level_2")
+                .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_2"))
+                .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_2"));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ARS_MODIFIER)
+                .setTools(TinkerTags.Items.ARMOR)
+                .addInput(ItemsRegistry.END_FIBER)
+                .addInput(ItemsRegistry.END_FIBER)
+                .addInput(ItemsRegistry.END_FIBER)
+                .addInput(ItemsRegistry.END_FIBER)
+                .addInput(ItemsRegistry.END_FIBER)
+                .setSalvageLevelRange(3, 3)
+                .setMaxLevel(3)
+                .setSlots(SlotType.UPGRADE, 1)
+                .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.ARS_MODIFIER, 2))
+                .setRequirementsError("recipe." + TCIntegrations.MODID + ".modifier." + TCIntegrationsModifiers.ARS_MODIFIER.getId().getPath() + ".level_3")
+                .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_3"))
+                .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_3"));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER)
+                .setTools(TinkerTags.Items.CHESTPLATES)
+                .addInput(BlockRegistry.SOURCE_GEM_BLOCK)
+                .addInput(BlockRegistry.SOURCE_GEM_BLOCK)
+                .addInput(Ingredient.of(Tags.Items.STORAGE_BLOCKS_GOLD))
+                .addInput(Ingredient.of(Tags.Items.STORAGE_BLOCKS_GOLD))
+                .addInput(Items.SHIELD)
+                .setSlots(SlotType.UPGRADE, 1)
+                .setMaxLevel(1)
+                .saveSalvage(arsConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER.getId() + "_chestplates"), compatSalvage))
+                .save(arsConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER.getId() + "_chestplates"), compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

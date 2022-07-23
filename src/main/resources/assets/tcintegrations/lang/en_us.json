@@ -58,5 +58,15 @@
     "modifier.tcintegrations.siren.flavor": "Musical!",
     "modifier.tcintegrations.siren.description": "Adds abilities found on corresponding Neptunium tools.",
     "modifier.tcintegrations.siren.mining_speed": "Siren Speed",
-    "modifier.tcintegrations.siren.attack_damage": "Siren Damage"
+    "modifier.tcintegrations.siren.attack_damage": "Siren Damage",
+    "modifier.tcintegrations.ars_nouveau": "Novice",
+    "modifier.tcintegrations.ars_nouveau.2": "Mage",
+    "modifier.tcintegrations.ars_nouveau.3": "Archmage",
+    "modifier.tcintegrations.ars_nouveau.flavor": "Mageblooms!",
+    "modifier.tcintegrations.ars_nouveau.description": "Provides additional mana and bonus mana regen. Each piece of armor will provide a bonus, and each tier provides a greater bonus than the previous.",
+    "recipe.tcintegrations.modifier.ars_nouveau.level_2": "Mage requires a different recipe for the first level",
+    "recipe.tcintegrations.modifier.ars_nouveau.level_3": "Mage requires a different recipe for the first two levels",
+    "modifier.tcintegrations.enchanters_shield": "Enchanter's Shield",
+    "modifier.tcintegrations.enchanters_shield.flavor": "Away foul fiend!",
+    "modifier.tcintegrations.enchanters_shield.description": "Upon blocking damage, the user will gain a short duration of Mana Regeneration and Spell Damage. Additionally, this item will repair over time using the wearers mana."
 }
