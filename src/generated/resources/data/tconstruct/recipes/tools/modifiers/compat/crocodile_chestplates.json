@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "alexsmobs",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "alexsmobs:crocodile_scute"
+    },
+    {
+      "item": "alexsmobs:crocodile_scute"
+    },
+    {
+      "item": "alexsmobs:crocodile_scute"
+    },
+    {
+      "item": "alexsmobs:crocodile_scute"
+    },
+    {
+      "item": "alexsmobs:crocodile_scute"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/chestplate"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "result": {
+    "name": "tcintegrations:crocodile",
+    "level": 1
+  },
+  "max_level": 1
+}

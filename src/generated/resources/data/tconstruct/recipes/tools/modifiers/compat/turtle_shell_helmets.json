@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "alexsmobs",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "alexsmobs:spiked_scute"
+    },
+    {
+      "item": "alexsmobs:spiked_scute"
+    },
+    {
+      "item": "alexsmobs:spiked_scute"
+    },
+    {
+      "item": "alexsmobs:spiked_scute"
+    },
+    {
+      "item": "alexsmobs:spiked_scute"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/helmets"
+  },
+  "slots": {
+    "abilities": 1
+  },
+  "result": {
+    "name": "tcintegrations:turtle_shell",
+    "level": 1
+  },
+  "max_level": 1
+}

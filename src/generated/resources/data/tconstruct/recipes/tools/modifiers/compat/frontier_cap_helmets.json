@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "alexsmobs",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "alexsmobs:bear_fur"
+    },
+    {
+      "item": "alexsmobs:bear_fur"
+    },
+    {
+      "item": "alexsmobs:bear_fur"
+    },
+    {
+      "item": "alexsmobs:bear_fur"
+    },
+    {
+      "item": "alexsmobs:raccoon_tail"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/helmets"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "result": {
+    "name": "tcintegrations:frontier_cap",
+    "level": 1
+  },
+  "max_level": 3
+}
