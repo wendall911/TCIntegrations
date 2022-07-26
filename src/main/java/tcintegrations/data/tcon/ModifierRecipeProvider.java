@@ -2,6 +2,7 @@ package tcintegrations.data.tcon;
 
 import java.util.function.Consumer;
 
+import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.hollingsworth.arsnouveau.setup.BlockRegistry;
 import com.hollingsworth.arsnouveau.setup.ItemsRegistry;
 
@@ -59,6 +60,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         Consumer<FinishedRecipe> createConsumer = withCondition(consumer, modLoaded(ModIntegration.CREATE_MODID));
         Consumer<FinishedRecipe> aquacultureConsumer = withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID));
         Consumer<FinishedRecipe> arsConsumer = withCondition(consumer, modLoaded(ModIntegration.ARS_MODID));
+        Consumer<FinishedRecipe> alexConsumer = withCondition(consumer, modLoaded(ModIntegration.ALEX_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -185,59 +187,143 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .save(aquacultureConsumer, prefix(TCIntegrationsModifiers.SIREN_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ARS_MODIFIER)
-                .setTools(TinkerTags.Items.ARMOR)
-                .addInput(ItemsRegistry.MAGE_FIBER)
-                .addInput(ItemsRegistry.MAGE_FIBER)
-                .addInput(ItemsRegistry.MAGE_FIBER)
-                .addInput(ItemsRegistry.MAGE_FIBER)
-                .addInput(ItemsRegistry.MAGE_FIBER)
-                .setSalvageLevelRange(1, 1)
-                .setMaxLevel(1)
-                .setSlots(SlotType.UPGRADE, 1)
-                .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_1"))
-                .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_1"));
+            .setTools(TinkerTags.Items.ARMOR)
+            .addInput(ItemsRegistry.MAGE_FIBER)
+            .addInput(ItemsRegistry.MAGE_FIBER)
+            .addInput(ItemsRegistry.MAGE_FIBER)
+            .addInput(ItemsRegistry.MAGE_FIBER)
+            .addInput(ItemsRegistry.MAGE_FIBER)
+            .setSalvageLevelRange(1, 1)
+            .setMaxLevel(1)
+            .setSlots(SlotType.UPGRADE, 1)
+            .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_1"))
+            .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_1"));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ARS_MODIFIER)
-                .setTools(TinkerTags.Items.ARMOR)
-                .addInput(ItemsRegistry.BLAZE_FIBER)
-                .addInput(ItemsRegistry.BLAZE_FIBER)
-                .addInput(ItemsRegistry.BLAZE_FIBER)
-                .addInput(ItemsRegistry.BLAZE_FIBER)
-                .addInput(ItemsRegistry.BLAZE_FIBER)
-                .setSalvageLevelRange(2, 2)
-                .setMaxLevel(2)
-                .setSlots(SlotType.UPGRADE, 1)
-                .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.ARS_MODIFIER, 1))
-                .setRequirementsError("recipe." + TCIntegrations.MODID + ".modifier." + TCIntegrationsModifiers.ARS_MODIFIER.getId().getPath() + ".level_2")
-                .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_2"))
-                .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_2"));
+            .setTools(TinkerTags.Items.ARMOR)
+            .addInput(ItemsRegistry.BLAZE_FIBER)
+            .addInput(ItemsRegistry.BLAZE_FIBER)
+            .addInput(ItemsRegistry.BLAZE_FIBER)
+            .addInput(ItemsRegistry.BLAZE_FIBER)
+            .addInput(ItemsRegistry.BLAZE_FIBER)
+            .setSalvageLevelRange(2, 2)
+            .setMaxLevel(2)
+            .setSlots(SlotType.UPGRADE, 1)
+            .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.ARS_MODIFIER, 1))
+            .setRequirementsError("recipe." + TCIntegrations.MODID + ".modifier." + TCIntegrationsModifiers.ARS_MODIFIER.getId().getPath() + ".level_2")
+            .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_2"))
+            .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_2"));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ARS_MODIFIER)
-                .setTools(TinkerTags.Items.ARMOR)
-                .addInput(ItemsRegistry.END_FIBER)
-                .addInput(ItemsRegistry.END_FIBER)
-                .addInput(ItemsRegistry.END_FIBER)
-                .addInput(ItemsRegistry.END_FIBER)
-                .addInput(ItemsRegistry.END_FIBER)
-                .setSalvageLevelRange(3, 3)
-                .setMaxLevel(3)
-                .setSlots(SlotType.UPGRADE, 1)
-                .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.ARS_MODIFIER, 2))
-                .setRequirementsError("recipe." + TCIntegrations.MODID + ".modifier." + TCIntegrationsModifiers.ARS_MODIFIER.getId().getPath() + ".level_3")
-                .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_3"))
-                .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_3"));
+            .setTools(TinkerTags.Items.ARMOR)
+            .addInput(ItemsRegistry.END_FIBER)
+            .addInput(ItemsRegistry.END_FIBER)
+            .addInput(ItemsRegistry.END_FIBER)
+            .addInput(ItemsRegistry.END_FIBER)
+            .addInput(ItemsRegistry.END_FIBER)
+            .setSalvageLevelRange(3, 3)
+            .setMaxLevel(3)
+            .setSlots(SlotType.UPGRADE, 1)
+            .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.ARS_MODIFIER, 2))
+            .setRequirementsError("recipe." + TCIntegrations.MODID + ".modifier." + TCIntegrationsModifiers.ARS_MODIFIER.getId().getPath() + ".level_3")
+            .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_3"))
+            .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_3"));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER)
-                .setTools(TinkerTags.Items.CHESTPLATES)
-                .addInput(BlockRegistry.SOURCE_GEM_BLOCK)
-                .addInput(BlockRegistry.SOURCE_GEM_BLOCK)
-                .addInput(Ingredient.of(Tags.Items.STORAGE_BLOCKS_GOLD))
-                .addInput(Ingredient.of(Tags.Items.STORAGE_BLOCKS_GOLD))
-                .addInput(Items.SHIELD)
-                .setSlots(SlotType.UPGRADE, 1)
-                .setMaxLevel(1)
-                .saveSalvage(arsConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER.getId() + "_chestplates"), compatSalvage))
-                .save(arsConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER.getId() + "_chestplates"), compatFolder));
+            .setTools(TinkerTags.Items.CHESTPLATES)
+            .addInput(BlockRegistry.SOURCE_GEM_BLOCK)
+            .addInput(BlockRegistry.SOURCE_GEM_BLOCK)
+            .addInput(Ingredient.of(Tags.Items.STORAGE_BLOCKS_GOLD))
+            .addInput(Ingredient.of(Tags.Items.STORAGE_BLOCKS_GOLD))
+            .addInput(Items.SHIELD)
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(arsConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER.getId() + "_chestplates"), compatSalvage))
+            .save(arsConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER.getId() + "_chestplates"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ROADRUNNER_MODIFIER)
+            .setTools(TinkerTags.Items.BOOTS)
+            .addInput(Items.CHISELED_SANDSTONE)
+            .addInput(AMItemRegistry.ROADRUNNER_FEATHER.get())
+            .addInput(AMItemRegistry.ROADRUNNER_FEATHER.get())
+            .addInput(AMItemRegistry.ROADRUNNER_FEATHER.get())
+            .addInput(AMItemRegistry.ROADRUNNER_FEATHER.get())
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(3)
+            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ROADRUNNER_MODIFIER.getId() + "_boots"), compatSalvage))
+            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ROADRUNNER_MODIFIER.getId() + "_boots"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.FRONTIER_CAP_MODIFIER)
+            .setTools(TinkerTags.Items.HELMETS)
+            .addInput(AMItemRegistry.BEAR_FUR.get())
+            .addInput(AMItemRegistry.BEAR_FUR.get())
+            .addInput(AMItemRegistry.BEAR_FUR.get())
+            .addInput(AMItemRegistry.BEAR_FUR.get())
+            .addInput(AMItemRegistry.RACCOON_TAIL.get())
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(3)
+            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.FRONTIER_CAP_MODIFIER.getId() + "_helmets"), compatSalvage))
+            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.FRONTIER_CAP_MODIFIER.getId() + "_helmets"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TURTLE_SHELL_MODIFIER)
+            .setTools(TinkerTags.Items.HELMETS)
+            .addInput(AMItemRegistry.SPIKED_SCUTE.get())
+            .addInput(AMItemRegistry.SPIKED_SCUTE.get())
+            .addInput(AMItemRegistry.SPIKED_SCUTE.get())
+            .addInput(AMItemRegistry.SPIKED_SCUTE.get())
+            .addInput(AMItemRegistry.SPIKED_SCUTE.get())
+            .setSlots(SlotType.ABILITY, 1)
+            .setMaxLevel(1)
+            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TURTLE_SHELL_MODIFIER.getId() + "_helmets"), compatSalvage))
+            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TURTLE_SHELL_MODIFIER.getId() + "_helmets"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.BISON_FUR_MODIFIER)
+            .setTools(TinkerTags.Items.BOOTS)
+            .addInput(AMItemRegistry.BISON_FUR.get())
+            .addInput(AMItemRegistry.BISON_FUR.get())
+            .addInput(AMItemRegistry.BISON_FUR.get())
+            .addInput(AMItemRegistry.BISON_FUR.get())
+            .addInput(AMItemRegistry.BISON_FUR.get())
+            .setSlots(SlotType.ABILITY, 1)
+            .setMaxLevel(1)
+            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.BISON_FUR_MODIFIER.getId() + "_boots"), compatSalvage))
+            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.BISON_FUR_MODIFIER.getId() + "_boots"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SHIELD_OF_THE_DEEP_MODIFIER)
+            .setTools(TinkerTags.Items.CHESTPLATES)
+            .addInput(Items.HEART_OF_THE_SEA)
+            .addInput(Items.PRISMARINE_BRICKS)
+            .addInput(AMItemRegistry.SERRATED_SHARK_TOOTH.get())
+            .addInput(AMItemRegistry.SHARK_TOOTH.get())
+            .addInput(AMItemRegistry.SHARK_TOOTH.get())
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.SHIELD_OF_THE_DEEP_MODIFIER.getId() + "_chestplates"), compatSalvage))
+            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.SHIELD_OF_THE_DEEP_MODIFIER.getId() + "_chestplates"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.MOSQUITO_MODIFIER)
+            .setTools(TinkerTags.Items.ARMOR)
+            .addInput(AMItemRegistry.MOSQUITO_PROBOSCIS.get())
+            .addInput(AMItemRegistry.MOSQUITO_PROBOSCIS.get())
+            .addInput(AMItemRegistry.MOSQUITO_PROBOSCIS.get())
+            .addInput(AMItemRegistry.MOSQUITO_PROBOSCIS.get())
+            .addInput(AMItemRegistry.MOSQUITO_PROBOSCIS.get())
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(alexConsumer, prefix(TCIntegrationsModifiers.MOSQUITO_MODIFIER, compatSalvage))
+            .save(alexConsumer, prefix(TCIntegrationsModifiers.MOSQUITO_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.CROCODILE_MODIFIER)
+            .setTools(TinkerTags.Items.CHESTPLATES)
+            .addInput(AMItemRegistry.CROCODILE_SCUTE.get())
+            .addInput(AMItemRegistry.CROCODILE_SCUTE.get())
+            .addInput(AMItemRegistry.CROCODILE_SCUTE.get())
+            .addInput(AMItemRegistry.CROCODILE_SCUTE.get())
+            .addInput(AMItemRegistry.CROCODILE_SCUTE.get())
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.CROCODILE_MODIFIER.getId() + "_chestplates"), compatSalvage))
+            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.CROCODILE_MODIFIER.getId() + "_chestplates"), compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:modifier_salvage",
+  "conditions": [
+    {
+      "modid": "alexsmobs",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "modifier": "tcintegrations:mosquito",
+  "min_level": 1
+}

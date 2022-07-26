@@ -7,11 +7,18 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.modifiers.armor.ArsNouveauModifier;
+import tcintegrations.items.modifiers.armor.BisonFurModifier;
+import tcintegrations.items.modifiers.armor.CrocodileModifier;
 import tcintegrations.items.modifiers.armor.EnchantersShieldModifier;
 import tcintegrations.items.modifiers.armor.EngineersGogglesModifier;
+import tcintegrations.items.modifiers.armor.FrontierCapModifier;
 import tcintegrations.items.modifiers.armor.GreatFairyModifier;
+import tcintegrations.items.modifiers.armor.MosquitoModifier;
 import tcintegrations.items.modifiers.armor.PoseidonModifier;
+import tcintegrations.items.modifiers.armor.RoadrunnerModifier;
+import tcintegrations.items.modifiers.armor.ShieldOfTheDeepModifier;
 import tcintegrations.items.modifiers.armor.TerrestrialModifier;
+import tcintegrations.items.modifiers.armor.TurtleShellModifier;
 import tcintegrations.items.modifiers.tool.ElementalModifier;
 import tcintegrations.items.modifiers.tool.LivingwoodModifier;
 import tcintegrations.items.modifiers.tool.ManaItemModifier;
@@ -37,6 +44,13 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<SirenModifier> SIREN_MODIFIER;
     public static StaticModifier<ArsNouveauModifier> ARS_MODIFIER;
     public static StaticModifier<EnchantersShieldModifier> ENCHANTERS_SHIELD_MODIFIER;
+    public static StaticModifier<RoadrunnerModifier> ROADRUNNER_MODIFIER;
+    public static StaticModifier<FrontierCapModifier> FRONTIER_CAP_MODIFIER;
+    public static StaticModifier<TurtleShellModifier> TURTLE_SHELL_MODIFIER;
+    public static StaticModifier<BisonFurModifier> BISON_FUR_MODIFIER;
+    public static StaticModifier<ShieldOfTheDeepModifier> SHIELD_OF_THE_DEEP_MODIFIER;
+    public static StaticModifier<MosquitoModifier> MOSQUITO_MODIFIER;
+    public static StaticModifier<CrocodileModifier> CROCODILE_MODIFIER;
 
     public static void init() {
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
@@ -62,6 +76,15 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
         if (ModList.get().isLoaded(ModIntegration.ARS_MODID)) {
             ARS_MODIFIER = MODIFIERS_REGISTRY.register("ars_nouveau", ArsNouveauModifier::new);
             ENCHANTERS_SHIELD_MODIFIER = MODIFIERS_REGISTRY.register("enchanters_shield", EnchantersShieldModifier::new);
+        }
+        if (ModList.get().isLoaded(ModIntegration.ALEX_MODID)) {
+            ROADRUNNER_MODIFIER = MODIFIERS_REGISTRY.register("roadrunner", RoadrunnerModifier::new);
+            FRONTIER_CAP_MODIFIER = MODIFIERS_REGISTRY.register("frontier_cap", FrontierCapModifier::new);
+            TURTLE_SHELL_MODIFIER = MODIFIERS_REGISTRY.register("turtle_shell", TurtleShellModifier::new);
+            BISON_FUR_MODIFIER = MODIFIERS_REGISTRY.register("bison_fur", BisonFurModifier::new);
+            SHIELD_OF_THE_DEEP_MODIFIER = MODIFIERS_REGISTRY.register("shield_of_the_deep", ShieldOfTheDeepModifier::new);
+            MOSQUITO_MODIFIER = MODIFIERS_REGISTRY.register("mosquito", MosquitoModifier::new);
+            CROCODILE_MODIFIER = MODIFIERS_REGISTRY.register("crocodile", CrocodileModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);
