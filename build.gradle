@@ -231,6 +231,7 @@ curseforge {
                     optionalLibrary 'ars-nouveau'
                     optionalLibrary 'tinkersurvival'
                     optionalLibrary 'aquaculture'
+                    optionalLibrary 'alexs-mobs'
                 }
             }
         }
