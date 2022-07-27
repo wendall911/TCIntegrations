@@ -22,6 +22,7 @@ public class MaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvid
         buildRenderInfo(MaterialIds.livingRock).color(0xDFE2D4).fallbacks("rock");
         buildRenderInfo(MaterialIds.manaSteel).color(0x3389FF).fallbacks("metal");
         buildRenderInfo(MaterialIds.neptunium).color(0x1AF5B9).fallbacks("metal");
+        buildRenderInfo(MaterialIds.soulStainedSteel).color(0xA96EC7).fallbacks("metal");
     }
 
 }

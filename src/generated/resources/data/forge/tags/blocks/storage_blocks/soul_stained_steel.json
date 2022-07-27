@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "malum:block_of_soul_stained_steel",
+      "required": false
+    }
+  ]
+}

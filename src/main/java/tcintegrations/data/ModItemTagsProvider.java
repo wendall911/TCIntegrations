@@ -34,9 +34,14 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     @Override
     protected void addTags() {
         this.copy(TagManager.Blocks.BRONZE, TagManager.Items.BRONZE);
+        copy(TinkerTags.Blocks.ANVIL_METAL, TinkerTags.Items.ANVIL_METAL);
 
-        this.tag(Tags.Items.INGOTS).add(TCIntegrationsItems.BRONZE.getIngot());
-        this.tag(Tags.Items.NUGGETS).add(TCIntegrationsItems.BRONZE.getNugget());
+        this.tag(Tags.Items.INGOTS)
+            .add(TCIntegrationsItems.BRONZE.getIngot())
+            .addOptional(ModIntegration.malumLoc("soul_stained_steel_ingot"));
+        this.tag(Tags.Items.NUGGETS)
+            .add(TCIntegrationsItems.BRONZE.getNugget())
+            .addOptional(ModIntegration.malumLoc("soul_stained_steel_nugget"));
 
         getBuilder(TagManager.Items.BRONZE_INGOTS).add(TCIntegrationsItems.BRONZE.getIngot());
         getBuilder(TagManager.Items.BRONZE_NUGGETS).add(TCIntegrationsItems.BRONZE.getNugget());
@@ -45,6 +50,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         addBotaniaLogVariants(TagManager.Items.BOTANIA_LIVINGWOOD_LOGS, "livingwood");
         this.tag(TinkerTags.Items.VARIANT_LOGS).addOptionalTag(TagManager.Items.BOTANIA_LIVINGWOOD_LOGS.location());
         this.tag(TinkerTags.Items.VARIANT_PLANKS).addOptional(ModIntegration.botaniaLoc("livingwood_planks"));
+
+        // Malum
+        this.copy(TagManager.Blocks.SOUL_STAINED_STEEL, TagManager.Items.SOUL_STAINED_STEEL);
+        getBuilder(TagManager.Items.SOUL_STAINED_STEEL_INGOTS).addOptional(ModIntegration.malumLoc("soul_stained_steel_ingot"));
+        getBuilder(TagManager.Items.SOUL_STAINED_STEEL_NUGGETS).addOptional(ModIntegration.malumLoc("soul_stained_steel_nugget"));
     }
 
     private void addBotaniaLogVariants(TagKey<Item> tag, String type) {

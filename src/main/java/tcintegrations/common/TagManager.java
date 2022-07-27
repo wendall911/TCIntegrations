@@ -23,6 +23,11 @@ public final class TagManager {
         // Botania
         public static final TagKey<Item> BOTANIA_LIVINGWOOD_LOGS = create("livingwood_logs");
 
+        // Malum
+        public static final TagKey<Item> SOUL_STAINED_STEEL = forgeTag("storage_blocks/soul_stained_steel");
+        public static final TagKey<Item> SOUL_STAINED_STEEL_INGOTS = forgeTag("ingots/soul_stained_steel");
+        public static final TagKey<Item> SOUL_STAINED_STEEL_NUGGETS = forgeTag("nuggets/soul_stained_steel");
+
         private static TagKey<Item> create(String id) {
             return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
         }
@@ -36,6 +41,9 @@ public final class TagManager {
 
     public static final class Blocks {
         public static final TagKey<Block> BRONZE = forgeTag("storage_blocks/bronze");
+
+        // Malum
+        public static final TagKey<Block> SOUL_STAINED_STEEL = forgeTag("storage_blocks/soul_stained_steel");
 
         private static TagKey<Block> create(String id) {
             return Objects.requireNonNull(ForgeRegistries.BLOCKS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());

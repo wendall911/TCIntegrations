@@ -17,6 +17,7 @@ import slimeknights.mantle.registration.object.MetalItemObject;
 
 import slimeknights.tconstruct.common.TinkerTags;
 
+import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.data.tcon.SmelteryCompat;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
@@ -36,7 +37,10 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     @Override 
     protected void addTags() {
         this.tag(TagManager.Blocks.BRONZE).add(TCIntegrationsItems.BRONZE.get());
-        this.tag(Tags.Blocks.STORAGE_BLOCKS).addTag(TagManager.Blocks.BRONZE);
+        this.tag(TagManager.Blocks.SOUL_STAINED_STEEL).addOptional(ModIntegration.malumLoc("block_of_soul_stained_steel"));
+        this.tag(Tags.Blocks.STORAGE_BLOCKS)
+            .addTag(TagManager.Blocks.BRONZE)
+            .addTag(TagManager.Blocks.SOUL_STAINED_STEEL);
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(TagManager.Blocks.BRONZE);
         this.tag(BlockTags.NEEDS_STONE_TOOL).addTag(TagManager.Blocks.BRONZE);
 

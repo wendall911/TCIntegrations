@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "#forge:storage_blocks/bronze",
+    "#forge:storage_blocks/soul_stained_steel",
     "#forge:storage_blocks/bronze"
   ]
 }

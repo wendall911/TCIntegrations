@@ -3,8 +3,11 @@ package tcintegrations.data.tcon;
 import java.util.function.Consumer;
 
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
+
 import com.hollingsworth.arsnouveau.setup.BlockRegistry;
 import com.hollingsworth.arsnouveau.setup.ItemsRegistry;
+
+import com.sammy.malum.core.setup.content.item.ItemRegistry;
 
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
@@ -18,7 +21,9 @@ import net.minecraft.resources.ResourceLocation;
 
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+
 import net.minecraftforge.common.Tags;
+
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.data.BaseRecipeProvider;
 import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
@@ -51,9 +56,6 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
 
     private void addModifierRecipes(Consumer<FinishedRecipe> consumer) {
         // upgrades
-        String upgradeFolder = "tools/modifiers/upgrade/";
-        String upgradeSalvage = "tools/modifiers/salvage/upgrade/";
-        String abilityFolder = "tools/modifiers/ability/";
         String compatFolder = "tools/modifiers/compat/";
         String compatSalvage = "tools/modifiers/salvage/compat/";
         Consumer<FinishedRecipe> botaniaConsumer = withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID));
@@ -61,6 +63,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         Consumer<FinishedRecipe> aquacultureConsumer = withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID));
         Consumer<FinishedRecipe> arsConsumer = withCondition(consumer, modLoaded(ModIntegration.ARS_MODID));
         Consumer<FinishedRecipe> alexConsumer = withCondition(consumer, modLoaded(ModIntegration.ALEX_MODID));
+        Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -324,6 +327,18 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .setMaxLevel(1)
             .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.CROCODILE_MODIFIER.getId() + "_chestplates"), compatSalvage))
             .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.CROCODILE_MODIFIER.getId() + "_chestplates"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SOUL_STAINED_MODIFIER)
+            .setTools(TinkerTags.Items.ARMOR)
+            .addInput(ItemRegistry.SOUL_STAINED_STEEL_INGOT.get())
+            .addInput(ItemRegistry.SOUL_STAINED_STEEL_INGOT.get())
+            .addInput(ItemRegistry.SOUL_STAINED_STEEL_INGOT.get())
+            .addInput(ItemRegistry.SOUL_STAINED_STEEL_INGOT.get())
+            .addInput(ItemRegistry.SOUL_STAINED_STEEL_INGOT.get())
+            .setSlots(SlotType.DEFENSE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(malumConsumer, prefix(TCIntegrationsModifiers.SOUL_STAINED_MODIFIER, compatSalvage))
+            .save(malumConsumer, prefix(TCIntegrationsModifiers.SOUL_STAINED_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

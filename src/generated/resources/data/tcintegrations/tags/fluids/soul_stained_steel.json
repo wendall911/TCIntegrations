@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "tcintegrations:soul_stained_steel",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_soul_stained_steel",
+      "required": false
+    }
+  ]
+}

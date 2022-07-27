@@ -1,4 +1,4 @@
-package tcintegrations.items.modifiers.tool;
+package tcintegrations.items.modifiers.traits;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -12,7 +12,7 @@ import vazkii.botania.api.mana.ManaItemHandler;
 
 import tcintegrations.util.BotaniaHelper;
 
-public class ManaItemModifier extends NoLevelsModifier {
+public class ManaModifier extends NoLevelsModifier {
 
     private static final int MANA_PER_DAMAGE = 60;
 

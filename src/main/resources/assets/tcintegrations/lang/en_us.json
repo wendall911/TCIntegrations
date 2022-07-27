@@ -16,10 +16,15 @@
     "fluid.tcintegrations.source_gem": "Molten Source Gem",
     "fluid.tcintegrations.flowing_source_gem": "Flowing Molten Source Gem",
     "item.tcintegrations.source_gem_bucket": "Molten Source Gem Bucket",
+    "block.tcintegrations.soul_stained_steel_fluid": "Molten Soul Stained Steel",
+    "fluid.tcintegrations.soul_stained_steel": "Molten Soul Stained Steel",
+    "fluid.tcintegrations.flowing_soul_stained_steel": "Flowing Molten Soul Stained Steel",
+    "item.tcintegrations.soul_stained_steel_bucket": "Molten Soul Stained Steel Bucket",
     "material.tcintegrations.livingrock": "Livingrock",
     "material.tcintegrations.livingwood": "Livingwood",
     "material.tcintegrations.manasteel": "Manasteel",
     "material.tcintegrations.neptunium": "Neptunium",
+    "material.tcintegrations.soul_stained_steel": "Soul Stained Steel",
     "modifier.tcintegrations.mana": "Mana",
     "modifier.tcintegrations.mana.flavor": "Mana magic!",
     "modifier.tcintegrations.mana.description": "Repairs item in inventory if mana providing item exists.",
@@ -89,5 +94,8 @@
     "modifier.tcintegrations.mosquito.description": "Sharing is caring.",
     "modifier.tcintegrations.crocodile": "Crocodile",
     "modifier.tcintegrations.crocodile.flavor": "Tough skin!",
-    "modifier.tcintegrations.crocodile.description": "Adds increased swim speed, armor and armor toughness."
+    "modifier.tcintegrations.crocodile.description": "Adds increased swim speed, armor and armor toughness.",
+    "modifier.tcintegrations.soul_stained": "Soul Stained",
+    "modifier.tcintegrations.soul_stained.flavor": "Dangerous!",
+    "modifier.tcintegrations.soul_stained.description": "Armor grants a protective barrier. Tools and weapons gain magic damage."
 }

@@ -12,13 +12,15 @@ import slimeknights.mantle.registration.object.FluidObject;
 
 import slimeknights.tconstruct.smeltery.data.Byproduct;
 
+import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
 
 /** Enum holding all relevant smeltery compat */
 public enum SmelteryCompat {
 
-    MANASTEEL (TCIntegrationsItems.MOLTEN_MANASTEEL, "botania", Byproduct.IRON, Byproduct.GOLD),
-    NEPTUNIUM (TCIntegrationsItems.MOLTEN_NEPTUNIUM, "aquaculture");
+    MANASTEEL (TCIntegrationsItems.MOLTEN_MANASTEEL, ModIntegration.BOTANIA_MODID, Byproduct.IRON, Byproduct.GOLD),
+    NEPTUNIUM (TCIntegrationsItems.MOLTEN_NEPTUNIUM, ModIntegration.AQUACULTURE_MODID),
+    SOUL_STAINED_STEEL (TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL, ModIntegration.MALUM_MODID);
 
     @Getter
     private final String name = this.name().toLowerCase(Locale.US);
