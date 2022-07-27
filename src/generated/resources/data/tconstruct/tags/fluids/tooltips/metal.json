@@ -8,6 +8,10 @@
     {
       "id": "#forge:neptunium",
       "required": false
+    },
+    {
+      "id": "#forge:soul_stained_steel",
+      "required": false
     }
   ]
 }

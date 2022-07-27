@@ -31,27 +31,31 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
 
         // tier 1 (mod integration)
         addMaterialStats(MaterialIds.livingWood,
-                new HeadMaterialStats(60, 2F, WOOD,0F),
-                HandleMaterialStats.DEFAULT,
-                ExtraMaterialStats.DEFAULT);
+            new HeadMaterialStats(60, 2F, WOOD,0F),
+            HandleMaterialStats.DEFAULT,
+            ExtraMaterialStats.DEFAULT);
         addMaterialStats(MaterialIds.livingRock,
-                new HeadMaterialStats(130, 4F, STONE, 1F),
-                HandleMaterialStats.DEFAULT.withDurability(1.2F).withAttackDamage(1.2F),
-                ExtraMaterialStats.DEFAULT);
+            new HeadMaterialStats(130, 4F, STONE, 1F),
+            HandleMaterialStats.DEFAULT.withDurability(1.2F).withAttackDamage(1.2F),
+            ExtraMaterialStats.DEFAULT);
 
         // tier 3 (mod integration)
         addMaterialStats(MaterialIds.manaSteel,
-                new HeadMaterialStats(775, 6F, DIAMOND, 2.75F),
-                HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.05F).withAttackSpeed(1.05F),
-                ExtraMaterialStats.DEFAULT);
+            new HeadMaterialStats(775, 6F, DIAMOND, 2.75F),
+            HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.05F).withAttackSpeed(1.05F),
+            ExtraMaterialStats.DEFAULT);
         addMaterialStats(brass,
-                new HeadMaterialStats(730, 6F, DIAMOND, 2.25F),
-                HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.15F),
-                ExtraMaterialStats.DEFAULT);
+            new HeadMaterialStats(730, 6F, DIAMOND, 2.25F),
+            HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.15F),
+            ExtraMaterialStats.DEFAULT);
         addMaterialStats(MaterialIds.neptunium,
-                new HeadMaterialStats(765, 7F, DIAMOND, 2.65F),
-                HandleMaterialStats.DEFAULT.withDurability(1.15F).withMiningSpeed(1.25F).withAttackSpeed(1.2F),
-                ExtraMaterialStats.DEFAULT);
+            new HeadMaterialStats(765, 7F, DIAMOND, 2.65F),
+            HandleMaterialStats.DEFAULT.withDurability(1.15F).withMiningSpeed(1.25F).withAttackSpeed(1.2F),
+            ExtraMaterialStats.DEFAULT);
+        addMaterialStats(MaterialIds.soulStainedSteel,
+            new HeadMaterialStats(785, 6F, DIAMOND, 2.75F),
+            HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.05F).withAttackSpeed(1.05F),
+            ExtraMaterialStats.DEFAULT);
     }
 
 }

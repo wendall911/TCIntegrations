@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "tcintegrations:bronze_ingot"
+    "tcintegrations:bronze_ingot",
+    {
+      "id": "malum:soul_stained_steel_ingot",
+      "required": false
+    }
   ]
 }

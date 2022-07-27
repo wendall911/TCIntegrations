@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "malum",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "malum:soul_stained_steel_ingot"
+    },
+    {
+      "item": "malum:soul_stained_steel_ingot"
+    },
+    {
+      "item": "malum:soul_stained_steel_ingot"
+    },
+    {
+      "item": "malum:soul_stained_steel_ingot"
+    },
+    {
+      "item": "malum:soul_stained_steel_ingot"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  },
+  "slots": {
+    "defense": 1
+  },
+  "result": {
+    "name": "tcintegrations:soul_stained",
+    "level": 1
+  },
+  "max_level": 1
+}

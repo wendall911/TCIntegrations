@@ -17,6 +17,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String AQUACULTURE_MODID = "aquaculture";
     public static final String ARS_MODID = "ars_nouveau";
     public static final String ALEX_MODID = "alexsmobs";
+    public static final String MALUM_MODID = "malum";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
 
@@ -43,6 +44,10 @@ public final class ModIntegration extends TCIntegrationsModule {
 
     public static ResourceLocation botaniaLoc(String name) {
         return getLoc(BOTANIA_MODID, name);
+    }
+
+    public static ResourceLocation malumLoc(String name) {
+        return getLoc(MALUM_MODID, name);
     }
 
     private static ResourceLocation getLoc(String modid, String name) {

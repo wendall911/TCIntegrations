@@ -4,6 +4,10 @@
     {
       "id": "#forge:manasteel",
       "required": false
+    },
+    {
+      "id": "#forge:soul_stained_steel",
+      "required": false
     }
   ]
 }

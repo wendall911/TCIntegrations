@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "modid": "malum",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/soul_stained_steel"
+  },
+  "result": {
+    "fluid": "tcintegrations:soul_stained_steel",
+    "amount": 90
+  },
+  "temperature": 950,
+  "time": 65
+}

@@ -29,11 +29,12 @@ import tcintegrations.TCIntegrations;
 public final class TCIntegrationsItems extends TCIntegrationsModule {
 
     public static CreativeTabBase ITEM_TAB_GROUP;
-    public static Function<Block,? extends BlockItem> GENERAL_TOOLTIP_BLOCK_ITEM;
+    public static Function<Block, ? extends BlockItem> GENERAL_TOOLTIP_BLOCK_ITEM;
 
     public static FluidObject<ForgeFlowingFluid> MOLTEN_MANASTEEL;
     public static FluidObject<ForgeFlowingFluid> MOLTEN_NEPTUNIUM;
     public static FluidObject<ForgeFlowingFluid> MOLTEN_SOURCE_GEM;
+    public static FluidObject<ForgeFlowingFluid> MOLTEN_SOUL_STAINED_STEEL;
 
     public static MetalItemObject BRONZE;
 
@@ -55,6 +56,11 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         if (ModList.get().isLoaded(ModIntegration.ARS_MODID)) {
             MOLTEN_SOURCE_GEM = FLUID_REGISTRY.register(
                 "source_gem", hotBuilder().temperature(1780), Material.LAVA, 14);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.MALUM_MODID)) {
+            MOLTEN_SOUL_STAINED_STEEL = FLUID_REGISTRY.register(
+                "soul_stained_steel", hotBuilder().temperature(1250), Material.LAVA, 12);
         }
         
         // Metals

@@ -28,6 +28,7 @@ public class MaterialDataProvider extends AbstractMaterialDataProvider {
         addMaterial(MaterialIds.livingRock, 1, ORDER_GENERAL, true, false, botaniaLoadedCondition);
         addCompatMetalMaterial(MaterialIds.manaSteel, 3, ORDER_COMPAT + ORDER_GENERAL);
         addCompatMetalMaterial(MaterialIds.neptunium, 3, ORDER_COMPAT + ORDER_GENERAL);
+        addCompatMetalMaterial(MaterialIds.soulStainedSteel, 3, ORDER_COMPAT + ORDER_GENERAL);
     }
 
 }
