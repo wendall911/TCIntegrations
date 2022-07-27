@@ -19,11 +19,12 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import tcintegrations.common.TagManager;
+import tcintegrations.items.modifiers.traits.ManaModifier;
 import tcintegrations.util.BotaniaHelper;
 
 import tcintegrations.TCIntegrations;
 
-public class ElementalModifier extends ManaItemModifier {
+public class ElementalModifier extends ManaModifier {
 
     private static final int MANA_PER_DAMAGE = 70;
 

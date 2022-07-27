@@ -11,12 +11,13 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
+import tcintegrations.items.modifiers.traits.ManaModifier;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.handler.ModSounds;
 
 import tcintegrations.util.BotaniaHelper;
 
-public class TerraModifier extends ManaItemModifier {
+public class TerraModifier extends ManaModifier {
 
     private static final int MANA_PER_DAMAGE = 100;
 
