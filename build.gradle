@@ -142,6 +142,7 @@ dependencies {
     implementation fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
     implementation fg.deobf("curse.maven:alexsmobs-426558:${alexsmobs_version}")
     implementation fg.deobf("curse.maven:citadel-331936:${citadel_version}")
+    implementation fg.deobf("curse.maven:malum-484064:${malum_version}")
     runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:${ie_version}")
     runtimeOnly fg.deobf("curse.maven:patchouli-306770:${patchouli_version}")
     runtimeOnly fg.deobf("curse.maven:curios-309927:${curios_version}")
@@ -232,6 +233,7 @@ curseforge {
                     optionalLibrary 'tinkersurvival'
                     optionalLibrary 'aquaculture'
                     optionalLibrary 'alexs-mobs'
+                    optionalLibrary 'malum'
                 }
             }
         }
