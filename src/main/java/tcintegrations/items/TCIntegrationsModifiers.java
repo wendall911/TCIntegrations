@@ -22,6 +22,7 @@ import tcintegrations.items.modifiers.armor.TerrestrialModifier;
 import tcintegrations.items.modifiers.armor.TurtleShellModifier;
 import tcintegrations.items.modifiers.tool.ElementalModifier;
 import tcintegrations.items.modifiers.tool.LivingwoodModifier;
+import tcintegrations.items.modifiers.tool.UtheriumModifier;
 import tcintegrations.items.modifiers.traits.ManaModifier;
 import tcintegrations.items.modifiers.tool.MechanicalArmModifier;
 import tcintegrations.items.modifiers.tool.ModerateModifier;
@@ -55,6 +56,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<CrocodileModifier> CROCODILE_MODIFIER;
     public static StaticModifier<SoulStained> SOUL_STAINED_MODIFIER;
     public static StaticModifier<MasticateModifier> MASTICATE_MODIFIER;
+    public static StaticModifier<UtheriumModifier> UTHERIUM_MODIFIER;
 
     public static void init() {
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
@@ -98,6 +100,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModList.get().isLoaded(ModIntegration.UNDERGARDEN_MODID)) {
             MASTICATE_MODIFIER = MODIFIERS_REGISTRY.register("masticate", MasticateModifier::new);
+            UTHERIUM_MODIFIER = MODIFIERS_REGISTRY.register("utherium", UtheriumModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);

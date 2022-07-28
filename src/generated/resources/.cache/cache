@@ -267,6 +267,7 @@ cfa3eb1e11e7270e6d12a5abb72f1eaa8cbab3a0 data/tconstruct/recipes/tools/modifiers
 2b484463c815d263fc77bdb850473e3fc4d560e8 data/tconstruct/recipes/tools/modifiers/compat/terrestrial_helmets.json
 7a46de48f3217b61d6294532f09282aed21fe1ac data/tconstruct/recipes/tools/modifiers/compat/terrestrial_leggings.json
 b598df1beda28dfb1a2ca9758547cd6084fb7c98 data/tconstruct/recipes/tools/modifiers/compat/turtle_shell_helmets.json
+b7bfccec5733b01c4e3f67ba87e5edb9b4be5f53 data/tconstruct/recipes/tools/modifiers/compat/utherium.json
 f79a9128deac954ae2a0b7e8d00687036ba36f33 data/tconstruct/recipes/tools/modifiers/salvage/compat/ars_nouveau_level_1.json
 c7ea8b6ada8cb79ecc0e42129a16236add1260a0 data/tconstruct/recipes/tools/modifiers/salvage/compat/ars_nouveau_level_2.json
 e1b327263ff191ccf489451af657979d595559b8 data/tconstruct/recipes/tools/modifiers/salvage/compat/ars_nouveau_level_3.json
@@ -291,6 +292,7 @@ be15d642470f085abad31a478cdbe3bfcef6a486 data/tconstruct/recipes/tools/modifiers
 e53aca3b5604e9f07975f082cfdd20f01ea88c7a data/tconstruct/recipes/tools/modifiers/salvage/compat/terrestrial_helmets.json
 d8fbdf5253ea452a77827131f84c54373d16a07e data/tconstruct/recipes/tools/modifiers/salvage/compat/terrestrial_leggings.json
 ca9f90e62fcfcc4c3fb193bfbbddd49e6ee62135 data/tconstruct/recipes/tools/modifiers/salvage/compat/turtle_shell_helmets.json
+acd10d383093defb9958a16cab4f5f704322d678 data/tconstruct/recipes/tools/modifiers/salvage/compat/utherium.json
 3e002bb47109a4dd1147e2214a866ad528cb0eac data/tconstruct/tags/blocks/anvil_metal.json
 b60b92b0fd5a57c1e66de8e09c4930a4653229c0 data/tconstruct/tags/fluids/spilling/metal/average.json
 ddf9d6a268aa4685a1dd22bdf8a7450b051a0f6c data/tconstruct/tags/fluids/spilling/metal/expensive.json

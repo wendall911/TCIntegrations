@@ -12,6 +12,7 @@ public class TciModifierIds {
     public static final ModifierId waterPowered = id("water_powered");
     public static final ModifierId soulStained = id("soul_stained");
     public static final ModifierId masticate = id("masticate");
+    public static final ModifierId utherium = id("utherium");
 
     private TciModifierIds() {}
 

@@ -112,5 +112,8 @@
     "modifier.tcintegrations.soul_stained.description": "Armor grants a protective barrier. Tools and weapons gain magic damage.",
     "modifier.tcintegrations.masticate": "Masticate",
     "modifier.tcintegrations.masticate.flavor": "Boss Thorns!",
-    "modifier.tcintegrations.masticate.description": "Harness the power of the Masticator, causing attackers to sometimes take damage."
+    "modifier.tcintegrations.masticate.description": "Harness the power of the Masticator, causing attackers to sometimes take damage.",
+    "modifier.tcintegrations.utherium": "Utherium",
+    "modifier.tcintegrations.utherium.flavor": "Rotspawn!",
+    "modifier.tcintegrations.utherium.description": "Deals 1.5x damage to Rotspawn."
 }

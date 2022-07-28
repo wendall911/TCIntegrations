@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "undergarden",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "undergarden:utherium_crystal"
+    },
+    {
+      "item": "undergarden:utherium_crystal"
+    },
+    {
+      "item": "undergarden:utherium_crystal"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/melee"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "result": {
+    "name": "tcintegrations:utherium",
+    "level": 1
+  },
+  "max_level": 1
+}
