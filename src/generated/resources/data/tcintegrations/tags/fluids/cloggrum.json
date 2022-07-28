@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "tcintegrations:cloggrum",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_cloggrum",
+      "required": false
+    }
+  ]
+}

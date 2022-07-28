@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tcintegrations:block/fluid/metal/addon_ore/forgotten"
+    }
+  }
+}

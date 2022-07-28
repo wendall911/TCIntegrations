@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:rods/froststeel",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "undergarden",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:rods/froststeel"
+  },
+  "result": {
+    "fluid": "tcintegrations:froststeel",
+    "amount": 45
+  },
+  "temperature": 900,
+  "time": 13
+}

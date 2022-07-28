@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:coins/forgotten",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "undergarden",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:coins/forgotten"
+  },
+  "result": {
+    "fluid": "tcintegrations:forgotten",
+    "amount": 30
+  },
+  "temperature": 900,
+  "time": 42
+}

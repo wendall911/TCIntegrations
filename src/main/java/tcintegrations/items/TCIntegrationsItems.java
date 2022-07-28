@@ -35,6 +35,9 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
     public static FluidObject<ForgeFlowingFluid> MOLTEN_NEPTUNIUM;
     public static FluidObject<ForgeFlowingFluid> MOLTEN_SOURCE_GEM;
     public static FluidObject<ForgeFlowingFluid> MOLTEN_SOUL_STAINED_STEEL;
+    public static FluidObject<ForgeFlowingFluid> MOLTEN_CLOGGRUM;
+    public static FluidObject<ForgeFlowingFluid> MOLTEN_FROSTSTEEL;
+    public static FluidObject<ForgeFlowingFluid> MOLTEN_FORGOTTEN;
 
     public static MetalItemObject BRONZE;
 
@@ -61,6 +64,15 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         if (ModList.get().isLoaded(ModIntegration.MALUM_MODID)) {
             MOLTEN_SOUL_STAINED_STEEL = FLUID_REGISTRY.register(
                 "soul_stained_steel", hotBuilder().temperature(1250), Material.LAVA, 12);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.UNDERGARDEN_MODID)) {
+            MOLTEN_CLOGGRUM = FLUID_REGISTRY.register(
+                "cloggrum", hotBuilder().temperature(1200), Material.LAVA, 8);
+            MOLTEN_FROSTSTEEL = FLUID_REGISTRY.register(
+                "froststeel", hotBuilder().temperature(1200), Material.LAVA, 11);
+            MOLTEN_FORGOTTEN = FLUID_REGISTRY.register(
+                "forgotten", hotBuilder().temperature(1200), Material.LAVA, 14);
         }
         
         // Metals

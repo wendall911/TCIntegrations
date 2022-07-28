@@ -11,6 +11,7 @@ public class TciModifierIds {
     public static final ModifierId moderate = id("moderate");
     public static final ModifierId waterPowered = id("water_powered");
     public static final ModifierId soulStained = id("soul_stained");
+    public static final ModifierId masticate = id("masticate");
 
     private TciModifierIds() {}
 

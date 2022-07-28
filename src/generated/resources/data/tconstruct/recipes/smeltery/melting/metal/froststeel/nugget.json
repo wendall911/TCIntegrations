@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "modid": "undergarden",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:nuggets/froststeel"
+  },
+  "result": {
+    "fluid": "tcintegrations:froststeel",
+    "amount": 10
+  },
+  "temperature": 900,
+  "time": 21
+}

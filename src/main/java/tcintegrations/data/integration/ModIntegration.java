@@ -18,6 +18,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String ARS_MODID = "ars_nouveau";
     public static final String ALEX_MODID = "alexsmobs";
     public static final String MALUM_MODID = "malum";
+    public static final String UNDERGARDEN_MODID = "undergarden";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
 

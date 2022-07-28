@@ -12,6 +12,18 @@
     {
       "id": "#forge:soul_stained_steel",
       "required": false
+    },
+    {
+      "id": "#forge:cloggrum",
+      "required": false
+    },
+    {
+      "id": "#forge:froststeel",
+      "required": false
+    },
+    {
+      "id": "#forge:forgotten",
+      "required": false
     }
   ]
 }

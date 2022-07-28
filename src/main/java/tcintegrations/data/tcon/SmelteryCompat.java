@@ -20,7 +20,10 @@ public enum SmelteryCompat {
 
     MANASTEEL (TCIntegrationsItems.MOLTEN_MANASTEEL, ModIntegration.BOTANIA_MODID, Byproduct.IRON, Byproduct.GOLD),
     NEPTUNIUM (TCIntegrationsItems.MOLTEN_NEPTUNIUM, ModIntegration.AQUACULTURE_MODID),
-    SOUL_STAINED_STEEL (TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL, ModIntegration.MALUM_MODID);
+    SOUL_STAINED_STEEL (TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL, ModIntegration.MALUM_MODID),
+    CLOGGRUM (TCIntegrationsItems.MOLTEN_CLOGGRUM, ModIntegration.UNDERGARDEN_MODID),
+    FROSTSTEEL (TCIntegrationsItems.MOLTEN_FROSTSTEEL, ModIntegration.UNDERGARDEN_MODID),
+    FORGOTTEN (TCIntegrationsItems.MOLTEN_FORGOTTEN, ModIntegration.UNDERGARDEN_MODID);
 
     @Getter
     private final String name = this.name().toLowerCase(Locale.US);

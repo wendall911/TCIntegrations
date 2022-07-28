@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:dusts/cloggrum",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "undergarden",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:dusts/cloggrum"
+  },
+  "result": {
+    "fluid": "tcintegrations:cloggrum",
+    "amount": 90
+  },
+  "temperature": 900,
+  "time": 47
+}

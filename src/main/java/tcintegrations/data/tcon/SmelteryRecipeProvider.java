@@ -56,6 +56,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         modConsumers.put(ModIntegration.BOTANIA_MODID, withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID)));
         modConsumers.put(ModIntegration.AQUACULTURE_MODID, withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID)));
         modConsumers.put(ModIntegration.MALUM_MODID, withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID)));
+        modConsumers.put(ModIntegration.UNDERGARDEN_MODID, withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID)));
 
         this.gemCasting(arsConsumer, TCIntegrationsItems.MOLTEN_SOURCE_GEM, ItemsRegistry.SOURCE_GEM.asItem(), folder + "source_gem/gem");
         ItemCastingRecipeBuilder.basinRecipe(BlockRegistry.SOURCE_GEM_BLOCK)
@@ -75,10 +76,14 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         Consumer<FinishedRecipe> botaniaConsumer = withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID));
         Consumer<FinishedRecipe> aquacultureConsumer = withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID));
         Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
+        Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
 
         metalMelting(botaniaConsumer, TCIntegrationsItems.MOLTEN_MANASTEEL.get(), "manasteel", false, metalFolder, false, Byproduct.IRON);
         metalMelting(aquacultureConsumer, TCIntegrationsItems.MOLTEN_NEPTUNIUM.get(), "neptunium", false, metalFolder, false);
         metalMelting(malumConsumer, TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL.get(), "soul_stained_steel", false, metalFolder, false, Byproduct.IRON);
+        metalMelting(undergardenConsumer, TCIntegrationsItems.MOLTEN_CLOGGRUM.get(), "cloggrum", true, metalFolder, false);
+        metalMelting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FROSTSTEEL.get(), "froststeel", true, metalFolder, false);
+        metalMelting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN.get(), "forgotten", false, metalFolder, false);
     }
 
     private void addAlloyRecipes(Consumer<FinishedRecipe> consumer) {

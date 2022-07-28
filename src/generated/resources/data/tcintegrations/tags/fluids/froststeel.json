@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "tcintegrations:froststeel",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_froststeel",
+      "required": false
+    }
+  ]
+}

@@ -13,6 +13,7 @@ import tcintegrations.items.modifiers.armor.EnchantersShieldModifier;
 import tcintegrations.items.modifiers.armor.EngineersGogglesModifier;
 import tcintegrations.items.modifiers.armor.FrontierCapModifier;
 import tcintegrations.items.modifiers.armor.GreatFairyModifier;
+import tcintegrations.items.modifiers.armor.MasticateModifier;
 import tcintegrations.items.modifiers.armor.MosquitoModifier;
 import tcintegrations.items.modifiers.armor.PoseidonModifier;
 import tcintegrations.items.modifiers.armor.RoadrunnerModifier;
@@ -53,6 +54,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<MosquitoModifier> MOSQUITO_MODIFIER;
     public static StaticModifier<CrocodileModifier> CROCODILE_MODIFIER;
     public static StaticModifier<SoulStained> SOUL_STAINED_MODIFIER;
+    public static StaticModifier<MasticateModifier> MASTICATE_MODIFIER;
 
     public static void init() {
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
@@ -92,6 +94,10 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModList.get().isLoaded(ModIntegration.MALUM_MODID)) {
             SOUL_STAINED_MODIFIER = MODIFIERS_REGISTRY.register("soul_stained", SoulStained::new);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.UNDERGARDEN_MODID)) {
+            MASTICATE_MODIFIER = MODIFIERS_REGISTRY.register("masticate", MasticateModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);

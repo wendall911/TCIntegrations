@@ -1,0 +1,24 @@
+{
+  "type": "tconstruct:casting_basin",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:storage_blocks/froststeel",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "undergarden",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "fluid": {
+    "tag": "forge:froststeel",
+    "amount": 810
+  },
+  "result": {
+    "tag": "forge:storage_blocks/froststeel"
+  },
+  "cooling_time": 190
+}
