@@ -19,7 +19,13 @@ public class UtheriumModifier extends NoLevelsModifier {
 
     @Override
     public float getEntityDamage(IToolStackView tool, int level, ToolAttackContext context, float baseDamage, float damage) {
-        return damage * damageMultiplier(context.getLivingTarget());
+        LivingEntity target = context.getLivingTarget();
+
+        if (target != null) {
+            return damage * damageMultiplier(target);
+        }
+
+        return damage;
     }
 
 }
