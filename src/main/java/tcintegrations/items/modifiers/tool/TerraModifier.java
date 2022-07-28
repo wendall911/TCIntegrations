@@ -11,10 +11,10 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-import tcintegrations.items.modifiers.traits.ManaModifier;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.common.handler.ModSounds;
 
+import tcintegrations.items.modifiers.traits.ManaModifier;
 import tcintegrations.util.BotaniaHelper;
 
 public class TerraModifier extends ManaModifier {
@@ -32,10 +32,8 @@ public class TerraModifier extends ManaModifier {
 
         if (player != null && !player.level.isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
-            DamageSource source = DamageSource.playerAttack(sp);
+            DamageSource source = DamageSource.indirectMagic(sp, null);
             ItemStack stack = sp.getItemInHand(InteractionHand.MAIN_HAND);
-
-            source.bypassArmor();
 
             if (sp.getAttackStrengthScale(0F) == 1 && ManaItemHandler.instance().requestManaExactForTool(stack, sp, getManaPerDamage(sp) * 2, true)) {
                 sp.level.playSound(null, sp.getX(), sp.getY(), sp.getZ(), ModSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
