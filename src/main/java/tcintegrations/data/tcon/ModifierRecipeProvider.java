@@ -362,6 +362,18 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .setMaxLevel(1)
             .saveSalvage(undergardenConsumer, prefix(TCIntegrationsModifiers.UTHERIUM_MODIFIER, compatSalvage))
             .save(undergardenConsumer, prefix(TCIntegrationsModifiers.UTHERIUM_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.FROSTSTEEL_MODIFIER)
+            .setTools(TinkerTags.Items.MELEE_OR_HARVEST)
+            .addInput(UGItems.FROSTSTEEL_INGOT.get())
+            .addInput(UGItems.FROSTSTEEL_INGOT.get())
+            .addInput(UGItems.FROSTSTEEL_INGOT.get())
+            .addInput(UGItems.FROSTSTEEL_INGOT.get())
+            .addInput(UGItems.FROSTSTEEL_INGOT.get())
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(undergardenConsumer, prefix(TCIntegrationsModifiers.FROSTSTEEL_MODIFIER, compatSalvage))
+            .save(undergardenConsumer, prefix(TCIntegrationsModifiers.FROSTSTEEL_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

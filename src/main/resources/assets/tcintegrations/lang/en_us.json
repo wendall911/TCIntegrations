@@ -115,5 +115,8 @@
     "modifier.tcintegrations.masticate.description": "Harness the power of the Masticator, causing attackers to sometimes take damage.",
     "modifier.tcintegrations.utherium": "Utherium",
     "modifier.tcintegrations.utherium.flavor": "Rotspawn!",
-    "modifier.tcintegrations.utherium.description": "Deals 1.5x damage to Rotspawn."
+    "modifier.tcintegrations.utherium.description": "Deals 1.5x damage to Rotspawn.",
+    "modifier.tcintegrations.froststeel": "Froststeel",
+    "modifier.tcintegrations.froststeel.flavor": "Chilly!",
+    "modifier.tcintegrations.froststeel.description": "Slows targets."
 }
