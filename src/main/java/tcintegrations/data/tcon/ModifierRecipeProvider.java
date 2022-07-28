@@ -24,13 +24,17 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import net.minecraftforge.common.Tags;
 
+import quek.undergarden.registry.UGItems;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.common.data.BaseRecipeProvider;
 import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
 import slimeknights.tconstruct.library.recipe.modifiers.ModifierMatch;
+import slimeknights.tconstruct.library.recipe.modifiers.adding.IncrementalModifierRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 
+import slimeknights.tconstruct.tools.TinkerModifiers;
+import tcintegrations.data.tcon.material.TciModifierIds;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.lib.ModTags;
 
@@ -64,6 +68,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         Consumer<FinishedRecipe> arsConsumer = withCondition(consumer, modLoaded(ModIntegration.ARS_MODID));
         Consumer<FinishedRecipe> alexConsumer = withCondition(consumer, modLoaded(ModIntegration.ALEX_MODID));
         Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
+        Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -339,6 +344,14 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .setMaxLevel(1)
             .saveSalvage(malumConsumer, prefix(TCIntegrationsModifiers.SOUL_STAINED_MODIFIER, compatSalvage))
             .save(malumConsumer, prefix(TCIntegrationsModifiers.SOUL_STAINED_MODIFIER, compatFolder));
+
+        IncrementalModifierRecipeBuilder.modifier(TciModifierIds.masticate)
+            .setTools(TinkerTags.Items.ARMOR)
+            .setInput(UGItems.MASTICATOR_SCALES.get(), 1, 2)
+            .setMaxLevel(3)
+            .setSlots(SlotType.UPGRADE, 1)
+            .saveSalvage(undergardenConsumer, prefix(TCIntegrationsModifiers.MASTICATE_MODIFIER, compatSalvage))
+            .save(undergardenConsumer, prefix(TCIntegrationsModifiers.MASTICATE_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {
