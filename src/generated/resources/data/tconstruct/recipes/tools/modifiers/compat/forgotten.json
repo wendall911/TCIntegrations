@@ -1,0 +1,37 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "undergarden",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "undergarden:forgotten_ingot"
+    },
+    {
+      "item": "undergarden:cloggrum_ingot"
+    },
+    {
+      "item": "undergarden:cloggrum_ingot"
+    },
+    {
+      "item": "undergarden:cloggrum_ingot"
+    },
+    {
+      "item": "undergarden:cloggrum_ingot"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/melee_or_harvest"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "result": {
+    "name": "tcintegrations:forgotten",
+    "level": 1
+  },
+  "max_level": 1
+}

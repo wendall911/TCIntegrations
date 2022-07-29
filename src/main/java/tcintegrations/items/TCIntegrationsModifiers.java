@@ -21,6 +21,7 @@ import tcintegrations.items.modifiers.armor.ShieldOfTheDeepModifier;
 import tcintegrations.items.modifiers.armor.TerrestrialModifier;
 import tcintegrations.items.modifiers.armor.TurtleShellModifier;
 import tcintegrations.items.modifiers.tool.ElementalModifier;
+import tcintegrations.items.modifiers.tool.ForgottenModifier;
 import tcintegrations.items.modifiers.tool.FroststeelModifier;
 import tcintegrations.items.modifiers.tool.LivingwoodModifier;
 import tcintegrations.items.modifiers.tool.UtheriumModifier;
@@ -59,6 +60,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<MasticateModifier> MASTICATE_MODIFIER;
     public static StaticModifier<UtheriumModifier> UTHERIUM_MODIFIER;
     public static StaticModifier<FroststeelModifier> FROSTSTEEL_MODIFIER;
+    public static StaticModifier<ForgottenModifier> FORGOTTEN_MODIFIER;
 
     public static void init() {
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
@@ -104,6 +106,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             MASTICATE_MODIFIER = MODIFIERS_REGISTRY.register("masticate", MasticateModifier::new);
             UTHERIUM_MODIFIER = MODIFIERS_REGISTRY.register("utherium", UtheriumModifier::new);
             FROSTSTEEL_MODIFIER = MODIFIERS_REGISTRY.register("froststeel", FroststeelModifier::new);
+            FORGOTTEN_MODIFIER = MODIFIERS_REGISTRY.register("forgotten", ForgottenModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);

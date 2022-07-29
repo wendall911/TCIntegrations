@@ -118,5 +118,10 @@
     "modifier.tcintegrations.utherium.description": "Deals 1.5x damage to Rotspawn.",
     "modifier.tcintegrations.froststeel": "Froststeel",
     "modifier.tcintegrations.froststeel.flavor": "Chilly!",
-    "modifier.tcintegrations.froststeel.description": "Slows targets."
+    "modifier.tcintegrations.froststeel.description": "Slows targets.",
+    "modifier.tcintegrations.forgotten": "Forgotten",
+    "modifier.tcintegrations.forgotten.flavor": "Obliterated!",
+    "modifier.tcintegrations.forgotten.description": "Grants 1.5x mining speed increase and 1.5x damage increase while in the Undergarden.",
+    "modifier.tcintegrations.forgotten.mining_speed": "Forgotten Speed",
+    "modifier.tcintegrations.forgotten.attack_increase": "Forgotten Attack"
 }
