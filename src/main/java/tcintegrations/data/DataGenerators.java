@@ -9,6 +9,7 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 import tcintegrations.data.client.ModBlockStateProvider;
 import tcintegrations.data.client.ModItemModelProvider;
+import tcintegrations.data.integration.ProjectEConversionProvider;
 import tcintegrations.data.loot.ModLootTables;
 import tcintegrations.data.recipes.ModRecipesProvider;
 import tcintegrations.data.tcon.FluidTagProvider;
@@ -50,6 +51,7 @@ public final class DataGenerators {
         gen.addProvider(new SmelteryRecipeProvider(gen));
         gen.addProvider(materials);
         gen.addProvider(new EntityTypeTagProvider(gen, existingFileHelper));
+        gen.addProvider(new ProjectEConversionProvider(gen));
     }
 
 }
