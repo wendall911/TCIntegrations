@@ -1,0 +1,6 @@
+{
+    "tcintegrations:cheesy": {
+        "type": "tconstruct:normal",
+        "luminosity": 15
+    }
+}
