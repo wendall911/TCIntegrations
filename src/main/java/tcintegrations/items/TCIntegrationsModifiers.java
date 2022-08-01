@@ -20,6 +20,7 @@ import tcintegrations.items.modifiers.armor.RoadrunnerModifier;
 import tcintegrations.items.modifiers.armor.ShieldOfTheDeepModifier;
 import tcintegrations.items.modifiers.armor.TerrestrialModifier;
 import tcintegrations.items.modifiers.armor.TurtleShellModifier;
+import tcintegrations.items.modifiers.tool.CheesyModifier;
 import tcintegrations.items.modifiers.tool.ElementalModifier;
 import tcintegrations.items.modifiers.tool.ForgottenModifier;
 import tcintegrations.items.modifiers.tool.FroststeelModifier;
@@ -30,6 +31,7 @@ import tcintegrations.items.modifiers.tool.MechanicalArmModifier;
 import tcintegrations.items.modifiers.tool.ModerateModifier;
 import tcintegrations.items.modifiers.tool.SirenModifier;
 import tcintegrations.items.modifiers.tool.TerraModifier;
+import tcintegrations.items.modifiers.traits.OxygenatedModifier;
 import tcintegrations.items.modifiers.traits.SoulStained;
 import tcintegrations.items.modifiers.traits.WaterPowered;
 
@@ -61,8 +63,12 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<UtheriumModifier> UTHERIUM_MODIFIER;
     public static StaticModifier<FroststeelModifier> FROSTSTEEL_MODIFIER;
     public static StaticModifier<ForgottenModifier> FORGOTTEN_MODIFIER;
+    public static StaticModifier<CheesyModifier> CHEESY_MODIFIER;
+    public static StaticModifier<OxygenatedModifier> OXYGENATED_MODIFIER;
 
     public static void init() {
+        String dataGen = System.getenv("DATA_GEN");
+
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
             MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaModifier::new);
             LIVINGWOOD_MODIFIER = MODIFIERS_REGISTRY.register("livingwood", LivingwoodModifier::new);
@@ -107,6 +113,10 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             UTHERIUM_MODIFIER = MODIFIERS_REGISTRY.register("utherium", UtheriumModifier::new);
             FROSTSTEEL_MODIFIER = MODIFIERS_REGISTRY.register("froststeel", FroststeelModifier::new);
             FORGOTTEN_MODIFIER = MODIFIERS_REGISTRY.register("forgotten", ForgottenModifier::new);
+        }
+        if (ModList.get().isLoaded(ModIntegration.BEYOND_EARTH_MODID) || (dataGen != null && dataGen.contains("all"))) {
+            CHEESY_MODIFIER = MODIFIERS_REGISTRY.register("cheesy", CheesyModifier::new);
+            OXYGENATED_MODIFIER = MODIFIERS_REGISTRY.register("oxygenated", OxygenatedModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);

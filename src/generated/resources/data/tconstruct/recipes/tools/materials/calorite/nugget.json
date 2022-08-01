@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:nuggets/calorite",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "beyond_earth",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:nuggets/calorite"
+  },
+  "value": 1,
+  "needed": 9,
+  "material": "tcintegrations:calorite"
+}

@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:nuggets/desh",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "beyond_earth",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:nuggets/desh"
+  },
+  "value": 1,
+  "needed": 9,
+  "material": "tcintegrations:desh"
+}

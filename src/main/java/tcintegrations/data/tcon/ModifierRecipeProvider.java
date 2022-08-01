@@ -69,6 +69,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         Consumer<FinishedRecipe> alexConsumer = withCondition(consumer, modLoaded(ModIntegration.ALEX_MODID));
         Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
         Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
+        Consumer<FinishedRecipe> beyondEarthConsumer = withCondition(consumer, modLoaded(ModIntegration.BEYOND_EARTH_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -386,6 +387,18 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .setMaxLevel(1)
             .saveSalvage(undergardenConsumer, prefix(TCIntegrationsModifiers.FORGOTTEN_MODIFIER, compatSalvage))
             .save(undergardenConsumer, prefix(TCIntegrationsModifiers.FORGOTTEN_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.CHEESY_MODIFIER)
+            .setTools(TinkerTags.Items.MELEE_OR_HARVEST)
+            .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
+            .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
+            .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
+            .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
+            .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(3)
+            .saveSalvage(beyondEarthConsumer, prefix(TCIntegrationsModifiers.CHEESY_MODIFIER, compatSalvage))
+            .save(beyondEarthConsumer, prefix(TCIntegrationsModifiers.CHEESY_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

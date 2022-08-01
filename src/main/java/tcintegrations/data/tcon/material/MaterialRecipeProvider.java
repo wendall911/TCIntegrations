@@ -42,6 +42,7 @@ public class MaterialRecipeProvider extends BaseRecipeProvider implements IMater
         Consumer<FinishedRecipe> botaniaConsumer = withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID));
         Consumer<FinishedRecipe> aquacultureConsumer = withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID));
         Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
+        Consumer<FinishedRecipe> beyondEarthConsumer = withCondition(consumer, modLoaded(ModIntegration.BEYOND_EARTH_MODID));
 
         materialRecipe(botaniaConsumer, MaterialIds.livingWood, Ingredient.of(ModIntegration.BOTANIA_LIVINGWOOD_PLANKS), 1, 1, folder + "livingwood/planks");
         materialRecipe(botaniaConsumer, MaterialIds.livingWood, Ingredient.of(TagManager.Items.BOTANIA_LIVINGWOOD_LOGS), 4, 1, ItemOutput.fromStack(new ItemStack(ModIntegration.BOTANIA_LIVINGWOOD_PLANKS)), folder + "livingwood/logs");
@@ -51,6 +52,9 @@ public class MaterialRecipeProvider extends BaseRecipeProvider implements IMater
         metalMaterialRecipe(botaniaConsumer, MaterialIds.manaSteel, folder, "manasteel", true);
         metalMaterialRecipe(aquacultureConsumer, MaterialIds.neptunium, folder, "neptunium", true);
         metalMaterialRecipe(malumConsumer, MaterialIds.soulStainedSteel, folder, "soul_stained_steel", true);
+        metalMaterialRecipe(beyondEarthConsumer, MaterialIds.desh, folder, "desh", true);
+        metalMaterialRecipe(beyondEarthConsumer, MaterialIds.calorite, folder, "calorite", true);
+        metalMaterialRecipe(beyondEarthConsumer, MaterialIds.ostrum, folder, "ostrum", true);
     }
 
     private void addMaterialSmeltery(Consumer<FinishedRecipe> consumer) {
@@ -60,6 +64,9 @@ public class MaterialRecipeProvider extends BaseRecipeProvider implements IMater
         compatMeltingCasting(consumer, MaterialIds.manaSteel, TCIntegrationsItems.MOLTEN_MANASTEEL, folder);
         compatMeltingCasting(consumer, MaterialIds.neptunium, TCIntegrationsItems.MOLTEN_NEPTUNIUM, folder);
         compatMeltingCasting(consumer, MaterialIds.soulStainedSteel, TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL, folder);
+        compatMeltingCasting(consumer, MaterialIds.desh, ModIntegration.MOLTEN_DESH, folder);
+        compatMeltingCasting(consumer, MaterialIds.calorite, ModIntegration.MOLTEN_CALORITE, folder);
+        compatMeltingCasting(consumer, MaterialIds.ostrum, ModIntegration.MOLTEN_OSTRUM, folder);
     }
 
 }

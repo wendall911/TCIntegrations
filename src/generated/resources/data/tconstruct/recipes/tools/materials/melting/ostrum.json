@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:material_melting",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:ingots/ostrum",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "input": "tcintegrations:ostrum",
+  "temperature": 500,
+  "result": {
+    "fluid": "beyond_earth:molten_ostrum",
+    "amount": 90
+  }
+}

@@ -28,6 +28,9 @@ public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvide
         addDefaultTraits(brass, TciModifierIds.moderate);
         addDefaultTraits(MaterialIds.neptunium, TciModifierIds.waterPowered);
         addDefaultTraits(MaterialIds.soulStainedSteel, TciModifierIds.soulStained);
+        addDefaultTraits(MaterialIds.desh, TciModifierIds.oxygenated);
+        addDefaultTraits(MaterialIds.calorite, TciModifierIds.oxygenated);
+        addDefaultTraits(MaterialIds.ostrum, TciModifierIds.oxygenated);
     }
 
 }

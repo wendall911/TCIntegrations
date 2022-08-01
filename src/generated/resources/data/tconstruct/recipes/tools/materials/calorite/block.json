@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:storage_blocks/calorite",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "beyond_earth",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:storage_blocks/calorite"
+  },
+  "value": 9,
+  "needed": 1,
+  "material": "tcintegrations:calorite",
+  "leftover": {
+    "tag": "forge:ingots/calorite"
+  }
+}

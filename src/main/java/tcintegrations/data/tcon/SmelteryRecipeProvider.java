@@ -6,6 +6,7 @@ import java.util.function.Consumer;
 
 import com.hollingsworth.arsnouveau.setup.BlockRegistry;
 import com.hollingsworth.arsnouveau.setup.ItemsRegistry;
+
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 
@@ -77,6 +78,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         Consumer<FinishedRecipe> aquacultureConsumer = withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID));
         Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
         Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
+        Consumer<FinishedRecipe> beyondEarthConsumer = withCondition(consumer, modLoaded(ModIntegration.BEYOND_EARTH_MODID));
 
         metalMelting(botaniaConsumer, TCIntegrationsItems.MOLTEN_MANASTEEL.get(), "manasteel", false, metalFolder, false, Byproduct.IRON);
         metalMelting(aquacultureConsumer, TCIntegrationsItems.MOLTEN_NEPTUNIUM.get(), "neptunium", false, metalFolder, false);
@@ -84,6 +86,9 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         metalMelting(undergardenConsumer, TCIntegrationsItems.MOLTEN_CLOGGRUM.get(), "cloggrum", true, metalFolder, false);
         metalMelting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FROSTSTEEL.get(), "froststeel", true, metalFolder, false);
         metalMelting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN.get(), "forgotten", false, metalFolder, false);
+        metalMelting(beyondEarthConsumer, ModIntegration.MOLTEN_DESH.get(), "desh", true, metalFolder, false);
+        metalMelting(beyondEarthConsumer, ModIntegration.MOLTEN_CALORITE.get(), "calorite", true, metalFolder, false);
+        metalMelting(beyondEarthConsumer, ModIntegration.MOLTEN_OSTRUM.get(), "ostrum", true, metalFolder, false);
     }
 
     private void addAlloyRecipes(Consumer<FinishedRecipe> consumer) {

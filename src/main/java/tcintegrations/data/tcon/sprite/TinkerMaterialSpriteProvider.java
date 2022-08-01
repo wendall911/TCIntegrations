@@ -24,6 +24,19 @@ public class TinkerMaterialSpriteProvider extends AbstractMaterialSpriteProvider
             .meleeHarvest()
             .fallbacks("rock")
             .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF9B7E64).addARGB(102, 0xFFA89C78).addARGB(140, 0xFFB1A283).addARGB(178, 0xFFB9AA97).addARGB(216, 0xFFCDCBC1).addARGB(255, 0xFFF4F2EC).build());
+        // tier 2
+        buildMaterial(MaterialIds.desh)
+            .meleeHarvest().statType(TinkerPartSpriteProvider.PLATE)
+            .fallbacks("metal")
+            .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF652E3E).addARGB(102, 0xFF7A3045).addARGB(140, 0xFF9E3543).addARGB(178, 0xFFC77142).addARGB(216, 0xFFE1A755).addARGB(255, 0xFFF0D161).build());
+        buildMaterial(MaterialIds.calorite)
+            .meleeHarvest().statType(TinkerPartSpriteProvider.PLATE)
+            .fallbacks("metal")
+            .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF470d2F).addARGB(102, 0xFF5B1130).addARGB(140, 0xFF871638).addARGB(178, 0xFFB42A43).addARGB(216, 0xFFC44249).addARGB(255, 0xFFDF6D5C).build());
+        buildMaterial(MaterialIds.ostrum)
+            .meleeHarvest().statType(TinkerPartSpriteProvider.PLATE)
+            .fallbacks("metal")
+            .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF2C1F2D).addARGB(102, 0xFF382938).addARGB(140, 0xFF473544).addARGB(178, 0xFF654A59).addARGB(216, 0xFF835963).addARGB(255, 0xFF966062).build());
         // tier 3
         buildMaterial(MaterialIds.manaSteel)
             .meleeHarvest().statType(TinkerPartSpriteProvider.PLATE)

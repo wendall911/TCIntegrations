@@ -11,6 +11,7 @@ import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
 
 import static net.minecraft.world.item.Tiers.DIAMOND;
+import static net.minecraft.world.item.Tiers.IRON;
 import static net.minecraft.world.item.Tiers.STONE;
 import static net.minecraft.world.item.Tiers.WOOD;
 
@@ -37,6 +38,20 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         addMaterialStats(MaterialIds.livingRock,
             new HeadMaterialStats(130, 4F, STONE, 1F),
             HandleMaterialStats.DEFAULT.withDurability(1.2F).withAttackDamage(1.2F),
+            ExtraMaterialStats.DEFAULT);
+        
+        // tier 2 (mod integration)
+        addMaterialStats(MaterialIds.desh,
+            new HeadMaterialStats(250, 6F, IRON, 2F),
+            HandleMaterialStats.DEFAULT.withDurability(1.10F),
+            ExtraMaterialStats.DEFAULT);
+        addMaterialStats(MaterialIds.calorite,
+            new HeadMaterialStats(250, 6F, IRON, 2F),
+            HandleMaterialStats.DEFAULT.withDurability(1.10F),
+            ExtraMaterialStats.DEFAULT);
+        addMaterialStats(MaterialIds.ostrum,
+            new HeadMaterialStats(250, 6F, IRON, 2F),
+            HandleMaterialStats.DEFAULT.withDurability(1.10F),
             ExtraMaterialStats.DEFAULT);
 
         // tier 3 (mod integration)

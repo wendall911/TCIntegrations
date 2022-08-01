@@ -10,6 +10,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -31,6 +32,7 @@ public class CommonProxy {
         TCIntegrationsItems.init();
         TCIntegrationsModifiers.init();
         registerListeners(bus);
+        ModIntegration.setup();
     }
 
     public void registerListeners(IEventBus bus) {

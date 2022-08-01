@@ -24,6 +24,18 @@
     {
       "id": "#forge:storage_blocks/forgotten",
       "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/desh",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/calorite",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/ostrum",
+      "required": false
     }
   ]
 }
