@@ -299,6 +299,9 @@ f92dd3da7bc7376faf61e84052d272d6803aafd1 data/tconstruct/recipes/smeltery/meltin
 b5643fe2c9746c346b6a679baffd52a7e1c7f0f8 data/tconstruct/recipes/smeltery/melting/metal/soul_stained_steel/rod.json
 df4223df0b27b95e45e93db441904e7727621136 data/tconstruct/recipes/smeltery/melting/metal/soul_stained_steel/sheetmetal.json
 9b50b736f3d74c5efd01cf013d95f43e5dff3938 data/tconstruct/recipes/smeltery/melting/metal/soul_stained_steel/wire.json
+ec46ac0759ff94c5adb15159ea496ddfbfe63321 data/tconstruct/recipes/tools/materials/brass/block.json
+20513620a74d376d3f15ec8e8a8e9ce7884b3e2b data/tconstruct/recipes/tools/materials/brass/ingot.json
+60adcb38d764d1a10645b57384fc6acbd7df459b data/tconstruct/recipes/tools/materials/brass/nugget.json
 9ead1260d027fceaca03f4f1f780cab0e88f4df8 data/tconstruct/recipes/tools/materials/calorite/block.json
 0aea26716a635dcfc89ebeda23abb1f5c0e2e4b3 data/tconstruct/recipes/tools/materials/calorite/ingot.json
 9f5c578eb48c645e6ae6035f884299a58852aada data/tconstruct/recipes/tools/materials/calorite/nugget.json

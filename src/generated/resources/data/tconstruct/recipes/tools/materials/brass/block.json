@@ -1,0 +1,28 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:storage_blocks/brass",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "value": {
+        "tag": "forge:ingots/brass",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:storage_blocks/brass"
+  },
+  "value": 9,
+  "needed": 1,
+  "material": "tconstruct:brass",
+  "leftover": {
+    "tag": "forge:ingots/brass"
+  }
+}
