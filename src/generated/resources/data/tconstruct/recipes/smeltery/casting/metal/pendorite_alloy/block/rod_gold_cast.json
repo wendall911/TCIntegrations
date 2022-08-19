@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:casting_table",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:rods/pendorite_alloy/block",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "byg",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/rod"
+  },
+  "fluid": {
+    "tag": "tcintegrations:pendorite_alloy",
+    "amount": 45
+  },
+  "result": {
+    "tag": "forge:rods/pendorite_alloy/block"
+  },
+  "cooling_time": 52
+}

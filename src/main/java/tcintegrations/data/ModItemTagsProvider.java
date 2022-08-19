@@ -55,6 +55,12 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         this.copy(TagManager.Blocks.SOUL_STAINED_STEEL, TagManager.Items.SOUL_STAINED_STEEL);
         getBuilder(TagManager.Items.SOUL_STAINED_STEEL_INGOTS).addOptional(ModIntegration.malumLoc("soul_stained_steel_ingot"));
         getBuilder(TagManager.Items.SOUL_STAINED_STEEL_NUGGETS).addOptional(ModIntegration.malumLoc("soul_stained_steel_nugget"));
+
+        // BYG
+        getBuilder(TagManager.Items.EMERALDITE_SHARDS)
+            .addOptional(ModIntegration.bygLoc("emeraldite_shards"));
+        getBuilder(TagManager.Items.EMERALDITE_ORE)
+            .addOptional(ModIntegration.bygLoc("emeraldite_ore"));
     }
 
     private void addBotaniaLogVariants(TagKey<Item> tag, String type) {

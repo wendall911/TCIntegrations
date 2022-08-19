@@ -38,6 +38,8 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
     public static FluidObject<ForgeFlowingFluid> MOLTEN_CLOGGRUM;
     public static FluidObject<ForgeFlowingFluid> MOLTEN_FROSTSTEEL;
     public static FluidObject<ForgeFlowingFluid> MOLTEN_FORGOTTEN;
+    public static FluidObject<ForgeFlowingFluid> MOLTEN_PENDORITE;
+    public static FluidObject<ForgeFlowingFluid> MOLTEN_PENDORITE_ALLOY;
 
     public static MetalItemObject BRONZE;
 
@@ -73,6 +75,13 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
                 "froststeel", hotBuilder().temperature(1200), Material.LAVA, 11);
             MOLTEN_FORGOTTEN = FLUID_REGISTRY.register(
                 "forgotten", hotBuilder().temperature(1200), Material.LAVA, 14);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.BYG_MODID)) {
+            MOLTEN_PENDORITE = FLUID_REGISTRY.register(
+                "pendorite", hotBuilder().temperature(1475), Material.LAVA, 14);
+            MOLTEN_PENDORITE_ALLOY = FLUID_REGISTRY.register(
+                "pendorite_alloy", hotBuilder().temperature(1550), Material.LAVA, 14);
         }
         
         // Metals

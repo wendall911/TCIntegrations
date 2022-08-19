@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "tcintegrations:pendorite_alloy",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_pendorite_alloy",
+      "required": false
+    }
+  ]
+}

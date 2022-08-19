@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:ore_melting",
+  "conditions": [
+    {
+      "modid": "byg",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "rate": "metal",
+  "ingredient": {
+    "item": "byg:raw_pendorite_block"
+  },
+  "result": {
+    "fluid": "tcintegrations:pendorite",
+    "amount": 810
+  },
+  "temperature": 1175,
+  "time": 143
+}

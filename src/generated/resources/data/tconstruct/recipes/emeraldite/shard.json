@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:ore_melting",
+  "conditions": [
+    {
+      "modid": "byg",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "rate": "gem",
+  "ingredient": {
+    "tag": "tcintegrations:emeraldite_shards"
+  },
+  "result": {
+    "fluid": "tconstruct:molten_emerald",
+    "amount": 25
+  },
+  "temperature": 934,
+  "time": 64
+}

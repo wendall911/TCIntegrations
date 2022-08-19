@@ -28,6 +28,10 @@ public final class TagManager {
         public static final TagKey<Item> SOUL_STAINED_STEEL_INGOTS = forgeTag("ingots/soul_stained_steel");
         public static final TagKey<Item> SOUL_STAINED_STEEL_NUGGETS = forgeTag("nuggets/soul_stained_steel");
 
+        // BYG
+        public static final TagKey<Item> EMERALDITE_SHARDS = create("emeraldite_shards");
+        public static final TagKey<Item> EMERALDITE_ORE = create("emeraldite_ore");
+
         private static TagKey<Item> create(String id) {
             return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
         }

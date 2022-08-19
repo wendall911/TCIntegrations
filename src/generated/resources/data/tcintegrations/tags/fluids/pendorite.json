@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "tcintegrations:pendorite",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_pendorite",
+      "required": false
+    }
+  ]
+}

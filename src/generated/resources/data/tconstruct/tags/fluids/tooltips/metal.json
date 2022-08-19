@@ -24,6 +24,14 @@
     {
       "id": "#forge:forgotten",
       "required": false
+    },
+    {
+      "id": "#forge:pendorite",
+      "required": false
+    },
+    {
+      "id": "#forge:pendorite_alloy",
+      "required": false
     }
   ]
 }

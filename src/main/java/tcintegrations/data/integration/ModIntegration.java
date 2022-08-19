@@ -32,6 +32,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String MALUM_MODID = "malum";
     public static final String UNDERGARDEN_MODID = "undergarden";
     public static final String BEYOND_EARTH_MODID = "beyond_earth";
+    public static final String BYG_MODID = "byg";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
     public static Item BEYOND_EARTH_CHEESE;
@@ -101,6 +102,10 @@ public final class ModIntegration extends TCIntegrationsModule {
 
     public static ResourceLocation beyondEarthLoc(String name) {
         return getLoc(BEYOND_EARTH_MODID, name);
+    }
+
+    public static ResourceLocation bygLoc(String name) {
+        return getLoc(BYG_MODID, name);
     }
 
     private static ResourceLocation getLoc(String modid, String name) {

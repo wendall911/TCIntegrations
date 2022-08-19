@@ -33,6 +33,8 @@ public class FluidTagProvider extends FluidTagsProvider {
         tagAll(TCIntegrationsItems.MOLTEN_CLOGGRUM);
         tagAll(TCIntegrationsItems.MOLTEN_FROSTSTEEL);
         tagAll(TCIntegrationsItems.MOLTEN_FORGOTTEN);
+        tagAll(TCIntegrationsItems.MOLTEN_PENDORITE);
+        tagAll(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY);
 
         this.tag(TinkerTags.Fluids.METAL_TOOLTIPS)
             .addOptionalTag(TCIntegrationsItems.MOLTEN_MANASTEEL.getForgeTag().location())
@@ -40,7 +42,9 @@ public class FluidTagProvider extends FluidTagsProvider {
             .addOptionalTag(TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL.getForgeTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_CLOGGRUM.getForgeTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_FROSTSTEEL.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN.getForgeTag().location());
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN.getForgeTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE.getForgeTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getForgeTag().location());
 
         this.tag(TinkerTags.Fluids.AVERAGE_METAL_SPILLING)
             .addOptionalTag(TCIntegrationsItems.MOLTEN_MANASTEEL.getForgeTag().location())
@@ -50,7 +54,9 @@ public class FluidTagProvider extends FluidTagsProvider {
 
         this.tag(TinkerTags.Fluids.EXPENSIVE_METAL_SPILLING)
             .addOptionalTag(TCIntegrationsItems.MOLTEN_NEPTUNIUM.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN.getForgeTag().location());
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN.getForgeTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE.getForgeTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getForgeTag().location());
 
         this.tag(TinkerTags.Fluids.SMALL_GEM_TOOLTIPS)
             .addOptionalTag(TCIntegrationsItems.MOLTEN_SOURCE_GEM.getLocalTag().location());

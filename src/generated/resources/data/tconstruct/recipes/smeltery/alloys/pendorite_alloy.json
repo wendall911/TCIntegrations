@@ -1,0 +1,28 @@
+{
+  "type": "tconstruct:alloy",
+  "conditions": [
+    {
+      "modid": "byg",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "forge:pendorite",
+      "amount": 360
+    },
+    {
+      "tag": "tconstruct:molten_diamond",
+      "amount": 200
+    },
+    {
+      "tag": "tconstruct:molten_emerald",
+      "amount": 50
+    }
+  ],
+  "result": {
+    "fluid": "tcintegrations:pendorite_alloy",
+    "amount": 90
+  },
+  "temperature": 1250
+}
