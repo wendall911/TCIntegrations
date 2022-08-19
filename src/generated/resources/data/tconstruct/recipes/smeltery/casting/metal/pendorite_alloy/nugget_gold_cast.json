@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:casting_table",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:nuggets/pendorite_alloy",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "byg",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/nugget"
+  },
+  "fluid": {
+    "tag": "forge:pendorite_alloy",
+    "amount": 10
+  },
+  "result": {
+    "tag": "forge:nuggets/pendorite_alloy"
+  },
+  "cooling_time": 25
+}

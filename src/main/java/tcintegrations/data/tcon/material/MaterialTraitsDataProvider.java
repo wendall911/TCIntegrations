@@ -31,6 +31,7 @@ public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvide
         addDefaultTraits(MaterialIds.desh, TciModifierIds.oxygenated);
         addDefaultTraits(MaterialIds.calorite, TciModifierIds.oxygenated);
         addDefaultTraits(MaterialIds.ostrum, TciModifierIds.oxygenated);
+        addDefaultTraits(MaterialIds.pendoriteAlloy, TciModifierIds.hellish);
     }
 
 }

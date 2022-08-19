@@ -8,6 +8,7 @@ import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
 import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
 import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
+import static net.minecraft.world.item.Tiers.NETHERITE;
 import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
 
 import static net.minecraft.world.item.Tiers.DIAMOND;
@@ -70,6 +71,12 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         addMaterialStats(MaterialIds.soulStainedSteel,
             new HeadMaterialStats(785, 6F, DIAMOND, 2.75F),
             HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.05F).withAttackSpeed(1.05F),
+            ExtraMaterialStats.DEFAULT);
+
+        // tier 4 (mod integration)
+        addMaterialStats(MaterialIds.pendoriteAlloy,
+            new HeadMaterialStats(1450, 8f, NETHERITE, 3.0F),
+            HandleMaterialStats.DEFAULT.withDurability(1.4F).withMiningSpeed(1.2F).withAttackSpeed(1.1F).withAttackDamage(1.25F),
             ExtraMaterialStats.DEFAULT);
     }
 

@@ -2,6 +2,13 @@
   "type": "tconstruct:casting_table",
   "conditions": [
     {
+      "value": {
+        "tag": "forge:ingots/pendorite_alloy",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
       "modid": "byg",
       "type": "forge:mod_loaded"
     }
@@ -10,9 +17,11 @@
     "tag": "tconstruct:casts/multi_use/ingot"
   },
   "fluid": {
-    "tag": "tcintegrations:pendorite_alloy",
+    "tag": "forge:pendorite_alloy",
     "amount": 90
   },
-  "result": "byg:pendorite_ingot",
+  "result": {
+    "tag": "forge:ingots/pendorite_alloy"
+  },
   "cooling_time": 74
 }

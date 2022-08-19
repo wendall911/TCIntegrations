@@ -61,6 +61,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .addOptional(ModIntegration.bygLoc("emeraldite_shards"));
         getBuilder(TagManager.Items.EMERALDITE_ORE)
             .addOptional(ModIntegration.bygLoc("emeraldite_ore"));
+        getBuilder(TagManager.Items.PENDORITE_ALLOY_INGOTS)
+            .addOptional(ModIntegration.bygLoc("pendorite_ingot"));
     }
 
     private void addBotaniaLogVariants(TagKey<Item> tag, String type) {

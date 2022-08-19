@@ -50,6 +50,11 @@ public class TinkerMaterialSpriteProvider extends AbstractMaterialSpriteProvider
             .meleeHarvest().statType(TinkerPartSpriteProvider.PLATE)
             .fallbacks("metal")
             .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF2D2349).addARGB(102, 0xFF40365B).addARGB(140, 0xFF593b7C).addARGB(178, 0xFF8A5EAE).addARGB(216, 0xFFA96EC7).addARGB(255, 0xFFEE8FFF).build());
+        // tier 4
+        buildMaterial(MaterialIds.pendoriteAlloy)
+            .meleeHarvest().statType(TinkerPartSpriteProvider.PLATE)
+            .fallbacks("metal")
+            .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF2F164B).addARGB(102, 0xFF3A245E).addARGB(140, 0xFF503981).addARGB(178, 0xFF776DC0).addARGB(216, 0xFF949FE1).addARGB(255, 0xFF98ABE6).build());
     }
 
 }

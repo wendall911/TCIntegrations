@@ -44,6 +44,7 @@ public class MaterialRecipeProvider extends BaseRecipeProvider implements IMater
         Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
         Consumer<FinishedRecipe> beyondEarthConsumer = withCondition(consumer, modLoaded(ModIntegration.BEYOND_EARTH_MODID));
         Consumer<FinishedRecipe> brassConsumer = withCondition(consumer, tagCondition("ingots/brass"));
+        Consumer<FinishedRecipe> bygConsumer = withCondition(consumer, modLoaded(ModIntegration.BYG_MODID));
 
         materialRecipe(botaniaConsumer, MaterialIds.livingWood, Ingredient.of(ModIntegration.BOTANIA_LIVINGWOOD_PLANKS), 1, 1, folder + "livingwood/planks");
         materialRecipe(botaniaConsumer, MaterialIds.livingWood, Ingredient.of(TagManager.Items.BOTANIA_LIVINGWOOD_LOGS), 4, 1, ItemOutput.fromStack(new ItemStack(ModIntegration.BOTANIA_LIVINGWOOD_PLANKS)), folder + "livingwood/logs");
@@ -57,6 +58,7 @@ public class MaterialRecipeProvider extends BaseRecipeProvider implements IMater
         metalMaterialRecipe(beyondEarthConsumer, MaterialIds.calorite, folder, "calorite", true);
         metalMaterialRecipe(beyondEarthConsumer, MaterialIds.ostrum, folder, "ostrum", true);
         metalMaterialRecipe(brassConsumer, brass, folder, "brass", true);
+        metalMaterialRecipe(bygConsumer, MaterialIds.pendoriteAlloy, folder, "pendorite_alloy", true);
     }
 
     private void addMaterialSmeltery(Consumer<FinishedRecipe> consumer) {
@@ -69,6 +71,7 @@ public class MaterialRecipeProvider extends BaseRecipeProvider implements IMater
         compatMeltingCasting(consumer, MaterialIds.desh, ModIntegration.MOLTEN_DESH, folder);
         compatMeltingCasting(consumer, MaterialIds.calorite, ModIntegration.MOLTEN_CALORITE, folder);
         compatMeltingCasting(consumer, MaterialIds.ostrum, ModIntegration.MOLTEN_OSTRUM, folder);
+        compatMeltingCasting(consumer, MaterialIds.pendoriteAlloy, TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY, folder);
     }
 
 }

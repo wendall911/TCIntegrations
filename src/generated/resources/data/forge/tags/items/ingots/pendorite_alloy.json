@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "byg:pendorite_ingot",
+      "required": false
+    }
+  ]
+}

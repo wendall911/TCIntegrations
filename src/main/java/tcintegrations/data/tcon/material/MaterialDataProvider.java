@@ -32,6 +32,7 @@ public class MaterialDataProvider extends AbstractMaterialDataProvider {
         addCompatMetalMaterial(MaterialIds.manaSteel, 3, ORDER_COMPAT + ORDER_GENERAL);
         addCompatMetalMaterial(MaterialIds.neptunium, 3, ORDER_COMPAT + ORDER_GENERAL);
         addCompatMetalMaterial(MaterialIds.soulStainedSteel, 3, ORDER_COMPAT + ORDER_GENERAL);
+        addCompatMetalMaterial(MaterialIds.pendoriteAlloy, 4, ORDER_COMPAT + ORDER_GENERAL);
     }
 
 }

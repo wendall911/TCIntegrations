@@ -23,7 +23,8 @@ public enum SmelteryCompat {
     SOUL_STAINED_STEEL (TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL, ModIntegration.MALUM_MODID),
     CLOGGRUM (TCIntegrationsItems.MOLTEN_CLOGGRUM, ModIntegration.UNDERGARDEN_MODID),
     FROSTSTEEL (TCIntegrationsItems.MOLTEN_FROSTSTEEL, ModIntegration.UNDERGARDEN_MODID),
-    FORGOTTEN (TCIntegrationsItems.MOLTEN_FORGOTTEN, ModIntegration.UNDERGARDEN_MODID);
+    FORGOTTEN (TCIntegrationsItems.MOLTEN_FORGOTTEN, ModIntegration.UNDERGARDEN_MODID),
+    PENDORITE_ALLOY (TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY, ModIntegration.BYG_MODID);
 
     @Getter
     private final String name = this.name().toLowerCase(Locale.US);

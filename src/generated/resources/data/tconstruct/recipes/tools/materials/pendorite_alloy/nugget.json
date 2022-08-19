@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "value": {
+        "tag": "forge:nuggets/pendorite_alloy",
+        "type": "forge:tag_empty"
+      },
+      "type": "forge:not"
+    },
+    {
+      "modid": "byg",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:nuggets/pendorite_alloy"
+  },
+  "value": 1,
+  "needed": 9,
+  "material": "tcintegrations:pendorite_alloy"
+}

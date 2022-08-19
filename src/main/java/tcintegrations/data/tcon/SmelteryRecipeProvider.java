@@ -66,6 +66,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         modConsumers.put(ModIntegration.AQUACULTURE_MODID, withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID)));
         modConsumers.put(ModIntegration.MALUM_MODID, withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID)));
         modConsumers.put(ModIntegration.UNDERGARDEN_MODID, withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID)));
+        modConsumers.put(ModIntegration.BYG_MODID, bygConsumer);
 
         this.gemCasting(arsConsumer, TCIntegrationsItems.MOLTEN_SOURCE_GEM, ItemsRegistry.SOURCE_GEM.asItem(), folder + "source_gem/gem");
         ItemCastingRecipeBuilder.basinRecipe(BlockRegistry.SOURCE_GEM_BLOCK)
@@ -73,7 +74,6 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
             .save(arsConsumer, prefix(TCIntegrationsItems.MOLTEN_SOURCE_GEM, folder + "source_gem/block"));
 
         this.ingotCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE, false, BYGItems.PENDORITE_SCRAPS.get(), metalFolder + "pendorite/scrap");
-        this.ingotCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY, false, BYGItems.PENDORITE_INGOT.get(), metalFolder + "pendorite_alloy/ingot");
         this.metalCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY, false, BYGBlocks.PENDORITE_BLOCK.get(), BYGItems.PENDORITE_INGOT.get(), null, metalFolder, "pendorite_alloy/block");
 
         for (SmelteryCompat compat : SmelteryCompat.values()) {

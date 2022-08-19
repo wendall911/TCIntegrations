@@ -26,6 +26,7 @@ import tcintegrations.items.modifiers.tool.ForgottenModifier;
 import tcintegrations.items.modifiers.tool.FroststeelModifier;
 import tcintegrations.items.modifiers.tool.LivingwoodModifier;
 import tcintegrations.items.modifiers.tool.UtheriumModifier;
+import tcintegrations.items.modifiers.traits.HellishModifier;
 import tcintegrations.items.modifiers.traits.ManaModifier;
 import tcintegrations.items.modifiers.tool.MechanicalArmModifier;
 import tcintegrations.items.modifiers.tool.ModerateModifier;
@@ -65,6 +66,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<ForgottenModifier> FORGOTTEN_MODIFIER;
     public static StaticModifier<CheesyModifier> CHEESY_MODIFIER;
     public static StaticModifier<OxygenatedModifier> OXYGENATED_MODIFIER;
+    public static StaticModifier<HellishModifier> HELLISH_MODIFIER;
 
     public static void init() {
         String dataGen = System.getenv("DATA_GEN");
@@ -114,9 +116,14 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             FROSTSTEEL_MODIFIER = MODIFIERS_REGISTRY.register("froststeel", FroststeelModifier::new);
             FORGOTTEN_MODIFIER = MODIFIERS_REGISTRY.register("forgotten", ForgottenModifier::new);
         }
+
         if (ModList.get().isLoaded(ModIntegration.BEYOND_EARTH_MODID) || (dataGen != null && dataGen.contains("all"))) {
             CHEESY_MODIFIER = MODIFIERS_REGISTRY.register("cheesy", CheesyModifier::new);
             OXYGENATED_MODIFIER = MODIFIERS_REGISTRY.register("oxygenated", OxygenatedModifier::new);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.BYG_MODID)) {
+            HELLISH_MODIFIER = MODIFIERS_REGISTRY.register("hellish", HellishModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);

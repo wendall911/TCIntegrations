@@ -18,6 +18,7 @@ public final class MaterialIds {
     public static final MaterialId desh = id("desh");
     public static final MaterialId calorite = id("calorite");
     public static final MaterialId ostrum = id("ostrum");
+    public static final MaterialId pendoriteAlloy = id("pendorite_alloy");
 
     private static MaterialId id(String name) {
         return new MaterialId(TCIntegrations.MODID, name);

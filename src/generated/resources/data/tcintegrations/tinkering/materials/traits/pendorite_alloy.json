@@ -1,0 +1,8 @@
+{
+  "default": [
+    {
+      "name": "tcintegrations:hellish",
+      "level": 1
+    }
+  ]
+}

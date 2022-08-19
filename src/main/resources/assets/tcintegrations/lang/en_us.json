@@ -48,6 +48,8 @@
     "material.tcintegrations.desh": "Desh",
     "material.tcintegrations.calorite": "Calorite",
     "material.tcintegrations.ostrum": "Ostrum",
+    "material.tcintegrations.pendorite_alloy": "Pendorite Alloy",
+    "material.tcintegrations.pendorite_alloy.flavor": "Oh The Biomes You've Gone!",
     "modifier.tcintegrations.mana": "Mana",
     "modifier.tcintegrations.mana.flavor": "Mana magic!",
     "modifier.tcintegrations.mana.description": "Repairs item in inventory if mana providing item exists.",
@@ -140,5 +142,8 @@
     "modifier.tcintegrations.cheesy.description": "Tastes so good you might just want to eat it.",
     "modifier.tcintegrations.oxygenated": "Oxygenated",
     "modifier.tcintegrations.oxygenated.flavor": "Fresh air!",
-    "modifier.tcintegrations.oxygenated.description": "Provides a temporary oxygen bubble after harvesting."
+    "modifier.tcintegrations.oxygenated.description": "Provides a temporary oxygen bubble after harvesting.",
+    "modifier.tcintegrations.hellish": "Hellish",
+    "modifier.tcintegrations.hellish.flavor": "Fiery!",
+    "modifier.tcintegrations.hellish.description": "Lights hit entity on fire."
 }

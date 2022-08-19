@@ -31,6 +31,7 @@ public final class TagManager {
         // BYG
         public static final TagKey<Item> EMERALDITE_SHARDS = create("emeraldite_shards");
         public static final TagKey<Item> EMERALDITE_ORE = create("emeraldite_ore");
+        public static final TagKey<Item> PENDORITE_ALLOY_INGOTS = forgeTag("ingots/pendorite_alloy");
 
         private static TagKey<Item> create(String id) {
             return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
