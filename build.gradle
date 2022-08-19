@@ -243,6 +243,7 @@ curseforge {
                     optionalLibrary 'the-undergarden'
                     optionalLibrary 'projecte'
                     optionalLibrary 'beyond-earth'
+                    optionalLibrary 'oh-the-biomes-youll-go'
                 }
             }
         }
