@@ -145,5 +145,8 @@
     "modifier.tcintegrations.oxygenated.description": "Provides a temporary oxygen bubble after harvesting.",
     "modifier.tcintegrations.hellish": "Hellish",
     "modifier.tcintegrations.hellish.flavor": "Fiery!",
-    "modifier.tcintegrations.hellish.description": "Lights hit entity on fire."
+    "modifier.tcintegrations.hellish.description": "Lights hit entity on fire.",
+    "modifier.tcintegrations.multivision": "MultiVision",
+    "modifier.tcintegrations.multivision.flavor": "Wow, look at that!",
+    "modifier.tcintegrations.multivision.description": "Allows viewing energy levels shown by the multimeter."
 }

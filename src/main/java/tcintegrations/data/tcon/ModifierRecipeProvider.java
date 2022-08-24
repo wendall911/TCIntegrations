@@ -2,6 +2,7 @@ package tcintegrations.data.tcon;
 
 import java.util.function.Consumer;
 
+import blusunrize.immersiveengineering.common.register.IEItems;
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 
 import com.hollingsworth.arsnouveau.setup.BlockRegistry;
@@ -399,6 +400,14 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .setMaxLevel(3)
             .saveSalvage(beyondEarthConsumer, prefix(TCIntegrationsModifiers.CHEESY_MODIFIER, compatSalvage))
             .save(beyondEarthConsumer, prefix(TCIntegrationsModifiers.CHEESY_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.MULTIVISION_MODIFIER)
+            .setTools(TinkerTags.Items.HELMETS)
+            .addInput(IEItems.Tools.VOLTMETER.get())
+            .setSlots(SlotType.ABILITY, 0)
+            .setMaxLevel(1)
+            .saveSalvage(createConsumer, prefix(TCIntegrationsModifiers.MULTIVISION_MODIFIER, compatSalvage))
+            .save(createConsumer, prefix(TCIntegrationsModifiers.MULTIVISION_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

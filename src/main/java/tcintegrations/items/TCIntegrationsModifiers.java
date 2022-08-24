@@ -15,6 +15,7 @@ import tcintegrations.items.modifiers.armor.FrontierCapModifier;
 import tcintegrations.items.modifiers.armor.GreatFairyModifier;
 import tcintegrations.items.modifiers.armor.MasticateModifier;
 import tcintegrations.items.modifiers.armor.MosquitoModifier;
+import tcintegrations.items.modifiers.armor.MultiVisionModifier;
 import tcintegrations.items.modifiers.armor.PoseidonModifier;
 import tcintegrations.items.modifiers.armor.RoadrunnerModifier;
 import tcintegrations.items.modifiers.armor.ShieldOfTheDeepModifier;
@@ -67,6 +68,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<CheesyModifier> CHEESY_MODIFIER;
     public static StaticModifier<OxygenatedModifier> OXYGENATED_MODIFIER;
     public static StaticModifier<HellishModifier> HELLISH_MODIFIER;
+    public static StaticModifier<MultiVisionModifier> MULTIVISION_MODIFIER;
 
     public static void init() {
         String dataGen = System.getenv("DATA_GEN");
@@ -124,6 +126,10 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModList.get().isLoaded(ModIntegration.BYG_MODID)) {
             HELLISH_MODIFIER = MODIFIERS_REGISTRY.register("hellish", HellishModifier::new);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.IE_MODID)) {
+            MULTIVISION_MODIFIER = MODIFIERS_REGISTRY.register("multivision", MultiVisionModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);
