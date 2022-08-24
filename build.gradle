@@ -62,6 +62,10 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        name 'tterrag maven'
+        url 'https://maven.tterrag.com'
+    }
 }
 
 group = 'com.github.wendall911.tcintegrations'
@@ -137,6 +141,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:tinkersurvival-294667:${tinkersurvival_version}")
     implementation fg.deobf("curse.maven:create-328085:${create_version}")
     runtimeOnly fg.deobf("curse.maven:flywheel-486392:${flywheel_version}")
+    compileOnly fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
     implementation fg.deobf("curse.maven:arsnouveau-401955:${arsnouveau_version}")
     runtimeOnly fg.deobf("curse.maven:geckolib-388172:${geckolib_version}")
     implementation fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
@@ -144,7 +149,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:citadel-331936:${citadel_version}")
     implementation fg.deobf("curse.maven:malum-484064:${malum_version}")
     implementation fg.deobf("curse.maven:ortus-616457:${ortus_version}")
-    runtimeOnly fg.deobf("curse.maven:immersiveengineering-231951:${ie_version}")
+    implementation fg.deobf("curse.maven:immersiveengineering-231951:${ie_version}")
     runtimeOnly fg.deobf("curse.maven:patchouli-306770:${patchouli_version}")
     runtimeOnly fg.deobf("curse.maven:curios-309927:${curios_version}")
     implementation fg.deobf("curse.maven:undergarden-379849:${undergarden_version}")
