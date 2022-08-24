@@ -2,7 +2,7 @@
   "type": "tconstruct:modifier",
   "conditions": [
     {
-      "modid": "create",
+      "modid": "immersiveengineering",
       "type": "forge:mod_loaded"
     }
   ],

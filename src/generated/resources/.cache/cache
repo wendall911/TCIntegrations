@@ -407,7 +407,7 @@ b972bac1fa1a3bff93d9ee18ef1fd7abfa4b80cd data/tconstruct/recipes/tools/modifiers
 964c283b57b51a5ad71e4b5bf89cc518aa8f70f8 data/tconstruct/recipes/tools/modifiers/compat/masticate.json
 3e9c869f81dbaa1e50ec21398fb3972f38258fa2 data/tconstruct/recipes/tools/modifiers/compat/mechanical_arm.json
 dbd0ff869839916b297b97c54c711bbe1ec52c57 data/tconstruct/recipes/tools/modifiers/compat/mosquito.json
-a72e98e269b3caa41f1dd566387074228290bbe6 data/tconstruct/recipes/tools/modifiers/compat/multivision.json
+19de7034a9587b925e6a57a4fd9657c39a652e02 data/tconstruct/recipes/tools/modifiers/compat/multivision.json
 90f6dfabab95290dd60072c4f97298238dd2aa3e data/tconstruct/recipes/tools/modifiers/compat/poseidon.json
 2e832d9e1c6b6059455ad34ae23417a7e61c1768 data/tconstruct/recipes/tools/modifiers/compat/roadrunner_boots.json
 e49f46e81038cf0ba7a6c5f2b14391ed2c9e287d data/tconstruct/recipes/tools/modifiers/compat/shield_of_the_deep_chestplates.json
@@ -436,7 +436,7 @@ f19cc58624c8afdecf65572d5e90a19786e8fcca data/tconstruct/recipes/tools/modifiers
 bcdf90a7bbe671c18d2bdc1e54e627b1c63f2a9a data/tconstruct/recipes/tools/modifiers/salvage/compat/masticate.json
 a9fc8962a1ca2c47898667d6f279bd2a41c39f37 data/tconstruct/recipes/tools/modifiers/salvage/compat/mechanical_arm.json
 f97db0908a408b5ab9924485c419e0ce1fa50f89 data/tconstruct/recipes/tools/modifiers/salvage/compat/mosquito.json
-fc50a2c93d24c41724a59e8f02772f60b0220f51 data/tconstruct/recipes/tools/modifiers/salvage/compat/multivision.json
+5e74a7ead648929f4f9bc7a26aa07d939075ddd6 data/tconstruct/recipes/tools/modifiers/salvage/compat/multivision.json
 c6667a14b956c7d7828219c411d9024f3215e733 data/tconstruct/recipes/tools/modifiers/salvage/compat/poseidon.json
 099489b6d8e76ed99218aae12c70fdb2a7588177 data/tconstruct/recipes/tools/modifiers/salvage/compat/roadrunner_boots.json
 a6e976d9a35bff4cc60395bc2a08466753a62c54 data/tconstruct/recipes/tools/modifiers/salvage/compat/shield_of_the_deep_chestplates.json

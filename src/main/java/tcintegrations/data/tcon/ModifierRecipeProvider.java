@@ -71,6 +71,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
         Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
         Consumer<FinishedRecipe> beyondEarthConsumer = withCondition(consumer, modLoaded(ModIntegration.BEYOND_EARTH_MODID));
+        Consumer<FinishedRecipe> ieConsumer = withCondition(consumer, modLoaded(ModIntegration.IE_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -406,8 +407,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(IEItems.Tools.VOLTMETER.get())
             .setSlots(SlotType.ABILITY, 0)
             .setMaxLevel(1)
-            .saveSalvage(createConsumer, prefix(TCIntegrationsModifiers.MULTIVISION_MODIFIER, compatSalvage))
-            .save(createConsumer, prefix(TCIntegrationsModifiers.MULTIVISION_MODIFIER, compatFolder));
+            .saveSalvage(ieConsumer, prefix(TCIntegrationsModifiers.MULTIVISION_MODIFIER, compatSalvage))
+            .save(ieConsumer, prefix(TCIntegrationsModifiers.MULTIVISION_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {
