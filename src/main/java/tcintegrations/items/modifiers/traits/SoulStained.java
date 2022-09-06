@@ -3,7 +3,6 @@ package tcintegrations.items.modifiers.traits;
 import java.util.UUID;
 
 import com.sammy.malum.core.setup.content.AttributeRegistry;
-import com.sammy.ortus.setup.OrtusAttributes;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -18,6 +17,8 @@ import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.tools.TinkerTools;
+
+import team.lodestar.lodestone.setup.LodestoneAttributeRegistry;
 
 public class SoulStained extends NoLevelsModifier {
 
@@ -129,9 +130,9 @@ public class SoulStained extends NoLevelsModifier {
     }
 
     public void changeEquipment(ServerPlayer sp, EquipmentChangeContext context, boolean remove) {
-        final AttributeInstance magicResistance = sp.getAttribute(OrtusAttributes.MAGIC_RESISTANCE.get());
+        final AttributeInstance magicResistance = sp.getAttribute(LodestoneAttributeRegistry.MAGIC_RESISTANCE.get());
         final AttributeInstance soulWardCap = sp.getAttribute(AttributeRegistry.SOUL_WARD_CAP.get());
-        final AttributeInstance magicDamage = sp.getAttribute(OrtusAttributes.MAGIC_DAMAGE.get());
+        final AttributeInstance magicDamage = sp.getAttribute(LodestoneAttributeRegistry.MAGIC_DAMAGE.get());
         ItemStack stack;
         AttributeModifier magicResistanceModifier = null;
         AttributeModifier soulWardCapModifier = null;
