@@ -168,7 +168,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ENGINEERS_GOGGLES_MODIFIER)
             .setTools(TinkerTags.Items.HELMETS)
             .addInput(AllItems.GOGGLES.get())
-            .setSlots(SlotType.ABILITY, 1)
+            .setSlots(SlotType.ABILITY, 0)
             .setMaxLevel(1)
             .saveSalvage(createConsumer, prefix(TCIntegrationsModifiers.ENGINEERS_GOGGLES_MODIFIER, compatSalvage))
             .save(createConsumer, prefix(TCIntegrationsModifiers.ENGINEERS_GOGGLES_MODIFIER, compatFolder));

@@ -9,9 +9,6 @@
   "tools": {
     "tag": "tconstruct:modifiable/armor/helmets"
   },
-  "slots": {
-    "abilities": 1
-  },
   "modifier": "tcintegrations:engineers_goggles",
   "min_level": 1
 }
