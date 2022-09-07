@@ -10,6 +10,7 @@ import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 
 import static net.minecraft.world.item.Tiers.NETHERITE;
 import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
+import static slimeknights.tconstruct.tools.data.material.MaterialIds.osmium;
 
 import static net.minecraft.world.item.Tiers.DIAMOND;
 import static net.minecraft.world.item.Tiers.IRON;
@@ -53,6 +54,10 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         addMaterialStats(MaterialIds.ostrum,
             new HeadMaterialStats(250, 6F, IRON, 2F),
             HandleMaterialStats.DEFAULT.withDurability(1.10F),
+            ExtraMaterialStats.DEFAULT);
+        addMaterialStats(osmium,
+            new HeadMaterialStats(525, 5.0F, IRON, 2.75F),
+            HandleMaterialStats.DEFAULT.withDurability(1.8F).withAttackSpeed(1.1F).withMiningSpeed(1.3F),
             ExtraMaterialStats.DEFAULT);
 
         // tier 3 (mod integration)

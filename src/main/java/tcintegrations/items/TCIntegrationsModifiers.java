@@ -28,6 +28,7 @@ import tcintegrations.items.modifiers.tool.FroststeelModifier;
 import tcintegrations.items.modifiers.tool.LivingwoodModifier;
 import tcintegrations.items.modifiers.tool.UtheriumModifier;
 import tcintegrations.items.modifiers.traits.HellishModifier;
+import tcintegrations.items.modifiers.traits.KineticModifier;
 import tcintegrations.items.modifiers.traits.ManaModifier;
 import tcintegrations.items.modifiers.tool.MechanicalArmModifier;
 import tcintegrations.items.modifiers.tool.ModerateModifier;
@@ -69,6 +70,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<OxygenatedModifier> OXYGENATED_MODIFIER;
     public static StaticModifier<HellishModifier> HELLISH_MODIFIER;
     public static StaticModifier<MultiVisionModifier> MULTIVISION_MODIFIER;
+    public static StaticModifier<KineticModifier> KINETIC_MODIFIER;
 
     public static void init() {
         String dataGen = System.getenv("DATA_GEN");
@@ -130,6 +132,10 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModList.get().isLoaded(ModIntegration.IE_MODID)) {
             MULTIVISION_MODIFIER = MODIFIERS_REGISTRY.register("multivision", MultiVisionModifier::new);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.MEKANISM_MODID)) {
+            KINETIC_MODIFIER = MODIFIERS_REGISTRY.register("kinetic", KineticModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);

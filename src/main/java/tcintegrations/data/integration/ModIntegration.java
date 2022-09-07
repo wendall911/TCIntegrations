@@ -33,6 +33,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String UNDERGARDEN_MODID = "undergarden";
     public static final String BEYOND_EARTH_MODID = "beyond_earth";
     public static final String BYG_MODID = "byg";
+    public static final String MEKANISM_MODID = "mekanism";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
     public static Item BEYOND_EARTH_CHEESE;

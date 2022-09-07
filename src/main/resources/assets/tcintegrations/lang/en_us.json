@@ -148,5 +148,8 @@
     "modifier.tcintegrations.hellish.description": "Lights hit entity on fire.",
     "modifier.tcintegrations.multivision": "MultiVision",
     "modifier.tcintegrations.multivision.flavor": "Wow, look at that!",
-    "modifier.tcintegrations.multivision.description": "Allows viewing energy levels shown by the multimeter."
+    "modifier.tcintegrations.multivision.description": "Allows viewing energy levels shown by the multimeter.",
+    "modifier.tcintegrations.kinetic": "Kinetic",
+    "modifier.tcintegrations.kinetic.flavor": "E-Motional!",
+    "modifier.tcintegrations.kinetic.description": "Using tools generates kinetic energy and will increase charge for single inventory item."
 }

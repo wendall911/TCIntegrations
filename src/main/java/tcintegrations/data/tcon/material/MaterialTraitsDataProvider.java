@@ -8,6 +8,7 @@ import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
 import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
+import static slimeknights.tconstruct.tools.data.material.MaterialIds.osmium;
 
 public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvider {
 
@@ -32,6 +33,7 @@ public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvide
         addDefaultTraits(MaterialIds.calorite, TciModifierIds.oxygenated);
         addDefaultTraits(MaterialIds.ostrum, TciModifierIds.oxygenated);
         addDefaultTraits(MaterialIds.pendoriteAlloy, TciModifierIds.hellish);
+        addDefaultTraits(osmium, TinkerModifiers.dense.getId(), TciModifierIds.kinetic);
     }
 
 }

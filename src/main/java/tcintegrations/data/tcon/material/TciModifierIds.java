@@ -14,6 +14,7 @@ public class TciModifierIds {
     public static final ModifierId masticate = id("masticate");
     public static final ModifierId oxygenated = id("oxygenated");
     public static final ModifierId hellish = id("hellish");
+    public static final ModifierId kinetic = id("kinetic");
 
     private TciModifierIds() {}
 
