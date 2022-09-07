@@ -151,5 +151,8 @@
     "modifier.tcintegrations.multivision.description": "Allows viewing energy levels shown by the multimeter.",
     "modifier.tcintegrations.kinetic": "Kinetic",
     "modifier.tcintegrations.kinetic.flavor": "E-Motional!",
-    "modifier.tcintegrations.kinetic.description": "Using tools generates kinetic energy and will increase charge for single inventory item."
+    "modifier.tcintegrations.kinetic.description": "Using tools generates kinetic energy and will increase charge for single inventory item.",
+    "modifier.tcintegrations.glowup": "Glow Up",
+    "modifier.tcintegrations.glowup.flavor": "Oh pretty!",
+    "modifier.tcintegrations.glowup.description": "Adds a glow effect to hit entities for 30 seconds. Increases 30s per level."
 }

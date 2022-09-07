@@ -3,6 +3,7 @@ package tcintegrations.data.tcon;
 import java.util.function.Consumer;
 
 import blusunrize.immersiveengineering.common.register.IEItems;
+
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 
 import com.hollingsworth.arsnouveau.setup.BlockRegistry;
@@ -15,6 +16,8 @@ import com.simibubi.create.AllItems;
 
 import com.teammetallurgy.aquaculture.api.fishing.Hooks;
 import com.teammetallurgy.aquaculture.init.AquaItems;
+
+import mekanism.common.registries.MekanismItems;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -72,6 +75,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
         Consumer<FinishedRecipe> beyondEarthConsumer = withCondition(consumer, modLoaded(ModIntegration.BEYOND_EARTH_MODID));
         Consumer<FinishedRecipe> ieConsumer = withCondition(consumer, modLoaded(ModIntegration.IE_MODID));
+        Consumer<FinishedRecipe> mekanismConsumer = withCondition(consumer, modLoaded(ModIntegration.MEKANISM_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -409,6 +413,18 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .setMaxLevel(1)
             .saveSalvage(ieConsumer, prefix(TCIntegrationsModifiers.MULTIVISION_MODIFIER, compatSalvage))
             .save(ieConsumer, prefix(TCIntegrationsModifiers.MULTIVISION_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.GLOWUP_MODIFIER)
+            .setTools(TinkerTags.Items.MELEE_OR_HARVEST)
+            .addInput(MekanismItems.REFINED_GLOWSTONE_INGOT)
+            .addInput(MekanismItems.REFINED_GLOWSTONE_INGOT)
+            .addInput(MekanismItems.REFINED_GLOWSTONE_INGOT)
+            .addInput(MekanismItems.REFINED_GLOWSTONE_INGOT)
+            .addInput(MekanismItems.REFINED_GLOWSTONE_INGOT)
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(3)
+            .saveSalvage(mekanismConsumer, prefix(TCIntegrationsModifiers.GLOWUP_MODIFIER, compatSalvage))
+            .save(mekanismConsumer, prefix(TCIntegrationsModifiers.GLOWUP_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

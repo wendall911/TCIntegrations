@@ -25,6 +25,7 @@ import tcintegrations.items.modifiers.tool.CheesyModifier;
 import tcintegrations.items.modifiers.tool.ElementalModifier;
 import tcintegrations.items.modifiers.tool.ForgottenModifier;
 import tcintegrations.items.modifiers.tool.FroststeelModifier;
+import tcintegrations.items.modifiers.tool.GlowUpModifier;
 import tcintegrations.items.modifiers.tool.LivingwoodModifier;
 import tcintegrations.items.modifiers.tool.UtheriumModifier;
 import tcintegrations.items.modifiers.traits.HellishModifier;
@@ -71,6 +72,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<HellishModifier> HELLISH_MODIFIER;
     public static StaticModifier<MultiVisionModifier> MULTIVISION_MODIFIER;
     public static StaticModifier<KineticModifier> KINETIC_MODIFIER;
+    public static StaticModifier<GlowUpModifier> GLOWUP_MODIFIER;
 
     public static void init() {
         String dataGen = System.getenv("DATA_GEN");
@@ -136,6 +138,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModList.get().isLoaded(ModIntegration.MEKANISM_MODID)) {
             KINETIC_MODIFIER = MODIFIERS_REGISTRY.register("kinetic", KineticModifier::new);
+            GLOWUP_MODIFIER = MODIFIERS_REGISTRY.register("glowup", GlowUpModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);

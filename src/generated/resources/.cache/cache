@@ -403,6 +403,7 @@ bf0e3f2bad809ef1daeb17db17d16f29325c5281 data/tconstruct/recipes/tools/modifiers
 cbf347166b679bd756081b65578b8ab93e8802b2 data/tconstruct/recipes/tools/modifiers/compat/forgotten.json
 b46c988fe4e056b1671848164a64dce1df256652 data/tconstruct/recipes/tools/modifiers/compat/frontier_cap_helmets.json
 b972bac1fa1a3bff93d9ee18ef1fd7abfa4b80cd data/tconstruct/recipes/tools/modifiers/compat/froststeel.json
+3b385b89c682c00fd6bd7667f8a8caa21154decd data/tconstruct/recipes/tools/modifiers/compat/glowup.json
 4116496cb6a80d11e1c83a3b5c507053ee83515f data/tconstruct/recipes/tools/modifiers/compat/great_fairy.json
 964c283b57b51a5ad71e4b5bf89cc518aa8f70f8 data/tconstruct/recipes/tools/modifiers/compat/masticate.json
 3e9c869f81dbaa1e50ec21398fb3972f38258fa2 data/tconstruct/recipes/tools/modifiers/compat/mechanical_arm.json
@@ -432,6 +433,7 @@ c0baa26b5948b1d678f97df049284f066e009b99 data/tconstruct/recipes/tools/modifiers
 d4e719a224904f8dd640d1e2a625c6816eb72cb3 data/tconstruct/recipes/tools/modifiers/salvage/compat/forgotten.json
 37549f9e7078afa2c02f52b3b626e1c85b5ed6d7 data/tconstruct/recipes/tools/modifiers/salvage/compat/frontier_cap_helmets.json
 f19cc58624c8afdecf65572d5e90a19786e8fcca data/tconstruct/recipes/tools/modifiers/salvage/compat/froststeel.json
+fa3e6034a3e3ddcce0965d00bbcb5696ea499ce3 data/tconstruct/recipes/tools/modifiers/salvage/compat/glowup.json
 958343f5af86a3ee738c5254ef346b723d5749fe data/tconstruct/recipes/tools/modifiers/salvage/compat/great_fairy.json
 bcdf90a7bbe671c18d2bdc1e54e627b1c63f2a9a data/tconstruct/recipes/tools/modifiers/salvage/compat/masticate.json
 a9fc8962a1ca2c47898667d6f279bd2a41c39f37 data/tconstruct/recipes/tools/modifiers/salvage/compat/mechanical_arm.json
