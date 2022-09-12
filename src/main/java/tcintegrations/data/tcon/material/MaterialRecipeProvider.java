@@ -19,6 +19,7 @@ import vazkii.botania.common.block.ModBlocks;
 import tcintegrations.common.TagManager;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
+import tcintegrations.TCIntegrations;
 
 public class MaterialRecipeProvider extends BaseRecipeProvider implements IMaterialRecipeHelper {
 
@@ -35,6 +36,11 @@ public class MaterialRecipeProvider extends BaseRecipeProvider implements IMater
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
         addMaterialItems(consumer);
         addMaterialSmeltery(consumer);
+    }
+
+    @Override
+    public String getModId() {
+        return TCIntegrations.MODID;
     }
 
     private void addMaterialItems(Consumer<FinishedRecipe> consumer) {

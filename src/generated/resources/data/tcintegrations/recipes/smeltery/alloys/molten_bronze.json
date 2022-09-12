@@ -4,11 +4,8 @@
     {
       "conditions": [
         {
-          "prop": "bronze_recipe",
-          "type": "tcintegrations:config"
-        },
-        {
-          "type": "forge:true"
+          "tag": "forge:ingots/tin",
+          "type": "forge:tag_empty"
         }
       ],
       "recipe": {

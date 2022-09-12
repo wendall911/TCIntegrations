@@ -9,8 +9,10 @@ import com.hollingsworth.arsnouveau.setup.ItemsRegistry;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
-
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
+
+import net.minecraftforge.common.crafting.conditions.TagEmptyCondition;
 import net.minecraftforge.common.crafting.conditions.TrueCondition;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 
@@ -29,9 +31,9 @@ import slimeknights.tconstruct.library.recipe.melting.MeltingRecipeBuilder;
 import slimeknights.tconstruct.smeltery.data.Byproduct;
 
 import tcintegrations.common.TagManager;
-import tcintegrations.common.json.ConfigEnabledCondition;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
+import tcintegrations.TCIntegrations;
 
 public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelteryRecipeHelper, ICommonRecipeHelper {
 
@@ -49,6 +51,11 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         this.addMeltingRecipes(consumer);
         this.addCastingRecipes(consumer);
         this.addAlloyRecipes(consumer);
+    }
+
+    @Override
+    public String getModId() {
+        return TCIntegrations.MODID;
     }
 
     private void addCastingRecipes(Consumer<FinishedRecipe> consumer) {
@@ -132,8 +139,7 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         Consumer<FinishedRecipe> bygConsumer = withCondition(consumer, modLoaded(ModIntegration.BYG_MODID));
 
         ConditionalRecipe.builder()
-            .addCondition(ConfigEnabledCondition.BRONZE_RECIPE)
-            .addCondition(TrueCondition.INSTANCE)
+            .addCondition(new TagEmptyCondition(new ResourceLocation("forge", "ingots/tin")))
             .addRecipe(
                 AlloyRecipeBuilder.alloy(TinkerFluids.moltenBronze.get(), FluidValues.INGOT * 4)
                     .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT * 3)

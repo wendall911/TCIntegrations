@@ -62,6 +62,11 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         addModifierRecipes(consumer);
     }
 
+    @Override
+    public String getModId() {
+        return TCIntegrations.MODID;
+    }
+
     private void addModifierRecipes(Consumer<FinishedRecipe> consumer) {
         // upgrades
         String compatFolder = "tools/modifiers/compat/";
