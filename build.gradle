@@ -159,6 +159,7 @@ dependencies {
     //runtimeOnly fg.deobf("curse.maven:beyond_earth-377448:${beyond_earth_version}")
     implementation fg.deobf("curse.maven:mekanism-268560:${mekanism_version}")
     runtimeOnly fg.deobf("curse.maven:mekanism_tools-268567:${mekanism_tools_version}")
+    //runtimeOnly fg.deobf("curse.maven:greek_fantasy-413724:${greek_fantasy_version}")
 
     implementation fg.deobf(fileTree(dir: 'libs', include: '*.jar'))
 }
