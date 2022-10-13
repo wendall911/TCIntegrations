@@ -21,6 +21,7 @@ import mekanism.common.registries.MekanismItems;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 
 import net.minecraft.world.item.Items;
@@ -28,10 +29,11 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import net.minecraftforge.common.Tags;
 
+import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import quek.undergarden.registry.UGItems;
 
 import slimeknights.tconstruct.common.TinkerTags;
-import slimeknights.tconstruct.common.data.BaseRecipeProvider;
+import slimeknights.tconstruct.library.data.recipe.IRecipeHelper;
 import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
 import slimeknights.tconstruct.library.recipe.modifiers.ModifierMatch;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.IncrementalModifierRecipeBuilder;
@@ -46,7 +48,7 @@ import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.TCIntegrations;
 
-public class ModifierRecipeProvider extends BaseRecipeProvider {
+public class ModifierRecipeProvider extends RecipeProvider implements IConditionBuilder, IRecipeHelper {
 
     public ModifierRecipeProvider(DataGenerator generator) {
         super(generator);

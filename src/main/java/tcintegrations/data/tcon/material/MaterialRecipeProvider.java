@@ -5,13 +5,17 @@ import java.util.function.Consumer;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 
+import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
+import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+
 import slimeknights.mantle.recipe.helper.ItemOutput;
-import slimeknights.tconstruct.common.data.BaseRecipeProvider;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
+import slimeknights.tconstruct.library.data.recipe.IRecipeHelper;
+
 import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
 
 import vazkii.botania.common.block.ModBlocks;
@@ -21,7 +25,7 @@ import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
 
-public class MaterialRecipeProvider extends BaseRecipeProvider implements IMaterialRecipeHelper {
+public class MaterialRecipeProvider extends RecipeProvider implements IConditionBuilder, IRecipeHelper, IMaterialRecipeHelper {
 
     public MaterialRecipeProvider(DataGenerator generator) {
         super(generator);

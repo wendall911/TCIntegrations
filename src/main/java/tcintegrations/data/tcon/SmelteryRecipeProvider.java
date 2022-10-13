@@ -9,19 +9,20 @@ import com.hollingsworth.arsnouveau.setup.ItemsRegistry;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
+import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 
+import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.common.crafting.conditions.TagEmptyCondition;
-import net.minecraftforge.common.crafting.conditions.TrueCondition;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.item.BYGItems;
 
-import slimeknights.tconstruct.common.data.BaseRecipeProvider;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.ICommonRecipeHelper;
+import slimeknights.tconstruct.library.data.recipe.IRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
 import slimeknights.tconstruct.library.recipe.alloying.AlloyRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.FluidValues;
@@ -35,7 +36,7 @@ import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
 
-public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelteryRecipeHelper, ICommonRecipeHelper {
+public class SmelteryRecipeProvider extends RecipeProvider implements IConditionBuilder, IRecipeHelper, ISmelteryRecipeHelper, ICommonRecipeHelper {
 
     public SmelteryRecipeProvider(DataGenerator generator) {
         super(generator);
