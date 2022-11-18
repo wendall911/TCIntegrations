@@ -69,8 +69,8 @@ public class TerrestrialModifier extends Modifier {
                 data.setTerrestrial(hasSet);
 
                 NetworkHandler.INSTANCE.send(
-                        PacketDistributor.PLAYER.with(() -> sp),
-                        new BotaniaSetData(hasSet, data.hasGreatFairy())
+                    PacketDistributor.PLAYER.with(() -> sp),
+                    new BotaniaSetData(hasSet, data.hasGreatFairy(), data.hasAlfheim())
                 );
             });
         }
@@ -87,8 +87,8 @@ public class TerrestrialModifier extends Modifier {
                 data.setTerrestrial(false);
 
                 NetworkHandler.INSTANCE.send(
-                        PacketDistributor.PLAYER.with(() -> sp),
-                        new BotaniaSetData(false, data.hasGreatFairy())
+                    PacketDistributor.PLAYER.with(() -> sp),
+                    new BotaniaSetData(false, data.hasGreatFairy(), data.hasAlfheim())
                 );
             });
         }

@@ -1,0 +1,26 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "mythicbotany",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "mythicbotany:alfsteel_ingot"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/melee_or_harvest"
+  },
+  "requirements": {
+    "name": "tcintegrations:terra",
+    "level": 1
+  },
+  "result": {
+    "name": "tcintegrations:alf",
+    "level": 1
+  },
+  "max_level": 1
+}

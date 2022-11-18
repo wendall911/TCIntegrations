@@ -25,4 +25,14 @@ public class BotaniaClientHelper {
         return false;
     }
 
+    public static boolean hasAlfheimArmorSet() {
+        final Player player = Minecraft.getInstance().player != null ? Minecraft.getInstance().player : null;
+
+        if (player != null) {
+            return BotaniaHelper.hasAlfheimArmorSet(player);
+        }
+
+        return false;
+    }
+
 }

@@ -29,8 +29,8 @@ public class PlayerEventHandler {
                 sp.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
 
                     NetworkHandler.INSTANCE.send(
-                            PacketDistributor.PLAYER.with(() -> sp),
-                            new BotaniaSetData(data.hasTerrestrial(), data.hasGreatFairy())
+                        PacketDistributor.PLAYER.with(() -> sp),
+                        new BotaniaSetData(data.hasTerrestrial(), data.hasGreatFairy(), data.hasAlfheim())
                     );
                 });
             }

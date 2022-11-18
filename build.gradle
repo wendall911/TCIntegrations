@@ -66,6 +66,10 @@ repositories {
         name 'tterrag maven'
         url 'https://maven.tterrag.com'
     }
+    maven {
+        name 'LibX maven'
+        url = 'https://maven.melanx.de/'
+    }
 }
 
 group = 'com.github.wendall911.tcintegrations'
@@ -159,6 +163,8 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:curios-309927:${curios_version}")
     runtimeOnly fg.deobf("curse.maven:terrablender-563928:${terrablender_version}")
     runtimeOnly fg.deobf("curse.maven:tinkersurvival-294667:${tinkersurvival_version}")
+    implementation fg.deobf("curse.maven:mythicbotany-400058:${mythicbotany_version}")
+    runtimeOnly fg.deobf('io.github.noeppi_noeppi.mods:LibX:1.18.2-3.2.18')
 
     implementation fg.deobf(fileTree(dir: 'libs', include: '*.jar'))
 }
@@ -267,6 +273,7 @@ curseforge {
                     optionalLibrary 'beyond-earth'
                     optionalLibrary 'oh-the-biomes-youll-go'
                     optionalLibrary 'mekanism'
+                    optionalLibrary 'mythicbotany'
                 }
             }
         }

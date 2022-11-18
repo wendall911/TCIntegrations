@@ -14,21 +14,25 @@ public class BotaniaSetData implements IData {
 
     private final boolean terrestrial;
     private final boolean greatFairy;
+    private final boolean alfheim;
 
-    public BotaniaSetData(boolean terrestrial, boolean greatFairy) {
+    public BotaniaSetData(boolean terrestrial, boolean greatFairy, boolean alfheim) {
         this.terrestrial = terrestrial;
         this.greatFairy = greatFairy;
+        this.alfheim = alfheim;
     }
 
     public BotaniaSetData(FriendlyByteBuf buf) {
         terrestrial = buf.readBoolean();
         greatFairy = buf.readBoolean();
+        alfheim = buf.readBoolean();
     }
 
     @Override
     public void toBytes(FriendlyByteBuf buf) {
         buf.writeBoolean(terrestrial);
         buf.writeBoolean(greatFairy);
+        buf.writeBoolean(alfheim);
     }
 
     @Override
@@ -38,6 +42,7 @@ public class BotaniaSetData implements IData {
                 Minecraft.getInstance().player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
                     data.setTerrestrial(this.terrestrial);
                     data.setGreatFairy(this.greatFairy);
+                    data.setAlfheim(this.alfheim);
                 });
             });
         }

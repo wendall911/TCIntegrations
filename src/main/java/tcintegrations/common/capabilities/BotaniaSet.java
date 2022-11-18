@@ -15,12 +15,14 @@ public class BotaniaSet {
 
     private boolean terrestrial = false;
     private boolean greatFairy = false;
+    private boolean alfheim = false;
 
     public static Tag writeNBT(Capability<BotaniaSet> capability, BotaniaSet instance, Direction side) {
         CompoundTag tag = new CompoundTag();
 
         tag.putBoolean("terrestrial", instance.hasTerrestrial());
         tag.putBoolean("great_fairy", instance.hasGreatFairy());
+        tag.putBoolean("alfheim", instance.hasAlfheim());
 
         return tag;
     }
@@ -28,6 +30,7 @@ public class BotaniaSet {
     public static void readNBT(Capability<BotaniaSet> capability, BotaniaSet instance, Direction side, Tag nbt) {
         instance.setTerrestrial(((CompoundTag) nbt).getBoolean("terrestrial"));
         instance.setGreatFairy(((CompoundTag) nbt).getBoolean("great_fairy"));
+        instance.setAlfheim(((CompoundTag) nbt).getBoolean("alfheim"));
     }
 
     public void setTerrestrial(boolean terrestrial) {
@@ -44,6 +47,14 @@ public class BotaniaSet {
 
     public boolean hasGreatFairy() {
         return this.greatFairy;
+    }
+
+    public boolean hasAlfheim() {
+        return this.alfheim;
+    }
+
+    public void setAlfheim(boolean alfheim) {
+        this.alfheim = alfheim;
     }
 
     public static class Provider implements ICapabilitySerializable<Tag> {

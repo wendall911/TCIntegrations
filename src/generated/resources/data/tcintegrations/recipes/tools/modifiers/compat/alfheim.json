@@ -1,0 +1,26 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "mythicbotany",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "mythicbotany:alfsteel_ingot"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  },
+  "requirements": {
+    "name": "tcintegrations:terrestrial",
+    "level": 1
+  },
+  "result": {
+    "name": "tcintegrations:alfheim",
+    "level": 1
+  },
+  "max_level": 1
+}

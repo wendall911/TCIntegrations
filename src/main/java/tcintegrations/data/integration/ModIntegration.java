@@ -34,6 +34,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String BEYOND_EARTH_MODID = "beyond_earth";
     public static final String BYG_MODID = "byg";
     public static final String MEKANISM_MODID = "mekanism";
+    public static final String MYTHIC_BOTANY_MODID = "mythicbotany";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
     public static Item BEYOND_EARTH_CHEESE;
@@ -107,6 +108,10 @@ public final class ModIntegration extends TCIntegrationsModule {
 
     public static ResourceLocation bygLoc(String name) {
         return getLoc(BYG_MODID, name);
+    }
+
+    public static ResourceLocation mbLoc(String name) {
+        return getLoc(MYTHIC_BOTANY_MODID, name);
     }
 
     private static ResourceLocation getLoc(String modid, String name) {

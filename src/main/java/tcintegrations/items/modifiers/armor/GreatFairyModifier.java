@@ -72,8 +72,8 @@ public class GreatFairyModifier extends Modifier {
                 data.setGreatFairy(hasSet);
 
                 NetworkHandler.INSTANCE.send(
-                        PacketDistributor.PLAYER.with(() -> sp),
-                        new BotaniaSetData(data.hasTerrestrial(), hasSet)
+                    PacketDistributor.PLAYER.with(() -> sp),
+                    new BotaniaSetData(data.hasTerrestrial(), hasSet, data.hasAlfheim())
                 );
             });
         }
@@ -90,8 +90,8 @@ public class GreatFairyModifier extends Modifier {
                 data.setGreatFairy(false);
 
                 NetworkHandler.INSTANCE.send(
-                        PacketDistributor.PLAYER.with(() -> sp),
-                        new BotaniaSetData(data.hasTerrestrial(), false)
+                    PacketDistributor.PLAYER.with(() -> sp),
+                    new BotaniaSetData(data.hasTerrestrial(), false, data.hasAlfheim())
                 );
             });
         }

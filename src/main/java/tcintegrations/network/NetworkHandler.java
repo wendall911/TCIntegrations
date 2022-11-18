@@ -10,6 +10,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 import tcintegrations.TCIntegrations;
+import tcintegrations.data.integration.ModIntegration;
 
 public final class NetworkHandler {
 
@@ -25,7 +26,7 @@ public final class NetworkHandler {
     public static void init() {
         int id = 0;
 
-        if (ModList.get().isLoaded("botania")) {
+        if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
             registerMessage(id++, BotaniaSetData.class, BotaniaSetData::new);
         }
     }

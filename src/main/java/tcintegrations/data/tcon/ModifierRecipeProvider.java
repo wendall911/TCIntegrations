@@ -83,6 +83,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         Consumer<FinishedRecipe> beyondEarthConsumer = withCondition(consumer, modLoaded(ModIntegration.BEYOND_EARTH_MODID));
         Consumer<FinishedRecipe> ieConsumer = withCondition(consumer, modLoaded(ModIntegration.IE_MODID));
         Consumer<FinishedRecipe> mekanismConsumer = withCondition(consumer, modLoaded(ModIntegration.MEKANISM_MODID));
+        Consumer<FinishedRecipe> mythicBotanyConsumer = withCondition(consumer, modLoaded(ModIntegration.MYTHIC_BOTANY_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -95,6 +96,15 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setMaxLevel(1)
             .saveSalvage(botaniaConsumer, prefix(TCIntegrationsModifiers.TERRA_MODIFIER, compatSalvage))
             .save(botaniaConsumer, prefix(TCIntegrationsModifiers.TERRA_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ALF_MODIFIER)
+            .setTools(TinkerTags.Items.MELEE_PRIMARY)
+            .addInput(mythicbotany.ModItems.alfsteelIngot)
+            .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.TERRA_MODIFIER))
+            .setSlots(SlotType.UPGRADE, 0)
+            .setMaxLevel(1)
+            .saveSalvage(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALF_MODIFIER, compatSalvage))
+            .save(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALF_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ELEMENTAL_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -155,6 +165,15 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setMaxLevel(1)
             .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatSalvage))
             .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ALFHEIM_MODIFIER)
+            .setTools(TinkerTags.Items.ARMOR)
+            .addInput(mythicbotany.ModItems.alfsteelIngot)
+            .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER))
+            .setSlots(SlotType.UPGRADE, 0)
+            .setMaxLevel(1)
+            .saveSalvage(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALFHEIM_MODIFIER, compatSalvage))
+            .save(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALFHEIM_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.GREAT_FAIRY_MODIFIER)
             .setTools(TinkerTags.Items.ARMOR)

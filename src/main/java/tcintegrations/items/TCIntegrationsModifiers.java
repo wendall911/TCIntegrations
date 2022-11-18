@@ -6,6 +6,7 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.data.integration.ModIntegration;
+import tcintegrations.items.modifiers.armor.AlfheimModifier;
 import tcintegrations.items.modifiers.armor.ArsNouveauModifier;
 import tcintegrations.items.modifiers.armor.BisonFurModifier;
 import tcintegrations.items.modifiers.armor.CrocodileModifier;
@@ -21,6 +22,7 @@ import tcintegrations.items.modifiers.armor.RoadrunnerModifier;
 import tcintegrations.items.modifiers.armor.ShieldOfTheDeepModifier;
 import tcintegrations.items.modifiers.armor.TerrestrialModifier;
 import tcintegrations.items.modifiers.armor.TurtleShellModifier;
+import tcintegrations.items.modifiers.tool.AlfModifier;
 import tcintegrations.items.modifiers.tool.CheesyModifier;
 import tcintegrations.items.modifiers.tool.ElementalModifier;
 import tcintegrations.items.modifiers.tool.ForgottenModifier;
@@ -73,6 +75,8 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<MultiVisionModifier> MULTIVISION_MODIFIER;
     public static StaticModifier<KineticModifier> KINETIC_MODIFIER;
     public static StaticModifier<GlowUpModifier> GLOWUP_MODIFIER;
+    public static StaticModifier<AlfheimModifier> ALFHEIM_MODIFIER;
+    public static StaticModifier<AlfModifier> ALF_MODIFIER;
 
     public static void init() {
         String dataGen = System.getenv("DATA_GEN");
@@ -139,6 +143,11 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
         if (ModList.get().isLoaded(ModIntegration.MEKANISM_MODID)) {
             KINETIC_MODIFIER = MODIFIERS_REGISTRY.register("kinetic", KineticModifier::new);
             GLOWUP_MODIFIER = MODIFIERS_REGISTRY.register("glowup", GlowUpModifier::new);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.MYTHIC_BOTANY_MODID)) {
+            ALFHEIM_MODIFIER = MODIFIERS_REGISTRY.register("alfheim", AlfheimModifier::new);
+            ALF_MODIFIER = MODIFIERS_REGISTRY.register("alf", AlfModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);

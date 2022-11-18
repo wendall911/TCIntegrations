@@ -61,7 +61,12 @@ public class BotaniaHelper {
 
         player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
             if (data.hasTerrestrial()) {
-                decreaseModifier.set(0.8);
+                if (data.hasAlfheim()) {
+                    decreaseModifier.set(0.8);
+                }
+                else {
+                    decreaseModifier.set(0.7);
+                }
             }
             else if (data.hasGreatFairy()) {
                 decreaseModifier.set(0.9);
@@ -103,6 +108,16 @@ public class BotaniaHelper {
 
         player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
             hasSet.set(data.hasGreatFairy());
+        });
+
+        return hasSet.get();
+    }
+
+    public static boolean hasAlfheimArmorSet(Player player) {
+        AtomicBoolean hasSet = new AtomicBoolean(false);
+
+        player.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
+            hasSet.set(data.hasAlfheim());
         });
 
         return hasSet.get();
