@@ -8,11 +8,11 @@ A Minecraft 1.18+ mod designed to provide modpack integrations with other mods f
 
 Download latest (1.18.2):
 
-[![Download](https://www.curseforge.com/minecraft/mc-mods/tcintegrations/files/4095272)
+[![Download]](https://www.curseforge.com/minecraft/mc-mods/tcintegrations/files/4095272)
 
 All Downloads:
 
-[![Files](https://www.curseforge.com/minecraft/mc-mods/tcintegrations/files)
+[![Files]](https://www.curseforge.com/minecraft/mc-mods/tcintegrations/files)
 
 ## Links of Interest
 
