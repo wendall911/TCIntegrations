@@ -6,13 +6,13 @@
 A Minecraft 1.18+ mod designed to provide modpack integrations with other mods for
 [Tinkers' Construct](https://github.com/SlimeKnights/TinkersConstruct), as well as some other tweaks.
 
-Download latest (1.18.1):
+Download latest (1.18.2):
 
-[![Download](https://curse.nikky.moe/api/img/602680?logo)](https://curse.nikky.moe/api/url/602680)
+[![Download](https://www.curseforge.com/minecraft/mc-mods/tcintegrations/files/4095272)
 
 All Downloads:
 
-[![Files](https://curse.nikky.moe/api/img/602680/files?logo)](https://www.curseforge.com/minecraft/mc-mods/tcintegrations/files)
+[![Files](https://www.curseforge.com/minecraft/mc-mods/tcintegrations/files)
 
 ## Links of Interest
 
