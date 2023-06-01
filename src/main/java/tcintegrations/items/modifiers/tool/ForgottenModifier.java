@@ -59,7 +59,7 @@ public class ForgottenModifier extends NoLevelsModifier {
     }
 
     @Override
-    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
+    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, slimeknights.tconstruct.library.utils.TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
         BlockState state = player != null ? player.level.getBlockState(player.getOnPos()) : null;
 
         if (state != null && isUndergarden(state, player)) {

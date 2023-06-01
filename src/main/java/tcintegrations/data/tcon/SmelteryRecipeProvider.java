@@ -119,19 +119,19 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ICondition
             .save(bygConsumer, modResource("emeraldite/ore"));
 
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_ORE.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
-            .setOre(OreRateType.METAL, OreRateType.GEM, OreRateType.METAL)
+            .setOre(OreRateType.METAL)
             .save(bygConsumer, modResource(metalFolder + "pendorite/ore"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.RAW_PENDORITE.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
-            .setOre(OreRateType.METAL, OreRateType.GEM, OreRateType.METAL)
+            .setOre(OreRateType.METAL)
             .save(bygConsumer, modResource(metalFolder + "pendorite/raw"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.RAW_PENDORITE_BLOCK.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT * 9, 2.0F)
-            .setOre(OreRateType.METAL, OreRateType.GEM, OreRateType.METAL)
+            .setOre(OreRateType.METAL)
             .save(bygConsumer, modResource(metalFolder + "pendorite/raw_block"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_SCRAPS.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
-            .setOre(OreRateType.METAL, OreRateType.GEM, OreRateType.METAL)
+            .setOre(OreRateType.METAL)
             .save(bygConsumer, modResource(metalFolder + "pendorite/scrap"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_INGOT.get()), TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.get(), FluidValues.INGOT, 2.0F)
-            .setOre(OreRateType.METAL, OreRateType.GEM, OreRateType.METAL)
+            .setOre(OreRateType.METAL)
             .save(bygConsumer, modResource(metalFolder + "pendorite_alloy/ingot"));
     }
 

@@ -90,12 +90,12 @@ public class SirenModifier extends NoLevelsModifier {
     }
 
     @Override
-    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, TooltipKey key, TooltipFlag flag) {
+    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, slimeknights.tconstruct.library.utils.TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
         float bonus = 0.0F;
 
         if (tool.hasTag(TinkerTags.Items.MELEE)) {
             if (player != null
-                    && key == TooltipKey.SHIFT
+                    && tooltipKey == slimeknights.tconstruct.library.utils.TooltipKey.SHIFT
                     && player.isEyeInFluid(FluidTags.WATER)) {
                 bonus = tool.getDamage() * ATTACK_BONUS;
             }
@@ -107,7 +107,7 @@ public class SirenModifier extends NoLevelsModifier {
 
         if (tool.hasTag(TinkerTags.Items.HARVEST)) {
             if (player != null
-                    && key == TooltipKey.SHIFT
+                    && tooltipKey == slimeknights.tconstruct.library.utils.TooltipKey.SHIFT
                     && player.isEyeInFluid(FluidTags.WATER)) {
                 bonus = SPEED_BONUS;
             }

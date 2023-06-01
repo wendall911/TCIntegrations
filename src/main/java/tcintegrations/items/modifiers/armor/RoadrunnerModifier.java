@@ -131,8 +131,8 @@ public class RoadrunnerModifier extends Modifier implements IArmorWalkModifier {
     }
 
     @Override
-    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, TooltipKey key, TooltipFlag tooltipFlag) {
-        if (player == null || key != TooltipKey.SHIFT || (!player.isFallFlying() && player.level.getBlockState(getOnPosition(player)).is(BlockTags.SAND))) {
+    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, slimeknights.tconstruct.library.utils.TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
+        if (player == null || tooltipKey == slimeknights.tconstruct.library.utils.TooltipKey.SHIFT || (!player.isFallFlying() && player.level.getBlockState(getOnPosition(player)).is(BlockTags.SAND))) {
             addPercentTooltip(getDisplayName(), level * SPEED_FACTOR, tooltip);
         }
     }

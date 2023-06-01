@@ -46,11 +46,11 @@ public class ModerateModifier extends NoLevelsModifier {
     }
 
     @Override
-    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, TooltipKey key, TooltipFlag flag) {
+    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, slimeknights.tconstruct.library.utils.TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
         if (tool.hasTag(TinkerTags.Items.HARVEST)) {
             float bonus;
 
-            if (player != null && key == TooltipKey.SHIFT) {
+            if (player != null && tooltipKey == slimeknights.tconstruct.library.utils.TooltipKey.SHIFT) {
                 bonus = getBonus(player, player.blockPosition());
             } else {
                 bonus = MAX_BOOST;
