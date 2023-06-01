@@ -1,6 +1,6 @@
 package tcintegrations.client.compat;
 
-import com.simibubi.create.content.contraptions.goggles.GogglesItem;
+import com.simibubi.create.content.equipment.goggles.GogglesItem;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EquipmentSlot;
