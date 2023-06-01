@@ -2,7 +2,7 @@ package tcintegrations.items.modifiers.traits;
 
 import java.util.UUID;
 
-import com.sammy.malum.core.setup.content.AttributeRegistry;
+import com.sammy.malum.registry.common.AttributeRegistry;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;

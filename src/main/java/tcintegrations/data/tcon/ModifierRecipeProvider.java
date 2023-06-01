@@ -9,7 +9,7 @@ import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 import com.hollingsworth.arsnouveau.setup.BlockRegistry;
 import com.hollingsworth.arsnouveau.setup.ItemsRegistry;
 
-import com.sammy.malum.core.setup.content.item.ItemRegistry;
+import com.sammy.malum.registry.common.item.ItemRegistry;
 
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllItems;
