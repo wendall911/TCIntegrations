@@ -112,26 +112,19 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ICondition
         metalMelting(beyondEarthConsumer, ModIntegration.MOLTEN_OSTRUM.get(), "ostrum", true, metalFolder, false);
 
         MeltingRecipeBuilder.melting(Ingredient.of(TagManager.Items.EMERALDITE_SHARDS), TinkerFluids.moltenEmerald.get(), FluidValues.GEM_SHARD, 1.0F)
-            .setOre(OreRateType.GEM)
             .save(bygConsumer, modResource("emeraldite/shard"));
         MeltingRecipeBuilder.melting(Ingredient.of(TagManager.Items.EMERALDITE_ORE), TinkerFluids.moltenEmerald.get(), FluidValues.GEM_SHARD, 1.0F)
-            .setOre(OreRateType.GEM)
             .save(bygConsumer, modResource("emeraldite/ore"));
 
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_ORE.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
-            .setOre(OreRateType.METAL)
             .save(bygConsumer, modResource(metalFolder + "pendorite/ore"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.RAW_PENDORITE.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
-            .setOre(OreRateType.METAL)
             .save(bygConsumer, modResource(metalFolder + "pendorite/raw"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.RAW_PENDORITE_BLOCK.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT * 9, 2.0F)
-            .setOre(OreRateType.METAL)
             .save(bygConsumer, modResource(metalFolder + "pendorite/raw_block"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_SCRAPS.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
-            .setOre(OreRateType.METAL)
             .save(bygConsumer, modResource(metalFolder + "pendorite/scrap"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_INGOT.get()), TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.get(), FluidValues.INGOT, 2.0F)
-            .setOre(OreRateType.METAL)
             .save(bygConsumer, modResource(metalFolder + "pendorite_alloy/ingot"));
     }
 
@@ -144,7 +137,7 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ICondition
             .addRecipe(
                 AlloyRecipeBuilder.alloy(TinkerFluids.moltenBronze.get(), FluidValues.INGOT * 4)
                     .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT * 3)
-                    .addInput(TinkerFluids.moltenQuartz.getLocalTag(), FluidValues.GEM)::save)
+                    .addInput(TinkerFluids.moltenObsidian.getLocalTag(), FluidValues.GLASS_BLOCK)::save)
             .build(consumer, prefix(TinkerFluids.moltenBronze, folder));
 
         AlloyRecipeBuilder.alloy(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.get(), FluidValues.INGOT)
