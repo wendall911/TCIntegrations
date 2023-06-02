@@ -132,6 +132,7 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ICondition
         String folder = "smeltery/alloys/";
         Consumer<FinishedRecipe> bygConsumer = withCondition(consumer, modLoaded(ModIntegration.BYG_MODID));
 
+        // Update Recipe to use Obsidian instead of Quartz to not interfere with Hepatizon
         ConditionalRecipe.builder()
             .addCondition(new TagEmptyCondition(new ResourceLocation("forge", "ingots/tin")))
             .addRecipe(
