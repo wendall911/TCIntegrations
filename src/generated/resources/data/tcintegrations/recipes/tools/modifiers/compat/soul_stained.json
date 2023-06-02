@@ -29,6 +29,7 @@
   "slots": {
     "defense": 1
   },
+  "allow_crystal": true,
   "result": {
     "name": "tcintegrations:soul_stained",
     "level": 1

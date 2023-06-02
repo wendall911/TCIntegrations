@@ -16,8 +16,8 @@
             "amount": 270
           },
           {
-            "tag": "tconstruct:molten_quartz",
-            "amount": 100
+            "tag": "tconstruct:molten_obsidian",
+            "amount": 1000
           }
         ],
         "result": {

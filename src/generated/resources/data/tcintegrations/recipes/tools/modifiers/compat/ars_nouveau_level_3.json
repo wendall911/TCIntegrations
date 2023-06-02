@@ -34,6 +34,7 @@
     "level": 2,
     "error": "recipe.tcintegrations.modifier.ars_nouveau.level_3"
   },
+  "allow_crystal": true,
   "result": {
     "name": "tcintegrations:ars_nouveau",
     "level": 1

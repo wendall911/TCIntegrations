@@ -18,6 +18,7 @@
     "name": "tcintegrations:terrestrial",
     "level": 1
   },
+  "allow_crystal": true,
   "result": {
     "name": "tcintegrations:alfheim",
     "level": 1

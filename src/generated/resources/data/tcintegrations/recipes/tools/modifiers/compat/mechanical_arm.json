@@ -17,6 +17,7 @@
   "slots": {
     "abilities": 1
   },
+  "allow_crystal": true,
   "result": {
     "name": "tcintegrations:mechanical_arm",
     "level": 1

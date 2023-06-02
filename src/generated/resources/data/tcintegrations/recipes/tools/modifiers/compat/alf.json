@@ -12,12 +12,13 @@
     }
   ],
   "tools": {
-    "tag": "tconstruct:modifiable/melee_or_harvest"
+    "tag": "tconstruct:modifiable/melee/primary"
   },
   "requirements": {
     "name": "tcintegrations:terra",
     "level": 1
   },
+  "allow_crystal": true,
   "result": {
     "name": "tcintegrations:alf",
     "level": 1

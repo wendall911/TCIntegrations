@@ -1,12 +1,11 @@
 {
-  "type": "tconstruct:ore_melting",
+  "type": "tconstruct:melting",
   "conditions": [
     {
       "modid": "byg",
       "type": "forge:mod_loaded"
     }
   ],
-  "rate": "gem",
   "ingredient": {
     "tag": "tcintegrations:emeraldite_ore"
   },

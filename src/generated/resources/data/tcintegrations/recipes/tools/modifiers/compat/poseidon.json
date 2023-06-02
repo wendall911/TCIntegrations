@@ -29,6 +29,7 @@
   "slots": {
     "abilities": 1
   },
+  "allow_crystal": true,
   "result": {
     "name": "tcintegrations:poseidon",
     "level": 1
