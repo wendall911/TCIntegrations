@@ -56,3 +56,9 @@ issueTrackerURL="https://github.com/wendall911/TCIntegrations/issues"
     versionRange="[${malum_minimum_version},]"
     ordering="NONE"
     side="BOTH"
+[[dependencies.tcintegrations]]
+    modId="create"
+    mandatory=false
+    versionRange="[${create_min_version},]"
+    ordering="NONE"
+    side="BOTH"

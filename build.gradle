@@ -198,7 +198,8 @@ def replaceResources = tasks.register("replaceResources", Copy) {
             'minecraft_version_range': minecraft_version_range,
             'forge_version_range': forge_version_range,
             'loader_version_range': loader_version_range,
-            'malum_minimum_version': malum_minimum_version
+            'malum_minimum_version': malum_minimum_version,
+            'create_min_version': create_min_version
     }
     it.into "$buildDir/resources/main/"
 }
