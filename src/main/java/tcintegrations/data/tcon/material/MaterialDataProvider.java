@@ -24,9 +24,8 @@ public class MaterialDataProvider extends AbstractMaterialDataProvider {
     protected void addMaterials() {
         ICondition botaniaLoadedCondition = new ModLoadedCondition(ModIntegration.BOTANIA_MODID);
 
-        // TODO: Fix this. I'm not sure why this won't datagen now
-        //addMaterial(MaterialIds.livingWood, 1, ORDER_GENERAL, true, false, botaniaLoadedCondition);
-        //addMaterial(MaterialIds.livingRock, 1, ORDER_GENERAL, true, false, botaniaLoadedCondition);
+        addMaterial(MaterialIds.livingWood, 1, ORDER_GENERAL, true, false, botaniaLoadedCondition);
+        addMaterial(MaterialIds.livingRock, 1, ORDER_GENERAL, true, false, botaniaLoadedCondition);
         addCompatMetalMaterial(MaterialIds.desh, 2, ORDER_COMPAT + ORDER_GENERAL);
         addCompatMetalMaterial(MaterialIds.calorite, 2, ORDER_COMPAT + ORDER_GENERAL);
         addCompatMetalMaterial(MaterialIds.ostrum, 2, ORDER_COMPAT + ORDER_GENERAL);
