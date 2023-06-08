@@ -2,6 +2,8 @@ package tcintegrations.data.tcon;
 
 import java.util.function.Consumer;
 
+import org.jetbrains.annotations.NotNull;
+
 import blusunrize.immersiveengineering.common.register.IEItems;
 
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
@@ -24,12 +26,16 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import net.minecraftforge.common.Tags;
 
+import net.minecraftforge.common.crafting.CompoundIngredient;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+
 import quek.undergarden.registry.UGItems;
 
 import slimeknights.tconstruct.common.TinkerTags;
@@ -60,7 +66,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
     }
 
     @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
         addModifierRecipes(consumer);
     }
 
@@ -216,7 +222,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(aquacultureConsumer, prefix(TCIntegrationsModifiers.POSEIDON_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SIREN_MODIFIER)
-            .setTools(TinkerTags.Items.MELEE_OR_HARVEST)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))
             .addInput(AquaItems.NEPTUNIUM_INGOT.get())
             .addInput(AquaItems.NEPTUNIUM_INGOT.get())
             .addInput(AquaItems.NEPTUNIUM_INGOT.get())
@@ -397,7 +403,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(undergardenConsumer, prefix(TCIntegrationsModifiers.UTHERIUM_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.FROSTSTEEL_MODIFIER)
-            .setTools(TinkerTags.Items.MELEE_OR_HARVEST)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))
             .addInput(UGItems.FROSTSTEEL_INGOT.get())
             .addInput(UGItems.FROSTSTEEL_INGOT.get())
             .addInput(UGItems.FROSTSTEEL_INGOT.get())
@@ -409,7 +415,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(undergardenConsumer, prefix(TCIntegrationsModifiers.FROSTSTEEL_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.FORGOTTEN_MODIFIER)
-            .setTools(TinkerTags.Items.MELEE_OR_HARVEST)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))
             .addInput(UGItems.FORGOTTEN_INGOT.get())
             .addInput(UGItems.CLOGGRUM_INGOT.get())
             .addInput(UGItems.CLOGGRUM_INGOT.get())
@@ -421,7 +427,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(undergardenConsumer, prefix(TCIntegrationsModifiers.FORGOTTEN_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.CHEESY_MODIFIER)
-            .setTools(TinkerTags.Items.MELEE_OR_HARVEST)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))
             .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
             .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
             .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
@@ -441,7 +447,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(ieConsumer, prefix(TCIntegrationsModifiers.MULTIVISION_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.GLOWUP_MODIFIER)
-            .setTools(TinkerTags.Items.MELEE_OR_HARVEST)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))
             .addInput(MekanismItems.REFINED_GLOWSTONE_INGOT)
             .addInput(MekanismItems.REFINED_GLOWSTONE_INGOT)
             .addInput(MekanismItems.REFINED_GLOWSTONE_INGOT)
@@ -455,6 +461,17 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {
         return prefix(modifier.getId(), prefix);
+    }
+
+    @SafeVarargs
+    private static Ingredient ingredientFromTags(TagKey<Item>... tags) {
+        Ingredient[] tagIngredients = new Ingredient[tags.length];
+
+        for (int i = 0; i < tags.length; i++) {
+            tagIngredients[i] = Ingredient.of(tags[i]);
+        }
+
+        return CompoundIngredient.of(tagIngredients);
     }
 
 }
