@@ -13,8 +13,8 @@ import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import tcintegrations.TCIntegrations;
-import tcintegrations.items.modifiers.hooks.IArmorCrouchModifier;
-import tcintegrations.items.modifiers.hooks.IArmorJumpModifier;
+import tcintegrations.items.modifiers.hooks.ArmorCrouchModifierHook;
+import tcintegrations.items.modifiers.hooks.ArmorJumpModifierHook;
 
 @Mod.EventBusSubscriber(modid = TCIntegrations.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ToolEventHandler {
@@ -29,15 +29,15 @@ public class ToolEventHandler {
             if (!helmet.isEmpty() && helmet.is(TinkerTags.Items.HELMETS)) {
                 ToolStack tool = ToolStack.from(helmet);
 
-                for (ModifierEntry entry : tool.getModifierList()) {
-                    IArmorCrouchModifier crouchModifier = entry.getModifier().getModule(IArmorCrouchModifier.class);
+                for (ModifierEntry modifier : tool.getModifierList()) {
+                    ArmorCrouchModifierHook crouchModifier = modifier.getModifier().getModule(ArmorCrouchModifierHook.class);
 
                     if (crouchModifier != null) {
                         if (living.isCrouching() || living.isVisuallySwimming()) {
-                            crouchModifier.onCrouch(tool, entry.getLevel(), living);
+                            crouchModifier.onCrouch(tool, modifier, living);
                         }
                         else {
-                            crouchModifier.onStand(living);
+                            crouchModifier.onStand(modifier, living);
                         }
                     }
                 }
@@ -56,7 +56,7 @@ public class ToolEventHandler {
                 ToolStack tool = ToolStack.from(boots);
 
                 for (ModifierEntry entry : tool.getModifierList()) {
-                    IArmorJumpModifier jumpModifier = entry.getModifier().getModule(IArmorJumpModifier.class);
+                    ArmorJumpModifierHook jumpModifier = entry.getModifier().getModule(ArmorJumpModifierHook.class);
 
                     if (jumpModifier != null) {
                         jumpModifier.onJump(tool, living);

@@ -4,7 +4,7 @@ import net.minecraft.world.entity.LivingEntity;
 
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-public interface IArmorJumpModifier {
+public interface ArmorJumpModifierHook {
 
     void onJump(IToolStackView tool, LivingEntity living);
 

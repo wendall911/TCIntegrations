@@ -1,8 +1,8 @@
 package tcintegrations.items.modifiers.tool;
 
-import javax.annotation.Nullable;
-
 import java.util.List;
+
+import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -18,13 +18,15 @@ import net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed;
 import slimeknights.mantle.client.TooltipKey;
 
 import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.hook.TooltipModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import tcintegrations.TCIntegrations;
 
-public class ModerateModifier extends NoLevelsModifier {
+public class ModerateModifier extends NoLevelsModifier implements TooltipModifierHook {
 
     private static final float BASELINE_TEMPERATURE = 1.0F;
     private static final float MAX_BOOST = 7.5F;
@@ -46,18 +48,18 @@ public class ModerateModifier extends NoLevelsModifier {
     }
 
     @Override
-    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, slimeknights.tconstruct.library.utils.TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
+    public void addTooltip(IToolStackView tool, ModifierEntry modifier, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
         if (tool.hasTag(TinkerTags.Items.HARVEST)) {
             float bonus;
 
-            if (player != null && tooltipKey == slimeknights.tconstruct.library.utils.TooltipKey.SHIFT) {
+            if (player != null && tooltipKey == TooltipKey.SHIFT) {
                 bonus = getBonus(player, player.blockPosition());
             } else {
                 bonus = MAX_BOOST;
             }
 
             if (bonus > 0.01F) {
-                addFlatBoost(MINING_SPEED, bonus * tool.getMultiplier(ToolStats.MINING_SPEED), tooltip);
+                TooltipModifierHook.addFlatBoost(modifier.getModifier(), MINING_SPEED, (double) (bonus * tool.getMultiplier(ToolStats.MINING_SPEED)), tooltip);
             }
         }
     }

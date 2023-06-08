@@ -5,8 +5,10 @@ import net.minecraft.data.DataGenerator;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
 import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
+import slimeknights.tconstruct.tools.stats.GripMaterialStats;
 import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
 import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
+import slimeknights.tconstruct.tools.stats.LimbMaterialStats;
 
 import static net.minecraft.world.item.Tiers.NETHERITE;
 import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
@@ -35,6 +37,8 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         // tier 1 (mod integration)
         addMaterialStats(MaterialIds.livingWood,
             new HeadMaterialStats(60, 2F, WOOD,0F),
+            new LimbMaterialStats(60, 0, 0,0),
+            new GripMaterialStats(1.0F, 0, 0),
             HandleMaterialStats.DEFAULT,
             ExtraMaterialStats.DEFAULT);
         addMaterialStats(MaterialIds.livingRock,
@@ -64,6 +68,8 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         addMaterialStats(MaterialIds.manaSteel,
             new HeadMaterialStats(775, 6F, DIAMOND, 2.75F),
             HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.05F).withAttackSpeed(1.05F),
+            new LimbMaterialStats(775, -0.3f, 0.2f, -0.1f),
+            new GripMaterialStats(1.05f, -0.05f, 2.75f),
             ExtraMaterialStats.DEFAULT);
         addMaterialStats(brass,
             new HeadMaterialStats(730, 6F, DIAMOND, 2.25F),

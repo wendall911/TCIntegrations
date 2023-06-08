@@ -28,7 +28,7 @@ import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
-import tcintegrations.items.modifiers.hooks.IArmorJumpModifier;
+import tcintegrations.items.modifiers.hooks.ArmorJumpModifierHook;
 import vazkii.botania.api.mana.ManaItemHandler;
 
 import tcintegrations.common.capabilities.CapabilityRegistry;
@@ -38,7 +38,7 @@ import tcintegrations.network.NetworkHandler;
 import tcintegrations.util.BotaniaClientHelper;
 import tcintegrations.util.BotaniaHelper;
 
-public class AlfheimModifier extends Modifier implements IArmorJumpModifier {
+public class AlfheimModifierHook extends Modifier implements ArmorJumpModifierHook {
 
     private static final int MANA_PER_DAMAGE = 110;
 
