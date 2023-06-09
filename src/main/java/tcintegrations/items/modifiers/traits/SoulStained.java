@@ -107,6 +107,8 @@ public class SoulStained extends NoLevelsModifier {
             AttributeModifier.Operation.ADDITION
     );
 
+    // TODO Add soulstained damage to bows
+
     @Override
     public void onEquip(IToolStackView tool, int level, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
@@ -210,7 +212,7 @@ public class SoulStained extends NoLevelsModifier {
                     magicDamageModifier = MELEE_PRIMARY_MAGIC_DAMAGE;
                 }
             }
-            else if (stack.is(TinkerTags.Items.MELEE_OR_HARVEST)) {
+            else if (stack.is(TinkerTags.Items.MELEE) || stack.is(TinkerTags.Items.HARVEST)) {
                 if (context.getChangedSlot() == EquipmentSlot.OFFHAND) {
                     magicDamageModifier = OFFHAND_HARVEST_MAGIC_DAMAGE;
                 }

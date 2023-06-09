@@ -21,6 +21,7 @@ public class MaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvid
         buildRenderInfo(MaterialIds.livingWood).color(0x5E2409).fallbacks("wood", "stick", "primitive");
         buildRenderInfo(MaterialIds.livingRock).color(0xDFE2D4).fallbacks("rock");
         buildRenderInfo(MaterialIds.manaSteel).color(0x3389FF).fallbacks("metal");
+        buildRenderInfo(MaterialIds.manaString).color(0xCFFCF1).fallbacks("primitive");
         buildRenderInfo(MaterialIds.neptunium).color(0x1AF5B9).fallbacks("metal");
         buildRenderInfo(MaterialIds.soulStainedSteel).color(0xA96EC7).fallbacks("metal");
         buildRenderInfo(MaterialIds.desh).color(0x9E3543).fallbacks("metal");

@@ -1,0 +1,8 @@
+{
+  "default": [
+    {
+      "name": "tcintegrations:mana",
+      "level": 1
+    }
+  ]
+}

@@ -3,6 +3,9 @@ package tcintegrations.data.tcon.sprite;
 import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpriteProvider;
 import slimeknights.tconstruct.library.client.data.spritetransformer.GreyToColorMapping;
 import slimeknights.tconstruct.tools.data.sprite.TinkerPartSpriteProvider;
+import slimeknights.tconstruct.tools.stats.BowstringMaterialStats;
+import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
+import slimeknights.tconstruct.tools.stats.RepairKitStats;
 
 import tcintegrations.data.tcon.material.MaterialIds;
 
@@ -42,6 +45,10 @@ public class TinkerMaterialSpriteProvider extends AbstractMaterialSpriteProvider
             .meleeHarvest().statType(TinkerPartSpriteProvider.PLATE)
             .fallbacks("metal")
             .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF001944).addARGB(102, 0xFF00296D).addARGB(140, 0xFF0043A5).addARGB(178, 0xFF186ACE).addARGB(216, 0xFF3389FF).addARGB(255, 0xFF59A6EF).build());
+        buildMaterial(MaterialIds.manaString)
+            .statType(ExtraMaterialStats.ID, BowstringMaterialStats.ID, RepairKitStats.ID)
+            .fallbacks("primitive")
+            .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFFABF1DF).addARGB(102, 0xFFABF1DF).addARGB(140, 0xFFCFFCF1).addARGB(178, 0xFFCFFCF1).addARGB(216, 0xFFE2FCF5).addARGB(255, 0xFFE2FCF5).build());
         buildMaterial(MaterialIds.neptunium)
             .meleeHarvest().statType(TinkerPartSpriteProvider.PLATE)
             .fallbacks("metal")

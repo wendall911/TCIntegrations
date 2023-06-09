@@ -13,6 +13,7 @@ public final class MaterialIds {
     public static final MaterialId manaSteel = id("manasteel");
     public static final MaterialId livingWood = id("livingwood");
     public static final MaterialId livingRock = id("livingrock");
+    public static final MaterialId manaString = id("manastring");
     public static final MaterialId neptunium = id("neptunium");
     public static final MaterialId soulStainedSteel = id("soul_stained_steel");
     public static final MaterialId desh = id("desh");
