@@ -1,8 +1,8 @@
 package tcintegrations.items.modifiers.tool;
 
-import java.util.List;
+import javax.annotation.Nullable;
 
-import org.jetbrains.annotations.Nullable;
+import java.util.List;
 
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -18,15 +18,13 @@ import net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed;
 import slimeknights.mantle.client.TooltipKey;
 
 import slimeknights.tconstruct.common.TinkerTags;
-import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.hook.TooltipModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import tcintegrations.TCIntegrations;
 
-public class ModerateModifier extends NoLevelsModifier implements TooltipModifierHook {
+public class ModerateModifier extends NoLevelsModifier {
 
     private static final float BASELINE_TEMPERATURE = 1.0F;
     private static final float MAX_BOOST = 7.5F;
@@ -48,7 +46,7 @@ public class ModerateModifier extends NoLevelsModifier implements TooltipModifie
     }
 
     @Override
-    public void addTooltip(IToolStackView tool, ModifierEntry modifier, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
+    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
         if (tool.hasTag(TinkerTags.Items.HARVEST)) {
             float bonus;
 
@@ -59,7 +57,7 @@ public class ModerateModifier extends NoLevelsModifier implements TooltipModifie
             }
 
             if (bonus > 0.01F) {
-                TooltipModifierHook.addFlatBoost(modifier.getModifier(), MINING_SPEED, (double) (bonus * tool.getMultiplier(ToolStats.MINING_SPEED)), tooltip);
+                addFlatBoost(MINING_SPEED, bonus * tool.getMultiplier(ToolStats.MINING_SPEED), tooltip);
             }
         }
     }

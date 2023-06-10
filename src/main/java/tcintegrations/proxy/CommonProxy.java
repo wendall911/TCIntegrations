@@ -14,7 +14,6 @@ import tcintegrations.config.ConfigHandler;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.items.TCIntegrationsModifiers;
-import tcintegrations.items.modifiers.TCIntegrationsHooks;
 import tcintegrations.network.NetworkHandler;
 
 public class CommonProxy {
@@ -40,7 +39,6 @@ public class CommonProxy {
         @SubscribeEvent
         public static void setup(FMLCommonSetupEvent event) {
             NetworkHandler.init();
-            TCIntegrationsHooks.init();
         }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)

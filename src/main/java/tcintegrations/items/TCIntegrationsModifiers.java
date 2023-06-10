@@ -6,13 +6,13 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.data.integration.ModIntegration;
-import tcintegrations.items.modifiers.armor.AlfheimModifierHook;
+import tcintegrations.items.modifiers.armor.AlfheimModifier;
 import tcintegrations.items.modifiers.armor.ArsNouveauModifier;
 import tcintegrations.items.modifiers.armor.BisonFurModifier;
 import tcintegrations.items.modifiers.armor.CrocodileModifier;
 import tcintegrations.items.modifiers.armor.EnchantersShieldModifier;
 import tcintegrations.items.modifiers.armor.EngineersGogglesModifier;
-import tcintegrations.items.modifiers.armor.FrontierCapModifierHook;
+import tcintegrations.items.modifiers.armor.FrontierCapModifier;
 import tcintegrations.items.modifiers.armor.GreatFairyModifier;
 import tcintegrations.items.modifiers.armor.MasticateModifier;
 import tcintegrations.items.modifiers.armor.MosquitoModifier;
@@ -58,7 +58,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<ArsNouveauModifier> ARS_MODIFIER;
     public static StaticModifier<EnchantersShieldModifier> ENCHANTERS_SHIELD_MODIFIER;
     public static StaticModifier<RoadrunnerModifier> ROADRUNNER_MODIFIER;
-    public static StaticModifier<FrontierCapModifierHook> FRONTIER_CAP_MODIFIER;
+    public static StaticModifier<FrontierCapModifier> FRONTIER_CAP_MODIFIER;
     public static StaticModifier<TurtleShellModifier> TURTLE_SHELL_MODIFIER;
     public static StaticModifier<BisonFurModifier> BISON_FUR_MODIFIER;
     public static StaticModifier<ShieldOfTheDeepModifier> SHIELD_OF_THE_DEEP_MODIFIER;
@@ -75,7 +75,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<MultiVisionModifier> MULTIVISION_MODIFIER;
     public static StaticModifier<KineticModifier> KINETIC_MODIFIER;
     public static StaticModifier<GlowUpModifier> GLOWUP_MODIFIER;
-    public static StaticModifier<AlfheimModifierHook> ALFHEIM_MODIFIER;
+    public static StaticModifier<AlfheimModifier> ALFHEIM_MODIFIER;
     public static StaticModifier<AlfModifier> ALF_MODIFIER;
 
     public static void init() {
@@ -108,7 +108,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModList.get().isLoaded(ModIntegration.ALEX_MODID)) {
             ROADRUNNER_MODIFIER = MODIFIERS_REGISTRY.register("roadrunner", RoadrunnerModifier::new);
-            FRONTIER_CAP_MODIFIER = MODIFIERS_REGISTRY.register("frontier_cap", FrontierCapModifierHook::new);
+            FRONTIER_CAP_MODIFIER = MODIFIERS_REGISTRY.register("frontier_cap", FrontierCapModifier::new);
             TURTLE_SHELL_MODIFIER = MODIFIERS_REGISTRY.register("turtle_shell", TurtleShellModifier::new);
             BISON_FUR_MODIFIER = MODIFIERS_REGISTRY.register("bison_fur", BisonFurModifier::new);
             SHIELD_OF_THE_DEEP_MODIFIER = MODIFIERS_REGISTRY.register("shield_of_the_deep", ShieldOfTheDeepModifier::new);
@@ -146,7 +146,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
         }
 
         if (ModList.get().isLoaded(ModIntegration.MYTHIC_BOTANY_MODID)) {
-            ALFHEIM_MODIFIER = MODIFIERS_REGISTRY.register("alfheim", AlfheimModifierHook::new);
+            ALFHEIM_MODIFIER = MODIFIERS_REGISTRY.register("alfheim", AlfheimModifier::new);
             ALF_MODIFIER = MODIFIERS_REGISTRY.register("alf", AlfModifier::new);
         }
 

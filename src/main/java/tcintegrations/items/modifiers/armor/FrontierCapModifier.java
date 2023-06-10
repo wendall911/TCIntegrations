@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+import javax.annotation.Nullable;
+
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -16,23 +18,19 @@ import net.minecraft.world.item.TooltipFlag;
 import slimeknights.mantle.client.TooltipKey;
 
 import slimeknights.tconstruct.library.modifiers.Modifier;
-import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.hook.TooltipModifierHook;
-import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-import tcintegrations.items.modifiers.TCIntegrationsHooks;
-import tcintegrations.items.modifiers.hooks.ArmorCrouchModifierHook;
+import tcintegrations.items.modifiers.hooks.IArmorCrouchModifier;
 
-public class FrontierCapModifierHook extends Modifier implements ArmorCrouchModifierHook, TooltipModifierHook {
+public class FrontierCapModifier extends Modifier implements IArmorCrouchModifier {
 
     private static final UUID ATTRIBUTE_BONUS = UUID.fromString("0f65a587-22ee-4147-9dbe-79d88f078402");
     private static final float SPEED_FACTOR = 0.04F;
 
     @Override
-    public void onCrouch(IToolStackView tool, ModifierEntry modifier, LivingEntity living) {
+    public void onCrouch(IToolStackView tool, int level, LivingEntity living) {
         // no point trying if not on the ground
         if (tool.isBroken() || !living.isOnGround() || living.level.isClientSide) {
             return;
@@ -52,7 +50,7 @@ public class FrontierCapModifierHook extends Modifier implements ArmorCrouchModi
             Random rand = living.getRandom();
 
             // boost speed
-            float boost = modifier.getLevel() * SPEED_FACTOR;
+            float boost = level * SPEED_FACTOR;
 
             attribute.addTransientModifier(new AttributeModifier(ATTRIBUTE_BONUS, "tcintegrations.modifier.frontiercap", boost, AttributeModifier.Operation.ADDITION));
 
@@ -64,7 +62,7 @@ public class FrontierCapModifierHook extends Modifier implements ArmorCrouchModi
     }
 
     @Override
-    public void onStand(ModifierEntry modifier, LivingEntity living) {
+    public void onStand(LivingEntity living) {
         AttributeInstance attribute = living.getAttribute(Attributes.MOVEMENT_SPEED);
         if (attribute == null) {
             return;
@@ -92,22 +90,16 @@ public class FrontierCapModifierHook extends Modifier implements ArmorCrouchModi
         }
     }
 
-    @Override
-    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
-        super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, TCIntegrationsHooks.ARMOR_CROUCH);
-    }
-
-    // TODO Figure out why this is still needed. I'm not sure why it isn't firing correctly without the old method
+    @Nullable
     @Override
     public <T> T getModule(Class<T> type) {
-        return tryModuleMatch(type, ArmorCrouchModifierHook.class, this);
+        return tryModuleMatch(type, IArmorCrouchModifier.class, this);
     }
 
     @Override
-    public void addTooltip(IToolStackView tool, ModifierEntry modifier, @org.jetbrains.annotations.Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
-        if (player == null || tooltipKey == TooltipKey.SHIFT || (player.isCrouching() || player.isVisuallySwimming())) {
-            TooltipModifierHook.addPercentBoost(modifier.getModifier(), getDisplayName(), modifier.getLevel() * SPEED_FACTOR, tooltip);
+    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, slimeknights.tconstruct.library.utils.TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
+        if (player == null || tooltipKey == slimeknights.tconstruct.library.utils.TooltipKey.SHIFT || (player.isCrouching() || player.isVisuallySwimming())) {
+            addPercentTooltip(getDisplayName(), level * SPEED_FACTOR, tooltip);
         }
     }
 
