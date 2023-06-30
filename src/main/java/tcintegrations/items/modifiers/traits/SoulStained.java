@@ -19,7 +19,7 @@ import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.tools.context.*;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.tools.TinkerTools;
-import team.lodestar.lodestone.registry.common.*;
+import team.lodestar.lodestone.setup.*;
 
 public class SoulStained extends NoLevelsModifier {
 
