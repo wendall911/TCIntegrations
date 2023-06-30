@@ -2,6 +2,8 @@ package tcintegrations.items.modifiers.traits;
 
 import java.util.UUID;
 
+import com.sammy.malum.common.capability.*;
+import com.sammy.malum.core.systems.spirit.*;
 import com.sammy.malum.registry.common.AttributeRegistry;
 
 import net.minecraft.server.level.ServerPlayer;
@@ -14,11 +16,10 @@ import net.minecraft.world.item.ItemStack;
 
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
-import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
+import slimeknights.tconstruct.library.tools.context.*;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.tools.TinkerTools;
-
-import team.lodestar.lodestone.setup.LodestoneAttributeRegistry;
+import team.lodestar.lodestone.registry.common.*;
 
 public class SoulStained extends NoLevelsModifier {
 
@@ -129,6 +130,14 @@ public class SoulStained extends NoLevelsModifier {
 
             changeEquipment(sp, context, true);
         }
+    }
+
+    @Override
+    public float beforeEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
+        if (context.getLivingTarget() != null) {
+            MalumLivingEntityDataCapability.getCapability(context.getLivingTarget()).soulData.exposedSoulDuration = 200;
+        }
+        return super.beforeEntityHit(tool, level, context, damage, baseKnockback, knockback);
     }
 
     public void changeEquipment(ServerPlayer sp, EquipmentChangeContext context, boolean remove) {
