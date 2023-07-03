@@ -1,11 +1,17 @@
 package tcintegrations.items.modifiers.traits;
 
+import java.util.List;
 import java.util.UUID;
 
-import com.sammy.malum.common.capability.*;
-import com.sammy.malum.core.systems.spirit.*;
+import org.jetbrains.annotations.Nullable;
+
+import com.sammy.malum.common.capability.MalumLivingEntityDataCapability;
 import com.sammy.malum.registry.common.AttributeRegistry;
 
+import net.minecraft.Util;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -13,13 +19,18 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
-import slimeknights.tconstruct.library.tools.context.*;
+import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
+import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.tools.TinkerTools;
-import team.lodestar.lodestone.setup.*;
+
+import team.lodestar.lodestone.setup.LodestoneAttributeRegistry;
+
+import tcintegrations.TCIntegrations;
 
 public class SoulStained extends NoLevelsModifier {
 
@@ -107,6 +118,14 @@ public class SoulStained extends NoLevelsModifier {
             2,
             AttributeModifier.Operation.ADDITION
     );
+    private static final Component MAGIC_RESISTANCE = new TranslatableComponent(
+            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.magic_resistance")));
+    private static final Component SOUL_WARD_CAPACITY = new TranslatableComponent(
+            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.soul_ward_capacity")));
+    private static final Component PRIMARY_MAGIC_DAMAGE = new TranslatableComponent(
+            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.primary_magic_damage")));
+    private static final Component OFFHAND_MAGIC_DAMAGE = new TranslatableComponent(
+            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.offhand_magic_damage")));
 
     // TODO Add soulstained damage to bows
 
@@ -137,7 +156,60 @@ public class SoulStained extends NoLevelsModifier {
         if (context.getLivingTarget() != null) {
             MalumLivingEntityDataCapability.getCapability(context.getLivingTarget()).soulData.exposedSoulDuration = 200;
         }
+
         return super.beforeEntityHit(tool, level, context, damage, baseKnockback, knockback);
+    }
+
+    @Override
+    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, slimeknights.tconstruct.library.utils.TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
+        double magicResistance = 0.0;
+        double soulWardCap = 0.0;
+        double primaryMagicDamage = 0.0;
+        double offhandMagicDamage = 0.0;
+
+        if (tool.hasTag(TinkerTags.Items.HELMETS)) {
+            magicResistance = HELMET_MAGIC_RESISTANCE.getAmount();
+            soulWardCap = HELMET_SOUL_WARD_CAP.getAmount();
+        }
+        else if (tool.hasTag(TinkerTags.Items.CHESTPLATES)) {
+            magicResistance = CHESTPLATE_MAGIC_RESISTANCE.getAmount();
+            soulWardCap = CHESTPLATE_SOUL_WARD_CAP.getAmount();
+        }
+        else if (tool.hasTag(TinkerTags.Items.LEGGINGS)) {
+            magicResistance = LEGGINGS_MAGIC_RESISTANCE.getAmount();
+            soulWardCap = LEGGINGS_SOUL_WARD_CAP.getAmount();
+        }
+        else if (tool.hasTag(TinkerTags.Items.BOOTS)) {
+            magicResistance = BOOTS_MAGIC_RESISTANCE.getAmount();
+            soulWardCap = BOOTS_SOUL_WARD_CAP.getAmount();
+        }
+        else if (tool.hasTag(TinkerTags.Items.MELEE) || tool.hasTag(TinkerTags.Items.HARVEST)) {
+            if (tool.getItem().equals(TinkerTools.broadAxe.asItem())) {
+                offhandMagicDamage = OFFHAND_AXE_MAGIC_DAMAGE.getAmount();
+                primaryMagicDamage = AXE_MAGIC_DAMAGE.getAmount();
+            }
+            else if (tool.hasTag(TinkerTags.Items.MELEE_PRIMARY)) {
+                offhandMagicDamage = OFFHAND_MELEE_PRIMARY_MAGIC_DAMAGE.getAmount();
+                primaryMagicDamage = MELEE_PRIMARY_MAGIC_DAMAGE.getAmount();
+            }
+            else if (tool.hasTag(TinkerTags.Items.MELEE) || tool.hasTag(TinkerTags.Items.HARVEST)) {
+                offhandMagicDamage = OFFHAND_HARVEST_MAGIC_DAMAGE.getAmount();
+                primaryMagicDamage = HARVEST_MAGIC_DAMAGE.getAmount();
+            }
+        }
+
+        if (magicResistance != 0.0) {
+            addFlatBoost(MAGIC_RESISTANCE, magicResistance, tooltip);
+        }
+        if (soulWardCap != 0.0) {
+            addFlatBoost(SOUL_WARD_CAPACITY, soulWardCap, tooltip);
+        }
+        if (primaryMagicDamage != 0.0) {
+            addFlatBoost(PRIMARY_MAGIC_DAMAGE, primaryMagicDamage, tooltip);
+        }
+        if (offhandMagicDamage != 0.0) {
+            addFlatBoost(OFFHAND_MAGIC_DAMAGE, offhandMagicDamage, tooltip);
+        }
     }
 
     public void changeEquipment(ServerPlayer sp, EquipmentChangeContext context, boolean remove) {
@@ -180,7 +252,7 @@ public class SoulStained extends NoLevelsModifier {
                 soulWardCapModifier = HELMET_SOUL_WARD_CAP;
             }
             case OFFHAND, MAINHAND -> {
-                if (stack.is(TinkerTags.Items.MELEE_OR_HARVEST)) {
+                if (stack.is(TinkerTags.Items.MELEE) || stack.is(TinkerTags.Items.HARVEST)) {
                     isTool = true;
                 }
             }
