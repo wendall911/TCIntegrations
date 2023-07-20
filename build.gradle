@@ -1,42 +1,14 @@
-buildscript {
-    repositories {
-        maven {
-            name = 'gradle plugins'
-            url "https://plugins.gradle.org/m2/"
-        }
-        maven {
-            name = 'forge'
-            url = 'https://maven.minecraftforge.net/'
-        }
-        maven {
-            name = 'parchment'
-            url = 'https://maven.parchmentmc.org'
-        }
-        maven {
-            url "https://repo.spongepowered.org/repository/maven-public/"
-            content {
-                includeGroup "org.spongepowered"
-            }
-        }
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
-        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
-        classpath 'se.bjurr.gitchangelog:git-changelog-gradle-plugin:1.71.8'
-        classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
-        classpath 'io.freefair.gradle:lombok-plugin:6.3.0'
-        classpath group: 'org.parchmentmc', name: 'librarian', version: '1.+'
-    }
+plugins {
+    id 'idea'
+    id 'maven-publish'
+    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id 'org.spongepowered.mixin' version '0.7.+'
+    id 'net.darkhax.curseforgegradle' version '1.+'
+    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
+    id 'com.modrinth.minotaur' version '2.+'
+    id 'io.freefair.lombok' version '6.3.0'
 }
-
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'maven-publish'
-apply plugin: 'se.bjurr.gitchangelog.git-changelog-gradle-plugin'
-apply plugin: 'com.matthewprenger.cursegradle'
-apply plugin: 'org.spongepowered.mixin'
-apply plugin: 'io.freefair.lombok'
-apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
 repositories {
     maven {
@@ -145,7 +117,6 @@ dependencies {
 
     implementation fg.deobf("curse.maven:botania-225643:${botania_version}")
     implementation fg.deobf("curse.maven:create-328085:${create_version}")
-    runtimeOnly fg.deobf("curse.maven:flywheel-486392:${flywheel_version}")
     implementation fg.deobf("curse.maven:arsnouveau-401955:${arsnouveau_version}")
     implementation fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
     runtimeOnly fg.deobf("curse.maven:geckolib-388172:${geckolib_version}")
@@ -187,42 +158,22 @@ jar {
     }
 }
 
-def replaceResources = tasks.register("replaceResources", Copy) {
-    it.outputs.upToDateWhen {
-        false
-    }
-
-    it.from(sourceSets.main.resources) {
-        include "META-INF/mods.toml"
-        expand 'version': version,
-            'minecraft_version_range': minecraft_version_range,
-            'forge_version_range': forge_version_range,
-            'loader_version_range': loader_version_range,
-            'malum_minimum_version': malum_minimum_version,
-            'create_min_version': create_min_version
-    }
-    it.into "$buildDir/resources/main/"
-}
-
-def updates = tasks.register("generateUpdates", Copy) {
-    it.outputs.upToDateWhen {
-        false
-    }
-
-    it.from("./files/templates/") {
-        include 'updates.json'
-        expand 'mod_version': mod_version
-    }
-
-    it.into 'files/'
-}
+def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+def replaceProperties = [ 'version': version,
+    'issue_tracker': issue_tracker, 'license': license, 'modid': modid, 'display_name': display_name,
+    'description': description, 'display_url': display_url, 'update_url': update_url, 'authors': authors,
+    'credits': credits, 'logo_file': logo_file, 'minecraft_version_range': minecraft_version_range,
+    'forge_version_range': forge_version_range, "loader_version_range": loader_version_range,
+    'malum_minimum_version': malum_minimum_version, 'create_min_version': create_min_version
+]
 
 processResources {
     duplicatesStrategy(DuplicatesStrategy.FAIL)
-    exclude('META-INF/mods.toml')
-    configure {
-        finalizedBy(replaceResources)
-        finalizedBy(updates)
+    inputs.properties replaceProperties
+    replaceProperties.put 'project', project
+
+    filesMatching(resourceTargets) {
+        expand replaceProperties
     }
 }
 
@@ -247,75 +198,30 @@ publishing {
     }
 }
 
-curseforge {
-    if (project.hasProperty('ticurseApiKey')) {
-        apiKey = project.ticurseApiKey
-        project {
-            id = project.ticurseId
-            changelog = file('build/libs/' + project.getName() + '-' + project.version + '-changelog.txt')
-            releaseType = cf_release_type
-            addGameVersion(minecraft_version)
-            mainArtifact(jar) {
-                relations {
-                    requiredLibrary 'mantle'
-                    requiredLibrary 'tinkers-construct'
-                    optionalLibrary 'configured'
-                    optionalLibrary 'catalogue'
-                    optionalLibrary 'immersive-engineering'
-                    optionalLibrary 'botania'
-                    optionalLibrary 'create'
-                    optionalLibrary 'ars-nouveau'
-                    optionalLibrary 'tinkersurvival'
-                    optionalLibrary 'aquaculture'
-                    optionalLibrary 'alexs-mobs'
-                    optionalLibrary 'malum'
-                    optionalLibrary 'the-undergarden'
-                    optionalLibrary 'projecte'
-                    optionalLibrary 'beyond-earth'
-                    optionalLibrary 'oh-the-biomes-youll-go'
-                    optionalLibrary 'mekanism'
-                    optionalLibrary 'mythicbotany'
-                }
-            }
-        }
+def updates = tasks.register("generateUpdates", Copy) {
+    it.outputs.upToDateWhen {
+        false
     }
+
+    it.from("./files/templates/") {
+        include 'updates.json'
+        expand 'mod_version': mod_version
+    }
+
+    it.into 'files/'
 }
 
-tasks.curseforge.dependsOn build
+def changelogFile = 'build/libs/' + project.getName() + '-' + version + '-changelog.txt'
 
 task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
-    file = new File('build/libs/' + project.getName() + '-' + version + '-changelog.txt');
+    file = new File(changelogFile);
     templateContent = file('files/templates/changelog.mustache').getText('UTF-8');
     fromRepo = file("$projectDir");
     toRef = "HEAD";
     fromRef = "${last_mod_version}";
 }
 
-tasks.build.dependsOn('changelog')
-
-task sourcesJar(type: Jar) {
-    from sourceSets.main.allJava
-    from (sourceSets.main.output) {
-        include 'LICENSE'
-    }
-
-    classifier = 'src'
-}
-
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-
-    manifest commonManifest
-    classifier = 'deobf'
-}
-
-tasks.build.dependsOn('sourcesJar', 'deobfJar')
-
-artifacts {
-    archives deobfJar
-    archives sourcesJar
-    archives jar
-}
+tasks.build.dependsOn('changelog', 'generateUpdates')
 
 // Jar Signing
 import net.minecraftforge.gradle.common.tasks.SignJar
@@ -336,3 +242,64 @@ task signJar(type: SignJar, dependsOn: jar) {
     outputFile = jar.archiveFile
 }
 
+task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+    if (project.hasProperty('ticurseApiKey')) {
+        apiToken = project.ticurseApiKey
+        def mainFile = upload(project.ticurseId, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
+        mainFile.changelog = file('build/libs/' + project.getName() + '-' + version + '-changelog.txt')
+        mainFile.addJavaVersion('Java 17')
+        mainFile.addModLoader('Forge')
+        mainFile.releaseType = "${release_type}"
+        "${release_versions}".split(',').each {
+            mainFile.addGameVersion("${it}")
+        }
+        mainFile.addRequirement('mantle')
+        mainFile.addRequirement('tinkers-construct')
+        mainFile.addOptional('configured')
+        mainFile.addOptional('catalogue')
+        mainFile.addOptional('immersive-engineering')
+        mainFile.addOptional('botania')
+        mainFile.addOptional('create')
+        mainFile.addOptional('ars-nouveau')
+        mainFile.addOptional('tinkersurvival')
+        mainFile.addOptional('aquaculture')
+        mainFile.addOptional('alexs-mobs')
+        mainFile.addOptional('malum')
+        mainFile.addOptional('the-undergarden')
+        mainFile.addOptional('projecte')
+        mainFile.addOptional('beyond-earth')
+        mainFile.addOptional('oh-the-biomes-youll-go')
+        mainFile.addOptional('mekanism')
+        mainFile.addOptional('mythicbotany')
+    }
+}
+
+tasks.curseforge.dependsOn build
+
+modrinth {
+    if (project.hasProperty('tiModrinthId')) {
+        token = project.modrinthKey
+        projectId = project.tiModrinthId
+        version = getVersion()
+        versionType = "${release_type}"
+        if (file(changelogFile).exists()) {
+            changelog = file(changelogFile).text
+        }
+        uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
+        gameVersions = "${release_versions}".split(",") as List<String>
+        dependencies {
+            required.project 'mantle'
+            required.project 'tinkers-construct'
+            optional.project 'immersiveengineering'
+            optional.project 'botania'
+            optional.project 'create'
+            //optional.project 'tinkersurvival'
+            optional.project 'beyond-earth'
+			optional.project "biomesyougo"
+            optional.project 'mekanism'
+            optional.project 'mythicbotany'
+        }
+    }
+}
+
+tasks.modrinth.dependsOn build
