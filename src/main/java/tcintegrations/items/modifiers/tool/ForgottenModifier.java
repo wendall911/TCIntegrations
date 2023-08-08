@@ -16,8 +16,6 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
-import slimeknights.mantle.client.TooltipKey;
-
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
@@ -74,7 +72,7 @@ public class ForgottenModifier extends NoLevelsModifier {
     }
 
     private boolean isUndergarden(BlockState state, LivingEntity livingEntity) {
-        return state.getBlock().getRegistryName().getNamespace().equals(ModIntegration.UNDERGARDEN_MODID)  && livingEntity.canChangeDimensions();
+        return state.getBlock().getRegistryName().getNamespace().equals(ModIntegration.UNDERGARDEN_MODID) && livingEntity.canChangeDimensions();
     }
 
 }
