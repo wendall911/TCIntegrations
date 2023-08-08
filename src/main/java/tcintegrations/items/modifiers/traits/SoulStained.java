@@ -165,20 +165,22 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
 
     @Override
     public float beforeEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
-        if (context.getLivingTarget() != null) {
-            MalumLivingEntityDataCapability.getCapability(context.getLivingTarget()).soulData.exposedSoulDuration = 200;
-        }
+        applyExposedSoulDuration(context.getLivingTarget());
 
         return super.beforeEntityHit(tool, level, context, damage, baseKnockback, knockback);
     }
 
     @Override
     public boolean onProjectileHitEntity(ModifierNBT modifiers, NamespacedNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
-        if (target != null) {
-            MalumLivingEntityDataCapability.getCapability(target).soulData.exposedSoulDuration = 200;
-        }
+        applyExposedSoulDuration(target);
 
         return false;
+    }
+
+    private void applyExposedSoulDuration(LivingEntity entity) {
+        if (entity != null) {
+            MalumLivingEntityDataCapability.getCapability(entity).soulData.exposedSoulDuration = 200;
+        }
     }
 
     @Override
