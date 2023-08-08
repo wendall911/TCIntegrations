@@ -13,26 +13,35 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.phys.EntityHitResult;
 
 import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.ProjectileHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap.Builder;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
+import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
+import slimeknights.tconstruct.library.tools.nbt.NamespacedNBT;
 import slimeknights.tconstruct.tools.TinkerTools;
 
 import team.lodestar.lodestone.setup.LodestoneAttributeRegistry;
 
 import tcintegrations.TCIntegrations;
 
-public class SoulStained extends NoLevelsModifier {
+public class SoulStained extends NoLevelsModifier implements ProjectileHitModifierHook {
 
     private static final AttributeModifier HELMET_MAGIC_RESISTANCE = new AttributeModifier(
             ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.HEAD.getIndex()],
@@ -127,7 +136,10 @@ public class SoulStained extends NoLevelsModifier {
     private static final Component OFFHAND_MAGIC_DAMAGE = new TranslatableComponent(
             Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.offhand_magic_damage")));
 
-    // TODO Add soulstained damage to bows
+    @Override
+    protected void registerHooks(Builder builder) {
+        builder.addHook(this, TinkerHooks.PROJECTILE_HIT);
+    }
 
     @Override
     public void onEquip(IToolStackView tool, int level, EquipmentChangeContext context) {
@@ -158,6 +170,15 @@ public class SoulStained extends NoLevelsModifier {
         }
 
         return super.beforeEntityHit(tool, level, context, damage, baseKnockback, knockback);
+    }
+
+    @Override
+    public boolean onProjectileHitEntity(ModifierNBT modifiers, NamespacedNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
+        if (target != null) {
+            MalumLivingEntityDataCapability.getCapability(target).soulData.exposedSoulDuration = 200;
+        }
+
+        return false;
     }
 
     @Override
