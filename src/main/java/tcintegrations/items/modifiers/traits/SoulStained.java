@@ -3,6 +3,7 @@ package tcintegrations.items.modifiers.traits;
 import java.util.List;
 import java.util.UUID;
 
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import org.jetbrains.annotations.Nullable;
 
 import com.sammy.malum.common.capability.MalumLivingEntityDataCapability;
@@ -172,7 +173,9 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
 
     @Override
     public boolean onProjectileHitEntity(ModifierNBT modifiers, NamespacedNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
-        applyExposedSoulDuration(target);
+        if (hit.getEntity() instanceof LivingEntity living) {
+            applyExposedSoulDuration(living);
+        }
 
         return false;
     }
