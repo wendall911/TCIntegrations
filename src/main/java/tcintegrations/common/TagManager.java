@@ -33,6 +33,9 @@ public final class TagManager {
         public static final TagKey<Item> EMERALDITE_ORE = create("emeraldite_ore");
         public static final TagKey<Item> PENDORITE_ALLOY_INGOTS = forgeTag("ingots/pendorite_alloy");
 
+        // Ice and Fire: Dragons
+        public static final TagKey<Item> WITHER_BONES = forgeTag("bones/wither");
+
         private static TagKey<Item> create(String id) {
             return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
         }
@@ -40,7 +43,6 @@ public final class TagManager {
         private static TagKey<Item> forgeTag(String name) {
             return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(forgeLoc(name), Collections.emptySet());
         }
-
 
     }
 

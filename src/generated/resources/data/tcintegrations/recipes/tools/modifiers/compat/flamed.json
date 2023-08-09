@@ -1,0 +1,40 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "iceandfire",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "iceandfire:dragonbone"
+    },
+    {
+      "item": "iceandfire:dragonbone"
+    },
+    {
+      "tag": "forge:bones/wither"
+    },
+    {
+      "item": "iceandfire:fire_dragon_blood"
+    }
+  ],
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee"
+    },
+    {
+      "tag": "tconstruct:modifiable/ranged"
+    }
+  ],
+  "slots": {
+    "upgrades": 1
+  },
+  "allow_crystal": true,
+  "result": {
+    "name": "tcintegrations:flamed",
+    "level": 1
+  },
+  "max_level": 1
+}

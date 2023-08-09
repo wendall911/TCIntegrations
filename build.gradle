@@ -136,6 +136,7 @@ dependencies {
     runtimeOnly fg.deobf("curse.maven:tinkersurvival-294667:${tinkersurvival_version}")
     implementation fg.deobf("curse.maven:mythicbotany-400058:${mythicbotany_version}")
     runtimeOnly fg.deobf('io.github.noeppi_noeppi.mods:LibX:1.18.2-3.2.18')
+    implementation fg.deobf("curse.maven:iceandfire-264231:${iceandfire_version}")
 
     implementation fg.deobf(fileTree(dir: 'libs', include: '*.jar'))
 }
@@ -170,6 +171,7 @@ def replaceProperties = [ 'version': version,
 processResources {
     duplicatesStrategy(DuplicatesStrategy.FAIL)
     inputs.properties replaceProperties
+    exclude '.cache'
     replaceProperties.put 'project', project
 
     filesMatching(resourceTargets) {
@@ -271,6 +273,7 @@ task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
         mainFile.addOptional('oh-the-biomes-youll-go')
         mainFile.addOptional('mekanism')
         mainFile.addOptional('mythicbotany')
+        mainFile.addOptional('ice-and-fire-dragons')
     }
 }
 
@@ -293,7 +296,7 @@ modrinth {
             optional.project 'immersiveengineering'
             optional.project 'botania'
             optional.project 'create'
-            //optional.project 'tinkersurvival'
+            optional.project 'tinkersurvival'
             optional.project 'beyond-earth'
 			optional.project "biomesyougo"
             optional.project 'mekanism'

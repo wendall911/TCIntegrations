@@ -14,6 +14,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.Tags;
 
 import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.shared.TinkerMaterials;
 
 import tcintegrations.common.TagManager;
 import tcintegrations.data.integration.ModIntegration;
@@ -63,6 +64,10 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .addOptional(ModIntegration.bygLoc("emeraldite_ore"));
         getBuilder(TagManager.Items.PENDORITE_ALLOY_INGOTS)
             .addOptional(ModIntegration.bygLoc("pendorite_ingot"));
+
+        // Ice and Fire: Dragons
+        getBuilder(TagManager.Items.WITHER_BONES)
+            .add(TinkerMaterials.necroticBone.get());
     }
 
     private void addBotaniaLogVariants(TagKey<Item> tag, String type) {

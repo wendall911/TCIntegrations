@@ -4,6 +4,8 @@ import java.util.function.Consumer;
 
 import org.jetbrains.annotations.NotNull;
 
+import com.github.alexthe666.iceandfire.item.IafItemRegistry;
+
 import blusunrize.immersiveengineering.common.register.IEItems;
 
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
@@ -25,16 +27,14 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
-
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import net.minecraftforge.common.Tags;
-
 import net.minecraftforge.common.crafting.CompoundIngredient;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.common.Tags;
 
 import quek.undergarden.registry.UGItems;
 
@@ -46,11 +46,12 @@ import slimeknights.tconstruct.library.recipe.modifiers.adding.IncrementalModifi
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 
-import tcintegrations.data.tcon.material.TciModifierIds;
 import vazkii.botania.common.item.ModItems;
 import vazkii.botania.common.lib.ModTags;
 
+import tcintegrations.common.TagManager;
 import tcintegrations.data.integration.ModIntegration;
+import tcintegrations.data.tcon.material.TciModifierIds;
 import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.TCIntegrations;
 
@@ -90,6 +91,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         Consumer<FinishedRecipe> ieConsumer = withCondition(consumer, modLoaded(ModIntegration.IE_MODID));
         Consumer<FinishedRecipe> mekanismConsumer = withCondition(consumer, modLoaded(ModIntegration.MEKANISM_MODID));
         Consumer<FinishedRecipe> mythicBotanyConsumer = withCondition(consumer, modLoaded(ModIntegration.MYTHIC_BOTANY_MODID));
+        Consumer<FinishedRecipe> ifdConsumer = withCondition(consumer, modLoaded(ModIntegration.IFD_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -457,6 +459,50 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setMaxLevel(3)
             .saveSalvage(mekanismConsumer, prefix(TCIntegrationsModifiers.GLOWUP_MODIFIER, compatSalvage))
             .save(mekanismConsumer, prefix(TCIntegrationsModifiers.GLOWUP_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.FLAMED_MODIFIER)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.RANGED))
+            .addInput(IafItemRegistry.DRAGON_BONE.get())
+            .addInput(IafItemRegistry.DRAGON_BONE.get())
+            .addInput(TagManager.Items.WITHER_BONES)
+            .addInput(IafItemRegistry.FIRE_DRAGON_BLOOD.get())
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(ifdConsumer, prefix(TCIntegrationsModifiers.FLAMED_MODIFIER, compatSalvage))
+            .save(ifdConsumer, prefix(TCIntegrationsModifiers.FLAMED_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ICED_MODIFIER)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.RANGED))
+            .addInput(IafItemRegistry.DRAGON_BONE.get())
+            .addInput(IafItemRegistry.DRAGON_BONE.get())
+            .addInput(TagManager.Items.WITHER_BONES)
+            .addInput(IafItemRegistry.ICE_DRAGON_BLOOD.get())
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(ifdConsumer, prefix(TCIntegrationsModifiers.ICED_MODIFIER, compatSalvage))
+            .save(ifdConsumer, prefix(TCIntegrationsModifiers.ICED_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ZAPPED_MODIFIER)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.RANGED))
+            .addInput(IafItemRegistry.DRAGON_BONE.get())
+            .addInput(IafItemRegistry.DRAGON_BONE.get())
+            .addInput(TagManager.Items.WITHER_BONES)
+            .addInput(IafItemRegistry.LIGHTNING_DRAGON_BLOOD.get())
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(ifdConsumer, prefix(TCIntegrationsModifiers.ZAPPED_MODIFIER, compatSalvage))
+            .save(ifdConsumer, prefix(TCIntegrationsModifiers.ZAPPED_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.PHANTASMAL_MODIFIER)
+            .setTools(TinkerTags.Items.SWORD)
+            .addInput(IafItemRegistry.DRAGON_BONE.get())
+            .addInput(IafItemRegistry.DRAGON_BONE.get())
+            .addInput(TagManager.Items.WITHER_BONES)
+            .addInput(IafItemRegistry.GHOST_INGOT.get())
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(ifdConsumer, prefix(TCIntegrationsModifiers.PHANTASMAL_MODIFIER, compatSalvage))
+            .save(ifdConsumer, prefix(TCIntegrationsModifiers.PHANTASMAL_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

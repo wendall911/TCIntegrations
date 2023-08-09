@@ -1,0 +1,35 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "modid": "iceandfire",
+      "type": "forge:mod_loaded"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "iceandfire:dragonbone"
+    },
+    {
+      "item": "iceandfire:dragonbone"
+    },
+    {
+      "tag": "forge:bones/wither"
+    },
+    {
+      "item": "iceandfire:ghost_ingot"
+    }
+  ],
+  "tools": {
+    "tag": "tconstruct:modifiable/melee/sword"
+  },
+  "slots": {
+    "upgrades": 1
+  },
+  "allow_crystal": true,
+  "result": {
+    "name": "tcintegrations:phantasmal",
+    "level": 1
+  },
+  "max_level": 1
+}

@@ -33,6 +33,10 @@
         "kinetic": "#BED3CD",
         "glowup": "#FFE86D",
         "alfheim": "#C68F19",
-        "alf": "#D39C28"
+        "alf": "#D39C28",
+        "flamed": "#B7552D",
+        "iced": "#3D8DC2",
+        "zapped": "#F0F610",
+        "phantasmal": "#CCE2F0"
     }
 }

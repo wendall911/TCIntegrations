@@ -25,11 +25,15 @@ import tcintegrations.items.modifiers.armor.TurtleShellModifier;
 import tcintegrations.items.modifiers.tool.AlfModifier;
 import tcintegrations.items.modifiers.tool.CheesyModifier;
 import tcintegrations.items.modifiers.tool.ElementalModifier;
+import tcintegrations.items.modifiers.tool.FlamedModifier;
 import tcintegrations.items.modifiers.tool.ForgottenModifier;
 import tcintegrations.items.modifiers.tool.FroststeelModifier;
 import tcintegrations.items.modifiers.tool.GlowUpModifier;
+import tcintegrations.items.modifiers.tool.IcedModifier;
 import tcintegrations.items.modifiers.tool.LivingwoodModifier;
+import tcintegrations.items.modifiers.tool.PhantasmalModifier;
 import tcintegrations.items.modifiers.tool.UtheriumModifier;
+import tcintegrations.items.modifiers.tool.ZappedModifier;
 import tcintegrations.items.modifiers.traits.HellishModifier;
 import tcintegrations.items.modifiers.traits.KineticModifier;
 import tcintegrations.items.modifiers.traits.ManaModifier;
@@ -77,6 +81,10 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<GlowUpModifier> GLOWUP_MODIFIER;
     public static StaticModifier<AlfheimModifier> ALFHEIM_MODIFIER;
     public static StaticModifier<AlfModifier> ALF_MODIFIER;
+    public static StaticModifier<FlamedModifier> FLAMED_MODIFIER;
+    public static StaticModifier<IcedModifier> ICED_MODIFIER;
+    public static StaticModifier<ZappedModifier> ZAPPED_MODIFIER;
+    public static StaticModifier<PhantasmalModifier> PHANTASMAL_MODIFIER;
 
     public static void init() {
         String dataGen = System.getenv("DATA_GEN");
@@ -148,6 +156,13 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
         if (ModList.get().isLoaded(ModIntegration.MYTHIC_BOTANY_MODID)) {
             ALFHEIM_MODIFIER = MODIFIERS_REGISTRY.register("alfheim", AlfheimModifier::new);
             ALF_MODIFIER = MODIFIERS_REGISTRY.register("alf", AlfModifier::new);
+        }
+
+        if (ModList.get().isLoaded(ModIntegration.IFD_MODID)) {
+            FLAMED_MODIFIER = MODIFIERS_REGISTRY.register("flamed", FlamedModifier::new);
+            ICED_MODIFIER = MODIFIERS_REGISTRY.register("iced", IcedModifier::new);
+            ZAPPED_MODIFIER = MODIFIERS_REGISTRY.register("zapped", ZappedModifier::new);
+            PHANTASMAL_MODIFIER = MODIFIERS_REGISTRY.register("phantasmal", PhantasmalModifier::new);
         }
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);

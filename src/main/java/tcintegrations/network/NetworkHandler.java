@@ -29,6 +29,9 @@ public final class NetworkHandler {
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
             registerMessage(id++, BotaniaSetData.class, BotaniaSetData::new);
         }
+        if (ModList.get().isLoaded(ModIntegration.IFD_MODID)) {
+            registerMessage(id++, LaunchGhostSword.class, LaunchGhostSword::new);
+        }
     }
 
     private static <T extends IData> void registerMessage(int idx, Class<T> type, Function<FriendlyByteBuf, T> decoder) {
