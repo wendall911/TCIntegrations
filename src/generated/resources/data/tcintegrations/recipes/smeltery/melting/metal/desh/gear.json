@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:gears/desh",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:gears/desh"
+      }
     },
     {
-      "modid": "beyond_earth",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "beyond_earth"
     }
   ],
   "ingredient": {
     "tag": "forge:gears/desh"
   },
   "result": {
-    "fluid": "beyond_earth:molten_desh",
-    "amount": 360
+    "amount": 360,
+    "fluid": "beyond_earth:molten_desh"
   },
   "temperature": 500,
   "time": 100

@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:plates/soul_stained_steel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "malum",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/plate"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:plates/soul_stained_steel"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "cooling_time": 65,
   "fluid": {
-    "tag": "forge:soul_stained_steel",
-    "amount": 90
+    "amount": 90,
+    "tag": "forge:soul_stained_steel"
   },
   "result": {
     "tag": "forge:plates/soul_stained_steel"
-  },
-  "cooling_time": 65
+  }
 }

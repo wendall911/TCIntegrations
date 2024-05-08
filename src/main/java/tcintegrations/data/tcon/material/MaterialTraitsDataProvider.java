@@ -34,7 +34,7 @@ public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvide
         addDefaultTraits(MaterialIds.calorite, TciModifierIds.oxygenated);
         addDefaultTraits(MaterialIds.ostrum, TciModifierIds.oxygenated);
         addDefaultTraits(MaterialIds.pendoriteAlloy, TciModifierIds.hellish);
-        addDefaultTraits(osmium, TinkerModifiers.dense.getId(), TciModifierIds.kinetic);
+        addDefaultTraits(osmium, ModifierIds.dense, TciModifierIds.kinetic);
     }
 
 }

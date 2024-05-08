@@ -1,22 +1,22 @@
 {
   "condition": {
+    "type": "forge:or",
     "values": [
       {
-        "prop": "force_integration_materials",
-        "type": "tconstruct:config"
+        "type": "tconstruct:config",
+        "prop": "force_integration_materials"
       },
       {
+        "type": "forge:not",
         "value": {
-          "tag": "forge:ingots/pendorite_alloy",
-          "type": "forge:tag_empty"
-        },
-        "type": "forge:not"
+          "type": "forge:tag_empty",
+          "tag": "forge:ingots/pendorite_alloy"
+        }
       }
-    ],
-    "type": "forge:or"
+    ]
   },
   "craftable": false,
-  "tier": 4,
+  "hidden": false,
   "sortOrder": 5,
-  "hidden": false
+  "tier": 4
 }

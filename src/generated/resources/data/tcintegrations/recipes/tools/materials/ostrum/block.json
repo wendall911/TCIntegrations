@@ -2,24 +2,25 @@
   "type": "tconstruct:material",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:storage_blocks/ostrum",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:storage_blocks/ostrum"
+      }
     },
     {
-      "modid": "beyond_earth",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "beyond_earth"
     }
   ],
   "ingredient": {
     "tag": "forge:storage_blocks/ostrum"
   },
-  "value": 9,
-  "needed": 1,
-  "material": "tcintegrations:ostrum",
   "leftover": {
+    "count": 1,
     "tag": "forge:ingots/ostrum"
-  }
+  },
+  "material": "tcintegrations:ostrum",
+  "needed": 1,
+  "value": 9
 }

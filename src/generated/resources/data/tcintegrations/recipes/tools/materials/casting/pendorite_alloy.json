@@ -2,17 +2,17 @@
   "type": "tconstruct:material_fluid",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:ingots/pendorite_alloy",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/pendorite_alloy"
+      }
     }
   ],
   "fluid": {
-    "tag": "forge:pendorite_alloy",
-    "amount": 90
+    "amount": 90,
+    "tag": "forge:pendorite_alloy"
   },
-  "temperature": 1250,
-  "output": "tcintegrations:pendorite_alloy"
+  "output": "tcintegrations:pendorite_alloy",
+  "temperature": 900
 }

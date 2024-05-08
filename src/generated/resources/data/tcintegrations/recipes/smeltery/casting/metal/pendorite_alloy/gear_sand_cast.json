@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:gears/pendorite_alloy",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "byg",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/gear"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:gears/pendorite_alloy"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "byg"
+    }
+  ],
+  "cooling_time": 127,
   "fluid": {
-    "tag": "forge:pendorite_alloy",
-    "amount": 360
+    "amount": 360,
+    "tag": "forge:pendorite_alloy"
   },
   "result": {
     "tag": "forge:gears/pendorite_alloy"
-  },
-  "cooling_time": 147
+  }
 }

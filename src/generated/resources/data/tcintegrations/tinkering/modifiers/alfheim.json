@@ -1,0 +1,29 @@
+{
+  "type": "tconstruct:composable",
+  "condition": {
+    "type": "forge:mod_loaded",
+    "modid": "mythicbotany"
+  },
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tconstruct:requirements",
+      "display_modifiers": [
+        {
+          "level": 1,
+          "name": "tcintegrations:terrestrial"
+        }
+      ],
+      "requirement": {
+        "type": "tconstruct:has_modifier",
+        "check": "all",
+        "modifier": {
+          "type": "tconstruct:single",
+          "modifier": "tcintegrations:terrestrial"
+        }
+      },
+      "translation_key": "modifier.tcintegrations.alfheim.requirements"
+    }
+  ],
+  "tooltip_display": "always"
+}

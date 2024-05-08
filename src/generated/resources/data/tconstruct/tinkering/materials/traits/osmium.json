@@ -1,12 +1,12 @@
 {
   "default": [
     {
-      "name": "tconstruct:dense",
-      "level": 1
+      "level": 1,
+      "name": "tconstruct:dense"
     },
     {
-      "name": "tcintegrations:kinetic",
-      "level": 1
+      "level": 1,
+      "name": "tcintegrations:kinetic"
     }
   ]
 }

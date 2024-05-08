@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:nuggets/manasteel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "botania",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/nugget"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:nuggets/manasteel"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "botania"
+    }
+  ],
+  "cooling_time": 22,
   "fluid": {
-    "tag": "forge:manasteel",
-    "amount": 10
+    "amount": 10,
+    "tag": "forge:manasteel"
   },
   "result": {
     "tag": "forge:nuggets/manasteel"
-  },
-  "cooling_time": 22
+  }
 }

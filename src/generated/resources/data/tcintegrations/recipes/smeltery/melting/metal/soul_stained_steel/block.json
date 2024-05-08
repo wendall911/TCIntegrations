@@ -2,16 +2,16 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
-      "modid": "malum",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "malum"
     }
   ],
   "ingredient": {
     "tag": "forge:storage_blocks/soul_stained_steel"
   },
   "result": {
-    "fluid": "tcintegrations:soul_stained_steel",
-    "amount": 810
+    "amount": 810,
+    "fluid": "tcintegrations:soul_stained_steel"
   },
   "temperature": 950,
   "time": 194

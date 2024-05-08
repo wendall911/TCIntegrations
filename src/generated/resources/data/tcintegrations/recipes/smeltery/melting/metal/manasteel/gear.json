@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:gears/manasteel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:gears/manasteel"
+      }
     },
     {
-      "modid": "botania",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "botania"
     }
   ],
   "ingredient": {
     "tag": "forge:gears/manasteel"
   },
   "result": {
-    "fluid": "tcintegrations:manasteel",
-    "amount": 360
+    "amount": 360,
+    "fluid": "tcintegrations:manasteel"
   },
   "temperature": 950,
   "time": 130

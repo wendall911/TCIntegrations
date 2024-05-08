@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "malum",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "malum"
     }
   ],
   "inputs": [
@@ -23,16 +24,12 @@
       "item": "malum:soul_stained_steel_ingot"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor"
-  },
+  "level": 1,
+  "result": "tcintegrations:soul_stained",
   "slots": {
     "defense": 1
   },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:soul_stained",
-    "level": 1
-  },
-  "max_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  }
 }

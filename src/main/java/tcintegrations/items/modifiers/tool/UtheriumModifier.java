@@ -4,11 +4,21 @@ import net.minecraft.world.entity.LivingEntity;
 
 import quek.undergarden.registry.UGTags;
 
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-public class UtheriumModifier extends NoLevelsModifier {
+public class UtheriumModifier extends NoLevelsModifier implements MeleeDamageModifierHook {
+
+    @Override
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.MELEE_DAMAGE);
+    }
 
     private static float damageMultiplier(LivingEntity target) {
         if (target.getType().is(UGTags.Entities.ROTSPAWN)) {
@@ -18,7 +28,7 @@ public class UtheriumModifier extends NoLevelsModifier {
     }
 
     @Override
-    public float getEntityDamage(IToolStackView tool, int level, ToolAttackContext context, float baseDamage, float damage) {
+    public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         LivingEntity target = context.getLivingTarget();
 
         if (target != null) {

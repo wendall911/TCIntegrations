@@ -1,24 +1,22 @@
 package tcintegrations.proxy;
 
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
+import net.minecraft.core.Registry;
 
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.RegisterEvent;
 
 import tcintegrations.config.ConfigHandler;
 import tcintegrations.data.integration.ModIntegration;
+import tcintegrations.items.TCIntegrationHooks;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.network.NetworkHandler;
 
 public class CommonProxy {
-
-    public static LootItemConditionType LOOT_CONFIG;
 
     CommonProxy() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -26,6 +24,7 @@ public class CommonProxy {
         ConfigHandler.init();
         TCIntegrationsItems.init();
         TCIntegrationsModifiers.init();
+        TCIntegrationHooks.init();
         registerListeners(bus);
         ModIntegration.setup();
     }
@@ -42,8 +41,8 @@ public class CommonProxy {
         }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
-        public static void registerItems(RegistryEvent.Register<Item> event) {
-            ModIntegration.init(event.getRegistry());
+        public static void registerItems(RegisterEvent event) {
+            event.register(Registry.ITEM_REGISTRY, ModIntegration::init);
         }
 
     }

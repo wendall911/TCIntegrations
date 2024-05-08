@@ -15,11 +15,16 @@ import net.minecraft.world.level.Level;
 
 import net.minecraftforge.common.ForgeMod;
 
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.armor.EquipmentChangeModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-public class PoseidonModifier extends NoLevelsModifier {
+public class PoseidonModifier extends NoLevelsModifier implements InventoryTickModifierHook, EquipmentChangeModifierHook {
 
     private static final AttributeModifier INCREASED_SWIM_SPEED = new AttributeModifier(
             UUID.fromString("17fc0880-40b7-479a-b704-db2709535cd3"),
@@ -29,7 +34,13 @@ public class PoseidonModifier extends NoLevelsModifier {
     );
 
     @Override
-    public void onEquip(IToolStackView tool, int level, EquipmentChangeContext context) {
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.INVENTORY_TICK, TinkerHooks.EQUIPMENT_CHANGE);
+    }
+
+    @Override
+    public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level.isClientSide) {
@@ -45,7 +56,7 @@ public class PoseidonModifier extends NoLevelsModifier {
     }
 
     @Override
-    public void onUnequip(IToolStackView tool, int level, EquipmentChangeContext context) {
+    public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level.isClientSide) {
@@ -61,7 +72,7 @@ public class PoseidonModifier extends NoLevelsModifier {
     }
 
     @Override
-    public void onInventoryTick(IToolStackView tool, int level, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
+    public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         final Player player = holder instanceof Player ? (Player) holder : null;
 
         if (player != null && !player.level.isClientSide) {

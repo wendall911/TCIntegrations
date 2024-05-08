@@ -13,11 +13,13 @@ import net.minecraft.world.entity.player.Player;
 
 import net.minecraftforge.common.ForgeMod;
 
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.hook.armor.EquipmentChangeModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-public class CrocodileModifier extends NoLevelsModifier {
+public class CrocodileModifier extends NoLevelsModifier implements EquipmentChangeModifierHook {
 
     private static final AttributeModifier INCREASED_SWIM_SPEED = new AttributeModifier(
         UUID.fromString("95b9a2f3-afe3-4938-98d8-bfca7168fa70"),
@@ -39,7 +41,7 @@ public class CrocodileModifier extends NoLevelsModifier {
     );
 
     @Override
-    public void onEquip(IToolStackView tool, int level, EquipmentChangeContext context) {
+    public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level.isClientSide) {
@@ -66,7 +68,7 @@ public class CrocodileModifier extends NoLevelsModifier {
     }
 
     @Override
-    public void onUnequip(IToolStackView tool, int level, EquipmentChangeContext context) {
+    public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level.isClientSide) {

@@ -6,7 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ItemStack;
 
-import tcintegrations.items.modifiers.armor.EngineersGogglesModifier;
+//import tcintegrations.items.modifiers.armor.EngineersGogglesModifier;
 
 public class Create {
 
@@ -18,7 +18,7 @@ public class Create {
 
             CompoundTag tags = stack.getTag();
 
-            return tags != null && tags.contains(EngineersGogglesModifier.CREATE_GOGGLES);
+            return false; //return tags != null && tags.contains(EngineersGogglesModifier.CREATE_GOGGLES);
         });
     }
 

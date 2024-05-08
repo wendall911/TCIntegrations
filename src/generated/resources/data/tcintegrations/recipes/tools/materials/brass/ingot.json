@@ -2,24 +2,24 @@
   "type": "tconstruct:material",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:ingots/brass",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/brass"
+      }
     },
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:ingots/brass",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/brass"
+      }
     }
   ],
   "ingredient": {
     "tag": "forge:ingots/brass"
   },
-  "value": 1,
+  "material": "tconstruct:brass",
   "needed": 1,
-  "material": "tconstruct:brass"
+  "value": 1
 }

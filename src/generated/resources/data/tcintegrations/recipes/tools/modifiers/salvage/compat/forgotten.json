@@ -2,10 +2,14 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
+  "modifier": "tcintegrations:forgotten",
+  "slots": {
+    "upgrades": 1
+  },
   "tools": [
     {
       "tag": "tconstruct:modifiable/melee"
@@ -13,10 +17,5 @@
     {
       "tag": "tconstruct:modifiable/harvest"
     }
-  ],
-  "slots": {
-    "upgrades": 1
-  },
-  "modifier": "tcintegrations:forgotten",
-  "min_level": 1
+  ]
 }

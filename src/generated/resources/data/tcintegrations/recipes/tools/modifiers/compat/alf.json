@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "mythicbotany",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "mythicbotany"
     }
   ],
   "inputs": [
@@ -11,17 +12,12 @@
       "item": "mythicbotany:alfsteel_ingot"
     }
   ],
+  "level": 1,
+  "result": "tcintegrations:alf",
+  "slots": {
+    "upgrades": 1
+  },
   "tools": {
     "tag": "tconstruct:modifiable/melee/primary"
-  },
-  "requirements": {
-    "name": "tcintegrations:terra",
-    "level": 1
-  },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:alf",
-    "level": 1
-  },
-  "max_level": 1
+  }
 }

@@ -2,23 +2,23 @@
   "type": "tconstruct:casting_basin",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:storage_blocks/neptunium",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:storage_blocks/neptunium"
+      }
     },
     {
-      "modid": "aquaculture",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
     }
   ],
+  "cooling_time": 194,
   "fluid": {
-    "tag": "forge:neptunium",
-    "amount": 810
+    "amount": 810,
+    "tag": "forge:neptunium"
   },
   "result": {
     "tag": "forge:storage_blocks/neptunium"
-  },
-  "cooling_time": 194
+  }
 }

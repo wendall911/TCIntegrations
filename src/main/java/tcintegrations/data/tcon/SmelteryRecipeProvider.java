@@ -20,14 +20,12 @@ import net.minecraftforge.common.crafting.ConditionalRecipe;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.item.BYGItems;
 
+import slimeknights.mantle.recipe.data.ICommonRecipeHelper;
 import slimeknights.tconstruct.fluids.TinkerFluids;
-import slimeknights.tconstruct.library.data.recipe.ICommonRecipeHelper;
-import slimeknights.tconstruct.library.data.recipe.IRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
 import slimeknights.tconstruct.library.recipe.alloying.AlloyRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.FluidValues;
 import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
-import slimeknights.tconstruct.library.recipe.melting.IMeltingContainer.OreRateType;
 import slimeknights.tconstruct.library.recipe.melting.MeltingRecipeBuilder;
 import slimeknights.tconstruct.smeltery.data.Byproduct;
 
@@ -36,7 +34,7 @@ import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
 
-public class SmelteryRecipeProvider extends RecipeProvider implements IConditionBuilder, IRecipeHelper, ISmelteryRecipeHelper, ICommonRecipeHelper {
+public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryRecipeHelper, ICommonRecipeHelper, IConditionBuilder {
 
     public SmelteryRecipeProvider(DataGenerator generator) {
         super(generator);
@@ -112,20 +110,20 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ICondition
         metalMelting(beyondEarthConsumer, ModIntegration.MOLTEN_OSTRUM.get(), "ostrum", true, metalFolder, false);
 
         MeltingRecipeBuilder.melting(Ingredient.of(TagManager.Items.EMERALDITE_SHARDS), TinkerFluids.moltenEmerald.get(), FluidValues.GEM_SHARD, 1.0F)
-            .save(bygConsumer, modResource("emeraldite/shard"));
+            .save(bygConsumer, location("emeraldite/shard"));
         MeltingRecipeBuilder.melting(Ingredient.of(TagManager.Items.EMERALDITE_ORE), TinkerFluids.moltenEmerald.get(), FluidValues.GEM_SHARD, 1.0F)
-            .save(bygConsumer, modResource("emeraldite/ore"));
+            .save(bygConsumer, location("emeraldite/ore"));
 
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_ORE.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
-            .save(bygConsumer, modResource(metalFolder + "pendorite/ore"));
+            .save(bygConsumer, location(metalFolder + "pendorite/ore"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.RAW_PENDORITE.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
-            .save(bygConsumer, modResource(metalFolder + "pendorite/raw"));
+            .save(bygConsumer, location(metalFolder + "pendorite/raw"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.RAW_PENDORITE_BLOCK.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT * 9, 2.0F)
-            .save(bygConsumer, modResource(metalFolder + "pendorite/raw_block"));
+            .save(bygConsumer, location(metalFolder + "pendorite/raw_block"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_SCRAPS.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
-            .save(bygConsumer, modResource(metalFolder + "pendorite/scrap"));
+            .save(bygConsumer, location(metalFolder + "pendorite/scrap"));
         MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_INGOT.get()), TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.get(), FluidValues.INGOT, 2.0F)
-            .save(bygConsumer, modResource(metalFolder + "pendorite_alloy/ingot"));
+            .save(bygConsumer, location(metalFolder + "pendorite_alloy/ingot"));
     }
 
     private void addAlloyRecipes(Consumer<FinishedRecipe> consumer) {

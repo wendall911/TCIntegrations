@@ -2,17 +2,17 @@
   "type": "tconstruct:material_fluid",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:ingots/soul_stained_steel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/soul_stained_steel"
+      }
     }
   ],
   "fluid": {
-    "tag": "forge:soul_stained_steel",
-    "amount": 90
+    "amount": 90,
+    "tag": "forge:soul_stained_steel"
   },
-  "temperature": 950,
-  "output": "tcintegrations:soul_stained_steel"
+  "output": "tcintegrations:soul_stained_steel",
+  "temperature": 950
 }

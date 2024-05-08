@@ -2,10 +2,14 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "beyond_earth",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "beyond_earth"
     }
   ],
+  "modifier": "tcintegrations:cheesy",
+  "slots": {
+    "upgrades": 1
+  },
   "tools": [
     {
       "tag": "tconstruct:modifiable/melee"
@@ -13,10 +17,5 @@
     {
       "tag": "tconstruct:modifiable/harvest"
     }
-  ],
-  "slots": {
-    "upgrades": 1
-  },
-  "modifier": "tcintegrations:cheesy",
-  "min_level": 1
+  ]
 }

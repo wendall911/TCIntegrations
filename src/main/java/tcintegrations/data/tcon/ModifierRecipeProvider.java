@@ -4,9 +4,9 @@ import java.util.function.Consumer;
 
 import org.jetbrains.annotations.NotNull;
 
-import com.github.alexthe666.iceandfire.item.IafItemRegistry;
-
 import blusunrize.immersiveengineering.common.register.IEItems;
+
+import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 
 import com.github.alexthe666.alexsmobs.item.AMItemRegistry;
 
@@ -38,16 +38,15 @@ import net.minecraftforge.common.Tags;
 
 import quek.undergarden.registry.UGItems;
 
+import slimeknights.mantle.recipe.data.IRecipeHelper;
 import slimeknights.tconstruct.common.TinkerTags;
-import slimeknights.tconstruct.library.data.recipe.IRecipeHelper;
 import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
-import slimeknights.tconstruct.library.recipe.modifiers.ModifierMatch;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.IncrementalModifierRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 
-import vazkii.botania.common.item.ModItems;
-import vazkii.botania.common.lib.ModTags;
+import vazkii.botania.common.item.BotaniaItems;
+import vazkii.botania.common.lib.BotaniaTags;
 
 import tcintegrations.common.TagManager;
 import tcintegrations.data.integration.ModIntegration;
@@ -95,11 +94,11 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModTags.Items.MYSTICAL_FLOWERS)
-            .addInput(ModTags.Items.DOUBLE_MYSTICAL_FLOWERS)
-            .addInput(ModTags.Items.LIVINGWOOD_LOGS)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaTags.Items.MYSTICAL_FLOWERS)
+            .addInput(BotaniaTags.Items.DOUBLE_MYSTICAL_FLOWERS)
+            .addInput(BotaniaTags.Items.LIVINGWOOD_LOGS)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(botaniaConsumer, prefix(TCIntegrationsModifiers.TERRA_MODIFIER, compatSalvage))
@@ -107,20 +106,27 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ALF_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
-            .addInput(mythicbotany.ModItems.alfsteelIngot)
-            .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.TERRA_MODIFIER))
-            .setSlots(SlotType.UPGRADE, 0)
+            .addInput(mythicbotany.register.ModItems.alfsteelIngot)
+            .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALF_MODIFIER, compatSalvage))
             .save(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALF_MODIFIER, compatFolder));
 
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ALFHEIM_MODIFIER)
+            .setTools(TinkerTags.Items.ARMOR)
+            .addInput(mythicbotany.register.ModItems.alfsteelIngot)
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALFHEIM_MODIFIER, compatSalvage))
+            .save(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALFHEIM_MODIFIER, compatFolder));
+
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ELEMENTAL_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
-            .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
-            .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
-            .addInput(ModTags.Items.MYSTICAL_FLOWERS)
-            .addInput(ModTags.Items.DOUBLE_MYSTICAL_FLOWERS)
-            .addInput(ModTags.Items.LIVINGWOOD_LOGS_GLIMMERING)
+            .addInput(BotaniaTags.Items.INGOTS_ELEMENTIUM)
+            .addInput(BotaniaTags.Items.INGOTS_ELEMENTIUM)
+            .addInput(BotaniaTags.Items.MYSTICAL_FLOWERS)
+            .addInput(BotaniaTags.Items.DOUBLE_MYSTICAL_FLOWERS)
+            .addInput(BotaniaTags.Items.LIVINGWOOD_LOGS_GLIMMERING)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(botaniaConsumer, prefix(TCIntegrationsModifiers.ELEMENTAL_MODIFIER, compatSalvage))
@@ -128,11 +134,11 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER)
             .setTools(TinkerTags.Items.HELMETS)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModItems.livingwoodTwig)
-            .addInput(ModItems.runeSpring)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaItems.livingwoodTwig)
+            .addInput(BotaniaItems.runeSpring)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_helmets"), compatSalvage))
@@ -140,11 +146,11 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER)
             .setTools(TinkerTags.Items.CHESTPLATES)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModItems.livingwoodTwig)
-            .addInput(ModItems.runeSummer)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaItems.livingwoodTwig)
+            .addInput(BotaniaItems.runeSummer)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_chestplates"), compatSalvage))
@@ -152,11 +158,11 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER)
             .setTools(TinkerTags.Items.LEGGINGS)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModItems.livingwoodTwig)
-            .addInput(ModItems.runeAutumn)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaItems.livingwoodTwig)
+            .addInput(BotaniaItems.runeAutumn)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_leggings"), compatSalvage))
@@ -164,36 +170,35 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER)
             .setTools(TinkerTags.Items.BOOTS)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModTags.Items.INGOTS_TERRASTEEL)
-            .addInput(ModItems.livingwoodTwig)
-            .addInput(ModItems.runeWinter)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaTags.Items.INGOTS_TERRASTEEL)
+            .addInput(BotaniaItems.livingwoodTwig)
+            .addInput(BotaniaItems.runeWinter)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatSalvage))
             .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatFolder));
 
-        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ALFHEIM_MODIFIER)
-            .setTools(TinkerTags.Items.ARMOR)
-            .addInput(mythicbotany.ModItems.alfsteelIngot)
-            .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER))
-            .setSlots(SlotType.UPGRADE, 0)
-            .setMaxLevel(1)
-            .saveSalvage(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALFHEIM_MODIFIER, compatSalvage))
-            .save(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALFHEIM_MODIFIER, compatFolder));
-
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.GREAT_FAIRY_MODIFIER)
             .setTools(TinkerTags.Items.ARMOR)
-            .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
-            .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
-            .addInput(ModTags.Items.INGOTS_ELEMENTIUM)
-            .addInput(ModItems.livingwoodTwig)
-            .addInput(ModTags.Items.LIVINGWOOD_LOGS_GLIMMERING)
+            .addInput(BotaniaTags.Items.INGOTS_ELEMENTIUM)
+            .addInput(BotaniaTags.Items.INGOTS_ELEMENTIUM)
+            .addInput(BotaniaTags.Items.INGOTS_ELEMENTIUM)
+            .addInput(BotaniaItems.livingwoodTwig)
+            .addInput(BotaniaTags.Items.LIVINGWOOD_LOGS_GLIMMERING)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(botaniaConsumer, prefix(TCIntegrationsModifiers.GREAT_FAIRY_MODIFIER, compatSalvage))
             .save(botaniaConsumer, prefix(TCIntegrationsModifiers.GREAT_FAIRY_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TciModifierIds.engineersGoggles)
+                .setTools(TinkerTags.Items.HELMETS)
+                .addInput(AllItems.GOGGLES.get())
+                .setSlots(SlotType.ABILITY, 1)
+                .setMaxLevel(1)
+                .saveSalvage(createConsumer, prefix(TciModifierIds.engineersGoggles, compatSalvage))
+                .save(createConsumer, prefix(TciModifierIds.engineersGoggles, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.MECHANICAL_ARM_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -202,14 +207,6 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setMaxLevel(1)
             .saveSalvage(createConsumer, prefix(TCIntegrationsModifiers.MECHANICAL_ARM_MODIFIER, compatSalvage))
             .save(createConsumer, prefix(TCIntegrationsModifiers.MECHANICAL_ARM_MODIFIER, compatFolder));
-
-        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ENGINEERS_GOGGLES_MODIFIER)
-            .setTools(TinkerTags.Items.HELMETS)
-            .addInput(AllItems.GOGGLES.get())
-            .setSlots(SlotType.ABILITY, 0)
-            .setMaxLevel(1)
-            .saveSalvage(createConsumer, prefix(TCIntegrationsModifiers.ENGINEERS_GOGGLES_MODIFIER, compatSalvage))
-            .save(createConsumer, prefix(TCIntegrationsModifiers.ENGINEERS_GOGGLES_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.POSEIDON_MODIFIER)
             .setTools(TinkerTags.Items.ARMOR)
@@ -242,9 +239,9 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(ItemsRegistry.MAGE_FIBER)
             .addInput(ItemsRegistry.MAGE_FIBER)
             .addInput(ItemsRegistry.MAGE_FIBER)
-            .setSalvageLevelRange(1, 1)
             .setMaxLevel(1)
             .setSlots(SlotType.UPGRADE, 1)
+            .disallowCrystal()
             .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_1"))
             .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_1"));
 
@@ -255,11 +252,9 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(ItemsRegistry.BLAZE_FIBER)
             .addInput(ItemsRegistry.BLAZE_FIBER)
             .addInput(ItemsRegistry.BLAZE_FIBER)
-            .setSalvageLevelRange(2, 2)
-            .setMaxLevel(2)
+            .exactLevel(2)
             .setSlots(SlotType.UPGRADE, 1)
-            .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.ARS_MODIFIER, 1))
-            .setRequirementsError("recipe." + TCIntegrations.MODID + ".modifier." + TCIntegrationsModifiers.ARS_MODIFIER.getId().getPath() + ".level_2")
+            .disallowCrystal()
             .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_2"))
             .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_2"));
 
@@ -270,11 +265,9 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(ItemsRegistry.END_FIBER)
             .addInput(ItemsRegistry.END_FIBER)
             .addInput(ItemsRegistry.END_FIBER)
-            .setSalvageLevelRange(3, 3)
-            .setMaxLevel(3)
+            .exactLevel(3)
             .setSlots(SlotType.UPGRADE, 1)
-            .setRequirements(ModifierMatch.entry(TCIntegrationsModifiers.ARS_MODIFIER, 2))
-            .setRequirementsError("recipe." + TCIntegrations.MODID + ".modifier." + TCIntegrationsModifiers.ARS_MODIFIER.getId().getPath() + ".level_3")
+            .disallowCrystal()
             .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_3"))
             .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_3"));
 
@@ -351,14 +344,14 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.SHIELD_OF_THE_DEEP_MODIFIER.getId() + "_chestplates"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.MOSQUITO_MODIFIER)
-            .setTools(TinkerTags.Items.ARMOR)
+            .setTools(TinkerTags.Items.BOOTS)
             .addInput(AMItemRegistry.MOSQUITO_PROBOSCIS.get())
             .addInput(AMItemRegistry.MOSQUITO_PROBOSCIS.get())
             .addInput(AMItemRegistry.MOSQUITO_PROBOSCIS.get())
             .addInput(AMItemRegistry.MOSQUITO_PROBOSCIS.get())
             .addInput(AMItemRegistry.MOSQUITO_PROBOSCIS.get())
             .setSlots(SlotType.UPGRADE, 1)
-            .setMaxLevel(1)
+            .setMaxLevel(3)
             .saveSalvage(alexConsumer, prefix(TCIntegrationsModifiers.MOSQUITO_MODIFIER, compatSalvage))
             .save(alexConsumer, prefix(TCIntegrationsModifiers.MOSQUITO_MODIFIER, compatFolder));
 
@@ -440,13 +433,13 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .saveSalvage(beyondEarthConsumer, prefix(TCIntegrationsModifiers.CHEESY_MODIFIER, compatSalvage))
             .save(beyondEarthConsumer, prefix(TCIntegrationsModifiers.CHEESY_MODIFIER, compatFolder));
 
-        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.MULTIVISION_MODIFIER)
-            .setTools(TinkerTags.Items.HELMETS)
-            .addInput(IEItems.Tools.VOLTMETER.get())
-            .setSlots(SlotType.ABILITY, 0)
-            .setMaxLevel(1)
-            .saveSalvage(ieConsumer, prefix(TCIntegrationsModifiers.MULTIVISION_MODIFIER, compatSalvage))
-            .save(ieConsumer, prefix(TCIntegrationsModifiers.MULTIVISION_MODIFIER, compatFolder));
+        ModifierRecipeBuilder.modifier(TciModifierIds.multiVision)
+                .setTools(TinkerTags.Items.HELMETS)
+                .addInput(IEItems.Tools.VOLTMETER.get())
+                .setSlots(SlotType.ABILITY, 1)
+                .setMaxLevel(1)
+                .saveSalvage(ieConsumer, prefix(TciModifierIds.multiVision, compatSalvage))
+                .save(ieConsumer, prefix(TciModifierIds.multiVision, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.GLOWUP_MODIFIER)
             .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))

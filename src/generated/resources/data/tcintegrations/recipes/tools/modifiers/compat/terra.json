@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "botania",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "botania"
     }
   ],
   "inputs": [
@@ -23,16 +24,12 @@
       "tag": "botania:livingwood_logs"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/melee/primary"
-  },
+  "level": 1,
+  "result": "tcintegrations:terra",
   "slots": {
     "upgrades": 1
   },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:terra",
-    "level": 1
-  },
-  "max_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/melee/primary"
+  }
 }

@@ -2,16 +2,16 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
-      "modid": "botania",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "botania"
     }
   ],
   "ingredient": {
     "tag": "forge:nuggets/manasteel"
   },
   "result": {
-    "fluid": "tcintegrations:manasteel",
-    "amount": 10
+    "amount": 10,
+    "fluid": "tcintegrations:manasteel"
   },
   "temperature": 950,
   "time": 22

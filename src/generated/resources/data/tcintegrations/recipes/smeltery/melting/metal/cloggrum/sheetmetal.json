@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:sheetmetals/cloggrum",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:sheetmetals/cloggrum"
+      }
     },
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
   "ingredient": {
     "tag": "forge:sheetmetals/cloggrum"
   },
   "result": {
-    "fluid": "tcintegrations:cloggrum",
-    "amount": 90
+    "amount": 90,
+    "fluid": "tcintegrations:cloggrum"
   },
   "temperature": 900,
   "time": 63

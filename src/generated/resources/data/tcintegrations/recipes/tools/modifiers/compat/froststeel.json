@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
   "inputs": [
@@ -23,6 +24,11 @@
       "item": "undergarden:froststeel_ingot"
     }
   ],
+  "level": 1,
+  "result": "tcintegrations:froststeel",
+  "slots": {
+    "upgrades": 1
+  },
   "tools": [
     {
       "tag": "tconstruct:modifiable/melee"
@@ -30,14 +36,5 @@
     {
       "tag": "tconstruct:modifiable/harvest"
     }
-  ],
-  "slots": {
-    "upgrades": 1
-  },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:froststeel",
-    "level": 1
-  },
-  "max_level": 1
+  ]
 }

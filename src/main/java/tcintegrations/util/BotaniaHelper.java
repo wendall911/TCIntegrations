@@ -16,10 +16,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ServerLevelAccessor;
 
-import vazkii.botania.api.mana.IManaItem;
+import vazkii.botania.api.mana.ManaItem;
 import vazkii.botania.api.mana.ManaItemHandler;
-import vazkii.botania.common.entity.EntityPixie;
-import vazkii.botania.xplat.IXplatAbstractions;
+import vazkii.botania.common.entity.PixieEntity;
+import vazkii.botania.xplat.XplatAbstractions;
 
 import tcintegrations.common.capabilities.CapabilityRegistry;
 
@@ -33,7 +33,7 @@ public class BotaniaHelper {
     };
 
     public static void spawnPixie(ServerPlayer sp, ItemStack stack, LivingEntity target) {
-        EntityPixie pixie = new EntityPixie(sp.level);
+        PixieEntity pixie = new PixieEntity(sp.level);
 
         pixie.setPos(sp.getX(), sp.getY() + 2, sp.getZ());
 
@@ -77,11 +77,11 @@ public class BotaniaHelper {
     }
 
     public static boolean dispatchManaExact(ServerPlayer player, int manaToSend) {
-        List<ItemStack> items = ManaItemHandler.INSTANCE.get().getManaItems(player);
-        List<ItemStack> acc = ManaItemHandler.INSTANCE.get().getManaAccesories(player);
+        List<ItemStack> items = ManaItemHandler.INSTANCE.getManaItems(player);
+        List<ItemStack> acc = ManaItemHandler.INSTANCE.getManaAccesories(player);
 
         for (ItemStack stackInSlot : Iterables.concat(items, acc)) {
-            IManaItem manaItemSlot = IXplatAbstractions.INSTANCE.findManaItem(stackInSlot);
+            ManaItem manaItemSlot = XplatAbstractions.INSTANCE.findManaItem(stackInSlot);
 
             if (manaItemSlot.getMana() + manaToSend <= manaItemSlot.getMaxMana()) {
                 manaItemSlot.addMana(manaToSend);

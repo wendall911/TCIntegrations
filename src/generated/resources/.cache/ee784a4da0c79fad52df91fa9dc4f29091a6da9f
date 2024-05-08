@@ -1,0 +1,7 @@
+// 1.19.2	2024-05-08T10:08:50.53857025	TCIntegrations - Block Tags
+b627684b0f4cddf3e453d567d9dc9bf8df8e7bd2 data/forge/tags/blocks/storage_blocks.json
+d1469884bf98bcdd373c1df3ca95b87cb1982f19 data/forge/tags/blocks/storage_blocks/bronze.json
+09d03a67c93d8bca0ee48265ef02154eafaae49f data/forge/tags/blocks/storage_blocks/soul_stained_steel.json
+34135d8429fd3a528d4b5def3a2b63b32cf7a9d3 data/minecraft/tags/blocks/mineable/pickaxe.json
+34135d8429fd3a528d4b5def3a2b63b32cf7a9d3 data/minecraft/tags/blocks/needs_stone_tool.json
+888d99624da069f911eada6527c84b306992796a data/tconstruct/tags/blocks/anvil_metal.json

@@ -63,9 +63,10 @@ public final class TagManager {
 
     public static final class EntityTypes {
         public static final TagKey<EntityType<?>> ELEMENTAL_SEVERING_MOBS = create("elemental_severing_mods");
+        public static final TagKey<EntityType<?>> MILK_PRODUCER = create("milk_producer");
 
         private static TagKey<EntityType<?>> create(String id) {
-            return Objects.requireNonNull(ForgeRegistries.ENTITIES.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
+            return Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
         }
     }
 

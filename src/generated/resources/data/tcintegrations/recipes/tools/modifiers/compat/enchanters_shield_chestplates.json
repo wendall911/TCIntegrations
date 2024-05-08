@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "ars_nouveau",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
     }
   ],
   "inputs": [
@@ -23,16 +24,12 @@
       "item": "minecraft:shield"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor/chestplate"
-  },
+  "level": 1,
+  "result": "tcintegrations:enchanters_shield",
   "slots": {
     "upgrades": 1
   },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:enchanters_shield",
-    "level": 1
-  },
-  "max_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/chestplate"
+  }
 }

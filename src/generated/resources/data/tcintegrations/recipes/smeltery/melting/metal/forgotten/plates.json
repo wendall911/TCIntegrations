@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:plates/forgotten",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:plates/forgotten"
+      }
     },
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
   "ingredient": {
     "tag": "forge:plates/forgotten"
   },
   "result": {
-    "fluid": "tcintegrations:forgotten",
-    "amount": 90
+    "amount": 90,
+    "fluid": "tcintegrations:forgotten"
   },
   "temperature": 900,
   "time": 63

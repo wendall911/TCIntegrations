@@ -2,16 +2,16 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
   "ingredient": {
     "tag": "forge:ingots/forgotten"
   },
   "result": {
-    "fluid": "tcintegrations:forgotten",
-    "amount": 90
+    "amount": 90,
+    "fluid": "tcintegrations:forgotten"
   },
   "temperature": 900,
   "time": 63

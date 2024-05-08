@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:coins/pendorite_alloy/block",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "byg",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/coin"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:coins/pendorite_alloy/block"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "byg"
+    }
+  ],
+  "cooling_time": 37,
   "fluid": {
-    "tag": "tcintegrations:pendorite_alloy",
-    "amount": 30
+    "amount": 30,
+    "tag": "tcintegrations:pendorite_alloy"
   },
   "result": {
     "tag": "forge:coins/pendorite_alloy/block"
-  },
-  "cooling_time": 42
+  }
 }

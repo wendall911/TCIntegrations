@@ -2,21 +2,21 @@
   "type": "tconstruct:material",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:nuggets/neptunium",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:nuggets/neptunium"
+      }
     },
     {
-      "modid": "aquaculture",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
     }
   ],
   "ingredient": {
     "tag": "forge:nuggets/neptunium"
   },
-  "value": 1,
+  "material": "tcintegrations:neptunium",
   "needed": 9,
-  "material": "tcintegrations:neptunium"
+  "value": 1
 }

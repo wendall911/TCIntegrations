@@ -1,9 +1,12 @@
 package tcintegrations.items;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.ModList;
 
+import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
+import tcintegrations.TCIntegrations;
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.modifiers.armor.AlfheimModifier;
@@ -30,17 +33,16 @@ import tcintegrations.items.modifiers.tool.ForgottenModifier;
 import tcintegrations.items.modifiers.tool.FroststeelModifier;
 import tcintegrations.items.modifiers.tool.GlowUpModifier;
 import tcintegrations.items.modifiers.tool.IcedModifier;
-import tcintegrations.items.modifiers.tool.LivingwoodModifier;
+import tcintegrations.items.modifiers.tool.MechanicalArmModifier;
+import tcintegrations.items.modifiers.tool.ModerateModifier;
 import tcintegrations.items.modifiers.tool.PhantasmalModifier;
+import tcintegrations.items.modifiers.tool.SirenModifier;
+import tcintegrations.items.modifiers.tool.TerraModifier;
 import tcintegrations.items.modifiers.tool.UtheriumModifier;
 import tcintegrations.items.modifiers.tool.ZappedModifier;
 import tcintegrations.items.modifiers.traits.HellishModifier;
 import tcintegrations.items.modifiers.traits.KineticModifier;
 import tcintegrations.items.modifiers.traits.ManaModifier;
-import tcintegrations.items.modifiers.tool.MechanicalArmModifier;
-import tcintegrations.items.modifiers.tool.ModerateModifier;
-import tcintegrations.items.modifiers.tool.SirenModifier;
-import tcintegrations.items.modifiers.tool.TerraModifier;
 import tcintegrations.items.modifiers.traits.OxygenatedModifier;
 import tcintegrations.items.modifiers.traits.SoulStained;
 import tcintegrations.items.modifiers.traits.WaterPowered;
@@ -48,21 +50,19 @@ import tcintegrations.items.modifiers.traits.WaterPowered;
 public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
     public static StaticModifier<ManaModifier> MANA_MODIFIER;
-    public static StaticModifier<LivingwoodModifier> LIVINGWOOD_MODIFIER;
     public static StaticModifier<TerraModifier> TERRA_MODIFIER;
     public static StaticModifier<ElementalModifier> ELEMENTAL_MODIFIER;
     public static StaticModifier<TerrestrialModifier> TERRESTRIAL_MODIFIER;
     public static StaticModifier<GreatFairyModifier> GREAT_FAIRY_MODIFIER;
     public static StaticModifier<ModerateModifier> MODERATE_MODIFIER;
     public static StaticModifier<MechanicalArmModifier> MECHANICAL_ARM_MODIFIER;
-    public static StaticModifier<EngineersGogglesModifier> ENGINEERS_GOGGLES_MODIFIER;
     public static StaticModifier<WaterPowered> WATER_POWERED_MODIFIER;
     public static StaticModifier<PoseidonModifier> POSEIDON_MODIFIER;
     public static StaticModifier<SirenModifier> SIREN_MODIFIER;
     public static StaticModifier<ArsNouveauModifier> ARS_MODIFIER;
     public static StaticModifier<EnchantersShieldModifier> ENCHANTERS_SHIELD_MODIFIER;
-    public static StaticModifier<RoadrunnerModifier> ROADRUNNER_MODIFIER;
     public static StaticModifier<FrontierCapModifier> FRONTIER_CAP_MODIFIER;
+    public static StaticModifier<RoadrunnerModifier> ROADRUNNER_MODIFIER;
     public static StaticModifier<TurtleShellModifier> TURTLE_SHELL_MODIFIER;
     public static StaticModifier<BisonFurModifier> BISON_FUR_MODIFIER;
     public static StaticModifier<ShieldOfTheDeepModifier> SHIELD_OF_THE_DEEP_MODIFIER;
@@ -76,11 +76,10 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<CheesyModifier> CHEESY_MODIFIER;
     public static StaticModifier<OxygenatedModifier> OXYGENATED_MODIFIER;
     public static StaticModifier<HellishModifier> HELLISH_MODIFIER;
-    public static StaticModifier<MultiVisionModifier> MULTIVISION_MODIFIER;
-    public static StaticModifier<KineticModifier> KINETIC_MODIFIER;
-    public static StaticModifier<GlowUpModifier> GLOWUP_MODIFIER;
     public static StaticModifier<AlfheimModifier> ALFHEIM_MODIFIER;
     public static StaticModifier<AlfModifier> ALF_MODIFIER;
+    public static StaticModifier<KineticModifier> KINETIC_MODIFIER;
+    public static StaticModifier<GlowUpModifier> GLOWUP_MODIFIER;
     public static StaticModifier<FlamedModifier> FLAMED_MODIFIER;
     public static StaticModifier<IcedModifier> ICED_MODIFIER;
     public static StaticModifier<ZappedModifier> ZAPPED_MODIFIER;
@@ -91,7 +90,6 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
             MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaModifier::new);
-            LIVINGWOOD_MODIFIER = MODIFIERS_REGISTRY.register("livingwood", LivingwoodModifier::new);
             TERRA_MODIFIER = MODIFIERS_REGISTRY.register("terra", TerraModifier::new);
             ELEMENTAL_MODIFIER = MODIFIERS_REGISTRY.register("elemental", ElementalModifier::new);
             TERRESTRIAL_MODIFIER = MODIFIERS_REGISTRY.register("terrestrial", TerrestrialModifier::new);
@@ -100,7 +98,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModList.get().isLoaded(ModIntegration.CREATE_MODID)) {
             MECHANICAL_ARM_MODIFIER = MODIFIERS_REGISTRY.register("mechanical_arm", MechanicalArmModifier::new);
-            ENGINEERS_GOGGLES_MODIFIER = MODIFIERS_REGISTRY.register("engineers_goggles", EngineersGogglesModifier::new);
+            ModifierModule.LOADER.register(new ResourceLocation(TCIntegrations.MODID, "engineers_goggles"), EngineersGogglesModifier.INSTANCE.getLoader());
         }
 
         if (ModList.get().isLoaded(ModIntegration.AQUACULTURE_MODID)) {
@@ -145,7 +143,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
         }
 
         if (ModList.get().isLoaded(ModIntegration.IE_MODID)) {
-            MULTIVISION_MODIFIER = MODIFIERS_REGISTRY.register("multivision", MultiVisionModifier::new);
+            ModifierModule.LOADER.register(new ResourceLocation(TCIntegrations.MODID, "multivision"), MultiVisionModifier.INSTANCE.getLoader());
         }
 
         if (ModList.get().isLoaded(ModIntegration.MEKANISM_MODID)) {

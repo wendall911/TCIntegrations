@@ -2,16 +2,16 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
   "ingredient": {
     "tag": "forge:ingots/froststeel"
   },
   "result": {
-    "fluid": "tcintegrations:froststeel",
-    "amount": 90
+    "amount": 90,
+    "fluid": "tcintegrations:froststeel"
   },
   "temperature": 900,
   "time": 63

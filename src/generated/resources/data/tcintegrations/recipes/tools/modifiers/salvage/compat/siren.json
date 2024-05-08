@@ -2,10 +2,14 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "aquaculture",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
     }
   ],
+  "modifier": "tcintegrations:siren",
+  "slots": {
+    "upgrades": 1
+  },
   "tools": [
     {
       "tag": "tconstruct:modifiable/melee"
@@ -13,10 +17,5 @@
     {
       "tag": "tconstruct:modifiable/harvest"
     }
-  ],
-  "slots": {
-    "upgrades": 1
-  },
-  "modifier": "tcintegrations:siren",
-  "min_level": 1
+  ]
 }

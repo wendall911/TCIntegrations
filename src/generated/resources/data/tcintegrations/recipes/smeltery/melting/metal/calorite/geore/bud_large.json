@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:geore_large_buds/calorite",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:geore_large_buds/calorite"
+      }
     },
     {
-      "modid": "beyond_earth",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "beyond_earth"
     }
   ],
   "ingredient": {
     "tag": "forge:geore_large_buds/calorite"
   },
   "result": {
-    "fluid": "beyond_earth:molten_calorite",
-    "amount": 270
+    "amount": 270,
+    "fluid": "beyond_earth:molten_calorite"
   },
   "temperature": 500,
   "time": 100

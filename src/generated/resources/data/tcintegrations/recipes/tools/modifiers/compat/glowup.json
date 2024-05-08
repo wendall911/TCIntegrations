@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "mekanism",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "mekanism"
     }
   ],
   "inputs": [
@@ -23,6 +24,13 @@
       "item": "mekanism:ingot_refined_glowstone"
     }
   ],
+  "level": {
+    "max": 3
+  },
+  "result": "tcintegrations:glowup",
+  "slots": {
+    "upgrades": 1
+  },
   "tools": [
     {
       "tag": "tconstruct:modifiable/melee"
@@ -30,14 +38,5 @@
     {
       "tag": "tconstruct:modifiable/harvest"
     }
-  ],
-  "slots": {
-    "upgrades": 1
-  },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:glowup",
-    "level": 1
-  },
-  "max_level": 3
+  ]
 }

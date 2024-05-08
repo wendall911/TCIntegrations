@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:rods/cloggrum",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/rod"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:rods/cloggrum"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "cooling_time": 45,
   "fluid": {
-    "tag": "forge:cloggrum",
-    "amount": 45
+    "amount": 45,
+    "tag": "forge:cloggrum"
   },
   "result": {
     "tag": "forge:rods/cloggrum"
-  },
-  "cooling_time": 45
+  }
 }

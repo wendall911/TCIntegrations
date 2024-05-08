@@ -1,27 +1,27 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:gears/cloggrum",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/multi_use/gear"
   },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:gears/cloggrum"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "cooling_time": 127,
   "fluid": {
-    "tag": "forge:cloggrum",
-    "amount": 360
+    "amount": 360,
+    "tag": "forge:cloggrum"
   },
   "result": {
     "tag": "forge:gears/cloggrum"
-  },
-  "cooling_time": 127
+  }
 }

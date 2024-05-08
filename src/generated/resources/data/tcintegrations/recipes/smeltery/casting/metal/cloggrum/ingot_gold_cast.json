@@ -1,27 +1,27 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:ingots/cloggrum",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/multi_use/ingot"
   },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/cloggrum"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "cooling_time": 63,
   "fluid": {
-    "tag": "forge:cloggrum",
-    "amount": 90
+    "amount": 90,
+    "tag": "forge:cloggrum"
   },
   "result": {
     "tag": "forge:ingots/cloggrum"
-  },
-  "cooling_time": 63
+  }
 }

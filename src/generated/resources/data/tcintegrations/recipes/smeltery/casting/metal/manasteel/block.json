@@ -2,23 +2,23 @@
   "type": "tconstruct:casting_basin",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:storage_blocks/manasteel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:storage_blocks/manasteel"
+      }
     },
     {
-      "modid": "botania",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "botania"
     }
   ],
+  "cooling_time": 194,
   "fluid": {
-    "tag": "forge:manasteel",
-    "amount": 810
+    "amount": 810,
+    "tag": "forge:manasteel"
   },
   "result": {
     "tag": "forge:storage_blocks/manasteel"
-  },
-  "cooling_time": 194
+  }
 }

@@ -1,8 +1,8 @@
 {
   "default": [
     {
-      "name": "tcintegrations:soul_stained",
-      "level": 1
+      "level": 1,
+      "name": "tcintegrations:soul_stained"
     }
   ]
 }

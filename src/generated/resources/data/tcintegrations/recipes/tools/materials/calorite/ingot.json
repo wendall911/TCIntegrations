@@ -2,21 +2,21 @@
   "type": "tconstruct:material",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:ingots/calorite",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/calorite"
+      }
     },
     {
-      "modid": "beyond_earth",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "beyond_earth"
     }
   ],
   "ingredient": {
     "tag": "forge:ingots/calorite"
   },
-  "value": 1,
+  "material": "tcintegrations:calorite",
   "needed": 1,
-  "material": "tcintegrations:calorite"
+  "value": 1
 }

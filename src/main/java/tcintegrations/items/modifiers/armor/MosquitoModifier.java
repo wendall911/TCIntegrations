@@ -4,28 +4,25 @@ import java.util.List;
 
 import com.github.alexthe666.alexsmobs.misc.AMSoundRegistry;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.phys.AABB;
 
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.living.LivingEvent;
+import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.armor.ArmorWalkModifierHook;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
+import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-import slimeknights.tconstruct.library.modifiers.impl.TotalArmorLevelModifier;
-import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability.TinkerDataKey;
-import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
+public class MosquitoModifier extends Modifier implements ArmorWalkModifierHook {
 
-import tcintegrations.TCIntegrations;
-
-public class MosquitoModifier extends TotalArmorLevelModifier {
-
-    private static final TinkerDataKey<Integer> MOSQUITO = TinkerDataKey.of(new ResourceLocation(TCIntegrations.MODID, "mosquito"));
-
-    public MosquitoModifier() {
-        super(MOSQUITO);
-        MinecraftForge.EVENT_BUS.addListener(MosquitoModifier::onLivingTick);
+    @Override
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.BOOT_WALK);
     }
 
     @Override
@@ -33,32 +30,30 @@ public class MosquitoModifier extends TotalArmorLevelModifier {
         return super.getDisplayName();
     }
 
-    private static void onLivingTick(LivingEvent.LivingUpdateEvent event) {
-        LivingEntity entity = event.getEntityLiving();
-
-        if (!entity.isSpectator() && (entity.tickCount & 1) == 0) {
-            int level = ModifierUtil.getTotalModifierLevel(entity, MOSQUITO);
+    public void onWalk(IToolStackView tool, ModifierEntry modifier, LivingEntity living, BlockPos prevPos, BlockPos newPos) {
+        if ((living.tickCount & 1) == 0 && !tool.isBroken()) {
+            float level = modifier.getEffectiveLevel();
 
             if (level > 0) {
-                applyAnnoyance(entity, level);
+                applyAnnoyance(living, level);
             }
         }
     }
 
-    public static void applyAnnoyance(LivingEntity entity, int level) {
-        double x = entity.getX();
-        double y = entity.getY();
-        double z = entity.getZ();
-        float range = 3F + 1F * level;
+    public static void applyAnnoyance(LivingEntity living, float level) {
+        double x = living.getX();
+        double y = living.getY();
+        double z = living.getZ();
+        float range = 3F + level;
 
-        List<LivingEntity> entities = entity.level.getEntitiesOfClass(LivingEntity.class, new AABB(x - range, y - range, z - range, x + range, y + range, z + range));
+        List<LivingEntity> entities = living.level.getEntitiesOfClass(LivingEntity.class, new AABB(x - range, y - range, z - range, x + range, y + range, z + range));
 
-        if (!entities.isEmpty() && entity.tickCount % 100 == 0) {
-            entity.playSound(AMSoundRegistry.MOSQUITO_LOOP, 1.0F, 1.0F);
+        if (!entities.isEmpty() && living.tickCount % 100 == 0) {
+            living.playSound(AMSoundRegistry.MOSQUITO_LOOP.get(), 1.0F, 1.0F);
         }
 
         for (LivingEntity livingEntity : entities) {
-            if (!livingEntity.equals(entity) && entity.tickCount % 20 == 0) {
+            if (!livingEntity.equals(living) && living.tickCount % 20 == 0) {
                 for (int i = 0; i < 3; i++) {
                     livingEntity.level.addParticle(ParticleTypes.CRIMSON_SPORE, livingEntity.getRandomX(1.0), livingEntity.getRandomY(), livingEntity.getRandomZ(1.0), 0, 0, 0);
                 }

@@ -2,17 +2,17 @@
   "type": "tconstruct:material_fluid",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:ingots/ostrum",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/ostrum"
+      }
     }
   ],
   "fluid": {
-    "tag": "forge:molten_ostrum",
-    "amount": 90
+    "amount": 90,
+    "tag": "forge:molten_ostrum"
   },
-  "temperature": 500,
-  "output": "tcintegrations:ostrum"
+  "output": "tcintegrations:ostrum",
+  "temperature": 500
 }

@@ -2,16 +2,16 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
-      "modid": "beyond_earth",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "beyond_earth"
     }
   ],
   "ingredient": {
     "tag": "forge:ingots/desh"
   },
   "result": {
-    "fluid": "beyond_earth:molten_desh",
-    "amount": 90
+    "amount": 90,
+    "fluid": "beyond_earth:molten_desh"
   },
   "temperature": 500,
   "time": 50

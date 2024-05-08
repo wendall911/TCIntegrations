@@ -2,17 +2,17 @@
   "type": "tconstruct:material_melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:ingots/desh",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/desh"
+      }
     }
   ],
   "input": "tcintegrations:desh",
-  "temperature": 500,
   "result": {
-    "fluid": "beyond_earth:molten_desh",
-    "amount": 90
-  }
+    "amount": 90,
+    "fluid": "beyond_earth:molten_desh"
+  },
+  "temperature": 500
 }

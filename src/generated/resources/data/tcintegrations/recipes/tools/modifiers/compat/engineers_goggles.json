@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "create",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "create"
     }
   ],
   "inputs": [
@@ -11,13 +12,12 @@
       "item": "create:goggles"
     }
   ],
+  "level": 1,
+  "result": "tcintegrations:engineers_goggles",
+  "slots": {
+    "abilities": 1
+  },
   "tools": {
     "tag": "tconstruct:modifiable/armor/helmets"
-  },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:engineers_goggles",
-    "level": 1
-  },
-  "max_level": 1
+  }
 }

@@ -2,13 +2,15 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "create",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "create"
     }
   ],
+  "modifier": "tcintegrations:engineers_goggles",
+  "slots": {
+    "abilities": 1
+  },
   "tools": {
     "tag": "tconstruct:modifiable/armor/helmets"
-  },
-  "modifier": "tcintegrations:engineers_goggles",
-  "min_level": 1
+  }
 }

@@ -2,16 +2,15 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "create",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "create"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/melee/primary"
-  },
+  "modifier": "tcintegrations:mechanical_arm",
   "slots": {
     "abilities": 1
   },
-  "modifier": "tcintegrations:mechanical_arm",
-  "min_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/melee/primary"
+  }
 }

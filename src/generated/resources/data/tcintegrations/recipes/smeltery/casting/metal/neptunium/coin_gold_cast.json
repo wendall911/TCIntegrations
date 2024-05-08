@@ -1,27 +1,27 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:coins/neptunium",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "aquaculture",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/multi_use/coin"
   },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:coins/neptunium"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ],
+  "cooling_time": 37,
   "fluid": {
-    "tag": "forge:neptunium",
-    "amount": 30
+    "amount": 30,
+    "tag": "forge:neptunium"
   },
   "result": {
     "tag": "forge:coins/neptunium"
-  },
-  "cooling_time": 37
+  }
 }

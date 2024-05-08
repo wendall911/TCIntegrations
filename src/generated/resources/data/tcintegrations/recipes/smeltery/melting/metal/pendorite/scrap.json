@@ -2,17 +2,17 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
-      "modid": "byg",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "byg"
     }
   ],
   "ingredient": {
     "item": "byg:pendorite_scraps"
   },
   "result": {
-    "fluid": "tcintegrations:pendorite",
-    "amount": 90
+    "amount": 90,
+    "fluid": "tcintegrations:pendorite"
   },
-  "temperature": 1175,
-  "time": 143
+  "temperature": 900,
+  "time": 127
 }

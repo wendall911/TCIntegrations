@@ -1,19 +1,19 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "modid": "ars_nouveau",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/gem"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
+    }
+  ],
+  "cooling_time": 84,
   "fluid": {
-    "tag": "tcintegrations:source_gem",
-    "amount": 100
+    "amount": 100,
+    "tag": "tcintegrations:source_gem"
   },
-  "result": "ars_nouveau:source_gem",
-  "cooling_time": 84
+  "result": "ars_nouveau:source_gem"
 }

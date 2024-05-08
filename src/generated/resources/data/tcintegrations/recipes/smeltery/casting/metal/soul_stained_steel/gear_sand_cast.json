@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:gears/soul_stained_steel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "malum",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/gear"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:gears/soul_stained_steel"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "cooling_time": 130,
   "fluid": {
-    "tag": "forge:soul_stained_steel",
-    "amount": 360
+    "amount": 360,
+    "tag": "forge:soul_stained_steel"
   },
   "result": {
     "tag": "forge:gears/soul_stained_steel"
-  },
-  "cooling_time": 130
+  }
 }

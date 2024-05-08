@@ -2,19 +2,18 @@
   "type": "tconstruct:ore_melting",
   "conditions": [
     {
+      "type": "tconstruct:tag_intersection_present",
       "registry": "minecraft:item",
       "tags": [
         "forge:ores/cloggrum",
         "forge:ore_rates/dense"
-      ],
-      "type": "tconstruct:tag_intersection_present"
+      ]
     },
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
-  "rate": "metal",
   "ingredient": {
     "type": "forge:intersection",
     "children": [
@@ -26,9 +25,10 @@
       }
     ]
   },
+  "rate": "metal",
   "result": {
-    "fluid": "tcintegrations:cloggrum",
-    "amount": 540
+    "amount": 540,
+    "fluid": "tcintegrations:cloggrum"
   },
   "temperature": 900,
   "time": 285

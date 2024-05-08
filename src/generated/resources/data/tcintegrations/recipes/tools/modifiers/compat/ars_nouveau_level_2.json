@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": false,
   "conditions": [
     {
-      "modid": "ars_nouveau",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
     }
   ],
   "inputs": [
@@ -23,21 +24,12 @@
       "item": "ars_nouveau:blaze_fiber"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor"
-  },
+  "level": 2,
+  "result": "tcintegrations:ars_nouveau",
   "slots": {
     "upgrades": 1
   },
-  "requirements": {
-    "name": "tcintegrations:ars_nouveau",
-    "level": 1,
-    "error": "recipe.tcintegrations.modifier.ars_nouveau.level_2"
-  },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:ars_nouveau",
-    "level": 1
-  },
-  "max_level": 2
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  }
 }

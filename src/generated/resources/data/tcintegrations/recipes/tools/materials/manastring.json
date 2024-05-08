@@ -2,14 +2,14 @@
   "type": "tconstruct:material",
   "conditions": [
     {
-      "modid": "botania",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "botania"
     }
   ],
   "ingredient": {
     "item": "botania:mana_string"
   },
-  "value": 1,
+  "material": "tcintegrations:manastring",
   "needed": 1,
-  "material": "tcintegrations:manastring"
+  "value": 1
 }

@@ -1,27 +1,27 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:rods/pendorite_alloy",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "byg",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/multi_use/rod"
   },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:rods/pendorite_alloy"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "byg"
+    }
+  ],
+  "cooling_time": 45,
   "fluid": {
-    "tag": "forge:pendorite_alloy",
-    "amount": 45
+    "amount": 45,
+    "tag": "forge:pendorite_alloy"
   },
   "result": {
     "tag": "forge:rods/pendorite_alloy"
-  },
-  "cooling_time": 52
+  }
 }

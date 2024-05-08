@@ -29,7 +29,7 @@ issueTrackerURL="${issue_tracker}"
 [[dependencies.tcintegrations]]
     modId="tconstruct"
     mandatory=true
-    versionRange="[0,]"
+    versionRange="${tic_version_range}"
     ordering="AFTER"
     side="BOTH"
 [[dependencies.tcintegrations]]

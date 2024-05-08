@@ -1,7 +1,7 @@
 package tcintegrations.common.capabilities;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -58,7 +58,7 @@ public class BotaniaSet {
     }
 
     public static class Provider implements ICapabilitySerializable<Tag> {
-        @Nonnull
+        @NotNull
         private final BotaniaSet instance;
 
         private final LazyOptional<BotaniaSet> handler;
@@ -68,9 +68,9 @@ public class BotaniaSet {
             handler = LazyOptional.of(this::getInstance);
         }
 
-        @Nonnull
+        @NotNull
         @Override
-        public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction side) {
+        public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
             if (cap == null) return LazyOptional.empty();
 
             return CapabilityRegistry.BOTANIA_SET_CAPABILITY.orEmpty(cap, handler);

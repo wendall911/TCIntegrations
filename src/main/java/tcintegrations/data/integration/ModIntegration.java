@@ -1,24 +1,23 @@
 package tcintegrations.data.integration;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.material.Material;
 
-import net.minecraftforge.fluids.FluidAttributes;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.ModList;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
 
-import slimeknights.mantle.registration.ModelFluidAttributes;
-import slimeknights.mantle.registration.object.FluidObject;
+import slimeknights.mantle.registration.object.FlowingFluidObject;
 
 import tcintegrations.common.CreativeTabs;
 import tcintegrations.common.TCIntegrationsModule;
+
+import static tcintegrations.items.TCIntegrationsItems.hot;
 
 public final class ModIntegration extends TCIntegrationsModule {
 
@@ -40,18 +39,18 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
     public static Item BEYOND_EARTH_CHEESE;
 
-    public static FluidObject<ForgeFlowingFluid> MOLTEN_DESH;
-    public static FluidObject<ForgeFlowingFluid> MOLTEN_OSTRUM;
-    public static FluidObject<ForgeFlowingFluid> MOLTEN_CALORITE;
+    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_DESH;
+    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_OSTRUM;
+    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_CALORITE;
 
     public static RegistryObject<MobEffect> OXYGEN_EFFECT;
 
-    public static IForgeRegistry<Item> ITEM_REGISTRY;
+    public static RegisterEvent.RegisterHelper<Item> ITEM_REGISTRY;
 
-    public static void init(IForgeRegistry<Item> registry) {
+    public static void init(RegisterEvent.RegisterHelper<Item> registryHelper) {
         String dataGen = System.getenv("DATA_GEN");
 
-        ITEM_REGISTRY = registry;
+        ITEM_REGISTRY = registryHelper;
 
         if (dataGen != null && dataGen.contains("all")) {
             BOTANIA_LIVINGWOOD_PLANKS = registerItem(botaniaLoc("livingwood_planks"));
@@ -64,13 +63,17 @@ public final class ModIntegration extends TCIntegrationsModule {
         String dataGen = System.getenv("DATA_GEN");
 
         if (dataGen != null && dataGen.contains("all")) {
-            MOLTEN_DESH = BEYOND_EARTH_FLUID_REGISTRY.register("molten_desh", hotBuilder().temperature(800), Material.LAVA, 12);
-            MOLTEN_OSTRUM = BEYOND_EARTH_FLUID_REGISTRY.register("molten_ostrum", hotBuilder().temperature(800), Material.LAVA, 12);
-            MOLTEN_CALORITE = BEYOND_EARTH_FLUID_REGISTRY.register("molten_calorite", hotBuilder().temperature(800), Material.LAVA, 12);
+            MOLTEN_DESH = BEYOND_EARTH_FLUID_REGISTRY.register("molten_desh").type(hot("molten_desh")
+                    .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
+            MOLTEN_OSTRUM = BEYOND_EARTH_FLUID_REGISTRY.register("molten_ostrum").type(hot("molten_ostrum")
+                    .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
+            MOLTEN_CALORITE = BEYOND_EARTH_FLUID_REGISTRY.register("molten_calorite").type(hot("molten_calorite")
+                    .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
         }
 
         if (ModList.get().isLoaded(ModIntegration.BEYOND_EARTH_MODID)) {
-            OXYGEN_EFFECT = BEYOND_EARTH_EFFECTS_REGISTRY.register("oxygen_bubble_effect", () -> new OxygenEffect(MobEffectCategory.BENEFICIAL, 3035801));
+            OXYGEN_EFFECT = BEYOND_EARTH_EFFECTS_REGISTRY.register(
+                    "oxygen_bubble_effect", () -> new OxygenEffect(MobEffectCategory.BENEFICIAL, 3035801));
         }
     }
 
@@ -88,9 +91,9 @@ public final class ModIntegration extends TCIntegrationsModule {
     }
 
     private static Item registerItem(ResourceLocation loc) {
-        Item item = (new Item(new Item.Properties().tab(CreativeTabs.INTEGRATION_TAB_GROUP))).setRegistryName(loc);
+        Item item = (new Item(new Item.Properties().tab(CreativeTabs.INTEGRATION_TAB_GROUP)));
 
-        ITEM_REGISTRY.register(item);
+        ITEM_REGISTRY.register(loc, item);
 
         return item;
     }
@@ -111,16 +114,8 @@ public final class ModIntegration extends TCIntegrationsModule {
         return getLoc(BYG_MODID, name);
     }
 
-    public static ResourceLocation mbLoc(String name) {
-        return getLoc(MYTHIC_BOTANY_MODID, name);
-    }
-
     private static ResourceLocation getLoc(String modid, String name) {
         return new ResourceLocation(modid, name);
-    }
-
-    private static FluidAttributes.Builder hotBuilder() {
-        return ModelFluidAttributes.builder().density(2000).viscosity(10000).temperature(1000).sound(SoundEvents.BUCKET_FILL_LAVA, SoundEvents.BUCKET_EMPTY_LAVA);
     }
 
 }

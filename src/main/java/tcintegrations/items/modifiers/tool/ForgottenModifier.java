@@ -1,13 +1,15 @@
 package tcintegrations.items.modifiers.tool;
 
 import java.util.List;
+import java.util.Objects;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
+
+import net.minecraftforge.registries.ForgeRegistries;
 
 import net.minecraft.Util;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 
@@ -16,23 +18,36 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
+import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.display.TooltipModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import tcintegrations.TCIntegrations;
 import tcintegrations.data.integration.ModIntegration;
 
-public class ForgottenModifier extends NoLevelsModifier {
+public class ForgottenModifier extends NoLevelsModifier implements MeleeDamageModifierHook, BreakSpeedModifierHook, TooltipModifierHook {
 
-    private static final Component MINING_SPEED = new TranslatableComponent(
+    private static final Component MINING_SPEED = Component.translatable(
             Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "forgotten.mining_speed")));
-    private static final Component ATTACK_INCREASE = new TranslatableComponent(
+    private static final Component ATTACK_INCREASE = Component.translatable(
             Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "forgotten.attack_increase")));
 
     @Override
-    public float getEntityDamage(IToolStackView tool, int level, ToolAttackContext context, float baseDamage, float damage) {
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.MELEE_DAMAGE, TinkerHooks.BREAK_SPEED, TinkerHooks.TOOLTIP);
+    }
+
+    @Override
+    public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         LivingEntity target = context.getLivingTarget();
 
         if (target != null) {
@@ -48,31 +63,31 @@ public class ForgottenModifier extends NoLevelsModifier {
     }
 
     @Override
-    public void onBreakSpeed(IToolStackView tool, int level, PlayerEvent.BreakSpeed event, Direction sideHit, boolean isEffective, float miningSpeedModifier) {
+    public void onBreakSpeed(IToolStackView tool, ModifierEntry modifier, PlayerEvent.BreakSpeed event, Direction sideHit, boolean isEffective, float miningSpeedModifier) {
         BlockState state = event.getState();
 
-        if (tool.hasTag(TinkerTags.Items.HARVEST) && isEffective && state != null && isUndergarden(state, event.getEntityLiving())) {
+        if (tool.hasTag(TinkerTags.Items.HARVEST) && isEffective && state != null && isUndergarden(state, event.getEntity())) {
             event.setNewSpeed(event.getOriginalSpeed() * 1.5F);
         }
     }
 
     @Override
-    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, slimeknights.tconstruct.library.utils.TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
+    public void addTooltip(IToolStackView tool, ModifierEntry modifier, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
         BlockState state = player != null ? player.level.getBlockState(player.getOnPos()) : null;
 
         if (state != null && isUndergarden(state, player)) {
             if (tool.hasTag(TinkerTags.Items.HARVEST)) {
-                addPercentTooltip(MINING_SPEED, 0.5F, tooltip);
+                TooltipModifierHook.addPercentBoost(modifier.getModifier(), MINING_SPEED, 0.5F, tooltip);
             }
 
             if (tool.hasTag(TinkerTags.Items.MELEE)) {
-                addPercentTooltip(ATTACK_INCREASE, 0.5F, tooltip);
+                TooltipModifierHook.addPercentBoost(modifier.getModifier(), ATTACK_INCREASE, 0.5F, tooltip);
             }
         }
     }
 
     private boolean isUndergarden(BlockState state, LivingEntity livingEntity) {
-        return state.getBlock().getRegistryName().getNamespace().equals(ModIntegration.UNDERGARDEN_MODID) && livingEntity.canChangeDimensions();
+        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(state.getBlock())).getNamespace().equals(ModIntegration.UNDERGARDEN_MODID) && livingEntity.canChangeDimensions();
     }
 
 }

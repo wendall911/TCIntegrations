@@ -1,11 +1,12 @@
 package tcintegrations.items.modifiers.armor;
 
+import org.jetbrains.annotations.NotNull;
+
 import mythicbotany.config.MythicConfig;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -21,24 +22,28 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.network.PacketDistributor;
 
-import org.jetbrains.annotations.NotNull;
-
 import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.armor.EquipmentChangeModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
-import tcintegrations.items.modifiers.hooks.IArmorJumpModifier;
 import vazkii.botania.api.mana.ManaItemHandler;
 
 import tcintegrations.common.capabilities.CapabilityRegistry;
+import tcintegrations.items.modifiers.hooks.IArmorJumpModifier;
+import tcintegrations.items.TCIntegrationHooks;
 import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.network.BotaniaSetData;
 import tcintegrations.network.NetworkHandler;
 import tcintegrations.util.BotaniaClientHelper;
 import tcintegrations.util.BotaniaHelper;
 
-public class AlfheimModifier extends Modifier implements IArmorJumpModifier {
+public class AlfheimModifier extends Modifier implements IArmorJumpModifier, EquipmentChangeModifierHook, InventoryTickModifierHook {
 
     private static final int MANA_PER_DAMAGE = 110;
 
@@ -69,6 +74,11 @@ public class AlfheimModifier extends Modifier implements IArmorJumpModifier {
             MythicConfig.alftools.speed_modifier,
             AttributeModifier.Operation.ADDITION
     );
+    @Override
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TCIntegrationHooks.JUMP, TinkerHooks.EQUIPMENT_CHANGE, TinkerHooks.INVENTORY_TICK);
+    }
 
     public int getManaPerDamage(ServerPlayer sp) {
         return BotaniaHelper.getManaPerDamageBonus(sp, MANA_PER_DAMAGE);
@@ -76,7 +86,7 @@ public class AlfheimModifier extends Modifier implements IArmorJumpModifier {
 
     @Override
     public @NotNull Component getDisplayName(int level) {
-        return applyStyle(new TranslatableComponent(getTranslationKey()));
+        return applyStyle(Component.translatable(getTranslationKey()));
     }
 
     @Override
@@ -90,7 +100,7 @@ public class AlfheimModifier extends Modifier implements IArmorJumpModifier {
     }
 
     @Override
-    public void onEquip(IToolStackView tool, int level, EquipmentChangeContext context) {
+    public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level.isClientSide) {
@@ -116,7 +126,7 @@ public class AlfheimModifier extends Modifier implements IArmorJumpModifier {
     }
 
     @Override
-    public void onUnequip(IToolStackView tool, int level, EquipmentChangeContext context) {
+    public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level.isClientSide) {
@@ -136,7 +146,7 @@ public class AlfheimModifier extends Modifier implements IArmorJumpModifier {
     }
 
     @Override
-    public void onInventoryTick(IToolStackView tool, int level, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
+    public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         final Player player = holder instanceof Player ? (Player) holder : null;
 
         if (player != null && !player.level.isClientSide) {

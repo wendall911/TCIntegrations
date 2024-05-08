@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:nuggets/soul_stained_steel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "malum",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/nugget"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:nuggets/soul_stained_steel"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "cooling_time": 22,
   "fluid": {
-    "tag": "forge:soul_stained_steel",
-    "amount": 10
+    "amount": 10,
+    "tag": "forge:soul_stained_steel"
   },
   "result": {
     "tag": "forge:nuggets/soul_stained_steel"
-  },
-  "cooling_time": 22
+  }
 }

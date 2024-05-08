@@ -1,17 +1,27 @@
 package tcintegrations.items.modifiers.traits;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.behavior.ToolDamageModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import tcintegrations.TCIntegrations;
 
-public class WaterPowered extends NoLevelsModifier {
+public class WaterPowered extends NoLevelsModifier implements ToolDamageModifierHook {
+
+    @Override
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.TOOL_DAMAGE);
+    }
 
     @Override
     public int getPriority() {
@@ -19,7 +29,7 @@ public class WaterPowered extends NoLevelsModifier {
     }
 
     @Override
-    public int onDamageTool(IToolStackView tool, int level, int amount, @Nullable LivingEntity holder) {
+    public int onDamageTool(IToolStackView tool, ModifierEntry modifier, int amount, @Nullable LivingEntity holder) {
         final Player player = holder instanceof Player ? (Player) holder : null;
 
         if (player != null && !player.level.isClientSide) {

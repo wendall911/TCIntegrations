@@ -2,13 +2,15 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "mythicbotany",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "mythicbotany"
     }
   ],
+  "modifier": "tcintegrations:alf",
+  "slots": {
+    "upgrades": 1
+  },
   "tools": {
     "tag": "tconstruct:modifiable/melee/primary"
-  },
-  "modifier": "tcintegrations:alf",
-  "min_level": 1
+  }
 }

@@ -2,21 +2,21 @@
   "type": "tconstruct:material",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:nuggets/soul_stained_steel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:nuggets/soul_stained_steel"
+      }
     },
     {
-      "modid": "malum",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "malum"
     }
   ],
   "ingredient": {
     "tag": "forge:nuggets/soul_stained_steel"
   },
-  "value": 1,
+  "material": "tcintegrations:soul_stained_steel",
   "needed": 9,
-  "material": "tcintegrations:soul_stained_steel"
+  "value": 1
 }

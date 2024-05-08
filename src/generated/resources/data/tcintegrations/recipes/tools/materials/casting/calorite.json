@@ -2,17 +2,17 @@
   "type": "tconstruct:material_fluid",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:ingots/calorite",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/calorite"
+      }
     }
   ],
   "fluid": {
-    "tag": "forge:molten_calorite",
-    "amount": 90
+    "amount": 90,
+    "tag": "forge:molten_calorite"
   },
-  "temperature": 500,
-  "output": "tcintegrations:calorite"
+  "output": "tcintegrations:calorite",
+  "temperature": 500
 }

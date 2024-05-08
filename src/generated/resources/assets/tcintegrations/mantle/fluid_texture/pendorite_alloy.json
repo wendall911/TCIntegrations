@@ -1,0 +1,5 @@
+{
+  "color": "FFFFFFFF",
+  "flowing": "tcintegrations:fluid/molten/compat_alloy/pendorite_alloy/flowing",
+  "still": "tcintegrations:fluid/molten/compat_alloy/pendorite_alloy/still"
+}

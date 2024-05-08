@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:coins/froststeel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:coins/froststeel"
+      }
     },
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
   "ingredient": {
     "tag": "forge:coins/froststeel"
   },
   "result": {
-    "fluid": "tcintegrations:froststeel",
-    "amount": 30
+    "amount": 30,
+    "fluid": "tcintegrations:froststeel"
   },
   "temperature": 900,
   "time": 42

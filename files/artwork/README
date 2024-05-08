@@ -1,0 +1,8 @@
+All Fluid Texture ptex files are derived from:
+https://github.com/SlimeKnights/TinkersConstruct/tree/1.19.2/project_files/material_maker
+
+Get material maker here: https://github.com/RodZill4/material-maker
+
+Export Settings
+Flowing: 32x32 0 4 39 1 column spritesheet
+Still: 16x16 0 5 49 1 column spritesheet

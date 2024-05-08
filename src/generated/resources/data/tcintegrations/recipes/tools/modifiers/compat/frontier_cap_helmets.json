@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "alexsmobs",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "alexsmobs"
     }
   ],
   "inputs": [
@@ -23,16 +24,14 @@
       "item": "alexsmobs:raccoon_tail"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor/helmets"
+  "level": {
+    "max": 3
   },
+  "result": "tcintegrations:frontier_cap",
   "slots": {
     "upgrades": 1
   },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:frontier_cap",
-    "level": 1
-  },
-  "max_level": 3
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/helmets"
+  }
 }

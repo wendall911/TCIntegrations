@@ -1,9 +1,10 @@
 package tcintegrations.items.modifiers.armor;
 
+import org.jetbrains.annotations.NotNull;
+
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -13,9 +14,12 @@ import net.minecraft.world.level.Level;
 
 import net.minecraftforge.network.PacketDistributor;
 
-import org.jetbrains.annotations.NotNull;
-
 import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.armor.EquipmentChangeModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
@@ -29,9 +33,15 @@ import tcintegrations.network.NetworkHandler;
 import tcintegrations.util.BotaniaClientHelper;
 import tcintegrations.util.BotaniaHelper;
 
-public class TerrestrialModifier extends Modifier {
+public class TerrestrialModifier extends Modifier implements InventoryTickModifierHook, EquipmentChangeModifierHook {
 
     private static final int MANA_PER_DAMAGE = 70;
+
+    @Override
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.INVENTORY_TICK, TinkerHooks.EQUIPMENT_CHANGE);
+    }
 
     public int getManaPerDamage(ServerPlayer sp) {
         return BotaniaHelper.getManaPerDamageBonus(sp, MANA_PER_DAMAGE);
@@ -39,7 +49,7 @@ public class TerrestrialModifier extends Modifier {
 
     @Override
     public @NotNull Component getDisplayName(int level) {
-        return applyStyle(new TranslatableComponent(getTranslationKey()));
+        return applyStyle(Component.translatable(getTranslationKey()));
     }
 
     @Override
@@ -53,7 +63,7 @@ public class TerrestrialModifier extends Modifier {
     }
 
     @Override
-    public void onEquip(IToolStackView tool, int level, EquipmentChangeContext context) {
+    public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level.isClientSide) {
@@ -77,7 +87,7 @@ public class TerrestrialModifier extends Modifier {
     }
 
     @Override
-    public void onUnequip(IToolStackView tool, int level, EquipmentChangeContext context) {
+    public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level.isClientSide) {
@@ -95,7 +105,7 @@ public class TerrestrialModifier extends Modifier {
     }
 
     @Override
-    public void onInventoryTick(IToolStackView tool, int level, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
+    public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         final Player player = holder instanceof Player ? (Player) holder : null;
 
         if (player != null && !player.level.isClientSide) {

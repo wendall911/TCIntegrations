@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "iceandfire",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
     }
   ],
   "inputs": [
@@ -20,16 +21,12 @@
       "item": "iceandfire:ghost_ingot"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/melee/sword"
-  },
+  "level": 1,
+  "result": "tcintegrations:phantasmal",
   "slots": {
     "upgrades": 1
   },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:phantasmal",
-    "level": 1
-  },
-  "max_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/melee/sword"
+  }
 }

@@ -1,8 +1,8 @@
 {
   "default": [
     {
-      "name": "tcintegrations:water_powered",
-      "level": 1
+      "level": 1,
+      "name": "tcintegrations:water_powered"
     }
   ]
 }

@@ -2,19 +2,18 @@
   "type": "tconstruct:ore_melting",
   "conditions": [
     {
+      "type": "tconstruct:tag_intersection_present",
       "registry": "minecraft:item",
       "tags": [
         "forge:ores/ostrum",
         "forge:ore_rates/dense"
-      ],
-      "type": "tconstruct:tag_intersection_present"
+      ]
     },
     {
-      "modid": "beyond_earth",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "beyond_earth"
     }
   ],
-  "rate": "metal",
   "ingredient": {
     "type": "forge:intersection",
     "children": [
@@ -26,9 +25,10 @@
       }
     ]
   },
+  "rate": "metal",
   "result": {
-    "fluid": "beyond_earth:molten_ostrum",
-    "amount": 540
+    "amount": 540,
+    "fluid": "beyond_earth:molten_ostrum"
   },
   "temperature": 500,
   "time": 225

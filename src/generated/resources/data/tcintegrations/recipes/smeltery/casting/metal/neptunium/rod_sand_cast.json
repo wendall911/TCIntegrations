@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:rods/neptunium",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "aquaculture",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/rod"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:rods/neptunium"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ],
+  "cooling_time": 46,
   "fluid": {
-    "tag": "forge:neptunium",
-    "amount": 45
+    "amount": 45,
+    "tag": "forge:neptunium"
   },
   "result": {
     "tag": "forge:rods/neptunium"
-  },
-  "cooling_time": 46
+  }
 }

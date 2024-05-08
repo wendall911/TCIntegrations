@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:rods/froststeel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/rod"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:rods/froststeel"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "cooling_time": 45,
   "fluid": {
-    "tag": "forge:froststeel",
-    "amount": 45
+    "amount": 45,
+    "tag": "forge:froststeel"
   },
   "result": {
     "tag": "forge:rods/froststeel"
-  },
-  "cooling_time": 45
+  }
 }

@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:nuggets/forgotten",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/nugget"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:nuggets/forgotten"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "cooling_time": 21,
   "fluid": {
-    "tag": "forge:forgotten",
-    "amount": 10
+    "amount": 10,
+    "tag": "forge:forgotten"
   },
   "result": {
     "tag": "forge:nuggets/forgotten"
-  },
-  "cooling_time": 21
+  }
 }

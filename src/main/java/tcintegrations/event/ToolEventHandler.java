@@ -23,9 +23,9 @@ import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import tcintegrations.TCIntegrations;
 import tcintegrations.data.integration.ModIntegration;
+import tcintegrations.items.TCIntegrationHooks;
 import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.items.modifiers.hooks.IArmorCrouchModifier;
-import tcintegrations.items.modifiers.hooks.IArmorJumpModifier;
 import tcintegrations.network.LaunchGhostSword;
 import tcintegrations.network.NetworkHandler;
 
@@ -35,8 +35,8 @@ public class ToolEventHandler {
     private static final TinkerDataCapability.ComputableDataKey<LastTick> LAST_TICK = createKey("last_tick", LastTick::new);
 
     @SubscribeEvent
-    static void onLivingUpdate(LivingEvent.LivingUpdateEvent event) {
-        LivingEntity living = event.getEntityLiving();
+    static void onLivingUpdate(LivingEvent.LivingTickEvent event) {
+        LivingEntity living = event.getEntity();
 
         if (!living.isSpectator() && !living.level.isClientSide() && living.isAlive()) {
             ItemStack helmet = living.getItemBySlot(EquipmentSlot.HEAD);
@@ -45,15 +45,13 @@ public class ToolEventHandler {
                 ToolStack tool = ToolStack.from(helmet);
 
                 for (ModifierEntry entry : tool.getModifierList()) {
-                    IArmorCrouchModifier crouchModifier = entry.getModifier().getModule(IArmorCrouchModifier.class);
+                    IArmorCrouchModifier crouchModifier = entry.getHook(TCIntegrationHooks.CROUCH);
 
-                    if (crouchModifier != null) {
-                        if (living.isCrouching() || living.isVisuallySwimming()) {
-                            crouchModifier.onCrouch(tool, entry.getLevel(), living);
-                        }
-                        else {
-                            crouchModifier.onStand(living);
-                        }
+                    if (living.isCrouching() || living.isVisuallySwimming()) {
+                        crouchModifier.onCrouch(tool, entry.getLevel(), living);
+                    }
+                    else {
+                        crouchModifier.onStand(living);
                     }
                 }
             }
@@ -62,7 +60,7 @@ public class ToolEventHandler {
 
     @SubscribeEvent
     static void onLivingJump(LivingEvent.LivingJumpEvent event) {
-        LivingEntity living = event.getEntityLiving();
+        LivingEntity living = event.getEntity();
 
         if (!living.isSpectator() && !living.level.isClientSide() && living.isAlive()) {
             ItemStack boots = living.getItemBySlot(EquipmentSlot.FEET);
@@ -71,11 +69,7 @@ public class ToolEventHandler {
                 ToolStack tool = ToolStack.from(boots);
 
                 for (ModifierEntry entry : tool.getModifierList()) {
-                    IArmorJumpModifier jumpModifier = entry.getModifier().getModule(IArmorJumpModifier.class);
-
-                    if (jumpModifier != null) {
-                        jumpModifier.onJump(tool, living);
-                    }
+                    entry.getHook(TCIntegrationHooks.JUMP).onJump(tool, living);
                 }
             }
         }
@@ -84,7 +78,7 @@ public class ToolEventHandler {
 
     @SubscribeEvent
     static void onLeftClick(PlayerInteractEvent.LeftClickEmpty event) {
-        final Player player = event.getEntity() instanceof Player ? (Player) event.getEntity() : null;
+        final Player player = event.getEntity() != null ? event.getEntity() : null;
 
         if (player != null) {
             if (player.getCapability(TinkerDataCapability.CAPABILITY).filter(data -> data.computeIfAbsent(LAST_TICK).update(player)).isEmpty()) {

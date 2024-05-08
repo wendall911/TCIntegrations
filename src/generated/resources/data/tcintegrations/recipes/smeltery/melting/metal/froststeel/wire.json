@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:wires/froststeel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:wires/froststeel"
+      }
     },
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
   "ingredient": {
     "tag": "forge:wires/froststeel"
   },
   "result": {
-    "fluid": "tcintegrations:froststeel",
-    "amount": 45
+    "amount": 45,
+    "fluid": "tcintegrations:froststeel"
   },
   "temperature": 900,
   "time": 13

@@ -2,16 +2,15 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "alexsmobs",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "alexsmobs"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor/boots"
-  },
+  "modifier": "tcintegrations:bison_fur",
   "slots": {
     "abilities": 1
   },
-  "modifier": "tcintegrations:bison_fur",
-  "min_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/boots"
+  }
 }

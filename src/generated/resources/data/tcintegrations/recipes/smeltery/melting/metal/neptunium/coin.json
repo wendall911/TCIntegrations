@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:coins/neptunium",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:coins/neptunium"
+      }
     },
     {
-      "modid": "aquaculture",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
     }
   ],
   "ingredient": {
     "tag": "forge:coins/neptunium"
   },
   "result": {
-    "fluid": "tcintegrations:neptunium",
-    "amount": 30
+    "amount": 30,
+    "fluid": "tcintegrations:neptunium"
   },
   "temperature": 950,
   "time": 43

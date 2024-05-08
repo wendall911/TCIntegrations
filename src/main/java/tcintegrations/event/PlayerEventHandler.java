@@ -3,7 +3,7 @@ package tcintegrations.event;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
@@ -19,7 +19,7 @@ import tcintegrations.TCIntegrations;
 public class PlayerEventHandler {
 
     @SubscribeEvent
-    public static void onEntityJoinWorld(EntityJoinWorldEvent event) {
+    public static void onEntityJoinWorld(EntityJoinLevelEvent event) {
         final Player player = event.getEntity() instanceof Player ? (Player) event.getEntity() : null;
 
         if (player != null && !player.level.isClientSide) {

@@ -3,7 +3,6 @@ package tcintegrations.items.modifiers.traits;
 import java.util.List;
 import java.util.UUID;
 
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import org.jetbrains.annotations.Nullable;
 
 import com.sammy.malum.common.capability.MalumLivingEntityDataCapability;
@@ -11,7 +10,6 @@ import com.sammy.malum.registry.common.AttributeRegistry;
 
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
@@ -25,10 +23,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.phys.EntityHitResult;
 
+import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.TinkerHooks;
-import slimeknights.tconstruct.library.modifiers.hook.ProjectileHitModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.armor.EquipmentChangeModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.display.TooltipModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap.Builder;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
@@ -38,11 +40,11 @@ import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 import slimeknights.tconstruct.library.tools.nbt.NamespacedNBT;
 import slimeknights.tconstruct.tools.TinkerTools;
 
-import team.lodestar.lodestone.setup.LodestoneAttributeRegistry;
+import team.lodestar.lodestone.registry.common.LodestoneAttributeRegistry;
 
 import tcintegrations.TCIntegrations;
 
-public class SoulStained extends NoLevelsModifier implements ProjectileHitModifierHook {
+public class SoulStained extends NoLevelsModifier implements ProjectileHitModifierHook, EquipmentChangeModifierHook, MeleeHitModifierHook, TooltipModifierHook {
 
     private static final AttributeModifier HELMET_MAGIC_RESISTANCE = new AttributeModifier(
             ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.HEAD.getIndex()],
@@ -128,22 +130,23 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
             2,
             AttributeModifier.Operation.ADDITION
     );
-    private static final Component MAGIC_RESISTANCE = new TranslatableComponent(
+    private static final Component MAGIC_RESISTANCE = Component.translatable(
             Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.magic_resistance")));
-    private static final Component SOUL_WARD_CAPACITY = new TranslatableComponent(
+    private static final Component SOUL_WARD_CAPACITY = Component.translatable(
             Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.soul_ward_capacity")));
-    private static final Component PRIMARY_MAGIC_DAMAGE = new TranslatableComponent(
+    private static final Component PRIMARY_MAGIC_DAMAGE = Component.translatable(
             Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.primary_magic_damage")));
-    private static final Component OFFHAND_MAGIC_DAMAGE = new TranslatableComponent(
+    private static final Component OFFHAND_MAGIC_DAMAGE = Component.translatable(
             Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.offhand_magic_damage")));
 
     @Override
-    protected void registerHooks(Builder builder) {
-        builder.addHook(this, TinkerHooks.PROJECTILE_HIT);
+    protected void registerHooks(Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.PROJECTILE_HIT, TinkerHooks.EQUIPMENT_CHANGE, TinkerHooks.MELEE_HIT, TinkerHooks.TOOLTIP);
     }
 
     @Override
-    public void onEquip(IToolStackView tool, int level, EquipmentChangeContext context) {
+    public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level.isClientSide) {
@@ -154,7 +157,7 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     }
 
     @Override
-    public void onUnequip(IToolStackView tool, int level, EquipmentChangeContext context) {
+    public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level.isClientSide) {
@@ -165,10 +168,10 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     }
 
     @Override
-    public float beforeEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
+    public float beforeMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
         applyExposedSoulDuration(context.getLivingTarget());
 
-        return super.beforeEntityHit(tool, level, context, damage, baseKnockback, knockback);
+        return MeleeHitModifierHook.super.beforeMeleeHit(tool, modifier, context, damage, baseKnockback, knockback);
     }
 
     @Override
@@ -187,7 +190,7 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     }
 
     @Override
-    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, slimeknights.tconstruct.library.utils.TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
+    public void addTooltip(IToolStackView tool, ModifierEntry modifier, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
         double magicResistance = 0.0;
         double soulWardCap = 0.0;
         double primaryMagicDamage = 0.0;
@@ -225,16 +228,16 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
         }
 
         if (magicResistance != 0.0) {
-            addFlatBoost(MAGIC_RESISTANCE, magicResistance, tooltip);
+            TooltipModifierHook.addFlatBoost(modifier.getModifier(), MAGIC_RESISTANCE, magicResistance, tooltip);
         }
         if (soulWardCap != 0.0) {
-            addFlatBoost(SOUL_WARD_CAPACITY, soulWardCap, tooltip);
+            TooltipModifierHook.addFlatBoost(modifier.getModifier(), SOUL_WARD_CAPACITY, soulWardCap, tooltip);
         }
         if (primaryMagicDamage != 0.0) {
-            addFlatBoost(PRIMARY_MAGIC_DAMAGE, primaryMagicDamage, tooltip);
+            TooltipModifierHook.addFlatBoost(modifier.getModifier(), PRIMARY_MAGIC_DAMAGE, primaryMagicDamage, tooltip);
         }
         if (offhandMagicDamage != 0.0) {
-            addFlatBoost(OFFHAND_MAGIC_DAMAGE, offhandMagicDamage, tooltip);
+            TooltipModifierHook.addFlatBoost(modifier.getModifier(), OFFHAND_MAGIC_DAMAGE, offhandMagicDamage, tooltip);
         }
     }
 

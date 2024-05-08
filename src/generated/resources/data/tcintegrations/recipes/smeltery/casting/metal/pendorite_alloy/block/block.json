@@ -2,14 +2,14 @@
   "type": "tconstruct:casting_basin",
   "conditions": [
     {
-      "modid": "byg",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "byg"
     }
   ],
+  "cooling_time": 190,
   "fluid": {
-    "tag": "tcintegrations:pendorite_alloy",
-    "amount": 810
+    "amount": 810,
+    "tag": "tcintegrations:pendorite_alloy"
   },
-  "result": "byg:pendorite_block",
-  "cooling_time": 221
+  "result": "byg:pendorite_block"
 }

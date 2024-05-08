@@ -1,7 +1,8 @@
 package tcintegrations.items.modifiers.traits;
 
-import javax.annotation.Nullable;
 import java.util.Optional;
+
+import org.jetbrains.annotations.Nullable;
 
 import mekanism.api.Action;
 import mekanism.api.energy.IStrictEnergyHandler;
@@ -13,18 +14,29 @@ import mekanism.common.integration.energy.EnergyCompatUtils;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.ItemStack;
 
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.IItemHandler;
 
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.mining.BlockBreakModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-public class KineticModifier extends NoLevelsModifier {
+public class KineticModifier extends NoLevelsModifier implements MeleeHitModifierHook, BlockBreakModifierHook {
 
     @Override
-    public void failedEntityHit(IToolStackView tool, int level, ToolAttackContext context) {
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.MELEE_HIT, TinkerHooks.BLOCK_BREAK);
+    }
+
+    @Override
+    public void failedMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageAttempted) {
         final ServerPlayer sp = (ServerPlayer) context.getPlayerAttacker();
 
         if (sp != null) {
@@ -33,18 +45,16 @@ public class KineticModifier extends NoLevelsModifier {
     }
 
     @Override
-    public int afterEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damageDealt) {
+    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         final ServerPlayer sp = (ServerPlayer) context.getPlayerAttacker();
 
         if (sp != null) {
             chargeInventoryItem(sp);
         }
-
-        return 0;
     }
 
     @Override
-    public void afterBlockBreak(IToolStackView tool, int level, ToolHarvestContext context) {
+    public void afterBlockBreak(IToolStackView tool, ModifierEntry modifier, ToolHarvestContext context) {
         final ServerPlayer sp = context.getPlayer();
 
         if (sp != null && !sp.level.isClientSide) {
@@ -53,7 +63,7 @@ public class KineticModifier extends NoLevelsModifier {
     }
 
     private void chargeInventoryItem(ServerPlayer sp) {
-        Optional<IItemHandler> itemHandlerCap = sp.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).resolve();
+        Optional<IItemHandler> itemHandlerCap = sp.getCapability(ForgeCapabilities.ITEM_HANDLER).resolve();
 
         if (!chargeHandler(itemHandlerCap) && Mekanism.hooks.CuriosLoaded) {
             chargeHandler(CuriosIntegration.getCuriosInventory(sp));

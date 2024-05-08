@@ -2,17 +2,18 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "ars_nouveau",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor"
+  "level": {
+    "min": 3
   },
+  "modifier": "tcintegrations:ars_nouveau",
   "slots": {
     "upgrades": 1
   },
-  "modifier": "tcintegrations:ars_nouveau",
-  "min_level": 3,
-  "max_level": 3
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  }
 }

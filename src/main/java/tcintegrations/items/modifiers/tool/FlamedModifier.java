@@ -14,8 +14,9 @@ import net.minecraft.world.phys.Vec3;
 
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.TinkerHooks;
-import slimeknights.tconstruct.library.modifiers.hook.ProjectileHitModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.ProjectileLaunchModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileHitModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileLaunchModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
@@ -24,15 +25,15 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
 import slimeknights.tconstruct.library.tools.nbt.NamespacedNBT;
 
-public class FlamedModifier extends NoLevelsModifier implements ProjectileLaunchModifierHook, ProjectileHitModifierHook {
+public class FlamedModifier extends NoLevelsModifier implements ProjectileLaunchModifierHook, ProjectileHitModifierHook, MeleeHitModifierHook {
 
     @Override
     protected void registerHooks(ModifierHookMap.Builder builder) {
-        builder.addHook(this, TinkerHooks.PROJECTILE_HIT, TinkerHooks.PROJECTILE_LAUNCH);
+        builder.addHook(this, TinkerHooks.PROJECTILE_HIT, TinkerHooks.PROJECTILE_LAUNCH, TinkerHooks.MELEE_HIT);
     }
 
     @Override
-    public float beforeEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
+    public float beforeMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
         LivingEntity target = context.getLivingTarget();
 
         if (target != null && !target.isOnFire()) {
@@ -43,7 +44,7 @@ public class FlamedModifier extends NoLevelsModifier implements ProjectileLaunch
     }
 
     @Override
-    public void failedEntityHit(IToolStackView tool, int level, ToolAttackContext context) {
+    public void failedMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageAttempted) {
         LivingEntity target = context.getLivingTarget();
 
         if (target != null && target.isOnFire()) {
@@ -52,10 +53,8 @@ public class FlamedModifier extends NoLevelsModifier implements ProjectileLaunch
     }
 
     @Override
-    public int afterEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damageDealt) {
+    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         doSecondaryDamage(context.getTarget(), context.getLivingTarget());
-
-        return 0;
     }
 
     @Override

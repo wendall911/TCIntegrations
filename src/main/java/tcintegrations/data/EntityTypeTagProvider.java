@@ -33,6 +33,9 @@ public class EntityTypeTagProvider extends EntityTypeTagsProvider {
                 .add(EntityType.DROWNED)
                 .add(EntityType.CREEPER)
                 .addOptional(LibEntityNames.DOPPLEGANGER);
+
+        // Beyond Earth
+        this.tag(TagManager.EntityTypes.MILK_PRODUCER).add(EntityType.COW, EntityType.GOAT, EntityType.HORSE);
     }
 
 }

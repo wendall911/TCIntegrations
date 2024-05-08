@@ -4,29 +4,28 @@ import java.util.function.Consumer;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
-
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-
+import slimeknights.mantle.recipe.data.IRecipeHelper;
 import slimeknights.mantle.recipe.helper.ItemOutput;
+import slimeknights.tconstruct.common.data.BaseRecipeProvider;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
-import slimeknights.tconstruct.library.data.recipe.IRecipeHelper;
 
 import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
 
-import vazkii.botania.common.block.ModBlocks;
-import vazkii.botania.common.item.ModItems;
+import vazkii.botania.common.block.BotaniaBlocks;
+import vazkii.botania.common.item.BotaniaItems;
 
 import tcintegrations.common.TagManager;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
 
-public class MaterialRecipeProvider extends RecipeProvider implements IConditionBuilder, IRecipeHelper, IMaterialRecipeHelper {
+public class MaterialRecipeProvider extends RecipeProvider implements IMaterialRecipeHelper, IConditionBuilder {
 
     public MaterialRecipeProvider(DataGenerator generator) {
         super(generator);
@@ -59,8 +58,8 @@ public class MaterialRecipeProvider extends RecipeProvider implements ICondition
 
         materialRecipe(botaniaConsumer, MaterialIds.livingWood, Ingredient.of(ModIntegration.BOTANIA_LIVINGWOOD_PLANKS), 1, 1, folder + "livingwood/planks");
         materialRecipe(botaniaConsumer, MaterialIds.livingWood, Ingredient.of(TagManager.Items.BOTANIA_LIVINGWOOD_LOGS), 4, 1, ItemOutput.fromStack(new ItemStack(ModIntegration.BOTANIA_LIVINGWOOD_PLANKS)), folder + "livingwood/logs");
-        materialRecipe(botaniaConsumer, MaterialIds.livingRock, Ingredient.of(new ItemStack(ModBlocks.livingrock)), 1, 1, folder + "livingrock");
-        materialRecipe(botaniaConsumer, MaterialIds.manaString, Ingredient.of(new ItemStack(ModItems.manaString)), 1, 1, folder + "manastring");
+        materialRecipe(botaniaConsumer, MaterialIds.livingRock, Ingredient.of(new ItemStack(BotaniaBlocks.livingrock)), 1, 1, folder + "livingrock");
+        materialRecipe(botaniaConsumer, MaterialIds.manaString, Ingredient.of(new ItemStack(BotaniaItems.manaString)), 1, 1, folder + "manastring");
 
         metalMaterialRecipe(botaniaConsumer, MaterialIds.manaSteel, folder, "manasteel", true);
         metalMaterialRecipe(aquacultureConsumer, MaterialIds.neptunium, folder, "neptunium", true);

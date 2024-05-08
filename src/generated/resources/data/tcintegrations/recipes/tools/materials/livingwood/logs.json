@@ -2,15 +2,15 @@
   "type": "tconstruct:material",
   "conditions": [
     {
-      "modid": "botania",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "botania"
     }
   ],
   "ingredient": {
     "tag": "tcintegrations:livingwood_logs"
   },
-  "value": 4,
-  "needed": 1,
+  "leftover": "botania:livingwood_planks",
   "material": "tcintegrations:livingwood",
-  "leftover": "botania:livingwood_planks"
+  "needed": 1,
+  "value": 4
 }

@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:gears/forgotten",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:gears/forgotten"
+      }
     },
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
   "ingredient": {
     "tag": "forge:gears/forgotten"
   },
   "result": {
-    "fluid": "tcintegrations:forgotten",
-    "amount": 360
+    "amount": 360,
+    "fluid": "tcintegrations:forgotten"
   },
   "temperature": 900,
   "time": 127

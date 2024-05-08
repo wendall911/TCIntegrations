@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "botania",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "botania"
     }
   ],
   "inputs": [
@@ -23,16 +24,12 @@
       "item": "botania:rune_summer"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor/chestplate"
-  },
+  "level": 1,
+  "result": "tcintegrations:terrestrial",
   "slots": {
     "upgrades": 1
   },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:terrestrial",
-    "level": 1
-  },
-  "max_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/chestplate"
+  }
 }

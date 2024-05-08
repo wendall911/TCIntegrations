@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "create",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "create"
     }
   ],
   "inputs": [
@@ -11,16 +12,12 @@
       "item": "create:mechanical_arm"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/melee/primary"
-  },
+  "level": 1,
+  "result": "tcintegrations:mechanical_arm",
   "slots": {
     "abilities": 1
   },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:mechanical_arm",
-    "level": 1
-  },
-  "max_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/melee/primary"
+  }
 }

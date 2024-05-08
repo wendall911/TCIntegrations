@@ -2,23 +2,23 @@
   "type": "tconstruct:casting_basin",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:storage_blocks/pendorite_alloy",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:storage_blocks/pendorite_alloy"
+      }
     },
     {
-      "modid": "byg",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "byg"
     }
   ],
+  "cooling_time": 190,
   "fluid": {
-    "tag": "forge:pendorite_alloy",
-    "amount": 810
+    "amount": 810,
+    "tag": "forge:pendorite_alloy"
   },
   "result": {
     "tag": "forge:storage_blocks/pendorite_alloy"
-  },
-  "cooling_time": 221
+  }
 }

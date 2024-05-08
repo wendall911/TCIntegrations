@@ -2,21 +2,21 @@
   "type": "tconstruct:material",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:ingots/ostrum",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/ostrum"
+      }
     },
     {
-      "modid": "beyond_earth",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "beyond_earth"
     }
   ],
   "ingredient": {
     "tag": "forge:ingots/ostrum"
   },
-  "value": 1,
+  "material": "tcintegrations:ostrum",
   "needed": 1,
-  "material": "tcintegrations:ostrum"
+  "value": 1
 }

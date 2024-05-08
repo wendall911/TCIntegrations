@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": false,
   "conditions": [
     {
-      "modid": "ars_nouveau",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
     }
   ],
   "inputs": [
@@ -23,21 +24,12 @@
       "item": "ars_nouveau:end_fiber"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor"
-  },
+  "level": 3,
+  "result": "tcintegrations:ars_nouveau",
   "slots": {
     "upgrades": 1
   },
-  "requirements": {
-    "name": "tcintegrations:ars_nouveau",
-    "level": 2,
-    "error": "recipe.tcintegrations.modifier.ars_nouveau.level_3"
-  },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:ars_nouveau",
-    "level": 1
-  },
-  "max_level": 3
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  }
 }

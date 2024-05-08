@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "alexsmobs",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "alexsmobs"
     }
   ],
   "inputs": [
@@ -23,16 +24,14 @@
       "item": "alexsmobs:roadrunner_feather"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor/boots"
+  "level": {
+    "max": 3
   },
+  "result": "tcintegrations:roadrunner",
   "slots": {
     "upgrades": 1
   },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:roadrunner",
-    "level": 1
-  },
-  "max_level": 3
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/boots"
+  }
 }

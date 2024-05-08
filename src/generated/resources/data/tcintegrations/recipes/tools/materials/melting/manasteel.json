@@ -2,17 +2,17 @@
   "type": "tconstruct:material_melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:ingots/manasteel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/manasteel"
+      }
     }
   ],
   "input": "tcintegrations:manasteel",
-  "temperature": 950,
   "result": {
-    "fluid": "tcintegrations:manasteel",
-    "amount": 90
-  }
+    "amount": 90,
+    "fluid": "tcintegrations:manasteel"
+  },
+  "temperature": 950
 }

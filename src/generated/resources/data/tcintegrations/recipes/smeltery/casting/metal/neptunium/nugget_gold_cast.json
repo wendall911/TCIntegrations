@@ -1,27 +1,27 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:nuggets/neptunium",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "aquaculture",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/multi_use/nugget"
   },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:nuggets/neptunium"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ],
+  "cooling_time": 22,
   "fluid": {
-    "tag": "forge:neptunium",
-    "amount": 10
+    "amount": 10,
+    "tag": "forge:neptunium"
   },
   "result": {
     "tag": "forge:nuggets/neptunium"
-  },
-  "cooling_time": 22
+  }
 }

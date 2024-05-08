@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:wires/soul_stained_steel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "malum",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/wire"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:wires/soul_stained_steel"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "cooling_time": 46,
   "fluid": {
-    "tag": "forge:soul_stained_steel",
-    "amount": 45
+    "amount": 45,
+    "tag": "forge:soul_stained_steel"
   },
   "result": {
     "tag": "forge:wires/soul_stained_steel"
-  },
-  "cooling_time": 46
+  }
 }

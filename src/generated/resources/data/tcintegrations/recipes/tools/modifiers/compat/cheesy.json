@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "beyond_earth",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "beyond_earth"
     }
   ],
   "inputs": [
@@ -23,6 +24,13 @@
       "item": "beyond_earth:cheese"
     }
   ],
+  "level": {
+    "max": 3
+  },
+  "result": "tcintegrations:cheesy",
+  "slots": {
+    "upgrades": 1
+  },
   "tools": [
     {
       "tag": "tconstruct:modifiable/melee"
@@ -30,14 +38,5 @@
     {
       "tag": "tconstruct:modifiable/harvest"
     }
-  ],
-  "slots": {
-    "upgrades": 1
-  },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:cheesy",
-    "level": 1
-  },
-  "max_level": 3
+  ]
 }

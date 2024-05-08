@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:composable",
+  "level_display": {
+    "type": "tconstruct:unique",
+    "unique_until": 3
+  },
+  "modules": [],
+  "tooltip_display": "always"
+}

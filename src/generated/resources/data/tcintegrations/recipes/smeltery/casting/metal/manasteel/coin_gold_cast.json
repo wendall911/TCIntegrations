@@ -1,27 +1,27 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:coins/manasteel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "botania",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/multi_use/coin"
   },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:coins/manasteel"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "botania"
+    }
+  ],
+  "cooling_time": 37,
   "fluid": {
-    "tag": "forge:manasteel",
-    "amount": 30
+    "amount": 30,
+    "tag": "forge:manasteel"
   },
   "result": {
     "tag": "forge:coins/manasteel"
-  },
-  "cooling_time": 37
+  }
 }

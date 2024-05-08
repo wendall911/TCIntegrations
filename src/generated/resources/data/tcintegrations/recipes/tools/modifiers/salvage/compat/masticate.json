@@ -2,16 +2,15 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor"
-  },
+  "modifier": "tcintegrations:masticate",
   "slots": {
     "upgrades": 1
   },
-  "modifier": "tcintegrations:masticate",
-  "min_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  }
 }

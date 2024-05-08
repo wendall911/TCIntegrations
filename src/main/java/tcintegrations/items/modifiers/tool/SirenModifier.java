@@ -2,7 +2,7 @@ package tcintegrations.items.modifiers.tool;
 
 import java.util.List;
 
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 import com.teammetallurgy.aquaculture.init.AquaBlocks;
 
@@ -10,12 +10,10 @@ import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TooltipFlag;
 
@@ -26,26 +24,39 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.ToolActions;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
-import org.jetbrains.annotations.NotNull;
-
 import slimeknights.mantle.client.TooltipKey;
 
 import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.display.TooltipModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.BlockInteractionModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.InteractionSource;
+import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
+import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import tcintegrations.TCIntegrations;
 
-public class SirenModifier extends NoLevelsModifier {
+public class SirenModifier extends NoLevelsModifier implements BreakSpeedModifierHook, TooltipModifierHook, BlockInteractionModifierHook, MeleeDamageModifierHook {
 
     private static final float ATTACK_BONUS = 1.5F;
     private static final float SPEED_BONUS = 5.0F;
-    private static final Component MINING_SPEED = new TranslatableComponent(
+    private static final Component MINING_SPEED = Component.translatable(
             Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "siren.mining_speed")));
 
     @Override
-    public float getEntityDamage(IToolStackView tool, int level, ToolAttackContext context, float baseDamage, float damage) {
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.BREAK_SPEED, TinkerHooks.TOOLTIP, TinkerHooks.BLOCK_INTERACT, TinkerHooks.MELEE_DAMAGE);
+    }
+
+    @Override
+    public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         if (tool.hasTag(TinkerTags.Items.MELEE) && context.getAttacker().isEyeInFluid(FluidTags.WATER) && !tool.isBroken()) {
             return damage * ATTACK_BONUS;
         }
@@ -54,8 +65,8 @@ public class SirenModifier extends NoLevelsModifier {
     }
 
     @Override
-    public void onBreakSpeed(IToolStackView tool, int level, PlayerEvent.BreakSpeed event, Direction sideHit, boolean isEffective, float miningSpeedModifier) {
-        final Player player = event.getPlayer();
+    public void onBreakSpeed(IToolStackView tool, ModifierEntry modifier, PlayerEvent.BreakSpeed event, Direction sideHit, boolean isEffective, float miningSpeedModifier) {
+        final Player player = event.getEntity();
 
         if (player != null && !player.level.isClientSide && !tool.isBroken()) {
             final ServerPlayer sp = (ServerPlayer) player;
@@ -68,7 +79,7 @@ public class SirenModifier extends NoLevelsModifier {
     }
 
     @Override
-    public @NotNull InteractionResult afterBlockUse(IToolStackView tool, int level, UseOnContext context, EquipmentSlot slot) {
+    public InteractionResult afterBlockUse(IToolStackView tool, ModifierEntry modifier, UseOnContext context, InteractionSource source) {
         Player player = context.getPlayer();
         Level mcLevel = context.getLevel();
 
@@ -90,30 +101,31 @@ public class SirenModifier extends NoLevelsModifier {
     }
 
     @Override
-    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, slimeknights.tconstruct.library.utils.TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
+    public void addTooltip(IToolStackView tool, ModifierEntry modifier, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
         float bonus = 0.0F;
 
         if (tool.hasTag(TinkerTags.Items.MELEE)) {
             if (player != null
-                    && tooltipKey == slimeknights.tconstruct.library.utils.TooltipKey.SHIFT
+                    && tooltipKey == TooltipKey.SHIFT
                     && player.isEyeInFluid(FluidTags.WATER)) {
-                bonus = tool.getDamage() * ATTACK_BONUS;
+                float damage = ToolAttackUtil.getAttributeAttackDamage(tool, player, slimeknights.tconstruct.library.utils.Util.getSlotType(player.getUsedItemHand()));
+                bonus = damage * ATTACK_BONUS;
             }
 
             if (bonus > 0.0F) {
-                addDamageTooltip(tool, bonus, tooltip);
+                TooltipModifierHook.addDamageBoost(tool, modifier.getModifier(), bonus, tooltip);
             }
         }
 
         if (tool.hasTag(TinkerTags.Items.HARVEST)) {
             if (player != null
-                    && tooltipKey == slimeknights.tconstruct.library.utils.TooltipKey.SHIFT
+                    && tooltipKey == TooltipKey.SHIFT
                     && player.isEyeInFluid(FluidTags.WATER)) {
                 bonus = SPEED_BONUS;
             }
 
             if (bonus > 0.0F) {
-                addFlatBoost(MINING_SPEED, bonus * tool.getMultiplier(ToolStats.MINING_SPEED), tooltip);
+                TooltipModifierHook.addFlatBoost(modifier.getModifier(), MINING_SPEED, bonus * tool.getMultiplier(ToolStats.MINING_SPEED), tooltip);
             }
         }
     }

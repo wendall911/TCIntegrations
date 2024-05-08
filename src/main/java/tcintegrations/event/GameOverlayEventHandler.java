@@ -30,8 +30,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
 
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.client.gui.ForgeIngameGui;
+import net.minecraftforge.client.event.RenderGuiOverlayEvent;
+import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 
@@ -41,14 +41,14 @@ import tcintegrations.items.modifiers.armor.MultiVisionModifier;
 public class GameOverlayEventHandler {
 
     @SubscribeEvent()
-    public void onRenderOverlayPost(RenderGameOverlayEvent.PostLayer event) {
+    public void onRenderOverlayPost(RenderGuiOverlayEvent.Post event) {
         if (ModList.get().isLoaded(ModIntegration.IE_MODID)) {
             int scaledWidth = Minecraft.getInstance().getWindow().getGuiScaledWidth();
             int scaledHeight = Minecraft.getInstance().getWindow().getGuiScaledHeight();
             Player player = Minecraft.getInstance().player;
             boolean hasVoltmeter = false;
 
-            if (player != null && event.getOverlay() == ForgeIngameGui.HUD_TEXT_ELEMENT) {
+            if (player != null && event.getOverlay().id().equals(VanillaGuiOverlay.ITEM_NAME.id())) {
                 ItemStack stack = player.getItemBySlot(EquipmentSlot.HEAD);
 
                 for (InteractionHand hand : InteractionHand.values()) {
@@ -72,6 +72,7 @@ public class GameOverlayEventHandler {
 
                         buffer.endBatch();
                     }
+
                 }
             }
         }

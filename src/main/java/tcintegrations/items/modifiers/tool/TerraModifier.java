@@ -7,19 +7,29 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import vazkii.botania.api.mana.ManaItemHandler;
-import vazkii.botania.common.handler.ModSounds;
+import vazkii.botania.common.handler.BotaniaSounds;
 
 import tcintegrations.items.modifiers.traits.ManaModifier;
 import tcintegrations.util.BotaniaHelper;
 
-public class TerraModifier extends ManaModifier {
+public class TerraModifier extends ManaModifier implements MeleeHitModifierHook {
 
     private static final int MANA_PER_DAMAGE = 100;
+
+    @Override
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.MELEE_HIT);
+    }
 
     @Override
     public int getManaPerDamage(ServerPlayer sp) {
@@ -27,8 +37,8 @@ public class TerraModifier extends ManaModifier {
     }
 
     @Override
-    public int afterEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damageDealt) {
-        final Player player = context.getPlayerAttacker() != null ? (Player) context.getPlayerAttacker() : null;
+    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
+        final Player player = context.getPlayerAttacker() != null ? context.getPlayerAttacker() : null;
 
         if (player != null && !player.level.isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
@@ -36,12 +46,10 @@ public class TerraModifier extends ManaModifier {
             ItemStack stack = sp.getItemInHand(InteractionHand.MAIN_HAND);
 
             if (sp.getAttackStrengthScale(0F) == 1 && ManaItemHandler.instance().requestManaExactForTool(stack, sp, getManaPerDamage(sp) * 2, true)) {
-                sp.level.playSound(null, sp.getX(), sp.getY(), sp.getZ(), ModSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+                sp.level.playSound(null, sp.getX(), sp.getY(), sp.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
                 ToolAttackUtil.attackEntitySecondary(source, 7.0F, context.getTarget(), context.getLivingTarget(), true);
             }
         }
-
-        return 0;
     }
 
 }

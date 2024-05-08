@@ -2,16 +2,15 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "ars_nouveau",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor/chestplate"
-  },
+  "modifier": "tcintegrations:enchanters_shield",
   "slots": {
     "upgrades": 1
   },
-  "modifier": "tcintegrations:enchanters_shield",
-  "min_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/chestplate"
+  }
 }

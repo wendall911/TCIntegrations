@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:dusts/soul_stained_steel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:dusts/soul_stained_steel"
+      }
     },
     {
-      "modid": "malum",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "malum"
     }
   ],
   "ingredient": {
     "tag": "forge:dusts/soul_stained_steel"
   },
   "result": {
-    "fluid": "tcintegrations:soul_stained_steel",
-    "amount": 90
+    "amount": 90,
+    "fluid": "tcintegrations:soul_stained_steel"
   },
   "temperature": 950,
   "time": 49

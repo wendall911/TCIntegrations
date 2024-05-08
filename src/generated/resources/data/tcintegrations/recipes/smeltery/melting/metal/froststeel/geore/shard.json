@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:geore_shards/froststeel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:geore_shards/froststeel"
+      }
     },
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
   "ingredient": {
     "tag": "forge:geore_shards/froststeel"
   },
   "result": {
-    "fluid": "tcintegrations:froststeel",
-    "amount": 90
+    "amount": 90,
+    "fluid": "tcintegrations:froststeel"
   },
   "temperature": 900,
   "time": 63

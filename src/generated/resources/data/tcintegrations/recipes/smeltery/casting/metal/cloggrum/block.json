@@ -2,23 +2,23 @@
   "type": "tconstruct:casting_basin",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:storage_blocks/cloggrum",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:storage_blocks/cloggrum"
+      }
     },
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
+  "cooling_time": 190,
   "fluid": {
-    "tag": "forge:cloggrum",
-    "amount": 810
+    "amount": 810,
+    "tag": "forge:cloggrum"
   },
   "result": {
     "tag": "forge:storage_blocks/cloggrum"
-  },
-  "cooling_time": 190
+  }
 }

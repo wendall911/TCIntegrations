@@ -1,28 +1,28 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "value": {
-        "tag": "forge:ingots/neptunium",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
-    },
-    {
-      "modid": "aquaculture",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/single_use/ingot"
   },
   "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/neptunium"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ],
+  "cooling_time": 65,
   "fluid": {
-    "tag": "forge:neptunium",
-    "amount": 90
+    "amount": 90,
+    "tag": "forge:neptunium"
   },
   "result": {
     "tag": "forge:ingots/neptunium"
-  },
-  "cooling_time": 65
+  }
 }

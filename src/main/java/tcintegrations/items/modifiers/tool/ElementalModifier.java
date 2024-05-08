@@ -13,6 +13,10 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
 import net.minecraftforge.common.Tags;
 
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.recipe.modifiers.severing.SeveringRecipe;
 import slimeknights.tconstruct.library.recipe.modifiers.severing.SeveringRecipeCache;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
@@ -24,9 +28,15 @@ import tcintegrations.util.BotaniaHelper;
 
 import tcintegrations.TCIntegrations;
 
-public class ElementalModifier extends ManaModifier {
+public class ElementalModifier extends ManaModifier implements MeleeHitModifierHook {
 
     private static final int MANA_PER_DAMAGE = 70;
+
+    @Override
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.MELEE_HIT);
+    }
 
     @Override
     public int getManaPerDamage(ServerPlayer player) {
@@ -34,7 +44,7 @@ public class ElementalModifier extends ManaModifier {
     }
 
     @Override
-    public int afterEntityHit(IToolStackView tool, int level, ToolAttackContext context, float damageDealt) {
+    public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         final Player player = context.getPlayerAttacker() != null ? (Player) context.getPlayerAttacker() : null;
 
         if (player != null && !player.level.isClientSide) {
@@ -45,14 +55,12 @@ public class ElementalModifier extends ManaModifier {
                 BotaniaHelper.spawnPixie(sp, stack, context.getLivingTarget());
             }
         }
-
-        return 0;
     }
 
     @Override
-    public List<ItemStack> processLoot(IToolStackView tool, int level, List<ItemStack> generatedLoot, LootContext context) {
+    public void processLoot(IToolStackView tool, int level, List<ItemStack> generatedLoot, LootContext context) {
         if (!context.hasParam(LootContextParams.DAMAGE_SOURCE)) {
-            return generatedLoot;
+            return;
         }
 
         Entity entity = context.getParamOrNull(LootContextParams.THIS_ENTITY);
@@ -83,8 +91,6 @@ public class ElementalModifier extends ManaModifier {
                 }
             }
         }
-
-        return generatedLoot;
     }
 
 }

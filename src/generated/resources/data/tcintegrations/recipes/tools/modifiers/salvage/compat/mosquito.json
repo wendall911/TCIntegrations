@@ -2,16 +2,15 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "alexsmobs",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "alexsmobs"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor"
-  },
+  "modifier": "tcintegrations:mosquito",
   "slots": {
     "upgrades": 1
   },
-  "modifier": "tcintegrations:mosquito",
-  "min_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/boots"
+  }
 }

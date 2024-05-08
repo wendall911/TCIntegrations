@@ -2,21 +2,21 @@
   "type": "tconstruct:material",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:nuggets/manasteel",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:nuggets/manasteel"
+      }
     },
     {
-      "modid": "botania",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "botania"
     }
   ],
   "ingredient": {
     "tag": "forge:nuggets/manasteel"
   },
-  "value": 1,
+  "material": "tcintegrations:manasteel",
   "needed": 9,
-  "material": "tcintegrations:manasteel"
+  "value": 1
 }

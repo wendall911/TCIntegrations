@@ -1,26 +1,25 @@
 {
   "type": "tconstruct:incremental_modifier",
+  "allow_crystal": true,
+  "amount_per_item": 1,
   "conditions": [
     {
-      "modid": "undergarden",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
     }
   ],
   "input": {
     "item": "undergarden:masticator_scales"
   },
-  "amount_per_item": 1,
-  "needed_per_level": 2,
-  "tools": {
-    "tag": "tconstruct:modifiable/armor"
+  "level": {
+    "max": 3
   },
+  "needed_per_level": 2,
+  "result": "tcintegrations:masticate",
   "slots": {
     "upgrades": 1
   },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:masticate",
-    "level": 1
-  },
-  "max_level": 3
+  "tools": {
+    "tag": "tconstruct:modifiable/armor"
+  }
 }

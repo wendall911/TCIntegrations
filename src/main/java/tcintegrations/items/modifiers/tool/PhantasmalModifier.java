@@ -15,12 +15,14 @@ import net.minecraft.world.phys.Vec3;
 
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.TinkerHooks;
-import slimeknights.tconstruct.library.modifiers.hook.ProjectileLaunchModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileLaunchModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap.Builder;
+import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.NamespacedNBT;
+import slimeknights.tconstruct.library.utils.Util;
 
 public class PhantasmalModifier extends NoLevelsModifier implements ProjectileLaunchModifierHook {
 
@@ -32,7 +34,8 @@ public class PhantasmalModifier extends NoLevelsModifier implements ProjectileLa
     @Override
     public void onProjectileLaunch(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter, Projectile projectile, @Nullable AbstractArrow arrow, NamespacedNBT persistentData, boolean primary) {
         if (shooter instanceof Player player) {
-            EntityGhostSword ghostSword = new EntityGhostSword(IafEntityRegistry.GHOST_SWORD.get(), player.level, player, tool.getDamage() * 0.5F);
+            float damage = ToolAttackUtil.getAttributeAttackDamage(tool, player, Util.getSlotType(player.getUsedItemHand()));
+            EntityGhostSword ghostSword = new EntityGhostSword(IafEntityRegistry.GHOST_SWORD.get(), player.getLevel(), player, damage * 0.5F);
             Vec3 vector3d = player.getViewVector(1.0F);
             Vector3f vector3f = new Vector3f(vector3d);
 

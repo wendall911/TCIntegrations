@@ -4,19 +4,29 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffectInstance;
 
 import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.mining.BlockBreakModifierHook;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import tcintegrations.data.integration.ModIntegration;
 
-public class OxygenatedModifier extends Modifier {
+public class OxygenatedModifier extends Modifier implements BlockBreakModifierHook {
 
     @Override
-    public void afterBlockBreak(IToolStackView tool, int level, ToolHarvestContext context) {
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.BLOCK_BREAK);
+    }
+
+    @Override
+    public void afterBlockBreak(IToolStackView tool, ModifierEntry modifier, ToolHarvestContext context) {
         final ServerPlayer sp = context.getPlayer();
 
         if (sp != null && !sp.level.isClientSide) {
-            sp.addEffect(new MobEffectInstance(ModIntegration.OXYGEN_EFFECT.get(), 20 * level, 0, false, false));
+            sp.addEffect(new MobEffectInstance(ModIntegration.OXYGEN_EFFECT.get(), 20 * modifier.getLevel(), 0, false, false));
         }
     }
 

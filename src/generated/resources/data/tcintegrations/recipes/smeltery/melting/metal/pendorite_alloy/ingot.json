@@ -2,17 +2,17 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
-      "modid": "byg",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "byg"
     }
   ],
   "ingredient": {
     "item": "byg:pendorite_ingot"
   },
   "result": {
-    "fluid": "tcintegrations:pendorite_alloy",
-    "amount": 90
+    "amount": 90,
+    "fluid": "tcintegrations:pendorite_alloy"
   },
-  "temperature": 1250,
-  "time": 147
+  "temperature": 900,
+  "time": 127
 }

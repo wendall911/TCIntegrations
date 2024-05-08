@@ -2,23 +2,23 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:dusts/desh",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:dusts/desh"
+      }
     },
     {
-      "modid": "beyond_earth",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "beyond_earth"
     }
   ],
   "ingredient": {
     "tag": "forge:dusts/desh"
   },
   "result": {
-    "fluid": "beyond_earth:molten_desh",
-    "amount": 90
+    "amount": 90,
+    "fluid": "beyond_earth:molten_desh"
   },
   "temperature": 500,
   "time": 37

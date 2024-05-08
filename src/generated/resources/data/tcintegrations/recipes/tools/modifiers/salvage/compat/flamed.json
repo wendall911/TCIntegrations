@@ -2,10 +2,14 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "modid": "iceandfire",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
     }
   ],
+  "modifier": "tcintegrations:flamed",
+  "slots": {
+    "upgrades": 1
+  },
   "tools": [
     {
       "tag": "tconstruct:modifiable/melee"
@@ -13,10 +17,5 @@
     {
       "tag": "tconstruct:modifiable/ranged"
     }
-  ],
-  "slots": {
-    "upgrades": 1
-  },
-  "modifier": "tcintegrations:flamed",
-  "min_level": 1
+  ]
 }

@@ -1,9 +1,10 @@
 {
   "type": "tconstruct:modifier",
+  "allow_crystal": true,
   "conditions": [
     {
-      "modid": "alexsmobs",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "alexsmobs"
     }
   ],
   "inputs": [
@@ -23,16 +24,12 @@
       "item": "alexsmobs:bison_fur"
     }
   ],
-  "tools": {
-    "tag": "tconstruct:modifiable/armor/boots"
-  },
+  "level": 1,
+  "result": "tcintegrations:bison_fur",
   "slots": {
     "abilities": 1
   },
-  "allow_crystal": true,
-  "result": {
-    "name": "tcintegrations:bison_fur",
-    "level": 1
-  },
-  "max_level": 1
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/boots"
+  }
 }

@@ -3,16 +3,21 @@ package tcintegrations.data;
 import net.minecraft.data.DataGenerator;
 
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
+import slimeknights.tconstruct.fluids.data.FluidBlockstateModelProvider;
+
+import slimeknights.tconstruct.fluids.data.FluidBucketModelProvider;
 import tcintegrations.data.client.ModBlockStateProvider;
 import tcintegrations.data.client.ModItemModelProvider;
 import tcintegrations.data.integration.ProjectEConversionProvider;
 import tcintegrations.data.loot.ModLootTables;
 import tcintegrations.data.recipes.ModRecipesProvider;
-import tcintegrations.data.tcon.FluidTagProvider;
+import tcintegrations.data.tcon.fluid.FluidTagProvider;
+import tcintegrations.data.tcon.fluid.FluidTextureProvider;
+import tcintegrations.data.tcon.ModifierProvider;
 import tcintegrations.data.tcon.ModifierRecipeProvider;
 import tcintegrations.data.tcon.material.MaterialDataProvider;
 import tcintegrations.data.tcon.material.MaterialRecipeProvider;
@@ -35,23 +40,29 @@ public final class DataGenerators {
         ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
         TinkerMaterialSpriteProvider materialSprites = new TinkerMaterialSpriteProvider();
         MaterialDataProvider materials = new MaterialDataProvider(gen);
+        boolean server = event.includeServer();
+        boolean client = event.includeClient();
 
-        gen.addProvider(new ModItemModelProvider(gen, existingFileHelper));
-        gen.addProvider(new ModBlockStateProvider(gen, existingFileHelper));
-        gen.addProvider(blockTags);
-        gen.addProvider(new ModItemTagsProvider(gen, blockTags, existingFileHelper));
-        gen.addProvider(new FluidTagProvider(gen, existingFileHelper));
-        gen.addProvider(new ModifierRecipeProvider(gen));
-        gen.addProvider(new ModRecipesProvider(gen));
-        gen.addProvider(new ModLootTables(gen));
-        gen.addProvider(new MaterialRenderInfoProvider(gen, materialSprites));
-        gen.addProvider(new MaterialStatsDataProvider(gen, materials));
-        gen.addProvider(new MaterialTraitsDataProvider(gen, materials));
-        gen.addProvider(new MaterialRecipeProvider(gen));
-        gen.addProvider(new SmelteryRecipeProvider(gen));
-        gen.addProvider(materials);
-        gen.addProvider(new EntityTypeTagProvider(gen, existingFileHelper));
-        gen.addProvider(new ProjectEConversionProvider(gen));
+        gen.addProvider(server, new ModItemModelProvider(gen, existingFileHelper));
+        gen.addProvider(server, new ModBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(server, blockTags);
+        gen.addProvider(server, new ModItemTagsProvider(gen, blockTags, existingFileHelper));
+        gen.addProvider(server, new FluidTagProvider(gen, existingFileHelper));
+        gen.addProvider(server, new ModifierRecipeProvider(gen));
+        gen.addProvider(server, new ModRecipesProvider(gen));
+        gen.addProvider(server, new ModLootTables(gen));
+        gen.addProvider(client, new MaterialRenderInfoProvider(gen, materialSprites));
+        gen.addProvider(server, new MaterialStatsDataProvider(gen, materials));
+        gen.addProvider(server, new MaterialTraitsDataProvider(gen, materials));
+        gen.addProvider(server, new MaterialRecipeProvider(gen));
+        gen.addProvider(server, new SmelteryRecipeProvider(gen));
+        gen.addProvider(server, materials);
+        gen.addProvider(server, new EntityTypeTagProvider(gen, existingFileHelper));
+        gen.addProvider(server, new ProjectEConversionProvider(gen));
+        gen.addProvider(server, new ModifierProvider(gen));
+        gen.addProvider(client, new FluidTextureProvider(gen));
+        gen.addProvider(client, new FluidBlockstateModelProvider(gen, TCIntegrations.MODID));
+        gen.addProvider(client, new FluidBucketModelProvider(gen, TCIntegrations.MODID));
     }
 
 }

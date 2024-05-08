@@ -1,18 +1,18 @@
 {
   "type": "tconstruct:casting_table",
-  "conditions": [
-    {
-      "modid": "byg",
-      "type": "forge:mod_loaded"
-    }
-  ],
   "cast": {
     "tag": "tconstruct:casts/multi_use/ingot"
   },
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "byg"
+    }
+  ],
+  "cooling_time": 63,
   "fluid": {
-    "tag": "tcintegrations:pendorite",
-    "amount": 90
+    "amount": 90,
+    "tag": "tcintegrations:pendorite"
   },
-  "result": "byg:pendorite_scraps",
-  "cooling_time": 71
+  "result": "byg:pendorite_scraps"
 }

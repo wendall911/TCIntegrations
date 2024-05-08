@@ -9,14 +9,16 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.hook.armor.OnAttackedModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.tools.context.EquipmentContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-public class ShieldOfTheDeepModifier extends NoLevelsModifier {
+public class ShieldOfTheDeepModifier extends NoLevelsModifier implements OnAttackedModifierHook {
 
     @Override
-    public void onAttacked(IToolStackView tool, int level, EquipmentContext context, EquipmentSlot slotType, DamageSource source, float amount, boolean isDirectDamage) {
+    public void onAttacked(IToolStackView tool, ModifierEntry modifier, EquipmentContext context, EquipmentSlot slotType, DamageSource source, float amount, boolean isDirectDamage) {
         if (context.getEntity() instanceof Player player
                 && !player.level.isClientSide
                 && source.getEntity() instanceof LivingEntity attacker
@@ -24,8 +26,8 @@ public class ShieldOfTheDeepModifier extends NoLevelsModifier {
             final ServerPlayer sp = (ServerPlayer) player;
 
             if (sp.distanceTo(attacker) <= 4
-                    && !attacker.hasEffect(AMEffectRegistry.EXSANGUINATION)) {
-                attacker.addEffect(new MobEffectInstance(AMEffectRegistry.EXSANGUINATION, 60, 2));
+                    && !attacker.hasEffect(AMEffectRegistry.EXSANGUINATION.get())) {
+                attacker.addEffect(new MobEffectInstance(AMEffectRegistry.EXSANGUINATION.get(), 60, 2));
             }
             if (sp.isInWaterOrBubble()) {
                 sp.setAirSupply(Math.min(sp.getMaxAirSupply(), sp.getMaxAirSupply() + 150));

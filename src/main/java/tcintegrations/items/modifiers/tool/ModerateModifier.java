@@ -1,14 +1,13 @@
 package tcintegrations.items.modifiers.tool;
 
-import javax.annotation.Nullable;
-
 import java.util.List;
+
+import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TooltipFlag;
@@ -18,20 +17,25 @@ import net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed;
 import slimeknights.mantle.client.TooltipKey;
 
 import slimeknights.tconstruct.common.TinkerTags;
+import slimeknights.tconstruct.library.modifiers.ModifierEntry;
+import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.hook.display.TooltipModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
+import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
 import tcintegrations.TCIntegrations;
 
-public class ModerateModifier extends NoLevelsModifier {
+public class ModerateModifier extends NoLevelsModifier implements BreakSpeedModifierHook, TooltipModifierHook {
 
     private static final float BASELINE_TEMPERATURE = 1.0F;
     private static final float MAX_BOOST = 7.5F;
-    private static final Component MINING_SPEED = new TranslatableComponent(
+    private static final Component MINING_SPEED = Component.translatable(
             Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "moderate.mining_speed")));
 
-    /** Gets the bonus for the given position */
+    //Gets the bonus for the given position
     private static float getBonus(Player player, BlockPos pos) {
         float biomeTemp = player.level.getBiome(pos).value().getHeightAdjustedTemperature(pos);
 
@@ -39,14 +43,20 @@ public class ModerateModifier extends NoLevelsModifier {
     }
 
     @Override
-    public void onBreakSpeed(IToolStackView tool, int level, BreakSpeed event, Direction sideHit, boolean isEffective, float miningSpeedModifier) {
+    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+        super.registerHooks(hookBuilder);
+        hookBuilder.addHook(this, TinkerHooks.BREAK_SPEED, TinkerHooks.TOOLTIP);
+    }
+
+    @Override
+    public void onBreakSpeed(IToolStackView tool, ModifierEntry modifier, BreakSpeed event, Direction sideHit, boolean isEffective, float miningSpeedModifier) {
         if (isEffective) {
-            event.setNewSpeed(event.getNewSpeed() + (getBonus(event.getPlayer(), event.getPos()) * tool.getMultiplier(ToolStats.MINING_SPEED) * miningSpeedModifier));
+            event.setNewSpeed(event.getNewSpeed() + (getBonus(event.getEntity(), event.getPosition().get()) * tool.getMultiplier(ToolStats.MINING_SPEED) * miningSpeedModifier));
         }
     }
 
     @Override
-    public void addInformation(IToolStackView tool, int level, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
+    public void addTooltip(IToolStackView tool, ModifierEntry modifier, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
         if (tool.hasTag(TinkerTags.Items.HARVEST)) {
             float bonus;
 
@@ -57,7 +67,7 @@ public class ModerateModifier extends NoLevelsModifier {
             }
 
             if (bonus > 0.01F) {
-                addFlatBoost(MINING_SPEED, bonus * tool.getMultiplier(ToolStats.MINING_SPEED), tooltip);
+                TooltipModifierHook.addFlatBoost(modifier.getModifier(), MINING_SPEED, bonus * tool.getMultiplier(ToolStats.MINING_SPEED), tooltip);
             }
         }
     }

@@ -2,24 +2,25 @@
   "type": "tconstruct:material",
   "conditions": [
     {
+      "type": "forge:not",
       "value": {
-        "tag": "forge:storage_blocks/pendorite_alloy",
-        "type": "forge:tag_empty"
-      },
-      "type": "forge:not"
+        "type": "forge:tag_empty",
+        "tag": "forge:storage_blocks/pendorite_alloy"
+      }
     },
     {
-      "modid": "byg",
-      "type": "forge:mod_loaded"
+      "type": "forge:mod_loaded",
+      "modid": "byg"
     }
   ],
   "ingredient": {
     "tag": "forge:storage_blocks/pendorite_alloy"
   },
-  "value": 9,
-  "needed": 1,
-  "material": "tcintegrations:pendorite_alloy",
   "leftover": {
+    "count": 1,
     "tag": "forge:ingots/pendorite_alloy"
-  }
+  },
+  "material": "tcintegrations:pendorite_alloy",
+  "needed": 1,
+  "value": 9
 }
