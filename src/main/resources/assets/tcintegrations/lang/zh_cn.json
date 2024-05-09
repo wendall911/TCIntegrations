@@ -51,6 +51,7 @@
     "material.tcintegrations.ostrum": "紫金",
     "material.tcintegrations.pendorite_alloy": "潘多拉合金",
     "material.tcintegrations.pendorite_alloy.flavor": "你已去的生物群系！",
+    "material.tcintegrations.brass": "黄铜",
     "modifier.tcintegrations.mana": "魔力",
     "modifier.tcintegrations.mana.flavor": "魔法！",
     "modifier.tcintegrations.mana.description": "如果物品栏内有能提供魔力的物品，拥有此强化的物品会以此修复自身",
