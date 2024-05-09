@@ -9,7 +9,7 @@
       }
     }
   ],
-  "input": "tconstruct:brass",
+  "input": "tcintegrations:brass",
   "result": {
     "amount": 90,
     "fluid": "tconstruct:molten_brass"

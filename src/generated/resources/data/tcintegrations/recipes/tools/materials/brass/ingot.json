@@ -19,7 +19,7 @@
   "ingredient": {
     "tag": "forge:ingots/brass"
   },
-  "material": "tconstruct:brass",
+  "material": "tcintegrations:brass",
   "needed": 1,
   "value": 1
 }

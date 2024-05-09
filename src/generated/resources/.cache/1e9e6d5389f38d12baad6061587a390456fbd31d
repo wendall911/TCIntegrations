@@ -1,11 +1,11 @@
-// 1.19.2	2024-05-08T10:08:50.539192407	TCIntegrations - TCon Material Recipe
-571ef0f90ccfde397202def72c5ab5c3c8d8627f data/tcintegrations/recipes/tools/materials/brass/block.json
-5a163846adf90286761155f1ed12acb9856dd095 data/tcintegrations/recipes/tools/materials/brass/ingot.json
-00282bd0bb3fa91efd6c7010f1613475f7d194b4 data/tcintegrations/recipes/tools/materials/brass/nugget.json
+// 1.19.2	2024-05-09T10:02:34.261985512	TCIntegrations - TCon Material Recipe
+d4f962739d33089db1709125ef5b4de67205e767 data/tcintegrations/recipes/tools/materials/brass/block.json
+37f7582dd32aabcef328ce9271d086cc157bdbe0 data/tcintegrations/recipes/tools/materials/brass/ingot.json
+1d1aed4ab0b89cc6f308a3e8ebe568ee3d9c293d data/tcintegrations/recipes/tools/materials/brass/nugget.json
 423fd9ddd86411cbfc803b92fcb1736906472637 data/tcintegrations/recipes/tools/materials/calorite/block.json
 2573c6bba704052dc9dd9afd7039c4f114f07456 data/tcintegrations/recipes/tools/materials/calorite/ingot.json
 9ee845ebb9da0def4965ac94768b8e81bc818be2 data/tcintegrations/recipes/tools/materials/calorite/nugget.json
-832b1f2c2177e2b978a692061189618cdabc5c51 data/tcintegrations/recipes/tools/materials/casting/brass.json
+d254c4070a715dbc1234c72669df63a763d46cac data/tcintegrations/recipes/tools/materials/casting/brass.json
 c5105418ce1e26c4e8195bbd4ee8fe64a847237b data/tcintegrations/recipes/tools/materials/casting/calorite.json
 5f1c581db443e2bcfa100d2e1a9df3ca21736d6a data/tcintegrations/recipes/tools/materials/casting/desh.json
 e37d8b61a48ca3ed2dcd11e822e81cab57dd9586 data/tcintegrations/recipes/tools/materials/casting/manasteel.json
@@ -23,7 +23,7 @@ bad16cff2cb891c0a62be185602fa3d96dd2c772 data/tcintegrations/recipes/tools/mater
 649e3f7d360a071af5e6a775849c809cb908f3a3 data/tcintegrations/recipes/tools/materials/manasteel/ingot.json
 f090618ec7e8e2b88538d8c4292e6e69370e6d6b data/tcintegrations/recipes/tools/materials/manasteel/nugget.json
 b5994d5ae390b304fb44c46d8a18c654520985bd data/tcintegrations/recipes/tools/materials/manastring.json
-7cf7c502818406a845aa6c6915bffc20e3b8df41 data/tcintegrations/recipes/tools/materials/melting/brass.json
+1f4f360b2b66e408b8323831434fed390055df95 data/tcintegrations/recipes/tools/materials/melting/brass.json
 0eb1bd863774a9eff5e9f58e73c23170a9400082 data/tcintegrations/recipes/tools/materials/melting/calorite.json
 fcc746388da74368b0fa85f834c4cc05b5accf70 data/tcintegrations/recipes/tools/materials/melting/desh.json
 60a50f5067f564ca9c46be5eddbe09a00b48b77f data/tcintegrations/recipes/tools/materials/melting/manasteel.json
