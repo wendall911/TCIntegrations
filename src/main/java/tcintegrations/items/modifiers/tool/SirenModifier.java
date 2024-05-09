@@ -33,6 +33,7 @@ import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
+import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import tcintegrations.TCIntegrations;
@@ -97,7 +98,8 @@ public class SirenModifier extends NoLevelsModifier {
             if (player != null
                     && tooltipKey == slimeknights.tconstruct.library.utils.TooltipKey.SHIFT
                     && player.isEyeInFluid(FluidTags.WATER)) {
-                bonus = tool.getDamage() * ATTACK_BONUS;
+                float damage = ToolAttackUtil.getAttributeAttackDamage(tool, player, slimeknights.tconstruct.library.utils.Util.getSlotType(player.getUsedItemHand()));
+                bonus = damage * ATTACK_BONUS;
             }
 
             if (bonus > 0.0F) {
