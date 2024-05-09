@@ -10,7 +10,7 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.network.NetworkEvent;
 
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import tcintegrations.data.integration.ModIntegration;
@@ -41,7 +41,7 @@ public class LaunchGhostSword implements IData {
 
             modifiers.forEach(modifierEntry -> {
                 if (ModList.get().isLoaded(ModIntegration.IFD_MODID) && modifierEntry.getId().equals(TCIntegrationsModifiers.PHANTASMAL_MODIFIER.getId())) {
-                    modifierEntry.getHook(TinkerHooks.PROJECTILE_LAUNCH).onProjectileLaunch(tool, modifierEntry, sp, null, null, null, false);
+                    modifierEntry.getHook(ModifierHooks.PROJECTILE_LAUNCH).onProjectileLaunch(tool, modifierEntry, sp, null, null, null, false);
                 }
             });
         }

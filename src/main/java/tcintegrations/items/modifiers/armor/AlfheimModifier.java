@@ -24,10 +24,10 @@ import net.minecraftforge.network.PacketDistributor;
 
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.armor.EquipmentChangeModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.InventoryTickModifierHook;
-import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
+import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
@@ -74,10 +74,11 @@ public class AlfheimModifier extends Modifier implements IArmorJumpModifier, Equ
             MythicConfig.alftools.speed_modifier,
             AttributeModifier.Operation.ADDITION
     );
+
     @Override
-    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+    protected void registerHooks(Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, TCIntegrationHooks.JUMP, TinkerHooks.EQUIPMENT_CHANGE, TinkerHooks.INVENTORY_TICK);
+        hookBuilder.addHook(this, TCIntegrationHooks.JUMP, ModifierHooks.EQUIPMENT_CHANGE, ModifierHooks.INVENTORY_TICK);
     }
 
     public int getManaPerDamage(ServerPlayer sp) {

@@ -20,10 +20,10 @@ import net.minecraftforge.common.util.Lazy;
 
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.GeneralInteractionModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.InteractionSource;
-import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
+import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.helper.ModifierUtil;
 import slimeknights.tconstruct.library.tools.helper.ToolDamageUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
@@ -41,8 +41,8 @@ public class CheesyModifier extends Modifier implements GeneralInteractionModifi
     private static final Lazy<ItemStack> CHEESE_STACK = Lazy.of(() -> new ItemStack(ModIntegration.BEYOND_EARTH_CHEESE));
 
     @Override
-    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
-        hookBuilder.addHook(this, TinkerHooks.GENERAL_INTERACT);
+    protected void registerHooks(Builder hookBuilder) {
+        hookBuilder.addHook(this, ModifierHooks.GENERAL_INTERACT);
     }
 
     @Override
@@ -88,7 +88,7 @@ public class CheesyModifier extends Modifier implements GeneralInteractionModifi
     }
 
     @Override
-    public void processLoot(IToolStackView tool, int level, List<ItemStack> generatedLoot, LootContext context) {
+    public void processLoot(IToolStackView tool, ModifierEntry modifier, List<ItemStack> generatedLoot, LootContext context) {
         // if no damage source, probably not a mob
         // otherwise blocks breaking (where THIS_ENTITY is the player) start dropping cheese
         if (!context.hasParam(LootContextParams.DAMAGE_SOURCE)) {
@@ -100,7 +100,7 @@ public class CheesyModifier extends Modifier implements GeneralInteractionModifi
         if (entity != null && entity.getType().is(TagManager.EntityTypes.MILK_PRODUCER)) {
             // at cheesy 1, 2, 3, and 4 its a 2%, 4.15%, 6.25%, 8% per level
             int looting = context.getLootingModifier();
-            if (RANDOM.nextInt(48 / level) <= looting) {
+            if (RANDOM.nextInt(48 / modifier.intEffectiveLevel()) <= looting) {
                 // cheese
                 generatedLoot.add(new ItemStack(ModIntegration.BEYOND_EARTH_CHEESE));
             }
