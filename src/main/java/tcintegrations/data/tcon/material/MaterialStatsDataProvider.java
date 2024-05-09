@@ -1,21 +1,21 @@
 package tcintegrations.data.tcon.material;
 
 import net.minecraft.data.DataGenerator;
+
+import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
+import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
+import slimeknights.tconstruct.tools.stats.GripMaterialStats;
+import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
+import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
+import slimeknights.tconstruct.tools.stats.LimbMaterialStats;
+import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
+
 import static net.minecraft.world.item.Tiers.DIAMOND;
 import static net.minecraft.world.item.Tiers.IRON;
 import static net.minecraft.world.item.Tiers.NETHERITE;
 import static net.minecraft.world.item.Tiers.STONE;
 import static net.minecraft.world.item.Tiers.WOOD;
 
-import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
-import slimeknights.tconstruct.library.data.material.AbstractMaterialStatsDataProvider;
-import slimeknights.tconstruct.tools.stats.BowstringMaterialStats;
-import slimeknights.tconstruct.tools.stats.ExtraMaterialStats;
-import slimeknights.tconstruct.tools.stats.GripMaterialStats;
-import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
-import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
-import slimeknights.tconstruct.tools.stats.LimbMaterialStats;
-import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
 import static slimeknights.tconstruct.tools.data.material.MaterialIds.osmium;
 
 public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider {
@@ -38,75 +38,75 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
             new HeadMaterialStats(60, 2F, WOOD,0F),
             new LimbMaterialStats(60, 0, 0,0),
             new GripMaterialStats(1.0F, 0, 0),
-            HandleMaterialStats.DEFAULT,
-            ExtraMaterialStats.DEFAULT);
+            HandleMaterialStats.percents().build(),
+            StatlessMaterialStats.BINDING);
         addMaterialStats(MaterialIds.livingRock,
             new HeadMaterialStats(130, 4F, STONE, 1F),
             new LimbMaterialStats(130, 0.05F, 0.05F, -0.1F),
             new GripMaterialStats(1.05F, -0.05F, 0.75F),
-            HandleMaterialStats.DEFAULT.withDurability(1.2F).withAttackDamage(1.2F),
-            ExtraMaterialStats.DEFAULT);
+            HandleMaterialStats.multipliers().durability(1.2F).attackDamage(1.2F).build(),
+            StatlessMaterialStats.BINDING);
         
         // tier 2 (mod integration)
         addMaterialStats(MaterialIds.desh,
             new HeadMaterialStats(250, 6F, IRON, 2F),
             new LimbMaterialStats(250, -0.2F, 0.1F, 0),
             new GripMaterialStats(1.1F, 0F, 2F),
-            HandleMaterialStats.DEFAULT.withDurability(1.10F),
-            ExtraMaterialStats.DEFAULT);
+            HandleMaterialStats.multipliers().durability(1.10F).build(),
+            StatlessMaterialStats.BINDING);
         addMaterialStats(MaterialIds.calorite,
             new HeadMaterialStats(250, 6F, IRON, 2F),
             new LimbMaterialStats(250, -0.2F, 0.1F, 0),
             new GripMaterialStats(1.1F, 0F, 2F),
-            HandleMaterialStats.DEFAULT.withDurability(1.10F),
-            ExtraMaterialStats.DEFAULT);
+            HandleMaterialStats.multipliers().durability(1.10F).build(),
+            StatlessMaterialStats.BINDING);
         addMaterialStats(MaterialIds.ostrum,
             new HeadMaterialStats(250, 6F, IRON, 2F),
             new LimbMaterialStats(250, -0.2F, 0.1F, 0),
             new GripMaterialStats(1.1F, 0F, 2F),
-            HandleMaterialStats.DEFAULT.withDurability(1.10F),
-            ExtraMaterialStats.DEFAULT);
+            HandleMaterialStats.multipliers().durability(1.10F).build(),
+            StatlessMaterialStats.BINDING);
         addMaterialStats(osmium,
             new HeadMaterialStats(525, 5.0F, IRON, 2.75F),
             new LimbMaterialStats(525, 0.1F, 0F, 0),
             new GripMaterialStats(1.2F, 0F, 2F),
-            HandleMaterialStats.DEFAULT.withDurability(1.8F).withAttackSpeed(1.1F).withMiningSpeed(1.3F),
-            ExtraMaterialStats.DEFAULT);
+            HandleMaterialStats.multipliers().durability(1.8F).attackSpeed(1.1F).miningSpeed(1.3F).build(),
+            StatlessMaterialStats.BINDING);
 
         // tier 3 (mod integration)
         addMaterialStats(MaterialIds.manaSteel,
             new HeadMaterialStats(775, 6F, DIAMOND, 2.75F),
-            HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.05F).withAttackSpeed(1.05F),
+            HandleMaterialStats.multipliers().durability(1.05F).miningSpeed(1.05F).attackSpeed(1.05F).build(),
             new LimbMaterialStats(775, -0.3F, 0.2F, -0.1F),
             new GripMaterialStats(1.05F, -0.05F, 2.75F),
-            ExtraMaterialStats.DEFAULT);
-        addMaterialStats(brass,
+            StatlessMaterialStats.BINDING);
+        addMaterialStats(MaterialIds.brass,
             new HeadMaterialStats(730, 6F, DIAMOND, 2.25F),
             new LimbMaterialStats(730, -0.2f, 0.15f, -0.2f),
             new GripMaterialStats(1.1f, 0f, 2.25f),
-            HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.15F),
-            ExtraMaterialStats.DEFAULT);
+            HandleMaterialStats.multipliers().durability(1.05F).miningSpeed(1.15F).build(),
+            StatlessMaterialStats.BINDING);
         addMaterialStats(MaterialIds.neptunium,
             new HeadMaterialStats(765, 7F, DIAMOND, 2.65F),
-            HandleMaterialStats.DEFAULT.withDurability(1.15F).withMiningSpeed(1.25F).withAttackSpeed(1.2F),
+            HandleMaterialStats.multipliers().durability(1.15F).miningSpeed(1.25F).attackSpeed(1.2F).build(),
             new LimbMaterialStats(765, -0.25F, 0.18F, -0.15F),
             new GripMaterialStats(1.05F, -0.05F, 2.5F),
-            ExtraMaterialStats.DEFAULT);
+            StatlessMaterialStats.BINDING);
         addMaterialStats(MaterialIds.soulStainedSteel,
             new HeadMaterialStats(785, 6F, DIAMOND, 2.75F),
             new LimbMaterialStats(785, -0.3F, 0.2F, -0.1F),
             new GripMaterialStats(1.1F, -0.05F, 2.75F),
-            HandleMaterialStats.DEFAULT.withDurability(1.05F).withMiningSpeed(1.05F).withAttackSpeed(1.05F),
-            ExtraMaterialStats.DEFAULT);
-        addMaterialStats(MaterialIds.manaString, BowstringMaterialStats.DEFAULT);
+            HandleMaterialStats.multipliers().durability(1.05F).miningSpeed(1.05F).attackSpeed(1.05F).build(),
+            StatlessMaterialStats.BINDING);
+        addMaterialStats(MaterialIds.manaString, StatlessMaterialStats.BINDING);
 
         // tier 4 (mod integration)
         addMaterialStats(MaterialIds.pendoriteAlloy,
             new HeadMaterialStats(1450, 8f, NETHERITE, 3.0F),
             new LimbMaterialStats(1450, 0, -0.20F,0.05F),
             new GripMaterialStats(1.2F, -0.15F, 3.0F),
-            HandleMaterialStats.DEFAULT.withDurability(1.4F).withMiningSpeed(1.2F).withAttackSpeed(1.1F).withAttackDamage(1.25F),
-            ExtraMaterialStats.DEFAULT);
+            HandleMaterialStats.multipliers().durability(1.4F).miningSpeed(1.2F).attackSpeed(1.1F).attackDamage(1.25F).build(),
+            StatlessMaterialStats.BINDING);
     }
 
 }
