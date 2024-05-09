@@ -7,7 +7,6 @@ import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataPr
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
-import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
 import static slimeknights.tconstruct.tools.data.material.MaterialIds.osmium;
 
 public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvider {
@@ -27,7 +26,7 @@ public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvide
         addDefaultTraits(MaterialIds.livingRock, TinkerModifiers.stonebound);
         addDefaultTraits(MaterialIds.manaSteel, ModifierIds.ductile, TciModifierIds.mana);
         addDefaultTraits(MaterialIds.manaString, TciModifierIds.mana);
-        addDefaultTraits(brass, TciModifierIds.moderate);
+        addDefaultTraits(MaterialIds.brass, TciModifierIds.moderate);
         addDefaultTraits(MaterialIds.neptunium, TciModifierIds.waterPowered);
         addDefaultTraits(MaterialIds.soulStainedSteel, TciModifierIds.soulStained);
         addDefaultTraits(MaterialIds.desh, TciModifierIds.oxygenated);

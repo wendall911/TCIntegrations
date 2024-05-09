@@ -9,13 +9,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-import slimeknights.mantle.recipe.data.IRecipeHelper;
+
 import slimeknights.mantle.recipe.helper.ItemOutput;
-import slimeknights.tconstruct.common.data.BaseRecipeProvider;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
-
-import static slimeknights.tconstruct.tools.data.material.MaterialIds.brass;
 
 import vazkii.botania.common.block.BotaniaBlocks;
 import vazkii.botania.common.item.BotaniaItems;
@@ -67,14 +64,14 @@ public class MaterialRecipeProvider extends RecipeProvider implements IMaterialR
         metalMaterialRecipe(beyondEarthConsumer, MaterialIds.desh, folder, "desh", true);
         metalMaterialRecipe(beyondEarthConsumer, MaterialIds.calorite, folder, "calorite", true);
         metalMaterialRecipe(beyondEarthConsumer, MaterialIds.ostrum, folder, "ostrum", true);
-        metalMaterialRecipe(brassConsumer, brass, folder, "brass", true);
+        metalMaterialRecipe(brassConsumer, MaterialIds.brass, folder, "brass", true);
         metalMaterialRecipe(bygConsumer, MaterialIds.pendoriteAlloy, folder, "pendorite_alloy", true);
     }
 
     private void addMaterialSmeltery(Consumer<FinishedRecipe> consumer) {
         String folder = "tools/materials/";
 
-        compatMeltingCasting(consumer, brass, TinkerFluids.moltenBrass, folder);
+        compatMeltingCasting(consumer, MaterialIds.brass, TinkerFluids.moltenBrass, folder);
         compatMeltingCasting(consumer, MaterialIds.manaSteel, TCIntegrationsItems.MOLTEN_MANASTEEL, folder);
         compatMeltingCasting(consumer, MaterialIds.neptunium, TCIntegrationsItems.MOLTEN_NEPTUNIUM, folder);
         compatMeltingCasting(consumer, MaterialIds.soulStainedSteel, TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL, folder);
