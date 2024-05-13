@@ -14,9 +14,6 @@
   ],
   "level": 1,
   "result": "tcintegrations:engineers_goggles",
-  "slots": {
-    "abilities": 1
-  },
   "tools": {
     "tag": "tconstruct:modifiable/armor/helmets"
   }

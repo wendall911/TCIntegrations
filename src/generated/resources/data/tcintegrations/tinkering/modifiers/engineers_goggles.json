@@ -4,10 +4,15 @@
     "type": "forge:mod_loaded",
     "modid": "immersiveengineering"
   },
-  "level_display": "tconstruct:no_levels",
+  "level_display": "tconstruct:default",
   "modules": [
     {
       "type": "tcintegrations:engineers_goggles"
+    },
+    {
+      "type": "tconstruct:modifier_slot",
+      "count": 1,
+      "name": "abilities"
     }
   ],
   "tooltip_display": "always"

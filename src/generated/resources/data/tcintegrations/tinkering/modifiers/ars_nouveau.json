@@ -4,6 +4,12 @@
     "type": "tconstruct:unique",
     "unique_until": 3
   },
-  "modules": [],
+  "modules": [
+    {
+      "type": "tconstruct:modifier_slot",
+      "count": 1,
+      "name": "upgrades"
+    }
+  ],
   "tooltip_display": "always"
 }
