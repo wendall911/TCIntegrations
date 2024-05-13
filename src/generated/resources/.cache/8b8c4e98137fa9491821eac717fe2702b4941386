@@ -1,4 +1,4 @@
-// 1.19.2	2024-05-08T10:08:50.536264587	TCIntegrations - TCon Smeltery Recipes
+// 1.19.2	2024-05-13T09:23:38.465084423	TCIntegrations - TCon Smeltery Recipes
 c7377076e09c285a205231befcee855f9998983f data/tcintegrations/recipes/emeraldite/ore.json
 fe5cd81fbe9877730ac5f2ea7294e3551acea240 data/tcintegrations/recipes/emeraldite/shard.json
 360f25cefa2a13a789b26d394924142a85e60173 data/tcintegrations/recipes/smeltery/alloys/molten_bronze.json
@@ -19,6 +19,21 @@ b79e777ed58e43b47e0486afeca198ad52332cba data/tcintegrations/recipes/smeltery/ca
 4a861e4592e08fb3a9fb0d2c2a9a3d72040f7084 data/tcintegrations/recipes/smeltery/casting/metal/cloggrum/wire_gold_cast.json
 3802f55b4a957551dda0ffe3f19edae557c6db03 data/tcintegrations/recipes/smeltery/casting/metal/cloggrum/wire_sand_cast.json
 e0f2f5320a92100e4b9d3b37592eafa9e1aacfac data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block.json
+4233eb4181e891c483f0aeea5a7bda904e817385 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/block.json
+5464a44e09965261ebfa5732f5c3a1cf06007c7b data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/coin_gold_cast.json
+f8200031b93be4c3557b49c2ca318343e5235beb data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/coin_sand_cast.json
+6448073c9fc518f54565f32af73da8b118478b2e data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/gear_gold_cast.json
+419cdf3c7ac85c44ad3fd6710ef63fce45382af0 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/gear_sand_cast.json
+f69db420921e141ca955e52d750ecdced86a3f15 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/ingot_gold_cast.json
+21181b053b10ad366f7b2479772df4119e44a954 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/ingot_sand_cast.json
+858d411d1f36c10af218cc1643f7cc6d960eda1c data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/nugget_gold_cast.json
+68c492fc23403bcf5c31d285d9f5f3a0cbea90a5 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/nugget_sand_cast.json
+fc90d5c26ddb1ecfb9561b6c74c552f034f4ec39 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/plate_gold_cast.json
+d829081129ae4e4e48ff9252a0a48a5b62420804 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/plate_sand_cast.json
+efc2fba6dec320be004508743a92c9cc3951a7c1 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/rod_gold_cast.json
+3dc7bd16a0b730c431befb340c5284bca2fc930d data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/rod_sand_cast.json
+fa7537d1976ec9d757faf2288d87819f20595996 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/wire_gold_cast.json
+1466249f66f27971a330f4901e84c2afd8fe3f01 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/block/wire_sand_cast.json
 2bf3bf8e3d46a0db38f8ad2024404d8dd6e1cc09 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/coin_gold_cast.json
 c5d36d63862a5d1535d0b6c0a806a17c955268d1 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/coin_sand_cast.json
 15e74e3edd23a9585d80c8dc14f4b62048fbdcb0 data/tcintegrations/recipes/smeltery/casting/metal/forgotten/gear_gold_cast.json
