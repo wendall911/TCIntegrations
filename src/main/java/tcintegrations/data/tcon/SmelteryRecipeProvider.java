@@ -20,6 +20,9 @@ import net.minecraftforge.common.crafting.ConditionalRecipe;
 import potionstudios.byg.common.block.BYGBlocks;
 import potionstudios.byg.common.item.BYGItems;
 
+import quek.undergarden.registry.UGBlocks;
+import quek.undergarden.registry.UGItems;
+
 import slimeknights.mantle.recipe.data.ICommonRecipeHelper;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
@@ -67,11 +70,12 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
         Map<String, Consumer<FinishedRecipe>> modConsumers = new HashMap<>();
         Consumer<FinishedRecipe> arsConsumer = withCondition(consumer, modLoaded(ModIntegration.ARS_MODID));
         Consumer<FinishedRecipe> bygConsumer = withCondition(consumer, modLoaded(ModIntegration.BYG_MODID));
+        Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
 
         modConsumers.put(ModIntegration.BOTANIA_MODID, withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID)));
         modConsumers.put(ModIntegration.AQUACULTURE_MODID, withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID)));
         modConsumers.put(ModIntegration.MALUM_MODID, withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID)));
-        modConsumers.put(ModIntegration.UNDERGARDEN_MODID, withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID)));
+        modConsumers.put(ModIntegration.UNDERGARDEN_MODID, undergardenConsumer);
         modConsumers.put(ModIntegration.BYG_MODID, bygConsumer);
 
         this.gemCasting(arsConsumer, TCIntegrationsItems.MOLTEN_SOURCE_GEM, ItemsRegistry.SOURCE_GEM.asItem(), folder + "source_gem/gem");
@@ -81,6 +85,8 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
 
         this.ingotCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE, false, BYGItems.PENDORITE_SCRAPS.get(), metalFolder + "pendorite/scrap");
         this.metalCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY, false, BYGBlocks.PENDORITE_BLOCK.get(), BYGItems.PENDORITE_INGOT.get(), null, metalFolder, "pendorite_alloy/block");
+
+        this.metalCasting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN, false, UGBlocks.FORGOTTEN_BLOCK.get(), UGItems.FORGOTTEN_INGOT.get(), UGItems.FORGOTTEN_NUGGET.get(), metalFolder, "forgotten/block");
 
         for (SmelteryCompat compat : SmelteryCompat.values()) {
             this.metalTagCasting(modConsumers.get(compat.getModid()), compat.getFluid(), compat.getName(), metalFolder, false);
