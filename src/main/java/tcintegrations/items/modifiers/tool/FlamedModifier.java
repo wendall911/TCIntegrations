@@ -13,12 +13,12 @@ import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.Vec3;
 
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.ranged.ProjectileLaunchModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
-import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
+import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
@@ -28,8 +28,8 @@ import slimeknights.tconstruct.library.tools.nbt.NamespacedNBT;
 public class FlamedModifier extends NoLevelsModifier implements ProjectileLaunchModifierHook, ProjectileHitModifierHook, MeleeHitModifierHook {
 
     @Override
-    protected void registerHooks(ModifierHookMap.Builder builder) {
-        builder.addHook(this, TinkerHooks.PROJECTILE_HIT, TinkerHooks.PROJECTILE_LAUNCH, TinkerHooks.MELEE_HIT);
+    protected void registerHooks(Builder builder) {
+        builder.addHook(this, ModifierHooks.PROJECTILE_HIT, ModifierHooks.PROJECTILE_LAUNCH, ModifierHooks.MELEE_HIT);
     }
 
     @Override

@@ -18,11 +18,11 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.IItemHandler;
 
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BlockBreakModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
-import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
+import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
@@ -30,9 +30,9 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 public class KineticModifier extends NoLevelsModifier implements MeleeHitModifierHook, BlockBreakModifierHook {
 
     @Override
-    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+    protected void registerHooks(Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, TinkerHooks.MELEE_HIT, TinkerHooks.BLOCK_BREAK);
+        hookBuilder.addHook(this, ModifierHooks.MELEE_HIT, ModifierHooks.BLOCK_BREAK);
     }
 
     @Override

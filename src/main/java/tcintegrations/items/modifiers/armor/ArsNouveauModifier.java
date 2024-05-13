@@ -14,9 +14,9 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.common.util.Lazy;
 
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.armor.EquipmentChangeModifierHook;
-import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
+import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
@@ -28,9 +28,9 @@ public class ArsNouveauModifier extends ArsNouveauBaseModifier implements Equipm
     private final Lazy<Component> ARCHMAGE_NAME = Lazy.of(() -> applyStyle(Component.translatable(getTranslationKey() + ".3")));
 
     @Override
-    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+    protected void registerHooks(Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, TinkerHooks.EQUIPMENT_CHANGE);
+        hookBuilder.addHook(this, ModifierHooks.EQUIPMENT_CHANGE);
     }
 
     @Override

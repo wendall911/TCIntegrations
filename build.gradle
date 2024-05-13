@@ -56,6 +56,14 @@ repositories {
             password = project.githubtoken
         }
     }
+	maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/wendall911/TinkerSurvival")
+        credentials {
+            username = project.githubusername
+            password = project.githubtoken
+        }
+    }
 }
 
 group = 'com.github.wendall911.tcintegrations'

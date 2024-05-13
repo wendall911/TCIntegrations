@@ -28,14 +28,14 @@ import slimeknights.mantle.client.TooltipKey;
 
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeDamageModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.display.TooltipModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.BlockInteractionModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.InteractionSource;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BreakSpeedModifierHook;
 import slimeknights.tconstruct.library.modifiers.impl.NoLevelsModifier;
-import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
+import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
@@ -50,9 +50,9 @@ public class SirenModifier extends NoLevelsModifier implements BreakSpeedModifie
             Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "siren.mining_speed")));
 
     @Override
-    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+    protected void registerHooks(Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, TinkerHooks.BREAK_SPEED, TinkerHooks.TOOLTIP, TinkerHooks.BLOCK_INTERACT, TinkerHooks.MELEE_DAMAGE);
+        hookBuilder.addHook(this, ModifierHooks.BREAK_SPEED, ModifierHooks.TOOLTIP, ModifierHooks.BLOCK_INTERACT, ModifierHooks.MELEE_DAMAGE);
     }
 
     @Override

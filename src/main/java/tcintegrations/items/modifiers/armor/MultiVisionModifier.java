@@ -7,17 +7,18 @@ import slimeknights.mantle.data.registry.GenericLoaderRegistry;
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.ModifierHook;
-import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.build.RawDataModifierHook;
 import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
+import slimeknights.tconstruct.library.module.HookProvider;
+import slimeknights.tconstruct.library.module.ModuleHook;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.utils.RestrictedCompoundTag;
 
 public enum MultiVisionModifier implements ModifierModule, RawDataModifierHook {
     INSTANCE;
 
-    private static final List<ModifierHook<?>> DEFAULT_HOOKS = ModifierModule.<MultiVisionModifier>defaultHooks(TinkerHooks.RAW_DATA);
+    private static final List<ModuleHook<?>> DEFAULT_HOOKS = HookProvider.<MultiVisionModifier>defaultHooks(ModifierHooks.RAW_DATA);
     public static final GenericLoaderRegistry.IGenericLoader<MultiVisionModifier> LOADER = new GenericLoaderRegistry.SingletonLoader<>(INSTANCE);
     public static final String VOLTMETER = "ie_voltmeter";
 
@@ -29,7 +30,7 @@ public enum MultiVisionModifier implements ModifierModule, RawDataModifierHook {
     }
 
     @Override
-    public List<ModifierHook<?>> getDefaultHooks() {
+    public List<ModuleHook<?>> getDefaultHooks() {
         return DEFAULT_HOOKS;
     }
 

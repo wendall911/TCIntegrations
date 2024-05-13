@@ -12,10 +12,10 @@ import net.minecraft.world.phys.AABB;
 
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.GeneralInteractionModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.InteractionSource;
-import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
+import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
 import tcintegrations.items.modifiers.traits.ManaModifier;
@@ -27,9 +27,9 @@ public class AlfModifier extends ManaModifier implements GeneralInteractionModif
     private static final int ITEM_COLLECT_RANGE = 8;
 
     @Override
-    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+    protected void registerHooks(Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, TinkerHooks.GENERAL_INTERACT);
+        hookBuilder.addHook(this, ModifierHooks.GENERAL_INTERACT);
     }
 
     @Override

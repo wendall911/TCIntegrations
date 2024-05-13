@@ -1,13 +1,13 @@
-// 1.19.2	2024-05-08T10:08:50.53946529	TCIntegrations - TCon Material Stats
-a06c32fd824fd33b7d973ca15c49530527f40946 data/tcintegrations/tinkering/materials/stats/calorite.json
-a06c32fd824fd33b7d973ca15c49530527f40946 data/tcintegrations/tinkering/materials/stats/desh.json
-48e106325b8edd673c8e4ff74170f009be6ae40f data/tcintegrations/tinkering/materials/stats/livingrock.json
-923ca604973aa276e55b744bdcd106836b0cde9f data/tcintegrations/tinkering/materials/stats/livingwood.json
-a42ee50980665c4c310feb6ffcc57839e95dc51a data/tcintegrations/tinkering/materials/stats/manasteel.json
-8aed16acb856c2a5cf35cef3f5ef20d774bc08c3 data/tcintegrations/tinkering/materials/stats/manastring.json
-6f9e5c95dade060a1769d80aa3b239b563945aba data/tcintegrations/tinkering/materials/stats/neptunium.json
-a06c32fd824fd33b7d973ca15c49530527f40946 data/tcintegrations/tinkering/materials/stats/ostrum.json
-4cff8f43fb24ec125cba96faa9cede722fee2e63 data/tcintegrations/tinkering/materials/stats/pendorite_alloy.json
-98144a5c54b62015b3687f15a74beda51b31bbea data/tcintegrations/tinkering/materials/stats/soul_stained_steel.json
-5f75e9b32d16579da0051883283ffe113a983783 data/tconstruct/tinkering/materials/stats/brass.json
-55d7d26e0a596ca516cca855487945b46634ae8f data/tconstruct/tinkering/materials/stats/osmium.json
+// 1.19.2	2024-05-09T10:02:34.2607245	TCIntegrations - TCon Material Stats
+c06e86d00a058f685d30e0953549a3b63a71211e data/tcintegrations/tinkering/materials/stats/brass.json
+3610ed9eed8e494a3bb570e568a03ffbb2181d7b data/tcintegrations/tinkering/materials/stats/calorite.json
+3610ed9eed8e494a3bb570e568a03ffbb2181d7b data/tcintegrations/tinkering/materials/stats/desh.json
+35ccf880a81eb570a5932fe523826c876abb4e0d data/tcintegrations/tinkering/materials/stats/livingrock.json
+b1e1a8d6028e600236726b1ef2d82e2d0f5a5c68 data/tcintegrations/tinkering/materials/stats/livingwood.json
+e1345265ed68040a3d99cb28bd45ce3528ff0239 data/tcintegrations/tinkering/materials/stats/manasteel.json
+02f91160cf4b1c2b2db1a22173f1df5cefa3ebd8 data/tcintegrations/tinkering/materials/stats/manastring.json
+bd6553eddfb751710b18bc383b08d144cd31cc54 data/tcintegrations/tinkering/materials/stats/neptunium.json
+3610ed9eed8e494a3bb570e568a03ffbb2181d7b data/tcintegrations/tinkering/materials/stats/ostrum.json
+0c5e90d934765b0774a05717cb136c04c0757701 data/tcintegrations/tinkering/materials/stats/pendorite_alloy.json
+155bb429852b8667f53ef9bee1d2b61d95c4ae67 data/tcintegrations/tinkering/materials/stats/soul_stained_steel.json
+2c5e20c3e98bae953ae53bbed53d14e5c08b9676 data/tconstruct/tinkering/materials/stats/osmium.json

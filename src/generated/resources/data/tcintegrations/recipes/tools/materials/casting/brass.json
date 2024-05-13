@@ -13,6 +13,6 @@
     "amount": 90,
     "tag": "forge:molten_brass"
   },
-  "output": "tconstruct:brass",
+  "output": "tcintegrations:brass",
   "temperature": 605
 }

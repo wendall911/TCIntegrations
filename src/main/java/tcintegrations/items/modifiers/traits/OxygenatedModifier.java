@@ -5,9 +5,9 @@ import net.minecraft.world.effect.MobEffectInstance;
 
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
-import slimeknights.tconstruct.library.modifiers.TinkerHooks;
+import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.modifiers.hook.mining.BlockBreakModifierHook;
-import slimeknights.tconstruct.library.modifiers.util.ModifierHookMap;
+import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
@@ -16,9 +16,9 @@ import tcintegrations.data.integration.ModIntegration;
 public class OxygenatedModifier extends Modifier implements BlockBreakModifierHook {
 
     @Override
-    protected void registerHooks(ModifierHookMap.Builder hookBuilder) {
+    protected void registerHooks(Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, TinkerHooks.BLOCK_BREAK);
+        hookBuilder.addHook(this, ModifierHooks.BLOCK_BREAK);
     }
 
     @Override
