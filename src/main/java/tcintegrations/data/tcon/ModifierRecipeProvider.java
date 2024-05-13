@@ -195,7 +195,6 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         ModifierRecipeBuilder.modifier(TciModifierIds.engineersGoggles)
                 .setTools(TinkerTags.Items.HELMETS)
                 .addInput(AllItems.GOGGLES.get())
-                .setSlots(SlotType.ABILITY, 1)
                 .setMaxLevel(1)
                 .saveSalvage(createConsumer, prefix(TciModifierIds.engineersGoggles, compatSalvage))
                 .save(createConsumer, prefix(TciModifierIds.engineersGoggles, compatFolder));
