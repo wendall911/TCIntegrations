@@ -38,6 +38,7 @@ public class CommonProxy {
         @SubscribeEvent
         public static void setup(FMLCommonSetupEvent event) {
             NetworkHandler.init();
+            TCIntegrationsItems.setup(event);
         }
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)

@@ -2,11 +2,19 @@ package tcintegrations.items;
 
 import java.util.function.Function;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.BlockSource;
+import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.core.dispenser.DispenseItemBehavior;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DispensibleContainerItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -17,6 +25,7 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.ModList;
 
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.mantle.registration.object.FlowingFluidObject;
 import slimeknights.mantle.registration.object.MetalItemObject;
@@ -110,6 +119,40 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
 
     public static String makeDescriptionId(String type, String name) {
         return type + "." + TCIntegrations.MODID + "." + name;
+    }
+
+    public static void setup(FMLCommonSetupEvent event) {
+        DispenseItemBehavior dispenseItemBehavior = new DefaultDispenseItemBehavior() {
+            private final DefaultDispenseItemBehavior defaultDispenseItemBehavior = new DefaultDispenseItemBehavior();
+
+            @Override
+            public ItemStack execute(BlockSource source, ItemStack stack) {
+                DispensibleContainerItem container = (DispensibleContainerItem)stack.getItem();
+                BlockPos blockPos = source.getPos().relative(source.getBlockState().getValue(DispenserBlock.FACING));
+                Level level = source.getLevel();
+
+                if (container.emptyContents(null, level, blockPos, null)) {
+                    container.checkExtraContent(null, level, stack, blockPos);
+
+                    return new ItemStack(Items.BUCKET);
+                }
+                else {
+                    return this.defaultDispenseItemBehavior.dispense(source, stack);
+                }
+            }
+        };
+
+        event.enqueueWork(() -> {
+            DispenserBlock.registerBehavior(MOLTEN_CLOGGRUM, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_FORGOTTEN, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_FROSTSTEEL, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_MANASTEEL, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_NEPTUNIUM, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_PENDORITE, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_PENDORITE_ALLOY, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_SOUL_STAINED_STEEL, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_SOURCE_GEM, dispenseItemBehavior);
+        });
     }
 
 }
