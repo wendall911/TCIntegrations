@@ -187,8 +187,6 @@ dependencies {
     runtimeOnly fg.deobf("org.moddingx:LibX:${libx_version}") // For MyticBotany
     runtimeOnly fg.deobf('io.github.noeppi_noeppi.mods:SandBox:1.19.2-1.0.1') // For MyticBotany
     runtimeOnly fg.deobf("curse.maven:beyond_earth-377448:${beyond_earth_version}")
-    runtimeOnly fg.deobf("curse.maven:monstersplus-676418:${monsters_plus_version}")
-    runtimeOnly fg.deobf("curse.maven:mowziesmobs-250498:${mowzies_mobs_version}")
     //runtimeOnly fg.deobf("curse.maven:-:")
 }
 
