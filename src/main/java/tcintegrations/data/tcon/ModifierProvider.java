@@ -32,7 +32,7 @@ public class ModifierProvider extends AbstractModifierProvider implements ICondi
     protected void addModifiers() {
         buildModifier(TciModifierIds.livingwood)
             .addModule(RepairModule.builder().eachLevel(0.75F));
-        buildModifier(TciModifierIds.engineersGoggles, modLoaded(ModIntegration.IE_MODID))
+        buildModifier(TciModifierIds.engineersGoggles, modLoaded(ModIntegration.CREATE_MODID))
             .addModule(EngineersGogglesModifier.INSTANCE)
             .addModule(new ModifierSlotModule(SlotType.ABILITY, 1));
         buildModifier(TCIntegrationsModifiers.ARS_MODIFIER.getId())
