@@ -187,6 +187,7 @@ dependencies {
     runtimeOnly fg.deobf("org.moddingx:LibX:${libx_version}") // For MyticBotany
     runtimeOnly fg.deobf('io.github.noeppi_noeppi.mods:SandBox:1.19.2-1.0.1') // For MyticBotany
     runtimeOnly fg.deobf("curse.maven:beyond_earth-377448:${beyond_earth_version}")
+    compileOnly fg.deobf("curse.maven:consecration-284001:${consecration_version}")
     //runtimeOnly fg.deobf("curse.maven:-:")
 }
 
@@ -324,6 +325,7 @@ task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
         mainFile.addOptional('mekanism')
         mainFile.addOptional('mythicbotany')
         mainFile.addOptional('ice-and-fire-dragons')
+        mainFile.addOptional('consecration')
     }
 }
 
@@ -351,6 +353,7 @@ modrinth {
 			optional.project "biomesyougo"
             optional.project 'mekanism'
             optional.project 'mythicbotany'
+            optional.project 'consecration'
         }
     }
 }
