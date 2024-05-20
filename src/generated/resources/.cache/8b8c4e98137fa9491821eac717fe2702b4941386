@@ -1,7 +1,7 @@
-// 1.19.2	2024-05-13T09:23:38.465084423	TCIntegrations - TCon Smeltery Recipes
+// 1.19.2	2024-05-20T14:13:46.174781908	TCIntegrations - TCon Smeltery Recipes
 c7377076e09c285a205231befcee855f9998983f data/tcintegrations/recipes/emeraldite/ore.json
 fe5cd81fbe9877730ac5f2ea7294e3551acea240 data/tcintegrations/recipes/emeraldite/shard.json
-360f25cefa2a13a789b26d394924142a85e60173 data/tcintegrations/recipes/smeltery/alloys/molten_bronze.json
+f784c248458e447485c647f24d7429799b9ee6c9 data/tcintegrations/recipes/smeltery/alloys/molten_bronze.json
 cb8eb2987f62124557a9b0e0b021c99e156c0e54 data/tcintegrations/recipes/smeltery/alloys/pendorite_alloy.json
 fedbbfd9a7b145e52a1ac5c08e78a3e199a76150 data/tcintegrations/recipes/smeltery/casting/metal/cloggrum/block.json
 8d12bc22c7b2bbf82c15b29a107e17bdf1090df1 data/tcintegrations/recipes/smeltery/casting/metal/cloggrum/coin_gold_cast.json
