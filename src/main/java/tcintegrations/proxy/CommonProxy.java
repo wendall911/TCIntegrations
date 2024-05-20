@@ -5,10 +5,13 @@ import net.minecraft.core.Registry;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.RegisterEvent;
 
+import tcintegrations.common.ConsecrationTConstructModule;
 import tcintegrations.config.ConfigHandler;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationHooks;
@@ -44,6 +47,13 @@ public class CommonProxy {
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerItems(RegisterEvent event) {
             event.register(Registry.ITEM_REGISTRY, ModIntegration::init);
+        }
+
+        @SubscribeEvent
+        public static void imcEnqueue(final InterModEnqueueEvent event) {
+            if (ModList.get().isLoaded(ModIntegration.CONSECRATION_MODID)) {
+                ConsecrationTConstructModule.setup();
+            }
         }
 
     }
