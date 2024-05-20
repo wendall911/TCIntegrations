@@ -15,8 +15,8 @@ import net.minecraftforge.common.Tags;
 
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.hook.behavior.ProcessLootModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.combat.MeleeHitModifierHook;
-import slimeknights.tconstruct.library.modifiers.hook.interaction.GeneralInteractionModifierHook;
 import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.recipe.modifiers.severing.SeveringRecipe;
 import slimeknights.tconstruct.library.recipe.modifiers.severing.SeveringRecipeCache;
@@ -29,14 +29,14 @@ import tcintegrations.util.BotaniaHelper;
 
 import tcintegrations.TCIntegrations;
 
-public class ElementalModifier extends ManaModifier implements MeleeHitModifierHook {
+public class ElementalModifier extends ManaModifier implements MeleeHitModifierHook, ProcessLootModifierHook {
 
     private static final int MANA_PER_DAMAGE = 70;
 
     @Override
     protected void registerHooks(Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this, ModifierHooks.MELEE_HIT);
+        hookBuilder.addHook(this, ModifierHooks.MELEE_HIT, ModifierHooks.PROCESS_LOOT);
     }
 
     @Override

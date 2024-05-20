@@ -21,6 +21,7 @@ import net.minecraftforge.common.util.Lazy;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
+import slimeknights.tconstruct.library.modifiers.hook.behavior.ProcessLootModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.GeneralInteractionModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.interaction.InteractionSource;
 import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
@@ -36,13 +37,13 @@ import tcintegrations.data.integration.ModIntegration;
  * https://github.com/SlimeKnights/TinkersConstruct/blob/1.18.2/src/main/java/slimeknights/tconstruct/tools/modifiers/traits/general/TastyModifier.java
  */
 
-public class CheesyModifier extends Modifier implements GeneralInteractionModifierHook {
+public class CheesyModifier extends Modifier implements GeneralInteractionModifierHook, ProcessLootModifierHook {
 
     private static final Lazy<ItemStack> CHEESE_STACK = Lazy.of(() -> new ItemStack(ModIntegration.BEYOND_EARTH_CHEESE));
 
     @Override
     protected void registerHooks(Builder hookBuilder) {
-        hookBuilder.addHook(this, ModifierHooks.GENERAL_INTERACT);
+        hookBuilder.addHook(this, ModifierHooks.GENERAL_INTERACT, ModifierHooks.PROCESS_LOOT);
     }
 
     @Override

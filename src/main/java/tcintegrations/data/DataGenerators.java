@@ -51,7 +51,7 @@ public final class DataGenerators {
         gen.addProvider(server, new ModifierRecipeProvider(gen));
         gen.addProvider(server, new ModRecipesProvider(gen));
         gen.addProvider(server, new ModLootTables(gen));
-        gen.addProvider(client, new MaterialRenderInfoProvider(gen, materialSprites));
+        gen.addProvider(client, new MaterialRenderInfoProvider(gen, materialSprites, existingFileHelper));
         gen.addProvider(server, new MaterialStatsDataProvider(gen, materials));
         gen.addProvider(server, new MaterialTraitsDataProvider(gen, materials));
         gen.addProvider(server, new MaterialRecipeProvider(gen));
