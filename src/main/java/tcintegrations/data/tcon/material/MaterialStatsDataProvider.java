@@ -8,6 +8,7 @@ import slimeknights.tconstruct.tools.stats.GripMaterialStats;
 import slimeknights.tconstruct.tools.stats.HandleMaterialStats;
 import slimeknights.tconstruct.tools.stats.HeadMaterialStats;
 import slimeknights.tconstruct.tools.stats.LimbMaterialStats;
+import slimeknights.tconstruct.tools.stats.PlatingMaterialStats;
 import slimeknights.tconstruct.tools.stats.StatlessMaterialStats;
 
 import static net.minecraft.world.item.Tiers.DIAMOND;
@@ -39,13 +40,15 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
             new LimbMaterialStats(60, 0, 0,0),
             new GripMaterialStats(1.0F, 0, 0),
             HandleMaterialStats.percents().build(),
-            StatlessMaterialStats.BINDING);
+            StatlessMaterialStats.BINDING,
+            StatlessMaterialStats.SHIELD_CORE);
         addMaterialStats(MaterialIds.livingRock,
             new HeadMaterialStats(130, 4F, STONE, 1F),
             new LimbMaterialStats(130, 0.05F, 0.05F, -0.1F),
             new GripMaterialStats(1.05F, -0.05F, 0.75F),
             HandleMaterialStats.multipliers().durability(1.2F).attackDamage(1.2F).build(),
-            StatlessMaterialStats.BINDING);
+            StatlessMaterialStats.BINDING,
+            StatlessMaterialStats.SHIELD_CORE);
         
         // tier 2 (mod integration)
         addMaterialStats(MaterialIds.desh,
@@ -80,6 +83,12 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
             new LimbMaterialStats(775, -0.3F, 0.2F, -0.1F),
             new GripMaterialStats(1.05F, -0.05F, 2.75F),
             StatlessMaterialStats.BINDING);
+        addArmorShieldStats(MaterialIds.manaSteel,
+            PlatingMaterialStats.builder()
+                .durabilityFactor(29)
+                .armor(2, 5, 7, 2)
+                .toughness(2),
+            StatlessMaterialStats.MAILLE);
         addMaterialStats(MaterialIds.brass,
             new HeadMaterialStats(730, 6F, DIAMOND, 2.25F),
             new LimbMaterialStats(730, -0.2f, 0.15f, -0.2f),

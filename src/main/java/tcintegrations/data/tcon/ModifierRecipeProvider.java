@@ -113,7 +113,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALF_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ALFHEIM_MODIFIER)
-            .setTools(TinkerTags.Items.ARMOR)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
             .addInput(mythicbotany.register.ModItems.alfsteelIngot)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
@@ -181,7 +181,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.GREAT_FAIRY_MODIFIER)
-            .setTools(TinkerTags.Items.ARMOR)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
             .addInput(BotaniaTags.Items.INGOTS_ELEMENTIUM)
             .addInput(BotaniaTags.Items.INGOTS_ELEMENTIUM)
             .addInput(BotaniaTags.Items.INGOTS_ELEMENTIUM)
@@ -208,7 +208,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(createConsumer, prefix(TCIntegrationsModifiers.MECHANICAL_ARM_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.POSEIDON_MODIFIER)
-            .setTools(TinkerTags.Items.ARMOR)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
             .addInput(AquaItems.NEPTUNIUM_INGOT.get())
             .addInput(AquaItems.NEPTUNIUM_INGOT.get())
             .addInput(AquaItems.NEPTUNIUM_INGOT.get())
@@ -232,7 +232,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(aquacultureConsumer, prefix(TCIntegrationsModifiers.SIREN_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ARS_MODIFIER)
-            .setTools(TinkerTags.Items.ARMOR)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
             .addInput(ItemsRegistry.MAGE_FIBER)
             .addInput(ItemsRegistry.MAGE_FIBER)
             .addInput(ItemsRegistry.MAGE_FIBER)
@@ -245,7 +245,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_1"));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ARS_MODIFIER)
-            .setTools(TinkerTags.Items.ARMOR)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
             .addInput(ItemsRegistry.BLAZE_FIBER)
             .addInput(ItemsRegistry.BLAZE_FIBER)
             .addInput(ItemsRegistry.BLAZE_FIBER)
@@ -258,7 +258,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_2"));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ARS_MODIFIER)
-            .setTools(TinkerTags.Items.ARMOR)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
             .addInput(ItemsRegistry.END_FIBER)
             .addInput(ItemsRegistry.END_FIBER)
             .addInput(ItemsRegistry.END_FIBER)
@@ -367,7 +367,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.CROCODILE_MODIFIER.getId() + "_chestplates"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SOUL_STAINED_MODIFIER)
-            .setTools(TinkerTags.Items.ARMOR)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
             .addInput(ItemRegistry.SOUL_STAINED_STEEL_INGOT.get())
             .addInput(ItemRegistry.SOUL_STAINED_STEEL_INGOT.get())
             .addInput(ItemRegistry.SOUL_STAINED_STEEL_INGOT.get())
