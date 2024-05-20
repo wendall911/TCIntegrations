@@ -1,10 +1,10 @@
-// 1.19.2	2024-05-09T10:02:34.2607245	TCIntegrations - TCon Material Stats
+// 1.19.2	2024-05-20T10:25:07.604667347	TCIntegrations - TCon Material Stats
 c06e86d00a058f685d30e0953549a3b63a71211e data/tcintegrations/tinkering/materials/stats/brass.json
 3610ed9eed8e494a3bb570e568a03ffbb2181d7b data/tcintegrations/tinkering/materials/stats/calorite.json
 3610ed9eed8e494a3bb570e568a03ffbb2181d7b data/tcintegrations/tinkering/materials/stats/desh.json
-35ccf880a81eb570a5932fe523826c876abb4e0d data/tcintegrations/tinkering/materials/stats/livingrock.json
-b1e1a8d6028e600236726b1ef2d82e2d0f5a5c68 data/tcintegrations/tinkering/materials/stats/livingwood.json
-e1345265ed68040a3d99cb28bd45ce3528ff0239 data/tcintegrations/tinkering/materials/stats/manasteel.json
+e51bb77e86381290d4894b9c4e5c8f6418b0122b data/tcintegrations/tinkering/materials/stats/livingrock.json
+db08245e5df196b1e12fd204c922b4a5cc3f4399 data/tcintegrations/tinkering/materials/stats/livingwood.json
+a7ded152fc66b04b0f605cd469ce93015ae4e508 data/tcintegrations/tinkering/materials/stats/manasteel.json
 02f91160cf4b1c2b2db1a22173f1df5cefa3ebd8 data/tcintegrations/tinkering/materials/stats/manastring.json
 bd6553eddfb751710b18bc383b08d144cd31cc54 data/tcintegrations/tinkering/materials/stats/neptunium.json
 3610ed9eed8e494a3bb570e568a03ffbb2181d7b data/tcintegrations/tinkering/materials/stats/ostrum.json

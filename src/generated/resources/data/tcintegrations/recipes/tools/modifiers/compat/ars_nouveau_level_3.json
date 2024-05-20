@@ -30,6 +30,6 @@
     "upgrades": 1
   },
   "tools": {
-    "tag": "tconstruct:modifiable/armor"
+    "tag": "tconstruct:modifiable/armor/worn"
   }
 }
