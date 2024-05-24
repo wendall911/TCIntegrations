@@ -4,21 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
-import com.hollingsworth.arsnouveau.setup.BlockRegistry;
-import com.hollingsworth.arsnouveau.setup.ItemsRegistry;
-
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-
-import potionstudios.byg.common.block.BYGBlocks;
-import potionstudios.byg.common.item.BYGItems;
-
-import quek.undergarden.registry.UGBlocks;
-import quek.undergarden.registry.UGItems;
 
 import slimeknights.mantle.recipe.data.ICommonRecipeHelper;
 import slimeknights.tconstruct.fluids.TinkerFluids;
@@ -75,15 +66,15 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
         modConsumers.put(ModIntegration.UNDERGARDEN_MODID, undergardenConsumer);
         modConsumers.put(ModIntegration.BYG_MODID, bygConsumer);
 
-        this.gemCasting(arsConsumer, TCIntegrationsItems.MOLTEN_SOURCE_GEM, ItemsRegistry.SOURCE_GEM.asItem(), folder + "source_gem/gem");
-        ItemCastingRecipeBuilder.basinRecipe(BlockRegistry.SOURCE_GEM_BLOCK)
+        this.gemCasting(arsConsumer, TCIntegrationsItems.MOLTEN_SOURCE_GEM, ModIntegration.SOURCE_GEM, folder + "source_gem/gem");
+        ItemCastingRecipeBuilder.basinRecipe(ModIntegration.SOURCE_GEM_BLOCK)
             .setFluidAndTime(TCIntegrationsItems.MOLTEN_SOURCE_GEM, false, FluidValues.SMALL_GEM_BLOCK)
             .save(arsConsumer, prefix(TCIntegrationsItems.MOLTEN_SOURCE_GEM, folder + "source_gem/block"));
 
-        this.ingotCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE, false, BYGItems.PENDORITE_SCRAPS.get(), metalFolder + "pendorite/scrap");
-        this.metalCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY, false, BYGBlocks.PENDORITE_BLOCK.get(), BYGItems.PENDORITE_INGOT.get(), null, metalFolder, "pendorite_alloy/block");
+        this.ingotCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE, false, ModIntegration.PENDORITE_SCRAPS, metalFolder + "pendorite/scrap");
+        this.metalCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY, false, ModIntegration.PENDORITE_BLOCK, ModIntegration.PENDORITE_INGOT, null, metalFolder, "pendorite_alloy/block");
 
-        this.metalCasting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN, false, UGBlocks.FORGOTTEN_BLOCK.get(), UGItems.FORGOTTEN_INGOT.get(), UGItems.FORGOTTEN_NUGGET.get(), metalFolder, "forgotten/block");
+        this.metalCasting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN, false, ModIntegration.FORGOTTEN_BLOCK, ModIntegration.FORGOTTEN_INGOT, ModIntegration.FORGOTTEN_NUGGET, metalFolder, "forgotten/block");
 
         for (SmelteryCompat compat : SmelteryCompat.values()) {
             this.metalTagCasting(modConsumers.get(compat.getModid()), compat.getFluid(), compat.getName(), metalFolder, false);
@@ -117,15 +108,15 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
         MeltingRecipeBuilder.melting(Ingredient.of(TagManager.Items.EMERALDITE_ORE), TinkerFluids.moltenEmerald.get(), FluidValues.GEM_SHARD, 1.0F)
             .save(bygConsumer, location("emeraldite/ore"));
 
-        MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_ORE.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.PENDORITE_ORE), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
             .save(bygConsumer, location(metalFolder + "pendorite/ore"));
-        MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.RAW_PENDORITE.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.RAW_PENDORITE), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
             .save(bygConsumer, location(metalFolder + "pendorite/raw"));
-        MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.RAW_PENDORITE_BLOCK.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT * 9, 2.0F)
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.RAW_PENDORITE_BLOCK), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT * 9, 2.0F)
             .save(bygConsumer, location(metalFolder + "pendorite/raw_block"));
-        MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_SCRAPS.get()), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.PENDORITE_SCRAPS), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT, 2.0F)
             .save(bygConsumer, location(metalFolder + "pendorite/scrap"));
-        MeltingRecipeBuilder.melting(Ingredient.of(BYGItems.PENDORITE_INGOT.get()), TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.get(), FluidValues.INGOT, 2.0F)
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.PENDORITE_INGOT), TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.get(), FluidValues.INGOT, 2.0F)
             .save(bygConsumer, location(metalFolder + "pendorite_alloy/ingot"));
     }
 

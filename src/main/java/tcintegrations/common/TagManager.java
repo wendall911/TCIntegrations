@@ -11,6 +11,7 @@ import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.registries.ForgeRegistries;
 
+import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.TCIntegrations;
 
 public final class TagManager {
@@ -22,6 +23,13 @@ public final class TagManager {
 
         // Botania
         public static final TagKey<Item> BOTANIA_LIVINGWOOD_LOGS = create("livingwood_logs");
+        // Botania ModIntegration
+        public static final TagKey<Item> INGOTS_TERRASTEEL = botaniaTag("terrasteel_ingots");
+        public static final TagKey<Item> MYSTICAL_FLOWERS = botaniaTag("mystical_flowers");
+        public static final TagKey<Item> DOUBLE_MYSTICAL_FLOWERS = botaniaTag("double_mystical_flowers");
+        public static final TagKey<Item> LIVINGWOOD_LOGS = botaniaTag("livingwood_logs");
+        public static final TagKey<Item> INGOTS_ELEMENTIUM = botaniaTag("elementium_ingots");
+        public static final TagKey<Item> LIVINGWOOD_LOGS_GLIMMERING = botaniaTag("glimmering_livingwood_logs");
 
         // Malum
         public static final TagKey<Item> SOUL_STAINED_STEEL = forgeTag("storage_blocks/soul_stained_steel");
@@ -44,6 +52,9 @@ public final class TagManager {
             return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(forgeLoc(name), Collections.emptySet());
         }
 
+        private static TagKey<Item> botaniaTag(String name) {
+            return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(ModIntegration.botaniaLoc(name), Collections.emptySet());
+        }
     }
 
     public static final class Blocks {

@@ -26,6 +26,7 @@ import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.ModList;
 
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+
 import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.mantle.registration.object.FlowingFluidObject;
 import slimeknights.mantle.registration.object.MetalItemObject;
@@ -57,40 +58,40 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         GENERAL_TOOLTIP_BLOCK_ITEM = (b) -> new BlockTooltipItem(b, new Item.Properties().tab(ITEM_TAB_GROUP));
 
         // Fluids
-        if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
             MOLTEN_MANASTEEL = FLUID_REGISTRY.register("manasteel").type(hot("manasteel")
-                    .temperature(1250).lightLevel(13)).block(Material.LAVA, 13).bucket().flowing();
+                .temperature(1250).lightLevel(13)).block(Material.LAVA, 13).bucket().flowing();
         }
 
-        if (ModList.get().isLoaded(ModIntegration.AQUACULTURE_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.AQUACULTURE_MODID)) {
             MOLTEN_NEPTUNIUM = FLUID_REGISTRY.register("neptunium").type(hot("neptunium")
-                    .temperature(1250).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
+                .temperature(1250).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
         }
 
-        if (ModList.get().isLoaded(ModIntegration.ARS_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
             MOLTEN_SOURCE_GEM = FLUID_REGISTRY.register("source_gem").type(hot("source_gem")
-                    .temperature(1780).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
+                .temperature(1780).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
         }
 
-        if (ModList.get().isLoaded(ModIntegration.MALUM_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.MALUM_MODID)) {
             MOLTEN_SOUL_STAINED_STEEL = FLUID_REGISTRY.register("soul_stained_steel").type(hot("soul_stained_steel")
-                    .temperature(1250).lightLevel(12)).block(Material.LAVA, 12).bucket().flowing();
+                .temperature(1250).lightLevel(12)).block(Material.LAVA, 12).bucket().flowing();
         }
 
-        if (ModList.get().isLoaded(ModIntegration.UNDERGARDEN_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.UNDERGARDEN_MODID)) {
             MOLTEN_CLOGGRUM = FLUID_REGISTRY.register("cloggrum").type(hot("cloggrum")
-                    .temperature(1200).lightLevel(8)).block(Material.LAVA, 8).bucket().flowing();
+                .temperature(1200).lightLevel(8)).block(Material.LAVA, 8).bucket().flowing();
             MOLTEN_FROSTSTEEL = FLUID_REGISTRY.register("froststeel").type(hot("froststeel")
-                    .temperature(1200).lightLevel(11)).block(Material.LAVA, 11).bucket().flowing();
+                .temperature(1200).lightLevel(11)).block(Material.LAVA, 11).bucket().flowing();
             MOLTEN_FORGOTTEN = FLUID_REGISTRY.register("forgotten").type(hot("forgotten")
-                    .temperature(1200).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
+                .temperature(1200).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
         }
 
-        if (ModList.get().isLoaded(ModIntegration.BYG_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
             MOLTEN_PENDORITE = FLUID_REGISTRY.register("pendorite").type(hot("pendorite")
-                    .temperature(1200).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
+                .temperature(1200).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
             MOLTEN_PENDORITE_ALLOY = FLUID_REGISTRY.register("pendorite_alloy").type(hot("pendorite_alloy")
-                    .temperature(1200).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
+                .temperature(1200).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
         }
         
         // Metals
@@ -104,9 +105,9 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
 
     public static FluidType.Properties hot(String name) {
         return FluidType.Properties.create().density(2000).viscosity(10000).temperature(1000)
-                .descriptionId(makeDescriptionId("fluid", name))
-                .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
-                .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA);
+            .descriptionId(makeDescriptionId("fluid", name))
+            .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
+            .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA);
     }
 
     private static BlockBehaviour.Properties builder(Material material, MaterialColor color, SoundType soundType) {

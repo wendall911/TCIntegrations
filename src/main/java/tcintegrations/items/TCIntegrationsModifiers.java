@@ -1,7 +1,6 @@
 package tcintegrations.items;
 
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.fml.ModList;
 
 import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
@@ -88,7 +87,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static void init() {
         String dataGen = System.getenv("DATA_GEN");
 
-        if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
             MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaModifier::new);
             TERRA_MODIFIER = MODIFIERS_REGISTRY.register("terra", TerraModifier::new);
             ELEMENTAL_MODIFIER = MODIFIERS_REGISTRY.register("elemental", ElementalModifier::new);
@@ -96,23 +95,23 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             GREAT_FAIRY_MODIFIER = MODIFIERS_REGISTRY.register("great_fairy", GreatFairyModifier::new);
         }
 
-        if (ModList.get().isLoaded(ModIntegration.CREATE_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.CREATE_MODID)) {
             MECHANICAL_ARM_MODIFIER = MODIFIERS_REGISTRY.register("mechanical_arm", MechanicalArmModifier::new);
             ModifierModule.LOADER.register(new ResourceLocation(TCIntegrations.MODID, "engineers_goggles"), EngineersGogglesModifier.INSTANCE.getLoader());
         }
 
-        if (ModList.get().isLoaded(ModIntegration.AQUACULTURE_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.AQUACULTURE_MODID)) {
             WATER_POWERED_MODIFIER = MODIFIERS_REGISTRY.register("water_powered", WaterPowered::new);
             POSEIDON_MODIFIER = MODIFIERS_REGISTRY.register("poseidon", PoseidonModifier::new);
             SIREN_MODIFIER = MODIFIERS_REGISTRY.register("siren", SirenModifier::new);
         }
 
-        if (ModList.get().isLoaded(ModIntegration.ARS_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
             ARS_MODIFIER = MODIFIERS_REGISTRY.register("ars_nouveau", ArsNouveauModifier::new);
             ENCHANTERS_SHIELD_MODIFIER = MODIFIERS_REGISTRY.register("enchanters_shield", EnchantersShieldModifier::new);
         }
 
-        if (ModList.get().isLoaded(ModIntegration.ALEX_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.ALEX_MODID)) {
             ROADRUNNER_MODIFIER = MODIFIERS_REGISTRY.register("roadrunner", RoadrunnerModifier::new);
             FRONTIER_CAP_MODIFIER = MODIFIERS_REGISTRY.register("frontier_cap", FrontierCapModifier::new);
             TURTLE_SHELL_MODIFIER = MODIFIERS_REGISTRY.register("turtle_shell", TurtleShellModifier::new);
@@ -122,41 +121,41 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             CROCODILE_MODIFIER = MODIFIERS_REGISTRY.register("crocodile", CrocodileModifier::new);
         }
 
-        if (ModList.get().isLoaded(ModIntegration.MALUM_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.MALUM_MODID)) {
             SOUL_STAINED_MODIFIER = MODIFIERS_REGISTRY.register("soul_stained", SoulStained::new);
         }
 
-        if (ModList.get().isLoaded(ModIntegration.UNDERGARDEN_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.UNDERGARDEN_MODID)) {
             MASTICATE_MODIFIER = MODIFIERS_REGISTRY.register("masticate", MasticateModifier::new);
             UTHERIUM_MODIFIER = MODIFIERS_REGISTRY.register("utherium", UtheriumModifier::new);
             FROSTSTEEL_MODIFIER = MODIFIERS_REGISTRY.register("froststeel", FroststeelModifier::new);
             FORGOTTEN_MODIFIER = MODIFIERS_REGISTRY.register("forgotten", ForgottenModifier::new);
         }
 
-        if (ModList.get().isLoaded(ModIntegration.BEYOND_EARTH_MODID) || (dataGen != null && dataGen.contains("all"))) {
+        if (ModIntegration.canLoad(ModIntegration.BEYOND_EARTH_MODID) || (dataGen != null && dataGen.contains("all"))) {
             CHEESY_MODIFIER = MODIFIERS_REGISTRY.register("cheesy", CheesyModifier::new);
             OXYGENATED_MODIFIER = MODIFIERS_REGISTRY.register("oxygenated", OxygenatedModifier::new);
         }
 
-        if (ModList.get().isLoaded(ModIntegration.BYG_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
             HELLISH_MODIFIER = MODIFIERS_REGISTRY.register("hellish", HellishModifier::new);
         }
 
-        if (ModList.get().isLoaded(ModIntegration.IE_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.IE_MODID)) {
             ModifierModule.LOADER.register(new ResourceLocation(TCIntegrations.MODID, "multivision"), MultiVisionModifier.INSTANCE.getLoader());
         }
 
-        if (ModList.get().isLoaded(ModIntegration.MEKANISM_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.MEKANISM_MODID)) {
             KINETIC_MODIFIER = MODIFIERS_REGISTRY.register("kinetic", KineticModifier::new);
             GLOWUP_MODIFIER = MODIFIERS_REGISTRY.register("glowup", GlowUpModifier::new);
         }
 
-        if (ModList.get().isLoaded(ModIntegration.MYTHIC_BOTANY_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.MYTHIC_BOTANY_MODID)) {
             ALFHEIM_MODIFIER = MODIFIERS_REGISTRY.register("alfheim", AlfheimModifier::new);
             ALF_MODIFIER = MODIFIERS_REGISTRY.register("alf", AlfModifier::new);
         }
 
-        if (ModList.get().isLoaded(ModIntegration.IFD_MODID)) {
+        if (ModIntegration.canLoad(ModIntegration.IFD_MODID)) {
             FLAMED_MODIFIER = MODIFIERS_REGISTRY.register("flamed", FlamedModifier::new);
             ICED_MODIFIER = MODIFIERS_REGISTRY.register("iced", IcedModifier::new);
             ZAPPED_MODIFIER = MODIFIERS_REGISTRY.register("zapped", ZappedModifier::new);
