@@ -50,6 +50,9 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_FORGOTTEN;
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_PENDORITE;
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_PENDORITE_ALLOY;
+    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_DESH;
+    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_OSTRUM;
+    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_CALORITE;
 
     public static MetalItemObject BRONZE;
 
@@ -93,6 +96,14 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
             MOLTEN_PENDORITE_ALLOY = FLUID_REGISTRY.register("pendorite_alloy").type(hot("pendorite_alloy")
                 .temperature(1200).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
         }
+
+        // Space trash
+        MOLTEN_DESH = FLUID_REGISTRY.register("molten_desh").type(hot("molten_desh")
+            .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
+        MOLTEN_OSTRUM = FLUID_REGISTRY.register("molten_ostrum").type(hot("molten_ostrum")
+            .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
+        MOLTEN_CALORITE = FLUID_REGISTRY.register("molten_calorite").type(hot("molten_calorite")
+            .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
         
         // Metals
         BRONZE = METAL_BLOCK_REGISTRY.registerMetal(
@@ -153,6 +164,9 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
             DispenserBlock.registerBehavior(MOLTEN_PENDORITE_ALLOY, dispenseItemBehavior);
             DispenserBlock.registerBehavior(MOLTEN_SOUL_STAINED_STEEL, dispenseItemBehavior);
             DispenserBlock.registerBehavior(MOLTEN_SOURCE_GEM, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_DESH, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_OSTRUM, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_CALORITE, dispenseItemBehavior);
         });
     }
 

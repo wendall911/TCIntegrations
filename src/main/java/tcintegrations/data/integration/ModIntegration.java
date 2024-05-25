@@ -5,19 +5,15 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.material.Material;
 
-import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
 
-import slimeknights.mantle.registration.object.FlowingFluidObject;
-
 import tcintegrations.common.CreativeTabs;
 import tcintegrations.common.TCIntegrationsModule;
 
-import static tcintegrations.items.TCIntegrationsItems.hot;
+import static tcintegrations.util.ResourceLocationHelper.location;
 
 public final class ModIntegration extends TCIntegrationsModule {
 
@@ -36,6 +32,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String MYTHIC_BOTANY_MODID = "mythicbotany";
     public static final String IFD_MODID = "iceandfire";
     public static final String CONSECRATION_MODID = "consecration";
+    public static final String AD_ASTRA_MODID = "ad_astra";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
     public static Item BEYOND_EARTH_CHEESE;
@@ -89,10 +86,6 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static Item RUNE_WINTER;
     public static Item LIVING_ROCK;
     public static Item MANA_STRING;
-
-    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_DESH;
-    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_OSTRUM;
-    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_CALORITE;
 
     public static RegistryObject<MobEffect> OXYGEN_EFFECT;
 
@@ -161,21 +154,8 @@ public final class ModIntegration extends TCIntegrationsModule {
     }
 
     public static void setup() {
-        String dataGen = System.getenv("DATA_GEN");
-
-        if (dataGen != null && dataGen.contains("all")) {
-            MOLTEN_DESH = BEYOND_EARTH_FLUID_REGISTRY.register("molten_desh").type(hot("molten_desh")
-                .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
-            MOLTEN_OSTRUM = BEYOND_EARTH_FLUID_REGISTRY.register("molten_ostrum").type(hot("molten_ostrum")
-                .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
-            MOLTEN_CALORITE = BEYOND_EARTH_FLUID_REGISTRY.register("molten_calorite").type(hot("molten_calorite")
-                .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
-        }
-
-        if (ModList.get().isLoaded(ModIntegration.BEYOND_EARTH_MODID)) {
-            OXYGEN_EFFECT = BEYOND_EARTH_EFFECTS_REGISTRY.register(
-            "oxygen_bubble_effect", () -> new OxygenEffect(MobEffectCategory.BENEFICIAL, 3035801));
-        }
+        OXYGEN_EFFECT = EFFECTS_REGISTRY.register(
+        "oxygen_bubble_effect", () -> new OxygenEffect(MobEffectCategory.BENEFICIAL, 3035801));
     }
 
     private static class OxygenEffect extends MobEffect {
@@ -200,59 +180,59 @@ public final class ModIntegration extends TCIntegrationsModule {
     }
 
     public static ResourceLocation botaniaLoc(String name) {
-        return getLoc(BOTANIA_MODID, name);
+        return location(BOTANIA_MODID, name);
     }
 
     public static ResourceLocation malumLoc(String name) {
-        return getLoc(MALUM_MODID, name);
+        return location(MALUM_MODID, name);
     }
 
     public static ResourceLocation beyondEarthLoc(String name) {
-        return getLoc(BEYOND_EARTH_MODID, name);
+        return location(BEYOND_EARTH_MODID, name);
     }
 
     public static ResourceLocation bygLoc(String name) {
-        return getLoc(BYG_MODID, name);
+        return location(BYG_MODID, name);
     }
 
     public static ResourceLocation arsLoc(String name) {
-        return getLoc(ARS_MODID, name);
+        return location(ARS_MODID, name);
     }
 
     public static ResourceLocation ifdLoc(String name) {
-        return getLoc(IFD_MODID, name);
+        return location(IFD_MODID, name);
     }
 
     public static ResourceLocation mbotLoc(String name) {
-        return getLoc(MYTHIC_BOTANY_MODID, name);
+        return location(MYTHIC_BOTANY_MODID, name);
     }
 
     public static ResourceLocation ieLoc(String name) {
-        return getLoc(IE_MODID, name);
+        return location(IE_MODID, name);
     }
 
     public static ResourceLocation alexLoc(String name) {
-        return getLoc(ALEX_MODID, name);
+        return location(ALEX_MODID, name);
     }
 
     public static ResourceLocation createLoc(String name) {
-        return getLoc(CREATE_MODID, name);
+        return location(CREATE_MODID, name);
     }
 
     public static ResourceLocation aquaLoc(String name) {
-        return getLoc(AQUACULTURE_MODID, name);
+        return location(AQUACULTURE_MODID, name);
     }
 
     public static ResourceLocation ugLoc(String name) {
-        return getLoc(UNDERGARDEN_MODID, name);
+        return location(UNDERGARDEN_MODID, name);
     }
 
     public static ResourceLocation mekanismLoc(String name) {
-        return getLoc(MEKANISM_MODID, name);
+        return location(MEKANISM_MODID, name);
     }
 
-    private static ResourceLocation getLoc(String modid, String name) {
-        return new ResourceLocation(modid, name);
+    public static ResourceLocation adAstraLoc(String name) {
+        return location(AD_ASTRA_MODID, name);
     }
 
     public static boolean canLoad(String modid) {

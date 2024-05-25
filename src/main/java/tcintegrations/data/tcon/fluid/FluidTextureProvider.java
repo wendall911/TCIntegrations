@@ -2,15 +2,15 @@ package tcintegrations.data.tcon.fluid;
 
 import net.minecraft.data.DataGenerator;
 
-import net.minecraft.resources.ResourceLocation;
-
 import slimeknights.mantle.fluid.texture.AbstractFluidTextureProvider;
 import slimeknights.mantle.fluid.texture.FluidTexture;
 import slimeknights.mantle.registration.object.FluidObject;
 
 import tcintegrations.TCIntegrations;
-import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
+
+import static slimeknights.tconstruct.TConstruct.getResource;
+import static tcintegrations.util.ResourceLocationHelper.resource;
 
 @SuppressWarnings({"UnusedReturnValue", "SameParameterValue"})
 public class FluidTextureProvider extends AbstractFluidTextureProvider {
@@ -35,22 +35,17 @@ public class FluidTextureProvider extends AbstractFluidTextureProvider {
         tintedStone(TCIntegrationsItems.MOLTEN_PENDORITE).color(0xFF604FA0);
         compatAlloy(TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL); // metal_still - metal_flow
         compatOre(TCIntegrationsItems.MOLTEN_SOURCE_GEM); // crystal_still - crystal_flow
-    }
-
-    public static ResourceLocation getResource(String name) {
-        return new ResourceLocation(TCIntegrations.MODID, name);
+        tintedStone(TCIntegrationsItems.MOLTEN_DESH).color(0xFFCD7F48);
+        tintedStone(TCIntegrationsItems.MOLTEN_CALORITE).color(0xFFC24148);
+        tintedStone(TCIntegrationsItems.MOLTEN_OSTRUM).color(0xFF73515E);
     }
 
     private FluidTexture.Builder named(FluidObject<?> fluid, String name) {
-        return texture(fluid).textures(getResource("fluid/" + name + "/"), false, false);
-    }
-
-    public static ResourceLocation getTconResource(String name) {
-        return new ResourceLocation(ModIntegration.TCON_MODID, name);
+        return texture(fluid).textures(resource("fluid/" + name + "/"), false, false);
     }
 
     private FluidTexture.Builder namedTcon(FluidObject<?> fluid, String name) {
-        return texture(fluid).textures(getTconResource("fluid/" + name + "/"), false, false);
+        return texture(fluid).textures(getResource("fluid/" + name + "/"), false, false);
     }
 
     private FluidTexture.Builder moltenFolder(FluidObject<?> fluid, String folder) {

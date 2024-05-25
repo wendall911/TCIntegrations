@@ -9,7 +9,9 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.crafting.Ingredient;
 
+import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.common.crafting.conditions.TagEmptyCondition;
 
 import slimeknights.mantle.recipe.data.ICommonRecipeHelper;
 import slimeknights.tconstruct.fluids.TinkerFluids;
@@ -22,8 +24,10 @@ import slimeknights.tconstruct.smeltery.data.Byproduct;
 
 import tcintegrations.common.TagManager;
 import tcintegrations.data.integration.ModIntegration;
+import tcintegrations.data.tcon.material.MaterialIds;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
+import tcintegrations.util.ResourceLocationHelper;
 
 public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryRecipeHelper, ICommonRecipeHelper, IConditionBuilder {
 
@@ -65,6 +69,9 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
         modConsumers.put(ModIntegration.MALUM_MODID, withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID)));
         modConsumers.put(ModIntegration.UNDERGARDEN_MODID, undergardenConsumer);
         modConsumers.put(ModIntegration.BYG_MODID, bygConsumer);
+        modConsumers.put(MaterialIds.desh.getPath(), withCondition(consumer, tagCondition("ingots/" + MaterialIds.desh.getPath())));
+        modConsumers.put(MaterialIds.calorite.getPath(), withCondition(consumer, tagCondition("ingots/" + MaterialIds.calorite.getPath())));
+        modConsumers.put(MaterialIds.ostrum.getPath(), withCondition(consumer, tagCondition("ingots/" + MaterialIds.ostrum.getPath())));
 
         this.gemCasting(arsConsumer, TCIntegrationsItems.MOLTEN_SOURCE_GEM, ModIntegration.SOURCE_GEM, folder + "source_gem/gem");
         ItemCastingRecipeBuilder.basinRecipe(ModIntegration.SOURCE_GEM_BLOCK)
@@ -77,7 +84,7 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
         this.metalCasting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN, false, ModIntegration.FORGOTTEN_BLOCK, ModIntegration.FORGOTTEN_INGOT, ModIntegration.FORGOTTEN_NUGGET, metalFolder, "forgotten/block");
 
         for (SmelteryCompat compat : SmelteryCompat.values()) {
-            this.metalTagCasting(modConsumers.get(compat.getModid()), compat.getFluid(), compat.getName(), metalFolder, false);
+            this.metalTagCasting(modConsumers.get(compat.getIdentifier()), compat.getFluid(), compat.getName(), metalFolder, false);
         }
     }
 
@@ -90,7 +97,9 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
         Consumer<FinishedRecipe> aquacultureConsumer = withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID));
         Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
         Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
-        Consumer<FinishedRecipe> beyondEarthConsumer = withCondition(consumer, modLoaded(ModIntegration.BEYOND_EARTH_MODID));
+        Consumer<FinishedRecipe> deshConsumer = withCondition(consumer, tagCondition("ingots/" + MaterialIds.desh.getPath()));
+        Consumer<FinishedRecipe> caloriteConsumer = withCondition(consumer, tagCondition("ingots/" + MaterialIds.calorite.getPath()));
+        Consumer<FinishedRecipe> ostrumConsumer = withCondition(consumer, tagCondition("ingots/" + MaterialIds.ostrum.getPath()));
         Consumer<FinishedRecipe> bygConsumer = withCondition(consumer, modLoaded(ModIntegration.BYG_MODID));
 
         metalMelting(botaniaConsumer, TCIntegrationsItems.MOLTEN_MANASTEEL.get(), "manasteel", false, metalFolder, false, Byproduct.IRON);
@@ -99,9 +108,9 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
         metalMelting(undergardenConsumer, TCIntegrationsItems.MOLTEN_CLOGGRUM.get(), "cloggrum", true, metalFolder, false);
         metalMelting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FROSTSTEEL.get(), "froststeel", true, metalFolder, false);
         metalMelting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN.get(), "forgotten", false, metalFolder, false);
-        metalMelting(beyondEarthConsumer, ModIntegration.MOLTEN_DESH.get(), "desh", true, metalFolder, false);
-        metalMelting(beyondEarthConsumer, ModIntegration.MOLTEN_CALORITE.get(), "calorite", true, metalFolder, false);
-        metalMelting(beyondEarthConsumer, ModIntegration.MOLTEN_OSTRUM.get(), "ostrum", true, metalFolder, false);
+        metalMelting(deshConsumer, TCIntegrationsItems.MOLTEN_DESH.get(), "desh", true, metalFolder, false);
+        metalMelting(caloriteConsumer, TCIntegrationsItems.MOLTEN_CALORITE.get(), "calorite", true, metalFolder, false);
+        metalMelting(ostrumConsumer, TCIntegrationsItems.MOLTEN_OSTRUM.get(), "ostrum", true, metalFolder, false);
 
         MeltingRecipeBuilder.melting(Ingredient.of(TagManager.Items.EMERALDITE_SHARDS), TinkerFluids.moltenEmerald.get(), FluidValues.GEM_SHARD, 1.0F)
             .save(bygConsumer, location("emeraldite/shard"));
@@ -125,10 +134,13 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
         Consumer<FinishedRecipe> bygConsumer = withCondition(consumer, modLoaded(ModIntegration.BYG_MODID));
 
         // Update Recipe to use Obsidian instead of Quartz to not interfere with Hepatizon
-        AlloyRecipeBuilder.alloy(TinkerFluids.moltenBronze.get(), FluidValues.INGOT * 4)
-            .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT * 3)
-            .addInput(TinkerFluids.moltenObsidian.getLocalTag(), FluidValues.GLASS_BLOCK)
-            .save(consumer, prefix(TinkerFluids.moltenBronze, folder));
+        ConditionalRecipe.builder()
+            .addCondition(new TagEmptyCondition(ResourceLocationHelper.location("forge", "ingots/tin")))
+            .addRecipe(
+                AlloyRecipeBuilder.alloy(TinkerFluids.moltenBronze.get(), FluidValues.INGOT * 4)
+                    .addInput(TinkerFluids.moltenCopper.getForgeTag(), FluidValues.INGOT * 3)
+                    .addInput(TinkerFluids.moltenObsidian.getLocalTag(), FluidValues.GLASS_BLOCK)::save)
+            .build(consumer, prefix(TinkerFluids.moltenBronze, folder));
 
         AlloyRecipeBuilder.alloy(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.get(), FluidValues.INGOT)
             .addInput(TCIntegrationsItems.MOLTEN_PENDORITE.getForgeTag(), FluidValues.INGOT * 4)

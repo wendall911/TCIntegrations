@@ -9,9 +9,10 @@ import slimeknights.mantle.registration.object.FlowingFluidObject;
 
 import slimeknights.tconstruct.common.TinkerTags;
 
-import tcintegrations.common.TagManager;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
+
+import static tcintegrations.util.ResourceLocationHelper.resource;
 
 @SuppressWarnings("unchecked")
 public class FluidTagProvider extends FluidTagsProvider {
@@ -36,6 +37,9 @@ public class FluidTagProvider extends FluidTagsProvider {
         tagAll(TCIntegrationsItems.MOLTEN_FORGOTTEN);
         tagAll(TCIntegrationsItems.MOLTEN_PENDORITE);
         tagAll(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY);
+        tagAll(TCIntegrationsItems.MOLTEN_DESH);
+        tagAll(TCIntegrationsItems.MOLTEN_CALORITE);
+        tagAll(TCIntegrationsItems.MOLTEN_OSTRUM);
 
         this.tag(TinkerTags.Fluids.METAL_TOOLTIPS)
             .addOptionalTag(TCIntegrationsItems.MOLTEN_MANASTEEL.getForgeTag().location())
@@ -45,7 +49,10 @@ public class FluidTagProvider extends FluidTagsProvider {
             .addOptionalTag(TCIntegrationsItems.MOLTEN_FROSTSTEEL.getForgeTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN.getForgeTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getForgeTag().location());
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getForgeTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_DESH.getForgeTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_CALORITE.getForgeTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_OSTRUM.getForgeTag().location());
 
         this.tag(TinkerTags.Fluids.AVERAGE_METAL_SPILLING)
             .addOptionalTag(TCIntegrationsItems.MOLTEN_MANASTEEL.getForgeTag().location())
@@ -67,7 +74,7 @@ public class FluidTagProvider extends FluidTagsProvider {
     private void tagLocal(FlowingFluidObject<?> fluid) {
         String name = fluid.getLocalTag().location().getPath();
 
-        tag(fluid.getLocalTag()).addOptional(TagManager.identifier(name)).addOptional(TagManager.identifier("flowing_" + name));
+        tag(fluid.getLocalTag()).addOptional(resource(name)).addOptional(resource("flowing_" + name));
     }
 
     private void tagAll(FlowingFluidObject<?> fluid) {

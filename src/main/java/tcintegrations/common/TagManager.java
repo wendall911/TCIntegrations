@@ -12,7 +12,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import tcintegrations.data.integration.ModIntegration;
-import tcintegrations.TCIntegrations;
+
+import static tcintegrations.util.ResourceLocationHelper.location;
+import static tcintegrations.util.ResourceLocationHelper.resource;
 
 public final class TagManager {
 
@@ -20,6 +22,7 @@ public final class TagManager {
         public static final TagKey<Item> BRONZE = forgeTag("storage_blocks/bronze");
         public static final TagKey<Item> BRONZE_INGOTS = forgeTag("ingots/bronze");
         public static final TagKey<Item> BRONZE_NUGGETS = forgeTag("nuggets/bronze");
+        public static final TagKey<Item> CHEESE = forgeTag("food/cheese");
 
         // Botania
         public static final TagKey<Item> BOTANIA_LIVINGWOOD_LOGS = create("livingwood_logs");
@@ -45,7 +48,7 @@ public final class TagManager {
         public static final TagKey<Item> WITHER_BONES = forgeTag("bones/wither");
 
         private static TagKey<Item> create(String id) {
-            return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
+            return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(resource(id), Collections.emptySet());
         }
 
         private static TagKey<Item> forgeTag(String name) {
@@ -64,7 +67,7 @@ public final class TagManager {
         public static final TagKey<Block> SOUL_STAINED_STEEL = forgeTag("storage_blocks/soul_stained_steel");
 
         private static TagKey<Block> create(String id) {
-            return Objects.requireNonNull(ForgeRegistries.BLOCKS.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
+            return Objects.requireNonNull(ForgeRegistries.BLOCKS.tags()).createOptionalTagKey(resource(id), Collections.emptySet());
         }
 
         private static TagKey<Block> forgeTag(String name) {
@@ -77,16 +80,12 @@ public final class TagManager {
         public static final TagKey<EntityType<?>> MILK_PRODUCER = create("milk_producer");
 
         private static TagKey<EntityType<?>> create(String id) {
-            return Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.tags()).createOptionalTagKey(identifier(id), Collections.emptySet());
+            return Objects.requireNonNull(ForgeRegistries.ENTITY_TYPES.tags()).createOptionalTagKey(resource(id), Collections.emptySet());
         }
     }
 
-    public static ResourceLocation identifier(String path) {
-        return new ResourceLocation(TCIntegrations.MODID, path);
-    }
-
-    public static ResourceLocation forgeLoc(String path) {
-        return new ResourceLocation("forge", path);
+    private static ResourceLocation forgeLoc(String path) {
+        return location("forge", path);
     }
 
 }

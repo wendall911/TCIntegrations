@@ -18,6 +18,7 @@ import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.common.Tags;
 
 import slimeknights.mantle.recipe.data.IRecipeHelper;
+
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.IncrementalModifierRecipeBuilder;
@@ -62,7 +63,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         Consumer<FinishedRecipe> alexConsumer = withCondition(consumer, modLoaded(ModIntegration.ALEX_MODID));
         Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
         Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
-        Consumer<FinishedRecipe> beyondEarthConsumer = withCondition(consumer, modLoaded(ModIntegration.BEYOND_EARTH_MODID));
+        Consumer<FinishedRecipe> cheeseConsumer = withCondition(consumer, tagCondition(TagManager.Items.CHEESE.location().getPath()));
         Consumer<FinishedRecipe> ieConsumer = withCondition(consumer, modLoaded(ModIntegration.IE_MODID));
         Consumer<FinishedRecipe> mekanismConsumer = withCondition(consumer, modLoaded(ModIntegration.MEKANISM_MODID));
         Consumer<FinishedRecipe> mythicBotanyConsumer = withCondition(consumer, modLoaded(ModIntegration.MYTHIC_BOTANY_MODID));
@@ -398,23 +399,23 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.CHEESY_MODIFIER)
             .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))
-            .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
-            .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
-            .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
-            .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
-            .addInput(ModIntegration.BEYOND_EARTH_CHEESE)
+            .addInput(TagManager.Items.CHEESE)
+            .addInput(TagManager.Items.CHEESE)
+            .addInput(TagManager.Items.CHEESE)
+            .addInput(TagManager.Items.CHEESE)
+            .addInput(TagManager.Items.CHEESE)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(3)
-            .saveSalvage(beyondEarthConsumer, prefix(TCIntegrationsModifiers.CHEESY_MODIFIER, compatSalvage))
-            .save(beyondEarthConsumer, prefix(TCIntegrationsModifiers.CHEESY_MODIFIER, compatFolder));
+            .saveSalvage(cheeseConsumer, prefix(TCIntegrationsModifiers.CHEESY_MODIFIER, compatSalvage))
+            .save(cheeseConsumer, prefix(TCIntegrationsModifiers.CHEESY_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TciModifierIds.multiVision)
-                .setTools(TinkerTags.Items.HELMETS)
-                .addInput(ModIntegration.VOLTMETER)
-                .setSlots(SlotType.ABILITY, 1)
-                .setMaxLevel(1)
-                .saveSalvage(ieConsumer, prefix(TciModifierIds.multiVision, compatSalvage))
-                .save(ieConsumer, prefix(TciModifierIds.multiVision, compatFolder));
+            .setTools(TinkerTags.Items.HELMETS)
+            .addInput(ModIntegration.VOLTMETER)
+            .setSlots(SlotType.ABILITY, 1)
+            .setMaxLevel(1)
+            .saveSalvage(ieConsumer, prefix(TciModifierIds.multiVision, compatSalvage))
+            .save(ieConsumer, prefix(TciModifierIds.multiVision, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.GLOWUP_MODIFIER)
             .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))

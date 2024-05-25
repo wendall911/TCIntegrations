@@ -1,11 +1,8 @@
 package tcintegrations.items;
 
-import net.minecraft.resources.ResourceLocation;
-
 import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
-import tcintegrations.TCIntegrations;
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.modifiers.armor.AlfheimModifier;
@@ -46,6 +43,8 @@ import tcintegrations.items.modifiers.traits.OxygenatedModifier;
 import tcintegrations.items.modifiers.traits.SoulStained;
 import tcintegrations.items.modifiers.traits.WaterPowered;
 
+import static tcintegrations.util.ResourceLocationHelper.resource;
+
 public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
     public static StaticModifier<ManaModifier> MANA_MODIFIER;
@@ -85,8 +84,6 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<PhantasmalModifier> PHANTASMAL_MODIFIER;
 
     public static void init() {
-        String dataGen = System.getenv("DATA_GEN");
-
         if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
             MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaModifier::new);
             TERRA_MODIFIER = MODIFIERS_REGISTRY.register("terra", TerraModifier::new);
@@ -97,7 +94,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModIntegration.canLoad(ModIntegration.CREATE_MODID)) {
             MECHANICAL_ARM_MODIFIER = MODIFIERS_REGISTRY.register("mechanical_arm", MechanicalArmModifier::new);
-            ModifierModule.LOADER.register(new ResourceLocation(TCIntegrations.MODID, "engineers_goggles"), EngineersGogglesModifier.INSTANCE.getLoader());
+            ModifierModule.LOADER.register(resource("engineers_goggles"), EngineersGogglesModifier.INSTANCE.getLoader());
         }
 
         if (ModIntegration.canLoad(ModIntegration.AQUACULTURE_MODID)) {
@@ -132,17 +129,12 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             FORGOTTEN_MODIFIER = MODIFIERS_REGISTRY.register("forgotten", ForgottenModifier::new);
         }
 
-        if (ModIntegration.canLoad(ModIntegration.BEYOND_EARTH_MODID) || (dataGen != null && dataGen.contains("all"))) {
-            CHEESY_MODIFIER = MODIFIERS_REGISTRY.register("cheesy", CheesyModifier::new);
-            OXYGENATED_MODIFIER = MODIFIERS_REGISTRY.register("oxygenated", OxygenatedModifier::new);
-        }
-
         if (ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
             HELLISH_MODIFIER = MODIFIERS_REGISTRY.register("hellish", HellishModifier::new);
         }
 
         if (ModIntegration.canLoad(ModIntegration.IE_MODID)) {
-            ModifierModule.LOADER.register(new ResourceLocation(TCIntegrations.MODID, "multivision"), MultiVisionModifier.INSTANCE.getLoader());
+            ModifierModule.LOADER.register(resource("multivision"), MultiVisionModifier.INSTANCE.getLoader());
         }
 
         if (ModIntegration.canLoad(ModIntegration.MEKANISM_MODID)) {
@@ -161,6 +153,10 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             ZAPPED_MODIFIER = MODIFIERS_REGISTRY.register("zapped", ZappedModifier::new);
             PHANTASMAL_MODIFIER = MODIFIERS_REGISTRY.register("phantasmal", PhantasmalModifier::new);
         }
+
+        // Ad Astra / Beyond Earth, etc. and whatever other space clones
+        CHEESY_MODIFIER = MODIFIERS_REGISTRY.register("cheesy", CheesyModifier::new);
+        OXYGENATED_MODIFIER = MODIFIERS_REGISTRY.register("oxygenated", OxygenatedModifier::new);
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);
     }

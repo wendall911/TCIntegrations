@@ -68,6 +68,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         // Ice and Fire: Dragons
         getBuilder(TagManager.Items.WITHER_BONES)
             .add(TinkerMaterials.necroticBone.get());
+
+        // Ad Astra & Beyond Earth
+        getBuilder(TagManager.Items.CHEESE)
+            .addOptional(ModIntegration.adAstraLoc("cheese"))
+            .addOptional(ModIntegration.beyondEarthLoc("cheese"));
     }
 
     private void addBotaniaLogVariants(TagKey<Item> tag, String type) {

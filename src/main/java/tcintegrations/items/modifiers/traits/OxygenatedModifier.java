@@ -1,7 +1,6 @@
 package tcintegrations.items.modifiers.traits;
 
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.effect.MobEffectInstance;
 
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -11,7 +10,9 @@ import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.context.ToolHarvestContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-import tcintegrations.data.integration.ModIntegration;
+/*
+ * This should be mod independent. Just increases AirSupply by 20 if mining with an Oxygenated tool.
+ */
 
 public class OxygenatedModifier extends Modifier implements BlockBreakModifierHook {
 
@@ -26,7 +27,7 @@ public class OxygenatedModifier extends Modifier implements BlockBreakModifierHo
         final ServerPlayer sp = context.getPlayer();
 
         if (sp != null && !sp.level.isClientSide) {
-            sp.addEffect(new MobEffectInstance(ModIntegration.OXYGEN_EFFECT.get(), 20 * modifier.getLevel(), 0, false, false));
+            sp.setAirSupply(Math.min(sp.getMaxAirSupply(), sp.getAirSupply() + 20));
         }
     }
 
