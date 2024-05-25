@@ -31,7 +31,7 @@
   "rate": "metal",
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:molten_ostrum"
+    "fluid": "tcintegrations:ostrum"
   },
   "temperature": 500,
   "time": 75

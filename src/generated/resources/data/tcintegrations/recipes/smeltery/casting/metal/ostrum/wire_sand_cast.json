@@ -23,7 +23,7 @@
   "cooling_time": 35,
   "fluid": {
     "amount": 45,
-    "tag": "forge:molten_ostrum"
+    "tag": "forge:ostrum"
   },
   "result": {
     "tag": "forge:wires/ostrum"

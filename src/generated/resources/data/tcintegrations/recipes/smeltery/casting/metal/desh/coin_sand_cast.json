@@ -23,7 +23,7 @@
   "cooling_time": 29,
   "fluid": {
     "amount": 30,
-    "tag": "forge:molten_desh"
+    "tag": "forge:desh"
   },
   "result": {
     "tag": "forge:coins/desh"

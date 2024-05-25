@@ -14,7 +14,7 @@
   },
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:molten_desh"
+    "fluid": "tcintegrations:desh"
   },
   "temperature": 500,
   "time": 50

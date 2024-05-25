@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:ostrum",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_ostrum",
+      "required": false
+    }
+  ]
+}

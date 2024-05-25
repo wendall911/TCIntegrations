@@ -31,7 +31,7 @@
   "rate": "metal",
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:molten_calorite"
+    "fluid": "tcintegrations:calorite"
   },
   "temperature": 500,
   "time": 75

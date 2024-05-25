@@ -19,7 +19,7 @@
   "cooling_time": 150,
   "fluid": {
     "amount": 810,
-    "tag": "forge:molten_ostrum"
+    "tag": "forge:ostrum"
   },
   "result": {
     "tag": "forge:storage_blocks/ostrum"

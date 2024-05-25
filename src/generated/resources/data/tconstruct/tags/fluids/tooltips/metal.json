@@ -33,15 +33,15 @@
       "required": false
     },
     {
-      "id": "#forge:molten_desh",
+      "id": "#forge:desh",
       "required": false
     },
     {
-      "id": "#forge:molten_calorite",
+      "id": "#forge:calorite",
       "required": false
     },
     {
-      "id": "#forge:molten_ostrum",
+      "id": "#forge:ostrum",
       "required": false
     }
   ]

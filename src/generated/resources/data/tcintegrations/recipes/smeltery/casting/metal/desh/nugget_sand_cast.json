@@ -23,7 +23,7 @@
   "cooling_time": 17,
   "fluid": {
     "amount": 10,
-    "tag": "forge:molten_desh"
+    "tag": "forge:desh"
   },
   "result": {
     "tag": "forge:nuggets/desh"

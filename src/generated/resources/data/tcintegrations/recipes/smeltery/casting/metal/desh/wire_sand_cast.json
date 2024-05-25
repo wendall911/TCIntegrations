@@ -23,7 +23,7 @@
   "cooling_time": 35,
   "fluid": {
     "amount": 45,
-    "tag": "forge:molten_desh"
+    "tag": "forge:desh"
   },
   "result": {
     "tag": "forge:wires/desh"

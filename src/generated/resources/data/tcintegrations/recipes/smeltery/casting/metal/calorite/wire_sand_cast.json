@@ -23,7 +23,7 @@
   "cooling_time": 35,
   "fluid": {
     "amount": 45,
-    "tag": "forge:molten_calorite"
+    "tag": "forge:calorite"
   },
   "result": {
     "tag": "forge:wires/calorite"

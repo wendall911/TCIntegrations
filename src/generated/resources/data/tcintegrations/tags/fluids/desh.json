@@ -1,11 +1,11 @@
 {
   "values": [
     {
-      "id": "tcintegrations:molten_desh",
+      "id": "tcintegrations:desh",
       "required": false
     },
     {
-      "id": "tcintegrations:flowing_molten_desh",
+      "id": "tcintegrations:flowing_desh",
       "required": false
     }
   ]

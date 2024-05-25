@@ -22,7 +22,7 @@
   "cooling_time": 29,
   "fluid": {
     "amount": 30,
-    "tag": "forge:molten_ostrum"
+    "tag": "forge:ostrum"
   },
   "result": {
     "tag": "forge:coins/ostrum"
