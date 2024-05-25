@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:casting_basin",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:storage_blocks/desh"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/desh"
+      }
+    }
+  ],
+  "cooling_time": 150,
+  "fluid": {
+    "amount": 810,
+    "tag": "forge:molten_desh"
+  },
+  "result": {
+    "tag": "forge:storage_blocks/desh"
+  }
+}

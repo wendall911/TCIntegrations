@@ -31,6 +31,18 @@
     {
       "id": "#forge:pendorite_alloy",
       "required": false
+    },
+    {
+      "id": "#forge:molten_desh",
+      "required": false
+    },
+    {
+      "id": "#forge:molten_calorite",
+      "required": false
+    },
+    {
+      "id": "#forge:molten_ostrum",
+      "required": false
     }
   ]
 }

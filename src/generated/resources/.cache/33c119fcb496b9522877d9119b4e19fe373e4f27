@@ -1,8 +1,11 @@
-// 1.19.2	2024-05-08T10:08:50.538882064	TCIntegrations - TCon Fluid Tags
+// 1.19.2	2024-05-25T10:13:21.222690448	TCIntegrations - TCon Fluid Tags
 bac6ab522c3f1b0f8d2c1a0d119fab1f45521862 data/forge/tags/fluids/cloggrum.json
 3af020c1e0ea47e6184e9d06c9ca5a44ea2a6834 data/forge/tags/fluids/forgotten.json
 5ade4cd24e360c2caa2692cf46964e240c4be5db data/forge/tags/fluids/froststeel.json
 ae85bf8779bb92ba95769dcab76d9ceed136f9ba data/forge/tags/fluids/manasteel.json
+059352592951e70161eb89caeb734b2c6c1c5ddc data/forge/tags/fluids/molten_calorite.json
+63a93af0f8fb675f8e920d9aed2a76a307ff554b data/forge/tags/fluids/molten_desh.json
+63074b63712acb604e68a40ba759f2d4966f7f78 data/forge/tags/fluids/molten_ostrum.json
 ef27756a019dc7946f583b6e64c89b73a24ac8e0 data/forge/tags/fluids/neptunium.json
 95df029ebd9ed7dc23f8f95ab0d15d1e84608e58 data/forge/tags/fluids/pendorite.json
 c4b92db2f34f891ebfc6f569a1cd4c57e08d2449 data/forge/tags/fluids/pendorite_alloy.json
@@ -11,6 +14,9 @@ aef947dff9e3297a33e2ba97bb3d120e65f21519 data/forge/tags/fluids/soul_stained_ste
 832542914882926bf81671b5b21d64635c53ca67 data/tcintegrations/tags/fluids/forgotten.json
 d1e19665e0e47d1fd516f31be5986f9c429bf434 data/tcintegrations/tags/fluids/froststeel.json
 0a0e2d7197bb67e17d166b07f5fbe257262fd200 data/tcintegrations/tags/fluids/manasteel.json
+2bf0a28d88228670c8e2c420d5abd06bb5008205 data/tcintegrations/tags/fluids/molten_calorite.json
+41dcec345e580883cf4254840b3c42d842fef1c6 data/tcintegrations/tags/fluids/molten_desh.json
+c92dd9d809404cb2eff00bc9350a3ce29069fed9 data/tcintegrations/tags/fluids/molten_ostrum.json
 386c261c3c6317c4c6a05b1337f06c617d5410e4 data/tcintegrations/tags/fluids/neptunium.json
 691c8cddcacb7c725f166a8683c3ba1b1a7635f6 data/tcintegrations/tags/fluids/pendorite.json
 1678cf8aca00733ba3a392c0df9e61762cd41f7c data/tcintegrations/tags/fluids/pendorite_alloy.json
@@ -19,4 +25,4 @@ f14b709556a1feff6aaf34ec1ce31a39f673cc41 data/tcintegrations/tags/fluids/source_
 67d483a71a4bca510c077f97afc086aa71593ece data/tconstruct/tags/fluids/spilling/metal/average.json
 42211d3775b96ea25f3756ce46fa1bbb122389e1 data/tconstruct/tags/fluids/spilling/metal/expensive.json
 1259a0945495c6d47d255b69ad79b6e7783a76ce data/tconstruct/tags/fluids/tooltips/gem_small.json
-07146979f50748a31729e47fa009ff7975635b84 data/tconstruct/tags/fluids/tooltips/metal.json
+45c9c08afc71767d3b7de828cd9072decb058fe6 data/tconstruct/tags/fluids/tooltips/metal.json

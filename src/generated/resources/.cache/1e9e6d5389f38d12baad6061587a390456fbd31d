@@ -1,21 +1,12 @@
-// 1.19.2	2024-05-09T10:02:34.261985512	TCIntegrations - TCon Material Recipe
+// 1.19.2	2024-05-25T10:13:21.221213193	TCIntegrations - TCon Material Recipe
 d4f962739d33089db1709125ef5b4de67205e767 data/tcintegrations/recipes/tools/materials/brass/block.json
 37f7582dd32aabcef328ce9271d086cc157bdbe0 data/tcintegrations/recipes/tools/materials/brass/ingot.json
 1d1aed4ab0b89cc6f308a3e8ebe568ee3d9c293d data/tcintegrations/recipes/tools/materials/brass/nugget.json
-423fd9ddd86411cbfc803b92fcb1736906472637 data/tcintegrations/recipes/tools/materials/calorite/block.json
-2573c6bba704052dc9dd9afd7039c4f114f07456 data/tcintegrations/recipes/tools/materials/calorite/ingot.json
-9ee845ebb9da0def4965ac94768b8e81bc818be2 data/tcintegrations/recipes/tools/materials/calorite/nugget.json
 d254c4070a715dbc1234c72669df63a763d46cac data/tcintegrations/recipes/tools/materials/casting/brass.json
-c5105418ce1e26c4e8195bbd4ee8fe64a847237b data/tcintegrations/recipes/tools/materials/casting/calorite.json
-5f1c581db443e2bcfa100d2e1a9df3ca21736d6a data/tcintegrations/recipes/tools/materials/casting/desh.json
 e37d8b61a48ca3ed2dcd11e822e81cab57dd9586 data/tcintegrations/recipes/tools/materials/casting/manasteel.json
 490b6bebbcc3fab3bb94f333a8352761bbe78434 data/tcintegrations/recipes/tools/materials/casting/neptunium.json
-b24e849a583c3532a5aa5deddd67b08cfe214570 data/tcintegrations/recipes/tools/materials/casting/ostrum.json
 d134bae4dabf7dbd72864f6e399904bcf4ce03a8 data/tcintegrations/recipes/tools/materials/casting/pendorite_alloy.json
 2ca5cb044299a6da662ea837539598527ef24e9e data/tcintegrations/recipes/tools/materials/casting/soul_stained_steel.json
-ea4926e0a80ffb083c48a4e47e9274e964fe5cc5 data/tcintegrations/recipes/tools/materials/desh/block.json
-fe87801e1fa434e9df2866013ac3f8d14feb4836 data/tcintegrations/recipes/tools/materials/desh/ingot.json
-bad16cff2cb891c0a62be185602fa3d96dd2c772 data/tcintegrations/recipes/tools/materials/desh/nugget.json
 321637f7b208ed58ae50327cf2c455c9c4dfc77d data/tcintegrations/recipes/tools/materials/livingrock.json
 099dabedde59144edec7dc404f4cb9439d511330 data/tcintegrations/recipes/tools/materials/livingwood/logs.json
 20ef0c351bbc8a651ff4a9ea64a576d4f771b1ca data/tcintegrations/recipes/tools/materials/livingwood/planks.json
@@ -24,19 +15,13 @@ bad16cff2cb891c0a62be185602fa3d96dd2c772 data/tcintegrations/recipes/tools/mater
 f090618ec7e8e2b88538d8c4292e6e69370e6d6b data/tcintegrations/recipes/tools/materials/manasteel/nugget.json
 b5994d5ae390b304fb44c46d8a18c654520985bd data/tcintegrations/recipes/tools/materials/manastring.json
 1f4f360b2b66e408b8323831434fed390055df95 data/tcintegrations/recipes/tools/materials/melting/brass.json
-0eb1bd863774a9eff5e9f58e73c23170a9400082 data/tcintegrations/recipes/tools/materials/melting/calorite.json
-fcc746388da74368b0fa85f834c4cc05b5accf70 data/tcintegrations/recipes/tools/materials/melting/desh.json
 60a50f5067f564ca9c46be5eddbe09a00b48b77f data/tcintegrations/recipes/tools/materials/melting/manasteel.json
 833b19396f4f8d7e5f50e7d158fa2c8fcd1b5c4b data/tcintegrations/recipes/tools/materials/melting/neptunium.json
-aa8db895d47dc24f14cfcac02d93ae0ff1eab373 data/tcintegrations/recipes/tools/materials/melting/ostrum.json
 d70f1ef41d787c7605a7910dac7b3f5c1e42c910 data/tcintegrations/recipes/tools/materials/melting/pendorite_alloy.json
 be8ffb9fa84b73e96cff227811247f29bfc0d256 data/tcintegrations/recipes/tools/materials/melting/soul_stained_steel.json
 48fa1d5b48990c0d45c3a11d5338095622bb5729 data/tcintegrations/recipes/tools/materials/neptunium/block.json
 56708d1961090f22b58a8b9804e0c69ae46d0d48 data/tcintegrations/recipes/tools/materials/neptunium/ingot.json
 4166c8c94ae3fa08f4fabe707b731db679aafc5e data/tcintegrations/recipes/tools/materials/neptunium/nugget.json
-a1cff2a7709fe7cc834e20b6389ae35a5b3b5ad8 data/tcintegrations/recipes/tools/materials/ostrum/block.json
-4060a8d32af7ff7718156eec9f4c455d57bc9abc data/tcintegrations/recipes/tools/materials/ostrum/ingot.json
-b8f032d2bd7c7695d44c4ef986789a8901df216c data/tcintegrations/recipes/tools/materials/ostrum/nugget.json
 1d16bbb38c9a6ba3b4f1068267c9b1e127dab88b data/tcintegrations/recipes/tools/materials/pendorite_alloy/block.json
 e2351bd9f48c7cae37e225a9eb6fa9f53ff7acfc data/tcintegrations/recipes/tools/materials/pendorite_alloy/ingot.json
 a295cc8a6054a8466d05a473066f917f72804675 data/tcintegrations/recipes/tools/materials/pendorite_alloy/nugget.json

@@ -3,25 +3,28 @@
   "allow_crystal": true,
   "conditions": [
     {
-      "type": "forge:mod_loaded",
-      "modid": "beyond_earth"
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:food/cheese"
+      }
     }
   ],
   "inputs": [
     {
-      "item": "beyond_earth:cheese"
+      "tag": "forge:food/cheese"
     },
     {
-      "item": "beyond_earth:cheese"
+      "tag": "forge:food/cheese"
     },
     {
-      "item": "beyond_earth:cheese"
+      "tag": "forge:food/cheese"
     },
     {
-      "item": "beyond_earth:cheese"
+      "tag": "forge:food/cheese"
     },
     {
-      "item": "beyond_earth:cheese"
+      "tag": "forge:food/cheese"
     }
   ],
   "level": {

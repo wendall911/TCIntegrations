@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/coin"
+  },
+  "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:coins/calorite"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/calorite"
+      }
+    }
+  ],
+  "cooling_time": 29,
+  "fluid": {
+    "amount": 30,
+    "tag": "forge:molten_calorite"
+  },
+  "result": {
+    "tag": "forge:coins/calorite"
+  }
+}

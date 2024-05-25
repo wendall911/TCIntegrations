@@ -1,5 +1,6 @@
-// 1.19.2	2024-05-13T09:23:38.468108172	TCIntegrations - Item Tags
+// 1.19.2	2024-05-25T10:13:21.224340416	TCIntegrations - Item Tags
 b4afdcf8c562f19262fb1812ef62260e808c073b data/forge/tags/items/bones/wither.json
+100a2a6ac5e9c09f163d62b2c8833a5d9c6d7b32 data/forge/tags/items/food/cheese.json
 70cc37e9f49963a29bbea14192b77849e83f908a data/forge/tags/items/ingots.json
 318d684dde2e9b86aac78cfbae48caa667e8c52c data/forge/tags/items/ingots/bronze.json
 90235b6f15531552c3f8f86f9bef1259505b1a8a data/forge/tags/items/ingots/pendorite_alloy.json
@@ -12,6 +13,6 @@ d1469884bf98bcdd373c1df3ca95b87cb1982f19 data/forge/tags/items/storage_blocks/br
 fb72dac54e68711ab0a0bd4f882d1fdfb9bffce6 data/tcintegrations/tags/items/emeraldite_ore.json
 bad3aa20e91268a9bed85bbc448827c2477f4fd4 data/tcintegrations/tags/items/emeraldite_shards.json
 dc173f7327691c1cf1ab5ca84a41ad91e95db3d9 data/tcintegrations/tags/items/livingwood_logs.json
-888d99624da069f911eada6527c84b306992796a data/tconstruct/tags/items/anvil_metal.json
+1ff85697930d2c9de3f5dfdf607623adca1b8e51 data/tconstruct/tags/items/anvil_metal.json
 48ba6cf67e94310e0198f3918c3c87e54109ad8e data/tconstruct/tags/items/wood_variants/logs.json
 d4ab7220471d1abe949417f1e11e3ec9f2f7e35a data/tconstruct/tags/items/wood_variants/planks.json

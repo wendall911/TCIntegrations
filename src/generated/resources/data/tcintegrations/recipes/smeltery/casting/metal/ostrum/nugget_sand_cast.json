@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/nugget"
+  },
+  "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:nuggets/ostrum"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/ostrum"
+      }
+    }
+  ],
+  "cooling_time": 17,
+  "fluid": {
+    "amount": 10,
+    "tag": "forge:molten_ostrum"
+  },
+  "result": {
+    "tag": "forge:nuggets/ostrum"
+  }
+}

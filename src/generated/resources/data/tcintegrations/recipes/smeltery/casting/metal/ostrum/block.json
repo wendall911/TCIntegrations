@@ -1,0 +1,27 @@
+{
+  "type": "tconstruct:casting_basin",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:storage_blocks/ostrum"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/ostrum"
+      }
+    }
+  ],
+  "cooling_time": 150,
+  "fluid": {
+    "amount": 810,
+    "tag": "forge:molten_ostrum"
+  },
+  "result": {
+    "tag": "forge:storage_blocks/ostrum"
+  }
+}

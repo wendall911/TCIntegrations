@@ -1,18 +1,31 @@
 {
-  "type": "tconstruct:alloy",
-  "inputs": [
+  "type": "forge:conditional",
+  "recipes": [
     {
-      "amount": 270,
-      "tag": "forge:molten_copper"
-    },
-    {
-      "amount": 1000,
-      "tag": "tconstruct:molten_obsidian"
+      "conditions": [
+        {
+          "type": "forge:tag_empty",
+          "tag": "forge:ingots/tin"
+        }
+      ],
+      "recipe": {
+        "type": "tconstruct:alloy",
+        "inputs": [
+          {
+            "amount": 270,
+            "tag": "forge:molten_copper"
+          },
+          {
+            "amount": 1000,
+            "tag": "tconstruct:molten_obsidian"
+          }
+        ],
+        "result": {
+          "amount": 360,
+          "fluid": "tconstruct:molten_bronze"
+        },
+        "temperature": 700
+      }
     }
-  ],
-  "result": {
-    "amount": 360,
-    "fluid": "tconstruct:molten_bronze"
-  },
-  "temperature": 700
+  ]
 }

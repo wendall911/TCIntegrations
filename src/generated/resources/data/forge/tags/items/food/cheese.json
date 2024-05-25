@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "ad_astra:cheese",
+      "required": false
+    },
+    {
+      "id": "beyond_earth:cheese",
+      "required": false
+    }
+  ]
+}

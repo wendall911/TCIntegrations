@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:molten_calorite",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_molten_calorite",
+      "required": false
+    }
+  ]
+}

@@ -9,8 +9,11 @@
       }
     },
     {
-      "type": "forge:mod_loaded",
-      "modid": "beyond_earth"
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/desh"
+      }
     }
   ],
   "ingredient": {
@@ -18,7 +21,7 @@
   },
   "result": {
     "amount": 90,
-    "fluid": "beyond_earth:molten_desh"
+    "fluid": "tcintegrations:molten_desh"
   },
   "temperature": 500,
   "time": 50

@@ -2,8 +2,11 @@
   "type": "tconstruct:modifier_salvage",
   "conditions": [
     {
-      "type": "forge:mod_loaded",
-      "modid": "beyond_earth"
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:food/cheese"
+      }
     }
   ],
   "modifier": "tcintegrations:cheesy",

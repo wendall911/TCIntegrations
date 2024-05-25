@@ -1,0 +1,30 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/multi_use/coin"
+  },
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:coins/ostrum"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/ostrum"
+      }
+    }
+  ],
+  "cooling_time": 29,
+  "fluid": {
+    "amount": 30,
+    "tag": "forge:molten_ostrum"
+  },
+  "result": {
+    "tag": "forge:coins/ostrum"
+  }
+}

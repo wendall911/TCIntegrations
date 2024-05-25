@@ -2,8 +2,11 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
-      "type": "forge:mod_loaded",
-      "modid": "beyond_earth"
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/calorite"
+      }
     }
   ],
   "ingredient": {
@@ -11,7 +14,7 @@
   },
   "result": {
     "amount": 810,
-    "fluid": "beyond_earth:molten_calorite"
+    "fluid": "tcintegrations:molten_calorite"
   },
   "temperature": 500,
   "time": 150

@@ -27,6 +27,18 @@
     {
       "id": "#forge:storage_blocks/pendorite_alloy",
       "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/desh",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/calorite",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/ostrum",
+      "required": false
     }
   ]
 }
