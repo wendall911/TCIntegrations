@@ -98,11 +98,11 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         }
 
         // Space trash
-        MOLTEN_DESH = FLUID_REGISTRY.register("molten_desh").type(hot("molten_desh")
+        MOLTEN_DESH = FLUID_REGISTRY.register("desh").type(hot("desh")
             .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
-        MOLTEN_OSTRUM = FLUID_REGISTRY.register("molten_ostrum").type(hot("molten_ostrum")
+        MOLTEN_OSTRUM = FLUID_REGISTRY.register("ostrum").type(hot("ostrum")
             .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
-        MOLTEN_CALORITE = FLUID_REGISTRY.register("molten_calorite").type(hot("molten_calorite")
+        MOLTEN_CALORITE = FLUID_REGISTRY.register("calorite").type(hot("calorite")
             .temperature(800).lightLevel(4)).block(Material.LAVA, 4).bucket().flowing();
         
         // Metals
