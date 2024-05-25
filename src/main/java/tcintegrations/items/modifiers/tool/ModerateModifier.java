@@ -8,7 +8,6 @@ import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TooltipFlag;
 
@@ -26,14 +25,14 @@ import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 
-import tcintegrations.TCIntegrations;
+import static tcintegrations.util.ResourceLocationHelper.resource;
 
 public class ModerateModifier extends NoLevelsModifier implements BreakSpeedModifierHook, TooltipModifierHook {
 
     private static final float BASELINE_TEMPERATURE = 1.0F;
     private static final float MAX_BOOST = 7.5F;
     private static final Component MINING_SPEED = Component.translatable(
-            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "moderate.mining_speed")));
+            Util.makeDescriptionId("modifier", resource("moderate.mining_speed")));
 
     //Gets the bonus for the given position
     private static float getBonus(Player player, BlockPos pos) {

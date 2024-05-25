@@ -10,7 +10,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraft.Util;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 
 import net.minecraft.world.entity.player.Player;
@@ -19,6 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
 import slimeknights.mantle.client.TooltipKey;
+
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -30,15 +30,16 @@ import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
-import tcintegrations.TCIntegrations;
 import tcintegrations.data.integration.ModIntegration;
+
+import static tcintegrations.util.ResourceLocationHelper.resource;
 
 public class ForgottenModifier extends NoLevelsModifier implements MeleeDamageModifierHook, BreakSpeedModifierHook, TooltipModifierHook {
 
     private static final Component MINING_SPEED = Component.translatable(
-            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "forgotten.mining_speed")));
+            Util.makeDescriptionId("modifier", resource("forgotten.mining_speed")));
     private static final Component ATTACK_INCREASE = Component.translatable(
-            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "forgotten.attack_increase")));
+            Util.makeDescriptionId("modifier", resource("forgotten.attack_increase")));
 
     @Override
     protected void registerHooks(Builder hookBuilder) {

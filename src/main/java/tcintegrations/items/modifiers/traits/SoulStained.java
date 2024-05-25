@@ -10,7 +10,6 @@ import com.sammy.malum.registry.common.AttributeRegistry;
 
 import net.minecraft.Util;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.ai.attributes.AttributeInstance;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -24,6 +23,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.phys.EntityHitResult;
 
 import slimeknights.mantle.client.TooltipKey;
+
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -42,7 +42,7 @@ import slimeknights.tconstruct.tools.TinkerTools;
 
 import team.lodestar.lodestone.registry.common.LodestoneAttributeRegistry;
 
-import tcintegrations.TCIntegrations;
+import static tcintegrations.util.ResourceLocationHelper.resource;
 
 public class SoulStained extends NoLevelsModifier implements ProjectileHitModifierHook, EquipmentChangeModifierHook, MeleeHitModifierHook, TooltipModifierHook {
 
@@ -131,13 +131,13 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
             AttributeModifier.Operation.ADDITION
     );
     private static final Component MAGIC_RESISTANCE = Component.translatable(
-            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.magic_resistance")));
+            Util.makeDescriptionId("modifier", resource("soul_stained.magic_resistance")));
     private static final Component SOUL_WARD_CAPACITY = Component.translatable(
-            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.soul_ward_capacity")));
+            Util.makeDescriptionId("modifier", resource("soul_stained.soul_ward_capacity")));
     private static final Component PRIMARY_MAGIC_DAMAGE = Component.translatable(
-            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.primary_magic_damage")));
+            Util.makeDescriptionId("modifier", resource("soul_stained.primary_magic_damage")));
     private static final Component OFFHAND_MAGIC_DAMAGE = Component.translatable(
-            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "soul_stained.offhand_magic_damage")));
+            Util.makeDescriptionId("modifier", resource("soul_stained.offhand_magic_damage")));
 
     @Override
     protected void registerHooks(Builder hookBuilder) {

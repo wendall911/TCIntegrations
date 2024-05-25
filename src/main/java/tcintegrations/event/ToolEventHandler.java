@@ -3,7 +3,6 @@ package tcintegrations.event;
 import java.util.List;
 import java.util.function.Supplier;
 
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
@@ -28,6 +27,8 @@ import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.items.modifiers.hooks.IArmorCrouchModifier;
 import tcintegrations.network.LaunchGhostSword;
 import tcintegrations.network.NetworkHandler;
+
+import static tcintegrations.util.ResourceLocationHelper.resource;
 
 @Mod.EventBusSubscriber(modid = TCIntegrations.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class ToolEventHandler {
@@ -118,7 +119,7 @@ public class ToolEventHandler {
     }
 
     private static <T> TinkerDataCapability.ComputableDataKey<T> createKey(String name, Supplier<T> constructor) {
-        return TinkerDataCapability.ComputableDataKey.of(new ResourceLocation(TCIntegrations.MODID, name), constructor);
+        return TinkerDataCapability.ComputableDataKey.of(resource(name), constructor);
     }
 
 }

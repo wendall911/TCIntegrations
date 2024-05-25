@@ -10,7 +10,6 @@ import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.InteractionResult;
@@ -40,14 +39,15 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
-import tcintegrations.TCIntegrations;
+
+import static tcintegrations.util.ResourceLocationHelper.resource;
 
 public class SirenModifier extends NoLevelsModifier implements BreakSpeedModifierHook, TooltipModifierHook, BlockInteractionModifierHook, MeleeDamageModifierHook {
 
     private static final float ATTACK_BONUS = 1.5F;
     private static final float SPEED_BONUS = 5.0F;
     private static final Component MINING_SPEED = Component.translatable(
-            Util.makeDescriptionId("modifier", new ResourceLocation(TCIntegrations.MODID, "siren.mining_speed")));
+            Util.makeDescriptionId("modifier", resource("siren.mining_speed")));
 
     @Override
     protected void registerHooks(Builder hookBuilder) {

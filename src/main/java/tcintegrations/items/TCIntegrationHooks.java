@@ -5,14 +5,13 @@ import java.util.function.Function;
 
 import org.jetbrains.annotations.Nullable;
 
-import net.minecraft.resources.ResourceLocation;
-
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.module.ModuleHook;
 
-import tcintegrations.TCIntegrations;
 import tcintegrations.items.modifiers.hooks.IArmorCrouchModifier;
 import tcintegrations.items.modifiers.hooks.IArmorJumpModifier;
+
+import static tcintegrations.util.ResourceLocationHelper.resource;
 
 public class TCIntegrationHooks {
 
@@ -27,7 +26,7 @@ public class TCIntegrationHooks {
     }
 
     private static <T> ModuleHook<T> register(String name, Class<T> filter, @Nullable Function<Collection<T>,T> merger, T defaultInstance) {
-        return ModifierHooks.register(new ResourceLocation(TCIntegrations.MODID, name), filter, merger, defaultInstance);
+        return ModifierHooks.register(resource(name), filter, merger, defaultInstance);
     }
 
 }

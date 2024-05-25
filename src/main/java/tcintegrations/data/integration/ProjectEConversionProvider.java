@@ -3,10 +3,12 @@ package tcintegrations.data.integration;
 import moze_intel.projecte.api.data.CustomConversionProvider;
 
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceLocation;
 
 import slimeknights.tconstruct.shared.TinkerMaterials;
+
 import tcintegrations.TCIntegrations;
+
+import static tcintegrations.util.ResourceLocationHelper.location;
 
 public class ProjectEConversionProvider extends CustomConversionProvider {
 
@@ -21,7 +23,7 @@ public class ProjectEConversionProvider extends CustomConversionProvider {
 
     @Override
     protected void addCustomConversions() {
-        createConversionBuilder(new ResourceLocation(TCIntegrations.MODID, "metals"))
+        createConversionBuilder(location(TCIntegrations.MODID, "metals"))
             .before(TinkerMaterials.cobalt.getIngot(), 6_144);
     }
 }
