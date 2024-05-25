@@ -7,6 +7,8 @@ import mezz.jei.api.forge.ForgeTypes;
 import mezz.jei.api.runtime.IIngredientManager;
 import mezz.jei.api.runtime.IJeiRuntime;
 
+import java.util.Collections;
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -17,8 +19,6 @@ import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.tags.ITag;
 
 import tcintegrations.data.tcon.SmelteryCompat;
-
-import java.util.Collections;
 
 import static tcintegrations.util.ResourceLocationHelper.location;
 import static tcintegrations.util.ResourceLocationHelper.resource;
@@ -40,7 +40,10 @@ public class JEIPlugin implements IModPlugin {
             ITag<Item> ingot = getTag(location("forge", "ingots/" + compat.getName()));
 
             if (ingot.isEmpty()) {
-                removeFluid(manager, compat.getFluid().get(), compat.getBucket());
+                try {
+                    removeFluid(manager, compat.getFluid().get(), compat.getBucket());
+                }
+                catch (NullPointerException ignored) {}
             }
         }
     }
