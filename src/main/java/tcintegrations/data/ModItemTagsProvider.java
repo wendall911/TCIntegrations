@@ -68,11 +68,23 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         // Ice and Fire: Dragons
         getBuilder(TagManager.Items.WITHER_BONES)
             .add(TinkerMaterials.necroticBone.get());
+        this.copy(TagManager.Blocks.DRAGONSTEEL_FIRE, TagManager.Items.DRAGONSTEEL_FIRE);
+        getBuilder(TagManager.Items.DRAGONSTEEL_FIRE_INGOTS).addOptional(ModIntegration.ifdLoc("dragonsteel_fire_ingot"));
+        this.copy(TagManager.Blocks.DRAGONSTEEL_ICE, TagManager.Items.DRAGONSTEEL_ICE);
+        getBuilder(TagManager.Items.DRAGONSTEEL_ICE_INGOTS).addOptional(ModIntegration.ifdLoc("dragonsteel_ice_ingot"));
+        this.copy(TagManager.Blocks.DRAGONSTEEL_LIGHTNING, TagManager.Items.DRAGONSTEEL_LIGHTNING);
+        getBuilder(TagManager.Items.DRAGONSTEEL_LIGHTNING_INGOTS).addOptional(ModIntegration.ifdLoc("dragonsteel_lightning_ingot"));
 
         // Ad Astra & Beyond Earth
         getBuilder(TagManager.Items.CHEESE)
             .addOptional(ModIntegration.adAstraLoc("cheese"))
             .addOptional(ModIntegration.beyondEarthLoc("cheese"));
+
+        // Ars Nouveau
+        getBuilder(TagManager.Items.SOURCE_GEM)
+            .add(ModIntegration.SOURCE_GEM);
+        getBuilder(TagManager.Items.SOURCE_GEM_BLOCK)
+            .add(ModIntegration.SOURCE_GEM_BLOCK);
     }
 
     private void addBotaniaLogVariants(TagKey<Item> tag, String type) {

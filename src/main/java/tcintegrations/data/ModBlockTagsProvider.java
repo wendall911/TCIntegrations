@@ -43,6 +43,10 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
             .addTag(TagManager.Blocks.SOUL_STAINED_STEEL);
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(TagManager.Blocks.BRONZE);
         this.tag(BlockTags.NEEDS_STONE_TOOL).addTag(TagManager.Blocks.BRONZE);
+        this.tag(TagManager.Blocks.DRAGONSTEEL_FIRE).addOptional(ModIntegration.ifdLoc("dragonsteel_fire_block"));
+        this.tag(TagManager.Blocks.DRAGONSTEEL_ICE).addOptional(ModIntegration.ifdLoc("dragonsteel_ice_block"));
+        this.tag(TagManager.Blocks.DRAGONSTEEL_LIGHTNING).addOptional(ModIntegration.ifdLoc("dragonsteel_lightning_block"));
+        this.tag(TagManager.Blocks.SOURCE_GEM_BLOCK).addOptional(ModIntegration.arsLoc("source_gem_block"));
 
         TagsProvider.TagAppender<Block> builder = this.tag(TinkerTags.Blocks.ANVIL_METAL);
 

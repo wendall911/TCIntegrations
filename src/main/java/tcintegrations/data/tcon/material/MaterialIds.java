@@ -21,6 +21,9 @@ public final class MaterialIds {
     public static final MaterialId ostrum = id("ostrum");
     public static final MaterialId pendoriteAlloy = id("pendorite_alloy");
     public static final MaterialId brass = id("brass");
+    public static final MaterialId dragonsteelFire = id("dragonsteel_fire");
+    public static final MaterialId dragonsteelIce = id("dragonsteel_ice");
+    public static final MaterialId dragonsteelLightning = id("dragonsteel_lightning");
 
     private static MaterialId id(String name) {
         return new MaterialId(TCIntegrations.MODID, name);

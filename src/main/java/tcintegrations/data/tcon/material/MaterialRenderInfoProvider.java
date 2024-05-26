@@ -31,6 +31,9 @@ public class MaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvid
         buildRenderInfo(MaterialIds.ostrum).color(0x654A59).fallbacks("metal");
         buildRenderInfo(MaterialIds.pendoriteAlloy).color(0x6757AD).fallbacks("metal");
         buildRenderInfo(MaterialIds.brass);
+        buildRenderInfo(MaterialIds.dragonsteelFire).color(0x77717C).fallbacks("metal");
+        buildRenderInfo(MaterialIds.dragonsteelIce).color(0xE0F3FD).fallbacks("metal");
+        buildRenderInfo(MaterialIds.dragonsteelLightning).color(0x6B6091).fallbacks("metal");
     }
 
 }

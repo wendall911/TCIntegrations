@@ -46,6 +46,16 @@ public final class TagManager {
 
         // Ice and Fire: Dragons
         public static final TagKey<Item> WITHER_BONES = forgeTag("bones/wither");
+        public static final TagKey<Item> DRAGONSTEEL_FIRE = forgeTag("storage_blocks/dragonsteel_fire");
+        public static final TagKey<Item> DRAGONSTEEL_FIRE_INGOTS = forgeTag("ingots/dragonsteel_fire");
+        public static final TagKey<Item> DRAGONSTEEL_ICE = forgeTag("storage_blocks/dragonsteel_ice");
+        public static final TagKey<Item> DRAGONSTEEL_ICE_INGOTS = forgeTag("ingots/dragonsteel_ice");
+        public static final TagKey<Item> DRAGONSTEEL_LIGHTNING = forgeTag("storage_blocks/dragonsteel_lightning");
+        public static final TagKey<Item> DRAGONSTEEL_LIGHTNING_INGOTS = forgeTag("ingots/dragonsteel_lightning");
+
+        // Ars Nouveau
+        public static final TagKey<Item> SOURCE_GEM = forgeTag("gems/source_gem");
+        public static final TagKey<Item> SOURCE_GEM_BLOCK = forgeTag("storage_blocks/source_gem_block");
 
         private static TagKey<Item> create(String id) {
             return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(resource(id), Collections.emptySet());
@@ -65,6 +75,14 @@ public final class TagManager {
 
         // Malum
         public static final TagKey<Block> SOUL_STAINED_STEEL = forgeTag("storage_blocks/soul_stained_steel");
+
+        // Ice and Fire: Dragons
+        public static final TagKey<Block> DRAGONSTEEL_FIRE = forgeTag("storage_blocks/dragonsteel_fire");
+        public static final TagKey<Block> DRAGONSTEEL_ICE = forgeTag("storage_blocks/dragonsteel_ice");
+        public static final TagKey<Block> DRAGONSTEEL_LIGHTNING = forgeTag("storage_blocks/dragonsteel_lightning");
+
+        // Ars Nouveau
+        public static final TagKey<Block> SOURCE_GEM_BLOCK = forgeTag("storage_blocks/source_gem");
 
         private static TagKey<Block> create(String id) {
             return Objects.requireNonNull(ForgeRegistries.BLOCKS.tags()).createOptionalTagKey(resource(id), Collections.emptySet());

@@ -23,8 +23,6 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
-import net.minecraftforge.fml.ModList;
-
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 import slimeknights.mantle.item.BlockTooltipItem;
@@ -76,7 +74,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
 
         if (ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
             MOLTEN_SOURCE_GEM = FLUID_REGISTRY.register("source_gem").type(hot("source_gem")
-                .temperature(1780).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
+                .temperature(1280).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
         }
 
         if (ModIntegration.canLoad(ModIntegration.MALUM_MODID)) {
@@ -102,11 +100,11 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
 
         if (ModIntegration.canLoad(ModIntegration.IFD_MODID)) {
             MOLTEN_DRAGONSTEEL_FIRE = FLUID_REGISTRY.register("dragonsteel_fire").type(hot("dragonsteel_fire")
-                .temperature(1250).lightLevel(12)).block(Material.LAVA, 12).bucket().flowing();
+                .temperature(1750).lightLevel(12)).block(Material.LAVA, 12).bucket().flowing();
             MOLTEN_DRAGONSTEEL_ICE = FLUID_REGISTRY.register("dragonsteel_ice").type(hot("dragonsteel_ice")
-                .temperature(1250).lightLevel(11)).block(Material.LAVA, 11).bucket().flowing();
+                .temperature(1750).lightLevel(11)).block(Material.LAVA, 11).bucket().flowing();
             MOLTEN_DRAGONSTEEL_LIGHTNING = FLUID_REGISTRY.register("dragonsteel_lightning").type(hot("dragonsteel_lightning")
-                .temperature(1250).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
+                .temperature(1750).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
         }
 
         // Space trash

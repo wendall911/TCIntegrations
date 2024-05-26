@@ -63,6 +63,18 @@ public class TinkerMaterialSpriteProvider extends AbstractMaterialSpriteProvider
             .meleeHarvest().armor()
             .fallbacks("metal")
             .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF2F164B).addARGB(102, 0xFF3A245E).addARGB(140, 0xFF503981).addARGB(178, 0xFF776DC0).addARGB(216, 0xFF949FE1).addARGB(255, 0xFF98ABE6).build());
+        buildMaterial(MaterialIds.dragonsteelFire)
+            .meleeHarvest().armor()
+            .fallbacks("metal")
+            .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF070202).addARGB(102, 0xFF29080a).addARGB(140, 0xFF77717c).addARGB(178, 0xFF8f8e9a).addARGB(216, 0xFF828a9a).addARGB(255, 0xFFccd2db).build());
+        buildMaterial(MaterialIds.dragonsteelIce)
+            .meleeHarvest().armor()
+            .fallbacks("metal")
+            .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF284754).addARGB(102, 0xFF325C73).addARGB(140, 0xFFA4D2F9).addARGB(178, 0xFFDBF1FD).addARGB(216, 0xFFE0F3FD).addARGB(255, 0xFFFCFCFC).build());
+        buildMaterial(MaterialIds.dragonsteelLightning)
+            .meleeHarvest().armor()
+            .fallbacks("metal")
+            .colorMapper(GreyToColorMapping.builderFromBlack().addARGB(63, 0xFF1D1726).addARGB(102, 0xFF261C61).addARGB(140, 0xFF594470).addARGB(178, 0xFF554589).addARGB(216, 0xFF6B6091).addARGB(255, 0xFFCCCCDC).build());
     }
 
 }

@@ -116,6 +116,24 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
             new GripMaterialStats(1.2F, -0.15F, 3.0F),
             HandleMaterialStats.multipliers().durability(1.4F).miningSpeed(1.2F).attackSpeed(1.1F).attackDamage(1.25F).build(),
             StatlessMaterialStats.BINDING);
+        addArmorShieldStats(MaterialIds.dragonsteelFire,
+            PlatingMaterialStats.builder()
+                .durabilityFactor(60)
+                .armor(6, 9, 12, 7)
+                .toughness(4),
+            StatlessMaterialStats.MAILLE);
+        addArmorShieldStats(MaterialIds.dragonsteelIce,
+            PlatingMaterialStats.builder()
+                .durabilityFactor(60)
+                .armor(6, 9, 12, 7)
+                .toughness(4),
+            StatlessMaterialStats.MAILLE);
+        addArmorShieldStats(MaterialIds.dragonsteelLightning,
+            PlatingMaterialStats.builder()
+                .durabilityFactor(60)
+                .armor(6, 9, 12, 7)
+                .toughness(4),
+            StatlessMaterialStats.MAILLE);
     }
 
 }

@@ -36,6 +36,7 @@ import tcintegrations.items.modifiers.tool.SirenModifier;
 import tcintegrations.items.modifiers.tool.TerraModifier;
 import tcintegrations.items.modifiers.tool.UtheriumModifier;
 import tcintegrations.items.modifiers.tool.ZappedModifier;
+import tcintegrations.items.modifiers.traits.DragonScalesModifier;
 import tcintegrations.items.modifiers.traits.HellishModifier;
 import tcintegrations.items.modifiers.traits.KineticModifier;
 import tcintegrations.items.modifiers.traits.ManaModifier;
@@ -82,6 +83,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<IcedModifier> ICED_MODIFIER;
     public static StaticModifier<ZappedModifier> ZAPPED_MODIFIER;
     public static StaticModifier<PhantasmalModifier> PHANTASMAL_MODIFIER;
+    public static StaticModifier<DragonScalesModifier> DRAGON_SCALES_MODIFIER;
 
     public static void init() {
         if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
@@ -152,6 +154,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             ICED_MODIFIER = MODIFIERS_REGISTRY.register("iced", IcedModifier::new);
             ZAPPED_MODIFIER = MODIFIERS_REGISTRY.register("zapped", ZappedModifier::new);
             PHANTASMAL_MODIFIER = MODIFIERS_REGISTRY.register("phantasmal", PhantasmalModifier::new);
+            DRAGON_SCALES_MODIFIER = MODIFIERS_REGISTRY.register("dragonscales", DragonScalesModifier::new);
         }
 
         // Ad Astra / Beyond Earth, etc. and whatever other space clones

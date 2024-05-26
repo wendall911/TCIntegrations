@@ -28,7 +28,10 @@ public enum SmelteryCompat {
     PENDORITE_ALLOY (TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY, ModIntegration.BYG_MODID),
     DESH (TCIntegrationsItems.MOLTEN_DESH, MaterialIds.desh.getPath()),
     CALORITE (TCIntegrationsItems.MOLTEN_CALORITE, MaterialIds.calorite.getPath()),
-    OSTRUM (TCIntegrationsItems.MOLTEN_OSTRUM,MaterialIds.ostrum.getPath());
+    OSTRUM (TCIntegrationsItems.MOLTEN_OSTRUM,MaterialIds.ostrum.getPath()),
+    DRAGONSTEEL_FIRE (TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE, ModIntegration.IFD_MODID, Byproduct.IRON, Byproduct.GOLD),
+    DRAGONSTEEL_ICE (TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE, ModIntegration.IFD_MODID, Byproduct.IRON, Byproduct.GOLD),
+    DRAGONSTEEL_LIGHTNING (TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING, ModIntegration.IFD_MODID, Byproduct.IRON, Byproduct.GOLD);
 
     @Getter
     private final String name = this.name().toLowerCase(Locale.US);

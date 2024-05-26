@@ -34,6 +34,9 @@ public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvide
         addDefaultTraits(MaterialIds.ostrum, TciModifierIds.oxygenated);
         addDefaultTraits(MaterialIds.pendoriteAlloy, TciModifierIds.hellish);
         addDefaultTraits(osmium, ModifierIds.dense, TciModifierIds.kinetic);
+        addDefaultTraits(MaterialIds.dragonsteelFire, ModifierIds.ductile, TciModifierIds.dragonScales);
+        addDefaultTraits(MaterialIds.dragonsteelIce, ModifierIds.ductile, TciModifierIds.dragonScales);
+        addDefaultTraits(MaterialIds.dragonsteelLightning, ModifierIds.ductile, TciModifierIds.dragonScales);
     }
 
 }
