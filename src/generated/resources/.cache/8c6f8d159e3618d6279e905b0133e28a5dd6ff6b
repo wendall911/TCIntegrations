@@ -1,7 +1,10 @@
-// 1.19.2	2024-05-20T08:55:39.759126089	TCIntegrations - TCon Material Render Info Provider
+// 1.19.2	2024-05-26T09:53:54.957308672	TCIntegrations - TCon Material Render Info Provider
 504ba20b6054014ce362920e80d3b75d1e824b58 assets/tcintegrations/tinkering/materials/brass.json
 a171ece6cbf2da80d48e9f369f8e1d52ff26ca21 assets/tcintegrations/tinkering/materials/calorite.json
 c030404cca1f7bd5f6c5f289f79c4f51cd43582a assets/tcintegrations/tinkering/materials/desh.json
+1eb5d745cbd320674411d3f3ebb0ad93e8fc845a assets/tcintegrations/tinkering/materials/dragonsteel_fire.json
+1218887791adafb337402265236074c61530d63e assets/tcintegrations/tinkering/materials/dragonsteel_ice.json
+a93ff5db73681a8f15cac9b73d70c3ebab07414d assets/tcintegrations/tinkering/materials/dragonsteel_lightning.json
 a91279ef12715bdd1be0f763b8654fc01939108c assets/tcintegrations/tinkering/materials/livingrock.json
 98598e3c876c1821b401570ad0d21d4f77a953e3 assets/tcintegrations/tinkering/materials/livingwood.json
 1fe430ca00861ee5b331416806b975d7a3eb933f assets/tcintegrations/tinkering/materials/manasteel.json

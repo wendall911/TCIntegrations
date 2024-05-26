@@ -1,7 +1,11 @@
-// 1.19.2	2024-05-25T10:13:21.223897851	TCIntegrations - Block Tags
+// 1.19.2	2024-05-26T11:22:10.602984169	TCIntegrations - Block Tags
 b627684b0f4cddf3e453d567d9dc9bf8df8e7bd2 data/forge/tags/blocks/storage_blocks.json
 d1469884bf98bcdd373c1df3ca95b87cb1982f19 data/forge/tags/blocks/storage_blocks/bronze.json
+7860b7099415ea3d072dd57cf2852bc0eaf16c70 data/forge/tags/blocks/storage_blocks/dragonsteel_fire.json
+3fce02fd08d310fe91b91245b14676c3a77ca11c data/forge/tags/blocks/storage_blocks/dragonsteel_ice.json
+5acf17ee84990c341cbcccfa8bff3bf9af9dd769 data/forge/tags/blocks/storage_blocks/dragonsteel_lightning.json
 09d03a67c93d8bca0ee48265ef02154eafaae49f data/forge/tags/blocks/storage_blocks/soul_stained_steel.json
+ae4c75618a07b97ca06b6cd992d22ae3e836f9b6 data/forge/tags/blocks/storage_blocks/source_gem.json
 34135d8429fd3a528d4b5def3a2b63b32cf7a9d3 data/minecraft/tags/blocks/mineable/pickaxe.json
 34135d8429fd3a528d4b5def3a2b63b32cf7a9d3 data/minecraft/tags/blocks/needs_stone_tool.json
-1ff85697930d2c9de3f5dfdf607623adca1b8e51 data/tconstruct/tags/blocks/anvil_metal.json
+383c35186838a454d34089af26f2df8792935de5 data/tconstruct/tags/blocks/anvil_metal.json

@@ -39,6 +39,18 @@
     {
       "id": "#forge:storage_blocks/ostrum",
       "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/dragonsteel_fire",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/dragonsteel_ice",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/dragonsteel_lightning",
+      "required": false
     }
   ]
 }

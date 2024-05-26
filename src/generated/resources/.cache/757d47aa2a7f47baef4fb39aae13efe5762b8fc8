@@ -1,7 +1,10 @@
-// 1.19.2	2024-05-20T10:25:07.604667347	TCIntegrations - TCon Material Stats
+// 1.19.2	2024-05-26T10:24:35.278520475	TCIntegrations - TCon Material Stats
 c06e86d00a058f685d30e0953549a3b63a71211e data/tcintegrations/tinkering/materials/stats/brass.json
 3610ed9eed8e494a3bb570e568a03ffbb2181d7b data/tcintegrations/tinkering/materials/stats/calorite.json
 3610ed9eed8e494a3bb570e568a03ffbb2181d7b data/tcintegrations/tinkering/materials/stats/desh.json
+82046042d0d0c326766a482d27ef689a819ce291 data/tcintegrations/tinkering/materials/stats/dragonsteel_fire.json
+82046042d0d0c326766a482d27ef689a819ce291 data/tcintegrations/tinkering/materials/stats/dragonsteel_ice.json
+82046042d0d0c326766a482d27ef689a819ce291 data/tcintegrations/tinkering/materials/stats/dragonsteel_lightning.json
 e51bb77e86381290d4894b9c4e5c8f6418b0122b data/tcintegrations/tinkering/materials/stats/livingrock.json
 db08245e5df196b1e12fd204c922b4a5cc3f4399 data/tcintegrations/tinkering/materials/stats/livingwood.json
 a7ded152fc66b04b0f605cd469ce93015ae4e508 data/tcintegrations/tinkering/materials/stats/manasteel.json

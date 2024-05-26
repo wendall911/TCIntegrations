@@ -6,7 +6,7 @@
       "modid": "ars_nouveau"
     }
   ],
-  "cooling_time": 168,
+  "cooling_time": 139,
   "fluid": {
     "amount": 400,
     "tag": "tcintegrations:source_gem"

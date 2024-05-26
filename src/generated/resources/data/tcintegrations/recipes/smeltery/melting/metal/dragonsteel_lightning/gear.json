@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:gears/dragonsteel_lightning"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:gears/dragonsteel_lightning"
+  },
+  "result": {
+    "amount": 360,
+    "fluid": "tcintegrations:dragonsteel_lightning"
+  },
+  "temperature": 1450,
+  "time": 158
+}

@@ -1,0 +1,22 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:nuggets/dragonsteel_lightning"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:nuggets/dragonsteel_lightning"
+  },
+  "material": "tcintegrations:dragonsteel_lightning",
+  "needed": 9,
+  "value": 1
+}

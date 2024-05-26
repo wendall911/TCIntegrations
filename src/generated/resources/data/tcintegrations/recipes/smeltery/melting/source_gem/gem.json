@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:gems/source_gem"
+  },
+  "result": {
+    "amount": 100,
+    "fluid": "tcintegrations:source_gem"
+  },
+  "temperature": 980,
+  "time": 66
+}

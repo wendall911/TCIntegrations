@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:material_melting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/dragonsteel_lightning"
+      }
+    }
+  ],
+  "input": "tcintegrations:dragonsteel_lightning",
+  "result": {
+    "amount": 90,
+    "fluid": "tcintegrations:dragonsteel_lightning"
+  },
+  "temperature": 1450
+}

@@ -1,0 +1,26 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:storage_blocks/dragonsteel_fire"
+      }
+    },
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:storage_blocks/dragonsteel_fire"
+  },
+  "leftover": {
+    "count": 1,
+    "tag": "forge:ingots/dragonsteel_fire"
+  },
+  "material": "tcintegrations:dragonsteel_fire",
+  "needed": 1,
+  "value": 9
+}

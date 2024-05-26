@@ -1,18 +1,26 @@
-// 1.19.2	2024-05-25T10:13:21.224340416	TCIntegrations - Item Tags
+// 1.19.2	2024-05-26T11:22:10.587540146	TCIntegrations - Item Tags
 b4afdcf8c562f19262fb1812ef62260e808c073b data/forge/tags/items/bones/wither.json
 100a2a6ac5e9c09f163d62b2c8833a5d9c6d7b32 data/forge/tags/items/food/cheese.json
+0fab28203f8c9e1daa9c635ecb6c026ba0be0ba1 data/forge/tags/items/gems/source_gem.json
 70cc37e9f49963a29bbea14192b77849e83f908a data/forge/tags/items/ingots.json
 318d684dde2e9b86aac78cfbae48caa667e8c52c data/forge/tags/items/ingots/bronze.json
+19271cd6e1dfcf62143ec3ba4923d8ec92095da6 data/forge/tags/items/ingots/dragonsteel_fire.json
+2f0a67fd019297c61371d1a5164192c853ada056 data/forge/tags/items/ingots/dragonsteel_ice.json
+f99599f4a785fb1e4f0a8df0869831100fb197ea data/forge/tags/items/ingots/dragonsteel_lightning.json
 90235b6f15531552c3f8f86f9bef1259505b1a8a data/forge/tags/items/ingots/pendorite_alloy.json
 9095735c153c85a16880784eb3ddc3f2b103e7b2 data/forge/tags/items/ingots/soul_stained_steel.json
 d5697030024a7bbd1745f8ed297ceef9ca31ce1f data/forge/tags/items/nuggets.json
 cd9249ded2dabd487d2ec46ff98fee4efacbe3ab data/forge/tags/items/nuggets/bronze.json
 f64f17f0287c1b9bdee6f1ca8eafb5601ffe56fc data/forge/tags/items/nuggets/soul_stained_steel.json
 d1469884bf98bcdd373c1df3ca95b87cb1982f19 data/forge/tags/items/storage_blocks/bronze.json
+7860b7099415ea3d072dd57cf2852bc0eaf16c70 data/forge/tags/items/storage_blocks/dragonsteel_fire.json
+3fce02fd08d310fe91b91245b14676c3a77ca11c data/forge/tags/items/storage_blocks/dragonsteel_ice.json
+5acf17ee84990c341cbcccfa8bff3bf9af9dd769 data/forge/tags/items/storage_blocks/dragonsteel_lightning.json
 09d03a67c93d8bca0ee48265ef02154eafaae49f data/forge/tags/items/storage_blocks/soul_stained_steel.json
+6febc815f11d70abf442be0be941a9132ddd072d data/forge/tags/items/storage_blocks/source_gem_block.json
 fb72dac54e68711ab0a0bd4f882d1fdfb9bffce6 data/tcintegrations/tags/items/emeraldite_ore.json
 bad3aa20e91268a9bed85bbc448827c2477f4fd4 data/tcintegrations/tags/items/emeraldite_shards.json
 dc173f7327691c1cf1ab5ca84a41ad91e95db3d9 data/tcintegrations/tags/items/livingwood_logs.json
-1ff85697930d2c9de3f5dfdf607623adca1b8e51 data/tconstruct/tags/items/anvil_metal.json
+383c35186838a454d34089af26f2df8792935de5 data/tconstruct/tags/items/anvil_metal.json
 48ba6cf67e94310e0198f3918c3c87e54109ad8e data/tconstruct/tags/items/wood_variants/logs.json
 d4ab7220471d1abe949417f1e11e3ec9f2f7e35a data/tconstruct/tags/items/wood_variants/planks.json

@@ -1,0 +1,12 @@
+{
+  "default": [
+    {
+      "level": 1,
+      "name": "tconstruct:ductile"
+    },
+    {
+      "level": 1,
+      "name": "tcintegrations:dragonscales"
+    }
+  ]
+}

@@ -1,12 +1,24 @@
-// 1.19.2	2024-05-25T10:13:21.221213193	TCIntegrations - TCon Material Recipe
+// 1.19.2	2024-05-26T11:09:29.269697176	TCIntegrations - TCon Material Recipe
 d4f962739d33089db1709125ef5b4de67205e767 data/tcintegrations/recipes/tools/materials/brass/block.json
 37f7582dd32aabcef328ce9271d086cc157bdbe0 data/tcintegrations/recipes/tools/materials/brass/ingot.json
 1d1aed4ab0b89cc6f308a3e8ebe568ee3d9c293d data/tcintegrations/recipes/tools/materials/brass/nugget.json
 d254c4070a715dbc1234c72669df63a763d46cac data/tcintegrations/recipes/tools/materials/casting/brass.json
+ba52ea3aff60b227d025dcf2799f494ed3218c09 data/tcintegrations/recipes/tools/materials/casting/dragonsteel_fire.json
+7c6606ffa589aa5a327486a3d8eef5365973276e data/tcintegrations/recipes/tools/materials/casting/dragonsteel_ice.json
+e641f3d334ea1014aa7f643a1849d967588b7339 data/tcintegrations/recipes/tools/materials/casting/dragonsteel_lightning.json
 e37d8b61a48ca3ed2dcd11e822e81cab57dd9586 data/tcintegrations/recipes/tools/materials/casting/manasteel.json
 490b6bebbcc3fab3bb94f333a8352761bbe78434 data/tcintegrations/recipes/tools/materials/casting/neptunium.json
 d134bae4dabf7dbd72864f6e399904bcf4ce03a8 data/tcintegrations/recipes/tools/materials/casting/pendorite_alloy.json
 2ca5cb044299a6da662ea837539598527ef24e9e data/tcintegrations/recipes/tools/materials/casting/soul_stained_steel.json
+351b10a51cef9607de9dc1e3ef060eae793ade1c data/tcintegrations/recipes/tools/materials/dragonsteel_fire/block.json
+0f81f1f33b287b611e2384875d294dd33464b794 data/tcintegrations/recipes/tools/materials/dragonsteel_fire/ingot.json
+965fb6cd537f6a98ccfe5dae48d4d80911a09906 data/tcintegrations/recipes/tools/materials/dragonsteel_fire/nugget.json
+27bf1e05a8202628aa7bee62655387474a2e96df data/tcintegrations/recipes/tools/materials/dragonsteel_ice/block.json
+17a8d1dbc766c10678aeea099a7843a190ca402f data/tcintegrations/recipes/tools/materials/dragonsteel_ice/ingot.json
+71a3c7c8c14afaa09ca9e3da55d49bc0cf3855cc data/tcintegrations/recipes/tools/materials/dragonsteel_ice/nugget.json
+80904cd6d3ca95d38f907e05f97f5705af73e271 data/tcintegrations/recipes/tools/materials/dragonsteel_lightning/block.json
+19dc6483e698130f16d5627ec8d186cd7d67f968 data/tcintegrations/recipes/tools/materials/dragonsteel_lightning/ingot.json
+0182bd5093ac0440d361a52d12c7d8f196626d9c data/tcintegrations/recipes/tools/materials/dragonsteel_lightning/nugget.json
 321637f7b208ed58ae50327cf2c455c9c4dfc77d data/tcintegrations/recipes/tools/materials/livingrock.json
 099dabedde59144edec7dc404f4cb9439d511330 data/tcintegrations/recipes/tools/materials/livingwood/logs.json
 20ef0c351bbc8a651ff4a9ea64a576d4f771b1ca data/tcintegrations/recipes/tools/materials/livingwood/planks.json
@@ -15,6 +27,9 @@ d134bae4dabf7dbd72864f6e399904bcf4ce03a8 data/tcintegrations/recipes/tools/mater
 f090618ec7e8e2b88538d8c4292e6e69370e6d6b data/tcintegrations/recipes/tools/materials/manasteel/nugget.json
 b5994d5ae390b304fb44c46d8a18c654520985bd data/tcintegrations/recipes/tools/materials/manastring.json
 1f4f360b2b66e408b8323831434fed390055df95 data/tcintegrations/recipes/tools/materials/melting/brass.json
+3e42ba90a9872a9723f0a63a9919aa9dc554c90d data/tcintegrations/recipes/tools/materials/melting/dragonsteel_fire.json
+2aeb3aec1b43abcc07690e8d9abaab815f093028 data/tcintegrations/recipes/tools/materials/melting/dragonsteel_ice.json
+539dc01006bd9492c2165cb61091ef06c9aec677 data/tcintegrations/recipes/tools/materials/melting/dragonsteel_lightning.json
 60a50f5067f564ca9c46be5eddbe09a00b48b77f data/tcintegrations/recipes/tools/materials/melting/manasteel.json
 833b19396f4f8d7e5f50e7d158fa2c8fcd1b5c4b data/tcintegrations/recipes/tools/materials/melting/neptunium.json
 d70f1ef41d787c7605a7910dac7b3f5c1e42c910 data/tcintegrations/recipes/tools/materials/melting/pendorite_alloy.json
