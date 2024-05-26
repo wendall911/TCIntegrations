@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:dragonsteel_fire",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_dragonsteel_fire",
+      "required": false
+    }
+  ]
+}

@@ -1,7 +1,10 @@
-// 1.19.2	2024-05-25T11:17:40.050117544	TCIntegrations - TCon Fluid Textures
+// 1.19.2	2024-05-25T14:26:40.726253846	TCIntegrations - TCon Fluid Textures
 901daed5fd0957bb7057f547cb3e7e4f3951a511 assets/tcintegrations/mantle/fluid_texture/calorite.json
 8ea27498a1fa469b0ef20641994ba314daffc483 assets/tcintegrations/mantle/fluid_texture/cloggrum.json
 0c5ed7791542352631e70e965575c66bbf066cc7 assets/tcintegrations/mantle/fluid_texture/desh.json
+52dda72cb2cac2e589f128b766404f46064a9ec1 assets/tcintegrations/mantle/fluid_texture/dragonsteel_fire.json
+1fe9a1fdbbd6264e018e325de52b6de4ccac0f54 assets/tcintegrations/mantle/fluid_texture/dragonsteel_ice.json
+ab92c74d09cc23ce872feb4b170681dc539e4811 assets/tcintegrations/mantle/fluid_texture/dragonsteel_lightning.json
 11d20c4cb26710ad2f3d19c73dcb9afc1724ac41 assets/tcintegrations/mantle/fluid_texture/forgotten.json
 db69db3c59ab23215ab7a47e1829a210d7a11766 assets/tcintegrations/mantle/fluid_texture/froststeel.json
 4454fc35d7eafd96ece87724479220ca3d7db248 assets/tcintegrations/mantle/fluid_texture/manasteel.json

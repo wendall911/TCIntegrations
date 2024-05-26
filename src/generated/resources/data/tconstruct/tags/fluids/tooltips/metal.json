@@ -43,6 +43,18 @@
     {
       "id": "#forge:ostrum",
       "required": false
+    },
+    {
+      "id": "#forge:dragonsteel_fire",
+      "required": false
+    },
+    {
+      "id": "#forge:dragonsteel_ice",
+      "required": false
+    },
+    {
+      "id": "#forge:dragonsteel_lightning",
+      "required": false
     }
   ]
 }

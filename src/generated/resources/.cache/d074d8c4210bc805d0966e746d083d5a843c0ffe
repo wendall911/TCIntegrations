@@ -1,7 +1,10 @@
-// 1.19.2	2024-05-25T11:17:40.053092264	tcintegrations Fluid Bucket Model Provider
+// 1.19.2	2024-05-25T14:26:40.725120535	tcintegrations Fluid Bucket Model Provider
 f33e50f5e4ddfc24be03d378e8e38901cbac0850 assets/tcintegrations/models/item/calorite_bucket.json
 1df742b79f60a211d7986c9c33651d71e36301c1 assets/tcintegrations/models/item/cloggrum_bucket.json
 3403f651662c5c0b7db2bad00bd1edeeca476bbe assets/tcintegrations/models/item/desh_bucket.json
+5c6b8f67ba252859454b5f582b8782ea0c5bad4e assets/tcintegrations/models/item/dragonsteel_fire_bucket.json
+9939d1d1d7adafbb94671abe6adb92cdf7b2f14b assets/tcintegrations/models/item/dragonsteel_ice_bucket.json
+e61174c5ac8bcfba7420ab8f4038bc7fff55291c assets/tcintegrations/models/item/dragonsteel_lightning_bucket.json
 314f0213b0ecd9f0761c3740a1d273acfd92556a assets/tcintegrations/models/item/forgotten_bucket.json
 2afc4487f6bba09a22aa3c2049b4ad0952991cae assets/tcintegrations/models/item/froststeel_bucket.json
 0e864e47dc93d0d3ebc9779311ae929fbc8986cd assets/tcintegrations/models/item/manasteel_bucket.json
