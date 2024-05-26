@@ -53,6 +53,9 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_DESH;
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_OSTRUM;
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_CALORITE;
+    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_DRAGONSTEEL_FIRE;
+    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_DRAGONSTEEL_ICE;
+    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_DRAGONSTEEL_LIGHTNING;
 
     public static MetalItemObject BRONZE;
 
@@ -95,6 +98,15 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
                 .temperature(1200).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
             MOLTEN_PENDORITE_ALLOY = FLUID_REGISTRY.register("pendorite_alloy").type(hot("pendorite_alloy")
                 .temperature(1200).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
+        }
+
+        if (ModIntegration.canLoad(ModIntegration.IFD_MODID)) {
+            MOLTEN_DRAGONSTEEL_FIRE = FLUID_REGISTRY.register("dragonsteel_fire").type(hot("dragonsteel_fire")
+                .temperature(1250).lightLevel(12)).block(Material.LAVA, 12).bucket().flowing();
+            MOLTEN_DRAGONSTEEL_ICE = FLUID_REGISTRY.register("dragonsteel_ice").type(hot("dragonsteel_ice")
+                .temperature(1250).lightLevel(11)).block(Material.LAVA, 11).bucket().flowing();
+            MOLTEN_DRAGONSTEEL_LIGHTNING = FLUID_REGISTRY.register("dragonsteel_lightning").type(hot("dragonsteel_lightning")
+                .temperature(1250).lightLevel(14)).block(Material.LAVA, 14).bucket().flowing();
         }
 
         // Space trash

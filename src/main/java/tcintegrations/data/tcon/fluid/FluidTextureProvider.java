@@ -38,6 +38,9 @@ public class FluidTextureProvider extends AbstractFluidTextureProvider {
         tintedStone(TCIntegrationsItems.MOLTEN_DESH).color(0xFFCD7F48);
         tintedStone(TCIntegrationsItems.MOLTEN_CALORITE).color(0xFFC24148);
         tintedStone(TCIntegrationsItems.MOLTEN_OSTRUM).color(0xFF73515E);
+        compatAlloy(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE); // metal_still - metal_flow
+        compatAlloy(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE); // metal_still - metal_flow
+        compatAlloy(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING); // metal_still - metal_flow
     }
 
     private FluidTexture.Builder named(FluidObject<?> fluid, String name) {
