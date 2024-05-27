@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/ostrum"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/ostrum"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:ingots/ostrum"
+  },
+  "material": "tcintegrations:ostrum",
+  "needed": 1,
+  "value": 1
+}

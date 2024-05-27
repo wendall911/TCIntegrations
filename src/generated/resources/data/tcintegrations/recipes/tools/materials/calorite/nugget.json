@@ -1,0 +1,25 @@
+{
+  "type": "tconstruct:material",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:nuggets/calorite"
+      }
+    },
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:ingots/calorite"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:nuggets/calorite"
+  },
+  "material": "tcintegrations:calorite",
+  "needed": 9,
+  "value": 1
+}
