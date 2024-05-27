@@ -67,7 +67,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
         // Ice and Fire: Dragons
         getBuilder(TagManager.Items.WITHER_BONES)
-            .add(TinkerMaterials.necroticBone.get());
+            .add(TinkerMaterials.necroticBone.get())
+            .addOptional(ModIntegration.ifdLoc("witherbone"));
         this.copy(TagManager.Blocks.DRAGONSTEEL_FIRE, TagManager.Items.DRAGONSTEEL_FIRE);
         getBuilder(TagManager.Items.DRAGONSTEEL_FIRE_INGOTS).addOptional(ModIntegration.ifdLoc("dragonsteel_fire_ingot"));
         this.copy(TagManager.Blocks.DRAGONSTEEL_ICE, TagManager.Items.DRAGONSTEEL_ICE);
