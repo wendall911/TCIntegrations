@@ -138,6 +138,76 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
         MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.PENDORITE_INGOT), TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.get(), FluidValues.INGOT, 2.0F)
             .save(bygConsumer, location(metalFolder + "pendorite_alloy/ingot"));
         gemMelting(arsConsumer, TCIntegrationsItems.MOLTEN_SOURCE_GEM.get(), "source_gem", false, 4, folder, false);
+
+        // IFD Silver Items
+        // armor
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_SILVER_METAL_HELMET), TinkerFluids.moltenSilver.get(), FluidValues.INGOT * 5)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "silver/helmet"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_SILVER_METAL_CHESTPLATE), TinkerFluids.moltenSilver.get(), FluidValues.INGOT * 8)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "silver/chestplate"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_SILVER_METAL_LEGGINGS), TinkerFluids.moltenSilver.get(), FluidValues.INGOT * 7)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "silver/leggings"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_SILVER_METAL_BOOTS), TinkerFluids.moltenSilver.get(), FluidValues.INGOT * 4)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "silver/boots"));
+        // tools
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_SILVER_AXE, ModIntegration.IFD_SILVER_PICKAXE), TinkerFluids.moltenSilver.get(), FluidValues.INGOT * 3)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "silver/axes"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_SILVER_SWORD, ModIntegration.IFD_SILVER_HOE), TinkerFluids.moltenSilver.get(), FluidValues.INGOT * 2)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "silver/weapon"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_SILVER_SHOVEL), TinkerFluids.moltenSilver.get(), FluidValues.INGOT)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "silver/small"));
+        // Dragon Armor
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_DRAGONARMOR_SILVER_HEAD, ModIntegration.IFD_DRAGONARMOR_SILVER_NECK), TinkerFluids.moltenSilver.get(), FluidValues.METAL_BLOCK * 5)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "silver/dragon_armor_head_neck"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_DRAGONARMOR_SILVER_BODY), TinkerFluids.moltenSilver.get(), FluidValues.METAL_BLOCK * 8)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "silver/dragon_armor_head_body"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_DRAGONARMOR_SILVER_TAIL), TinkerFluids.moltenSilver.get(), FluidValues.METAL_BLOCK * 3)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "silver/dragon_armor_head_tail"));
+
+        // IFD Copper Items
+        // armor
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_COPPER_METAL_HELMET), TinkerFluids.moltenCopper.get(), FluidValues.INGOT * 5)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "copper/helmet"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_COPPER_METAL_CHESTPLATE), TinkerFluids.moltenCopper.get(), FluidValues.INGOT * 8)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "copper/chestplate"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_COPPER_METAL_LEGGINGS), TinkerFluids.moltenCopper.get(), FluidValues.INGOT * 7)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "copper/leggings"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_COPPER_METAL_BOOTS), TinkerFluids.moltenCopper.get(), FluidValues.INGOT * 4)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "copper/boots"));
+        // tools
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_COPPER_AXE, ModIntegration.IFD_COPPER_PICKAXE), TinkerFluids.moltenCopper.get(), FluidValues.INGOT * 3)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "copper/axes"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_COPPER_SWORD, ModIntegration.IFD_COPPER_HOE), TinkerFluids.moltenCopper.get(), FluidValues.INGOT * 2)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "copper/weapon"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_COPPER_SHOVEL), TinkerFluids.moltenCopper.get(), FluidValues.INGOT)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "copper/small"));
+        // Dragon Armor
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_DRAGONARMOR_COPPER_HEAD, ModIntegration.IFD_DRAGONARMOR_COPPER_NECK), TinkerFluids.moltenCopper.get(), FluidValues.METAL_BLOCK * 5)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "copper/dragon_armor_head_neck"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_DRAGONARMOR_COPPER_BODY), TinkerFluids.moltenCopper.get(), FluidValues.METAL_BLOCK * 8)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "copper/dragon_armor_head_body"));
+        MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.IFD_DRAGONARMOR_COPPER_TAIL), TinkerFluids.moltenCopper.get(), FluidValues.METAL_BLOCK * 3)
+            .setDamagable(FluidValues.NUGGET)
+            .save(consumer, location(metalFolder + "copper/dragon_armor_head_tail"));
     }
 
     private void addAlloyRecipes(Consumer<FinishedRecipe> consumer) {

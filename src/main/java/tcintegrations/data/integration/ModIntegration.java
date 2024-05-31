@@ -86,6 +86,32 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static Item RUNE_WINTER;
     public static Item LIVING_ROCK;
     public static Item MANA_STRING;
+    public static Item IFD_SILVER_METAL_HELMET;
+    public static Item IFD_SILVER_METAL_CHESTPLATE;
+    public static Item IFD_SILVER_METAL_LEGGINGS;
+    public static Item IFD_SILVER_METAL_BOOTS;
+    public static Item IFD_SILVER_AXE;
+    public static Item IFD_SILVER_PICKAXE;
+    public static Item IFD_SILVER_SHOVEL;
+    public static Item IFD_SILVER_SWORD;
+    public static Item IFD_SILVER_HOE;
+    public static Item IFD_DRAGONARMOR_SILVER_HEAD;
+    public static Item IFD_DRAGONARMOR_SILVER_NECK;
+    public static Item IFD_DRAGONARMOR_SILVER_BODY;
+    public static Item IFD_DRAGONARMOR_SILVER_TAIL;
+    public static Item IFD_COPPER_METAL_HELMET;
+    public static Item IFD_COPPER_METAL_CHESTPLATE;
+    public static Item IFD_COPPER_METAL_LEGGINGS;
+    public static Item IFD_COPPER_METAL_BOOTS;
+    public static Item IFD_COPPER_AXE;
+    public static Item IFD_COPPER_PICKAXE;
+    public static Item IFD_COPPER_SHOVEL;
+    public static Item IFD_COPPER_SWORD;
+    public static Item IFD_COPPER_HOE;
+    public static Item IFD_DRAGONARMOR_COPPER_HEAD;
+    public static Item IFD_DRAGONARMOR_COPPER_NECK;
+    public static Item IFD_DRAGONARMOR_COPPER_BODY;
+    public static Item IFD_DRAGONARMOR_COPPER_TAIL;
 
     public static RegistryObject<MobEffect> OXYGEN_EFFECT;
 
@@ -149,6 +175,32 @@ public final class ModIntegration extends TCIntegrationsModule {
             RUNE_WINTER = registerItem(botaniaLoc("rune_winter"));
             LIVING_ROCK = registerItem(botaniaLoc("livingrock"));
             MANA_STRING = registerItem(botaniaLoc("mana_string"));
+            IFD_SILVER_METAL_HELMET = registerItem(ifdLoc("armor_silver_metal_helmet"));
+            IFD_SILVER_METAL_CHESTPLATE = registerItem(ifdLoc("armor_silver_metal_chestplate"));
+            IFD_SILVER_METAL_LEGGINGS = registerItem(ifdLoc("armor_silver_metal_leggings"));
+            IFD_SILVER_METAL_BOOTS = registerItem(ifdLoc("armor_silver_metal_boots"));
+            IFD_SILVER_AXE = registerItem(ifdLoc("silver_axe"));
+            IFD_SILVER_PICKAXE = registerItem(ifdLoc("silver_pickaxe"));
+            IFD_SILVER_SHOVEL = registerItem(ifdLoc("silver_shovel"));
+            IFD_SILVER_SWORD = registerItem(ifdLoc("silver_sword"));
+            IFD_SILVER_HOE = registerItem(ifdLoc("silver_hoe"));
+            IFD_DRAGONARMOR_SILVER_HEAD = registerItem(ifdLoc("dragonarmor_silver_head"));
+            IFD_DRAGONARMOR_SILVER_NECK = registerItem(ifdLoc("dragonarmor_silver_neck"));
+            IFD_DRAGONARMOR_SILVER_BODY = registerItem(ifdLoc("dragonarmor_silver_body"));
+            IFD_DRAGONARMOR_SILVER_TAIL = registerItem(ifdLoc("dragonarmor_silver_tail"));
+            IFD_COPPER_METAL_HELMET = registerItem(ifdLoc("armor_copper_metal_helmet"));
+            IFD_COPPER_METAL_CHESTPLATE = registerItem(ifdLoc("armor_copper_metal_chestplate"));
+            IFD_COPPER_METAL_LEGGINGS = registerItem(ifdLoc("armor_copper_metal_leggings"));
+            IFD_COPPER_METAL_BOOTS = registerItem(ifdLoc("armor_copper_metal_boots"));
+            IFD_COPPER_AXE = registerItem(ifdLoc("copper_axe"));
+            IFD_COPPER_PICKAXE = registerItem(ifdLoc("copper_pickaxe"));
+            IFD_COPPER_SHOVEL = registerItem(ifdLoc("copper_shovel"));
+            IFD_COPPER_SWORD = registerItem(ifdLoc("copper_sword"));
+            IFD_COPPER_HOE = registerItem(ifdLoc("copper_hoe"));
+            IFD_DRAGONARMOR_COPPER_HEAD = registerItem(ifdLoc("dragonarmor_copper_head"));
+            IFD_DRAGONARMOR_COPPER_NECK = registerItem(ifdLoc("dragonarmor_copper_neck"));
+            IFD_DRAGONARMOR_COPPER_BODY = registerItem(ifdLoc("dragonarmor_copper_body"));
+            IFD_DRAGONARMOR_COPPER_TAIL = registerItem(ifdLoc("dragonarmor_copper_tail"));
         }
 
     }
