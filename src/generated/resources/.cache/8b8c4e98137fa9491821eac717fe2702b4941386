@@ -1,4 +1,4 @@
-// 1.19.2	2024-05-26T11:09:29.266098566	TCIntegrations - TCon Smeltery Recipes
+// 1.19.2	2024-05-31T09:06:42.045276025	TCIntegrations - TCon Smeltery Recipes
 c7377076e09c285a205231befcee855f9998983f data/tcintegrations/recipes/emeraldite/ore.json
 fe5cd81fbe9877730ac5f2ea7294e3551acea240 data/tcintegrations/recipes/emeraldite/shard.json
 360f25cefa2a13a789b26d394924142a85e60173 data/tcintegrations/recipes/smeltery/alloys/molten_bronze.json
@@ -273,6 +273,16 @@ f98922edea90c1226926587f557f3d55377557e6 data/tcintegrations/recipes/smeltery/me
 d5617c3a7f0d2e3a543fecb49571c64cb3a93213 data/tcintegrations/recipes/smeltery/melting/metal/cloggrum/rod.json
 7bd2e76af62a8f411feb1fddd11e336feebdf37b data/tcintegrations/recipes/smeltery/melting/metal/cloggrum/sheetmetal.json
 a230a7deb22eabcac87a9d23531176b5ab877ea0 data/tcintegrations/recipes/smeltery/melting/metal/cloggrum/wire.json
+16b44f2b4aea00a0f76a64449b9f2ad9d8f6ca21 data/tcintegrations/recipes/smeltery/melting/metal/copper/axes.json
+d8a2a649cce78e0c7ad33a2fea7b7a4b91040ae5 data/tcintegrations/recipes/smeltery/melting/metal/copper/boots.json
+c2dd78b8ea86fb1ba4dee2ae246316b2dd8c88df data/tcintegrations/recipes/smeltery/melting/metal/copper/chestplate.json
+19a6c72c976e7cc988df256c1db60f58a30e958c data/tcintegrations/recipes/smeltery/melting/metal/copper/dragon_armor_head_body.json
+69fc6d3ba99e8d7e2b9c91ea63a8c88434c74ab3 data/tcintegrations/recipes/smeltery/melting/metal/copper/dragon_armor_head_neck.json
+3dc44ae421811df8d9d316f220811d67a969c71c data/tcintegrations/recipes/smeltery/melting/metal/copper/dragon_armor_head_tail.json
+c3420b731f9db82d074082be3774798047144447 data/tcintegrations/recipes/smeltery/melting/metal/copper/helmet.json
+3489c9a0ffdbf24db0cc8ab5b6378611b310cfaf data/tcintegrations/recipes/smeltery/melting/metal/copper/leggings.json
+f93a1bb5d4615dd5f75644f9275ad337b9ef1eba data/tcintegrations/recipes/smeltery/melting/metal/copper/small.json
+2170efbde40c639be64ea056ddeec4aef6553e6e data/tcintegrations/recipes/smeltery/melting/metal/copper/weapon.json
 d49e775422a274a4c43bcc53eaae0f4a3741f3d8 data/tcintegrations/recipes/smeltery/melting/metal/desh/block.json
 56346d212e5e6e4559a228f44381cfd1988c6e18 data/tcintegrations/recipes/smeltery/melting/metal/desh/coin.json
 c79e418c1105a94cef9f6da0c48f9ba4d8957472 data/tcintegrations/recipes/smeltery/melting/metal/desh/dust.json
@@ -401,6 +411,16 @@ f09d3591d9b4a3aeb94e9201634f9abae8fb369b data/tcintegrations/recipes/smeltery/me
 2f50dd6f8b7623232314f6ada79677383f9474a7 data/tcintegrations/recipes/smeltery/melting/metal/pendorite/raw_block.json
 225f5f05dee46ce383d0b1e0d9fbf1cb1150065e data/tcintegrations/recipes/smeltery/melting/metal/pendorite/scrap.json
 182ec53817435094ee62f18af92a10e928912552 data/tcintegrations/recipes/smeltery/melting/metal/pendorite_alloy/ingot.json
+709ea17d499867e512dfe71d6d01fb8b6b5cc96b data/tcintegrations/recipes/smeltery/melting/metal/silver/axes.json
+352093f758ea07c29bc6f477b25c41d3f9a8c28f data/tcintegrations/recipes/smeltery/melting/metal/silver/boots.json
+aa6f01337f65fd866cf88a1752ba71808fdc1f83 data/tcintegrations/recipes/smeltery/melting/metal/silver/chestplate.json
+260a51bccfdf3095b07ddaadc3420c7bd4a1db1f data/tcintegrations/recipes/smeltery/melting/metal/silver/dragon_armor_head_body.json
+726b864b543f0a5d61ad402fb147c2e9ffe62ca0 data/tcintegrations/recipes/smeltery/melting/metal/silver/dragon_armor_head_neck.json
+91f72a5301e409e1d489370811db807b70089ee6 data/tcintegrations/recipes/smeltery/melting/metal/silver/dragon_armor_head_tail.json
+b7928577de0bcf5785ffc89d15544a2b6552656c data/tcintegrations/recipes/smeltery/melting/metal/silver/helmet.json
+424e90b9c194429c000330ea711f814562ea9d1e data/tcintegrations/recipes/smeltery/melting/metal/silver/leggings.json
+ae3f509ba92a06f230e87335b9d35eafd5c2c430 data/tcintegrations/recipes/smeltery/melting/metal/silver/small.json
+0b564a20ffb9582fa37bf94fe166a90be80c9003 data/tcintegrations/recipes/smeltery/melting/metal/silver/weapon.json
 d65a6b939f943e61bde68884151983255da15865 data/tcintegrations/recipes/smeltery/melting/metal/soul_stained_steel/block.json
 c50bf786c64361151065549211d3afa9df159f1c data/tcintegrations/recipes/smeltery/melting/metal/soul_stained_steel/coin.json
 bd60968122d3cf172ce3fa60f0ca7187c51c3c64 data/tcintegrations/recipes/smeltery/melting/metal/soul_stained_steel/dust.json

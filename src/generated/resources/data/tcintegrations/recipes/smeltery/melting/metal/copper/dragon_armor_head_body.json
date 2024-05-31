@@ -1,0 +1,13 @@
+{
+  "type": "tconstruct:damagable_melting",
+  "ingredient": {
+    "item": "iceandfire:dragonarmor_copper_body"
+  },
+  "result": {
+    "amount": 6480,
+    "fluid": "tconstruct:molten_copper",
+    "unit_size": 10
+  },
+  "temperature": 500,
+  "time": 424
+}
