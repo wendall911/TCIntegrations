@@ -352,6 +352,7 @@ task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
         mainFile.addOptional('mythicbotany')
         mainFile.addOptional('ice-and-fire-dragons')
         mainFile.addOptional('consecration')
+        mainFile.addOptional('ad-astra')
     }
 }
 
@@ -374,12 +375,18 @@ modrinth {
             optional.project 'immersiveengineering'
             optional.project 'botania'
             optional.project 'create'
+            optional.project 'ars-nouveau'
             optional.project 'tinkersurvival'
+            optional.project 'aquaculture'
+            optional.project 'alexs-mobs'
+            optional.project 'the-undergarden'
             optional.project 'beyond-earth'
 			optional.project "biomesyougo"
             optional.project 'mekanism'
             optional.project 'mythicbotany'
+            optional.project 'ice-and-fire-dragons'
             optional.project 'consecration'
+            optional.project 'ad-astra'
         }
     }
 }
