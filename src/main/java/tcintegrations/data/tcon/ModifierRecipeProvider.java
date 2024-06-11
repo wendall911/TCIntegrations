@@ -170,11 +170,11 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(botaniaConsumer, prefix(TCIntegrationsModifiers.GREAT_FAIRY_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TciModifierIds.engineersGoggles)
-                .setTools(TinkerTags.Items.HELMETS)
-                .addInput(ModIntegration.GOGGLES)
-                .setMaxLevel(1)
-                .saveSalvage(createConsumer, prefix(TciModifierIds.engineersGoggles, compatSalvage))
-                .save(createConsumer, prefix(TciModifierIds.engineersGoggles, compatFolder));
+            .setTools(TinkerTags.Items.HELMETS)
+            .addInput(ModIntegration.GOGGLES)
+            .setMaxLevel(1)
+            .saveSalvage(createConsumer, prefix(TciModifierIds.engineersGoggles, compatSalvage))
+            .save(createConsumer, prefix(TciModifierIds.engineersGoggles, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.MECHANICAL_ARM_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)

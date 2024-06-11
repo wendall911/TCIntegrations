@@ -4,15 +4,10 @@
     "type": "forge:mod_loaded",
     "modid": "create"
   },
-  "level_display": "tconstruct:default",
+  "level_display": "tconstruct:no_levels",
   "modules": [
     {
       "type": "tcintegrations:engineers_goggles"
-    },
-    {
-      "type": "tconstruct:modifier_slot",
-      "count": 1,
-      "name": "abilities"
     }
   ],
   "tooltip_display": "always"

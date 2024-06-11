@@ -33,8 +33,8 @@ public class ModifierProvider extends AbstractModifierProvider implements ICondi
         buildModifier(TciModifierIds.livingwood)
             .addModule(RepairModule.builder().eachLevel(0.75F));
         buildModifier(TciModifierIds.engineersGoggles, modLoaded(ModIntegration.CREATE_MODID))
-            .addModule(EngineersGogglesModifier.INSTANCE)
-            .addModule(new ModifierSlotModule(SlotType.ABILITY, 1));
+            .levelDisplay(ModifierLevelDisplay.NO_LEVELS)
+            .addModule(EngineersGogglesModifier.INSTANCE);
         buildModifier(TCIntegrationsModifiers.ARS_MODIFIER.getId())
             .levelDisplay(new ModifierLevelDisplay.UniqueForLevels(3))
             .addModule(new ModifierSlotModule(SlotType.UPGRADE));

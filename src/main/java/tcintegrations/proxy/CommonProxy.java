@@ -13,6 +13,7 @@ import net.minecraftforge.registries.RegisterEvent;
 
 import tcintegrations.common.ConsecrationTConstructModule;
 import tcintegrations.config.ConfigHandler;
+import tcintegrations.data.integration.CreateGogglesPredicate;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationHooks;
 import tcintegrations.items.TCIntegrationsItems;
@@ -53,6 +54,9 @@ public class CommonProxy {
         public static void imcEnqueue(final InterModEnqueueEvent event) {
             if (ModList.get().isLoaded(ModIntegration.CONSECRATION_MODID)) {
                 ConsecrationTConstructModule.setup();
+            }
+            if (ModList.get().isLoaded(ModIntegration.CREATE_MODID)) {
+                CreateGogglesPredicate.init();
             }
         }
 
