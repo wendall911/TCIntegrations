@@ -1,4 +1,4 @@
-// 1.19.2	2024-05-26T10:24:35.278520475	TCIntegrations - TCon Material Stats
+// 1.19.2	2024-06-11T10:26:54.803706332	TCIntegrations - TCon Material Stats
 c06e86d00a058f685d30e0953549a3b63a71211e data/tcintegrations/tinkering/materials/stats/brass.json
 3610ed9eed8e494a3bb570e568a03ffbb2181d7b data/tcintegrations/tinkering/materials/stats/calorite.json
 3610ed9eed8e494a3bb570e568a03ffbb2181d7b data/tcintegrations/tinkering/materials/stats/desh.json
@@ -13,4 +13,3 @@ bd6553eddfb751710b18bc383b08d144cd31cc54 data/tcintegrations/tinkering/materials
 3610ed9eed8e494a3bb570e568a03ffbb2181d7b data/tcintegrations/tinkering/materials/stats/ostrum.json
 0c5e90d934765b0774a05717cb136c04c0757701 data/tcintegrations/tinkering/materials/stats/pendorite_alloy.json
 155bb429852b8667f53ef9bee1d2b61d95c4ae67 data/tcintegrations/tinkering/materials/stats/soul_stained_steel.json
-2c5e20c3e98bae953ae53bbed53d14e5c08b9676 data/tconstruct/tinkering/materials/stats/osmium.json

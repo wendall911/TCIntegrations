@@ -69,12 +69,6 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
             new GripMaterialStats(1.1F, 0F, 2F),
             HandleMaterialStats.multipliers().durability(1.10F).build(),
             StatlessMaterialStats.BINDING);
-        addMaterialStats(osmium,
-            new HeadMaterialStats(525, 5.0F, IRON, 2.75F),
-            new LimbMaterialStats(525, 0.1F, 0F, 0),
-            new GripMaterialStats(1.2F, 0F, 2F),
-            HandleMaterialStats.multipliers().durability(1.8F).attackSpeed(1.1F).miningSpeed(1.3F).build(),
-            StatlessMaterialStats.BINDING);
 
         // tier 3 (mod integration)
         addMaterialStats(MaterialIds.manaSteel,
