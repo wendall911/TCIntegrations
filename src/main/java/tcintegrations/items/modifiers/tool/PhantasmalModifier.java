@@ -42,7 +42,7 @@ public class PhantasmalModifier extends NoLevelsModifier implements ProjectileLa
 
             ghostSword.shoot(vector3f.x(), vector3f.y(), vector3f.z(), 1.0F, 0.5F);
             player.level.addFreshEntity(ghostSword);
-            ToolDamageUtil.directDamage(tool, 1, null, tool.getItem().getDefaultInstance());
+            ToolDamageUtil.damage(tool, 1, null, tool.getItem().getDefaultInstance());
             player.getCooldowns().addCooldown(tool.getItem(), 10);
         }
     }
