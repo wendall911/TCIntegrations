@@ -33,7 +33,7 @@ public class PhantasmalModifier extends NoLevelsModifier implements ProjectileLa
             float damage = ToolAttackUtil.getAttributeAttackDamage(tool, player, Util.getSlotType(player.getUsedItemHand()));
 
             IfdHelper.shootGhostSword(player, damage);
-            ToolDamageUtil.directDamage(tool, 1, null, tool.getItem().getDefaultInstance());
+            ToolDamageUtil.damage(tool, 1, null, tool.getItem().getDefaultInstance());
             player.getCooldowns().addCooldown(tool.getItem(), 10);
         }
     }
