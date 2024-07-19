@@ -1,9 +1,5 @@
 package tcintegrations.data.tcon;
 
-import java.util.function.Consumer;
-
-import org.jetbrains.annotations.NotNull;
-
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
@@ -12,24 +8,23 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.CompoundIngredient;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-import net.minecraftforge.common.Tags;
-
+import org.jetbrains.annotations.NotNull;
 import slimeknights.mantle.recipe.data.IRecipeHelper;
-
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.IncrementalModifierRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
-
+import tcintegrations.TCIntegrations;
 import tcintegrations.common.TagManager;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.data.tcon.material.TciModifierIds;
 import tcintegrations.items.TCIntegrationsModifiers;
-import tcintegrations.TCIntegrations;
+
+import java.util.function.Consumer;
 
 public class ModifierRecipeProvider extends RecipeProvider implements IConditionBuilder, IRecipeHelper {
 
@@ -64,22 +59,31 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
         Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
         Consumer<FinishedRecipe> cheeseConsumer = withCondition(consumer, tagCondition(TagManager.Items.CHEESE.location().getPath()));
+        Consumer<FinishedRecipe> steelConsumer =  withCondition(consumer, tagCondition(TagManager.Items.STEEL_INGOTS.location().getPath()));
         Consumer<FinishedRecipe> ieConsumer = withCondition(consumer, modLoaded(ModIntegration.IE_MODID));
         Consumer<FinishedRecipe> mekanismConsumer = withCondition(consumer, modLoaded(ModIntegration.MEKANISM_MODID));
         Consumer<FinishedRecipe> mythicBotanyConsumer = withCondition(consumer, modLoaded(ModIntegration.MYTHIC_BOTANY_MODID));
         Consumer<FinishedRecipe> ifdConsumer = withCondition(consumer, modLoaded(ModIntegration.IFD_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
-            .setTools(TinkerTags.Items.MELEE_PRIMARY)
-            .addInput(TagManager.Items.INGOTS_TERRASTEEL)
-            .addInput(TagManager.Items.INGOTS_TERRASTEEL)
-            .addInput(TagManager.Items.MYSTICAL_FLOWERS)
-            .addInput(TagManager.Items.DOUBLE_MYSTICAL_FLOWERS)
-            .addInput(TagManager.Items.LIVINGWOOD_LOGS)
-            .setSlots(SlotType.UPGRADE, 1)
-            .setMaxLevel(1)
-            .saveSalvage(botaniaConsumer, prefix(TCIntegrationsModifiers.TERRA_MODIFIER, compatSalvage))
-            .save(botaniaConsumer, prefix(TCIntegrationsModifiers.TERRA_MODIFIER, compatFolder));
+                .setTools(TinkerTags.Items.MELEE_PRIMARY)
+                .addInput(TagManager.Items.INGOTS_TERRASTEEL)
+                .addInput(TagManager.Items.INGOTS_TERRASTEEL)
+                .addInput(TagManager.Items.MYSTICAL_FLOWERS)
+                .addInput(TagManager.Items.DOUBLE_MYSTICAL_FLOWERS)
+                .addInput(TagManager.Items.LIVINGWOOD_LOGS)
+                .setSlots(SlotType.UPGRADE, 1)
+                .setMaxLevel(1)
+                .saveSalvage(botaniaConsumer, prefix(TCIntegrationsModifiers.TERRA_MODIFIER, compatSalvage))
+                .save(botaniaConsumer, prefix(TCIntegrationsModifiers.TERRA_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ENERGY_HANDLER)
+                .setTools(TinkerTags.Items.MODIFIABLE)
+                .addInput(TagManager.Items.STEEL_INGOTS)
+                .addInput(TagManager.Items.REDSTONE_DUSTS)
+                .setSlots(SlotType.UPGRADE, 1)
+                .saveSalvage(steelConsumer, prefix(TCIntegrationsModifiers.ENERGY_HANDLER, compatSalvage))
+                .save(steelConsumer, prefix(TCIntegrationsModifiers.ENERGY_HANDLER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ALF_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)

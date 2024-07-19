@@ -1,9 +1,14 @@
 package tcintegrations.items;
 
+import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
+import slimeknights.tconstruct.library.modifiers.util.ModifierLevelDisplay;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
+import slimeknights.tconstruct.library.module.ModuleHookMap;
 import tcintegrations.common.TCIntegrationsModule;
+import tcintegrations.common.capabilities.EnergyModule;
+import tcintegrations.common.capabilities.ToolEnergyHelper;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.modifiers.armor.AlfheimModifier;
 import tcintegrations.items.modifiers.armor.ArsNouveauModifier;
@@ -36,13 +41,7 @@ import tcintegrations.items.modifiers.tool.SirenModifier;
 import tcintegrations.items.modifiers.tool.TerraModifier;
 import tcintegrations.items.modifiers.tool.UtheriumModifier;
 import tcintegrations.items.modifiers.tool.ZappedModifier;
-import tcintegrations.items.modifiers.traits.DragonScalesModifier;
-import tcintegrations.items.modifiers.traits.HellishModifier;
-import tcintegrations.items.modifiers.traits.KineticModifier;
-import tcintegrations.items.modifiers.traits.ManaModifier;
-import tcintegrations.items.modifiers.traits.OxygenatedModifier;
-import tcintegrations.items.modifiers.traits.SoulStained;
-import tcintegrations.items.modifiers.traits.WaterPowered;
+import tcintegrations.items.modifiers.traits.*;
 
 import static tcintegrations.util.ResourceLocationHelper.resource;
 
@@ -84,8 +83,18 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<ZappedModifier> ZAPPED_MODIFIER;
     public static StaticModifier<PhantasmalModifier> PHANTASMAL_MODIFIER;
     public static StaticModifier<DragonScalesModifier> DRAGON_SCALES_MODIFIER;
+    public static StaticModifier<Modifier> ENERGY_HANDLER;
 
     public static void init() {
+        //ENERGY_MODIFIER = MODIFIERS_REGISTRY.register("energy", EnergyModifier::new);
+        ENERGY_HANDLER = MODIFIERS_REGISTRY.register(
+                "energy_handler",
+                () -> ModuleHookMap.builder()
+                                   .addModule(new EnergyModule(ToolEnergyHelper.ENERGY_HELPER))
+                                   .modifier()
+                                   .levelDisplay(ModifierLevelDisplay.NO_LEVELS)
+                                   .build()
+        );
         if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
             MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaModifier::new);
             TERRA_MODIFIER = MODIFIERS_REGISTRY.register("terra", TerraModifier::new);

@@ -19,6 +19,9 @@ import static tcintegrations.util.ResourceLocationHelper.resource;
 public final class TagManager {
 
     public static final class Items {
+
+        public static final TagKey<Item> STEEL_INGOTS = forgeTag("ingots/steel");
+        public static final TagKey<Item> REDSTONE_DUSTS = forgeTag("dusts/redstone");
         public static final TagKey<Item> BRONZE = forgeTag("storage_blocks/bronze");
         public static final TagKey<Item> BRONZE_INGOTS = forgeTag("ingots/bronze");
         public static final TagKey<Item> BRONZE_NUGGETS = forgeTag("nuggets/bronze");

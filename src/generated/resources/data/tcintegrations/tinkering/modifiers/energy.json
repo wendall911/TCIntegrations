@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:composable",
+  "level_display": "tconstruct:default",
+  "modules": [
+    {
+      "type": "tconstruct:stat_boost",
+      "each_level": 100000,
+      "operation": "add",
+      "stat": "tcintegrations:energy_capacity"
+    },
+    {
+      "type": "tconstruct:trait",
+      "fixed_level": true,
+      "level": 1,
+      "name": "tcintegrations:energy_handler"
+    }
+  ],
+  "tooltip_display": "always"
+}

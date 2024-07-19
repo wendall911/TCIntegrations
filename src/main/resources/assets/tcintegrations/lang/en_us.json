@@ -211,5 +211,11 @@
     "modifier.tcintegrations.phantasmal.description": "Fires a spinning sword that travels through blocks.",
     "modifier.tcintegrations.dragonscales": "Dragon Scales",
     "modifier.tcintegrations.dragonscales.flavor": "The dragon known as %s",
-    "modifier.tcintegrations.dragonscales.description": "Increased protection from dragon breath attacks."
+    "modifier.tcintegrations.dragonscales.description": "Increased protection from dragon breath attacks.",
+    "tooltip.tcintegrations.energy": "FE",
+    "tooltip.tcintegrations.energy_storage": "storaged",
+    "tooltip.tcintegrations.FE": "%s FE",
+    "tooltip.tcintegrations.energy_cap": "%s / %s",
+    "tool_stat.tcintegrations.energy_capacity": "Energy Capacity",
+    "modifier.tcintegrations.energy": "Energy Storage"
 }

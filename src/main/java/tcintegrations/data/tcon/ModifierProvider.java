@@ -8,9 +8,12 @@ import slimeknights.tconstruct.library.data.tinkering.AbstractModifierProvider;
 import slimeknights.tconstruct.library.modifiers.modules.behavior.RepairModule;
 import slimeknights.tconstruct.library.modifiers.modules.build.ModifierRequirementsModule;
 import slimeknights.tconstruct.library.modifiers.modules.build.ModifierSlotModule;
+import slimeknights.tconstruct.library.modifiers.modules.build.StatBoostModule;
 import slimeknights.tconstruct.library.modifiers.util.ModifierLevelDisplay;
 
 import slimeknights.tconstruct.library.tools.SlotType;
+import slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper;
+import tcintegrations.common.capabilities.ToolEnergyHelper;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.data.tcon.material.TciModifierIds;
 import tcintegrations.items.TCIntegrationsModifiers;
@@ -47,6 +50,8 @@ public class ModifierProvider extends AbstractModifierProvider implements ICondi
         buildModifier(TCIntegrationsModifiers.ALFHEIM_MODIFIER.getId(), modLoaded(ModIntegration.MYTHIC_BOTANY_MODID))
             .addModule(ModifierRequirementsModule.builder().requireModifier(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId(), 1)
             .modifierKey(TCIntegrationsModifiers.ALFHEIM_MODIFIER.getId()).build());
+        buildModifier(TCIntegrationsModifiers.ELEMENTAL_MODIFIER.getId())
+            .addModules(StatBoostModule.add(ToolEnergyHelper.ENERGY_CAPACITY_STAT).eachLevel(100000), ToolTankHelper.TANK_HANDLER);
     }
 
 }

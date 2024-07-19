@@ -48,22 +48,6 @@ repositories {
         name 'BlameJared Maven'
         url 'https://maven.blamejared.com'
     }
-	maven {
-        name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/wendall911/SurvivalistEssentials")
-        credentials {
-            username = project.githubusername
-            password = project.githubtoken
-        }
-    }
-	maven {
-        name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/wendall911/TinkerSurvival")
-        credentials {
-            username = project.githubusername
-            password = project.githubtoken
-        }
-    }
 }
 
 group = 'com.github.wendall911.tcintegrations'
@@ -135,6 +119,7 @@ sourceSets.main.resources {
 }
 
 dependencies {
+    implementation 'org.jetbrains:annotations:23.0.0'
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
     implementation fg.deobf("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}")
@@ -150,12 +135,7 @@ dependencies {
     implementation fg.deobf(fileTree(dir: 'libs', include: '*.jar'))
 
     if (System.getenv('DATA_GEN') == null) {
-        runtimeOnly fg.deobf("com.github.wendall911.survivalistessentials:survivalistessentials:${se_version}") {
-            transitive = false
-        }
-        runtimeOnly fg.deobf("com.github.wendall911.tinkersurvival:tinkersurvival:${minecraft_version}-${ts_version}") {
-            transitive = false
-        }
+
         runtimeOnly fg.deobf("curse.maven:geckolib-388172:${geckolib_version}")
         implementation fg.deobf("curse.maven:arsnouveau-401955:${arsnouveau_version}")
         implementation fg.deobf("curse.maven:iceandfire-264231:${iceandfire_version}")
@@ -302,93 +282,3 @@ task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
 
 tasks.build.dependsOn('changelog', 'generateUpdates')
 
-// Jar Signing
-import net.minecraftforge.gradle.common.tasks.SignJar
-
-task signJar(type: SignJar, dependsOn: jar) {
-    dependsOn 'reobfJar'
-
-    // Skip the task if our secret data isn't available
-    onlyIf {
-        project.hasProperty('keyStore')
-    }
-
-    keyStore = project.keyStore // This needs to be a path to the keystore file
-    alias = project.keyStoreAlias
-    storePass = project.keyStorePass
-    keyPass = project.keyStoreKeyPass
-    inputFile = jar.archiveFile
-    outputFile = jar.archiveFile
-}
-
-task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
-    if (project.hasProperty('ticurseApiKey')) {
-        apiToken = project.ticurseApiKey
-        def mainFile = upload(project.ticurseId, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
-        mainFile.changelog = file('build/libs/' + project.getName() + '-' + version + '-changelog.txt')
-        mainFile.addJavaVersion('Java 17')
-        mainFile.addModLoader('Forge')
-        mainFile.releaseType = "${release_type}"
-        "${release_versions}".split(',').each {
-            mainFile.addGameVersion("${it}")
-        }
-        mainFile.addRequirement('mantle')
-        mainFile.addRequirement('tinkers-construct')
-        mainFile.addOptional('configured')
-        mainFile.addOptional('catalogue')
-        mainFile.addOptional('immersive-engineering')
-        mainFile.addOptional('botania')
-        mainFile.addOptional('create')
-        mainFile.addOptional('ars-nouveau')
-        mainFile.addOptional('tinkersurvival')
-        mainFile.addOptional('aquaculture')
-        mainFile.addOptional('alexs-mobs')
-        mainFile.addOptional('malum')
-        mainFile.addOptional('the-undergarden')
-        mainFile.addOptional('projecte')
-        mainFile.addOptional('beyond-earth')
-        mainFile.addOptional('oh-the-biomes-youll-go')
-        mainFile.addOptional('mekanism')
-        mainFile.addOptional('mythicbotany')
-        mainFile.addOptional('ice-and-fire-dragons')
-        mainFile.addOptional('consecration')
-        mainFile.addOptional('ad-astra')
-    }
-}
-
-tasks.curseforge.dependsOn build
-
-modrinth {
-    if (project.hasProperty('tiModrinthId')) {
-        token = project.modrinthKey
-        projectId = project.tiModrinthId
-        version = getVersion()
-        versionType = "${release_type}"
-        if (file(changelogFile).exists()) {
-            changelog = file(changelogFile).text
-        }
-        uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
-        gameVersions = "${release_versions}".split(",") as List<String>
-        dependencies {
-            required.project 'mantle'
-            required.project 'tinkers-construct'
-            optional.project 'immersiveengineering'
-            optional.project 'botania'
-            optional.project 'create'
-            optional.project 'ars-nouveau'
-            optional.project 'tinkersurvival'
-            optional.project 'aquaculture'
-            optional.project 'alexs-mobs'
-            optional.project 'the-undergarden'
-            optional.project 'beyond-earth'
-			optional.project "biomesyougo"
-            optional.project 'mekanism'
-            optional.project 'mythicbotany'
-            optional.project 'ice-and-fire-dragons'
-            optional.project 'consecration'
-            optional.project 'ad-astra'
-        }
-    }
-}
-
-tasks.modrinth.dependsOn build
