@@ -6,8 +6,6 @@ import net.minecraftforge.common.capabilities.CapabilityToken;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import tcintegrations.TCIntegrations;
 
 @Mod.EventBusSubscriber(modid= TCIntegrations.MODID)
@@ -22,9 +20,12 @@ public class CapabilityRegistry {
     }
 
     /* 这种方法注册不进去，不知道为什么 */
+    /*
     @SubscribeEvent
     void commonSetup(FMLCommonSetupEvent event) {
         ToolCapabilityProvider.register(ToolEnergyCapability.TinkerProvider::new);
     }
+     */
+
 
 }

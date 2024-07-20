@@ -216,6 +216,8 @@
     "tooltip.tcintegrations.energy_storage": "storaged",
     "tooltip.tcintegrations.FE": "%s FE",
     "tooltip.tcintegrations.energy_cap": "%s / %s",
-    "tool_stat.tcintegrations.energy_capacity": "Energy Capacity",
+    "tool_stat.tcintegrations.energy_capacity": "Energy Capacity ",
+    "modifier.tcintegrations.energy.flavor": "RF,FE and more!",
+    "modifier.tcintegrations.energy.description": "Modifies the tool to store energy.",
     "modifier.tcintegrations.energy": "Energy Storage"
 }

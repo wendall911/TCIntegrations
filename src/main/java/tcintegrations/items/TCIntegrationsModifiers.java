@@ -1,46 +1,17 @@
 package tcintegrations.items;
 
 import slimeknights.tconstruct.library.modifiers.Modifier;
+import slimeknights.tconstruct.library.modifiers.impl.BasicModifier;
 import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
 import slimeknights.tconstruct.library.modifiers.util.ModifierLevelDisplay;
 import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
-
 import slimeknights.tconstruct.library.module.ModuleHookMap;
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.common.capabilities.EnergyModule;
 import tcintegrations.common.capabilities.ToolEnergyHelper;
 import tcintegrations.data.integration.ModIntegration;
-import tcintegrations.items.modifiers.armor.AlfheimModifier;
-import tcintegrations.items.modifiers.armor.ArsNouveauModifier;
-import tcintegrations.items.modifiers.armor.BisonFurModifier;
-import tcintegrations.items.modifiers.armor.CrocodileModifier;
-import tcintegrations.items.modifiers.armor.EnchantersShieldModifier;
-import tcintegrations.items.modifiers.armor.EngineersGogglesModifier;
-import tcintegrations.items.modifiers.armor.FrontierCapModifier;
-import tcintegrations.items.modifiers.armor.GreatFairyModifier;
-import tcintegrations.items.modifiers.armor.MasticateModifier;
-import tcintegrations.items.modifiers.armor.MosquitoModifier;
-import tcintegrations.items.modifiers.armor.MultiVisionModifier;
-import tcintegrations.items.modifiers.armor.PoseidonModifier;
-import tcintegrations.items.modifiers.armor.RoadrunnerModifier;
-import tcintegrations.items.modifiers.armor.ShieldOfTheDeepModifier;
-import tcintegrations.items.modifiers.armor.TerrestrialModifier;
-import tcintegrations.items.modifiers.armor.TurtleShellModifier;
-import tcintegrations.items.modifiers.tool.AlfModifier;
-import tcintegrations.items.modifiers.tool.CheesyModifier;
-import tcintegrations.items.modifiers.tool.ElementalModifier;
-import tcintegrations.items.modifiers.tool.FlamedModifier;
-import tcintegrations.items.modifiers.tool.ForgottenModifier;
-import tcintegrations.items.modifiers.tool.FroststeelModifier;
-import tcintegrations.items.modifiers.tool.GlowUpModifier;
-import tcintegrations.items.modifiers.tool.IcedModifier;
-import tcintegrations.items.modifiers.tool.MechanicalArmModifier;
-import tcintegrations.items.modifiers.tool.ModerateModifier;
-import tcintegrations.items.modifiers.tool.PhantasmalModifier;
-import tcintegrations.items.modifiers.tool.SirenModifier;
-import tcintegrations.items.modifiers.tool.TerraModifier;
-import tcintegrations.items.modifiers.tool.UtheriumModifier;
-import tcintegrations.items.modifiers.tool.ZappedModifier;
+import tcintegrations.items.modifiers.armor.*;
+import tcintegrations.items.modifiers.tool.*;
 import tcintegrations.items.modifiers.traits.*;
 
 import static tcintegrations.util.ResourceLocationHelper.resource;
@@ -93,6 +64,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
                                    .addModule(new EnergyModule(ToolEnergyHelper.ENERGY_HELPER))
                                    .modifier()
                                    .levelDisplay(ModifierLevelDisplay.NO_LEVELS)
+                                   .tooltipDisplay(BasicModifier.TooltipDisplay.NEVER)
                                    .build()
         );
         if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {

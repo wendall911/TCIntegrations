@@ -48,8 +48,8 @@ public class ModifierProvider extends AbstractModifierProvider implements ICondi
         buildModifier(TCIntegrationsModifiers.ALFHEIM_MODIFIER.getId(), modLoaded(ModIntegration.MYTHIC_BOTANY_MODID))
             .addModule(ModifierRequirementsModule.builder().requireModifier(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId(), 1)
             .modifierKey(TCIntegrationsModifiers.ALFHEIM_MODIFIER.getId()).build());
-        buildModifier(TCIntegrationsModifiers.ENERGY_HANDLER.getId())
-            .addModules(StatBoostModule.add(ToolEnergyHelper.ENERGY_CAPACITY_STAT).eachLevel(100000),ToolEnergyHelper.ENERGY_HANDLER);
+        buildModifier(TciModifierIds.energy)
+            .addModules(StatBoostModule.add(ToolEnergyHelper.ENERGY_CAPACITY_STAT).eachLevel(1000000),ToolEnergyHelper.ENERGY_HANDLER);
     }
 
 }

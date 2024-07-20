@@ -4,7 +4,7 @@
   "modules": [
     {
       "type": "tconstruct:stat_boost",
-      "each_level": 100000,
+      "each_level": 1000000,
       "operation": "add",
       "stat": "tcintegrations:energy_capacity"
     },
