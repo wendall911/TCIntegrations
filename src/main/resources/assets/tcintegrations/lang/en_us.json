@@ -215,9 +215,14 @@
     "tooltip.tcintegrations.energy": "FE",
     "tooltip.tcintegrations.energy_storage": "storaged",
     "tooltip.tcintegrations.FE": "%s FE",
-    "tooltip.tcintegrations.energy_cap": "%s / %s",
-    "tool_stat.tcintegrations.energy_capacity": "Energy Capacity ",
-    "modifier.tcintegrations.energy.flavor": "RF,FE and more!",
-    "modifier.tcintegrations.energy.description": "Modifies the tool to store energy.",
-    "modifier.tcintegrations.energy": "Energy Storage"
+    "tooltip.tcintegrations.energy_cap": "Energy: %s / %s",
+    "tool_stat.tcintegrations.energy_capacity": "Energy Capacity: ",
+    "modifier.tcintegrations.energy.flavor": "RF, FE and more!",
+    "modifier.tcintegrations.energy.description": "Modifies the tool to store energy. Every level increases the energy capacity by 1,000,000.",
+    "modifier.tcintegrations.energy": "Energy Storage",
+    "message.tcintegrations.energy_extracted": "Extracted %s FE from this block.",
+    "message.tcintegrations.energy_released": "Released %s FE to this block.",
+    "modifier.tcintegrations.solar_panel_hat": "Solar Panel",
+    "modifier.tcintegrations.solar_panel_hat.flavor": "Sun power! ...Tech?",
+    "modifier.tcintegrations.solar_panel_hat.description": "Generates energy (20FE/t) from the sun. Every level multiplies the energy generation by 10."
 }

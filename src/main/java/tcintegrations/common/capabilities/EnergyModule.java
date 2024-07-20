@@ -2,9 +2,15 @@ package tcintegrations.common.capabilities;
 
 import lombok.RequiredArgsConstructor;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.energy.IEnergyStorage;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.mantle.client.TooltipKey;
 import slimeknights.tconstruct.library.modifiers.Modifier;
@@ -15,29 +21,42 @@ import slimeknights.tconstruct.library.modifiers.hook.build.ValidateModifierHook
 import slimeknights.tconstruct.library.modifiers.hook.build.VolatileDataModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.display.DurabilityDisplayModifierHook;
 import slimeknights.tconstruct.library.modifiers.hook.display.TooltipModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.BlockInteractionModifierHook;
+import slimeknights.tconstruct.library.modifiers.hook.interaction.InteractionSource;
 import slimeknights.tconstruct.library.module.HookProvider;
 import slimeknights.tconstruct.library.module.ModuleHook;
 import slimeknights.tconstruct.library.tools.nbt.IToolContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 
+import javax.annotation.Nonnull;
 import java.util.List;
+import java.util.Objects;
 
 @RequiredArgsConstructor
-public class EnergyModule implements HookProvider, ToolEnergyCapability.EnergyModifierHook, TooltipModifierHook, VolatileDataModifierHook, ValidateModifierHook, ModifierRemovalHook, DurabilityDisplayModifierHook {
+public class EnergyModule implements HookProvider,
+        ToolEnergyCapability.EnergyModifierHook,
+        TooltipModifierHook,
+        VolatileDataModifierHook,
+        ValidateModifierHook,
+        ModifierRemovalHook,
+        DurabilityDisplayModifierHook,
+        BlockInteractionModifierHook {
     private static final List<ModuleHook<?>> DEFAULT_HOOKS = HookProvider.<EnergyModule>defaultHooks(
             ToolEnergyCapability.HOOK,
             ModifierHooks.TOOLTIP,
             ModifierHooks.VOLATILE_DATA,
             ModifierHooks.VALIDATE,
             ModifierHooks.REMOVE,
-            ModifierHooks.DURABILITY_DISPLAY
+            ModifierHooks.DURABILITY_DISPLAY,
+            ModifierHooks.BLOCK_INTERACT
     );
     @Override
     public List<ModuleHook<?>> getDefaultHooks() {
         return DEFAULT_HOOKS;
     }
     private final ToolEnergyHelper energyHelper;
+
     @Nullable
     @Override
     public Component onRemoved(IToolStackView tool, Modifier modifier) {
@@ -97,11 +116,17 @@ public class EnergyModule implements HookProvider, ToolEnergyCapability.EnergyMo
     }
     @Override
     public Boolean showDurabilityBar(IToolStackView tool, ModifierEntry modifier) {
+        if (tool.getDamage() > 0){
+            return null;
+        }
         return energyHelper.getEnergy(tool) < energyHelper.getCapacity(tool);
     }
 
     @Override
     public int getDurabilityWidth(IToolStackView tool, ModifierEntry modifier) {
+        if (showDurabilityBar(tool, modifier) == null) {
+            return 0;
+        }
         int cap = energyHelper.getCapacity(tool);
         return DurabilityDisplayModifierHook.getWidthFor(
                 energyHelper.getEnergy(tool)+1,
@@ -111,7 +136,52 @@ public class EnergyModule implements HookProvider, ToolEnergyCapability.EnergyMo
 
     @Override
     public int getDurabilityRGB(IToolStackView tool, ModifierEntry modifier) {
+        if (showDurabilityBar(tool, modifier) == null) {
+            return -1;
+        }
         return 0xf44336;
+    }
+
+    @Override
+    public InteractionResult beforeBlockUse(IToolStackView tool, ModifierEntry modifier, UseOnContext context, InteractionSource source) {
+        Level level = context.getLevel();
+        if(energyHelper.getCapacity(tool)>0 &&
+           level.getBlockEntity(context.getClickedPos()) != null) {
+            Direction side = context.getClickedFace();
+            Objects.requireNonNull(level.getBlockEntity(context.getClickedPos()))
+                    .getCapability(ForgeCapabilities.ENERGY,side)
+                    .ifPresent(energyHandler -> transferEnergy(context,energyHandler));
+            return InteractionResult.SUCCESS;
+        }
+        return InteractionResult.PASS;
+    }
+    private void transferEnergy(@Nonnull UseOnContext context, @Nonnull IEnergyStorage target)
+    {
+        context.getItemInHand().getCapability(ForgeCapabilities.ENERGY).ifPresent(e ->
+        {
+            if (Objects.requireNonNull(context.getPlayer()).isCrouching())
+            {
+                if (target.canExtract())
+                {
+                    int diff = e.getMaxEnergyStored() - e.getEnergyStored();
+                    int extracted = e.receiveEnergy(target.extractEnergy(diff, false), false);
+                    if (context.getLevel().isClientSide) {
+                        context.getPlayer().sendSystemMessage(Component.translatable("message.tcintegrations.energy_extracted", extracted));
+                    }
+                }
+            }
+            else
+            {
+                if (target.canReceive())
+                {
+                    int diff = e.getEnergyStored();
+                    int released = e.extractEnergy(target.receiveEnergy(diff, false), false);
+                    if (context.getLevel().isClientSide) {
+                        context.getPlayer().sendSystemMessage(Component.translatable("message.tcintegrations.energy_released", released));
+                    }
+                }
+            }
+        });
     }
 
 }

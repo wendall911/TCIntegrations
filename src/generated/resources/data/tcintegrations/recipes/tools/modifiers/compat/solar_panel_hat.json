@@ -1,0 +1,40 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "tcintegrations:solar_panel_items"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "tcintegrations:solar_panel_items"
+    },
+    {
+      "tag": "tcintegrations:solar_panel_items"
+    },
+    {
+      "tag": "tcintegrations:solar_panel_items"
+    },
+    {
+      "tag": "tcintegrations:solar_panel_items"
+    },
+    {
+      "tag": "tcintegrations:solar_panel_items"
+    }
+  ],
+  "level": {
+    "max": 4
+  },
+  "result": "tcintegrations:solar_panel_hat",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/helmets"
+  }
+}

@@ -55,6 +55,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<PhantasmalModifier> PHANTASMAL_MODIFIER;
     public static StaticModifier<DragonScalesModifier> DRAGON_SCALES_MODIFIER;
     public static StaticModifier<Modifier> ENERGY_HANDLER;
+    public static StaticModifier<SolarPanelHatModifier> SOLAR_PANEL_HAT_MODIFIER;
 
     public static void init() {
         //ENERGY_MODIFIER = MODIFIERS_REGISTRY.register("energy", EnergyModifier::new);
@@ -67,6 +68,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
                                    .tooltipDisplay(BasicModifier.TooltipDisplay.NEVER)
                                    .build()
         );
+        SOLAR_PANEL_HAT_MODIFIER = MODIFIERS_REGISTRY.register("solar_panel_hat", SolarPanelHatModifier::new);
         if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
             MANA_MODIFIER = MODIFIERS_REGISTRY.register("mana", ManaModifier::new);
             TERRA_MODIFIER = MODIFIERS_REGISTRY.register("terra", TerraModifier::new);

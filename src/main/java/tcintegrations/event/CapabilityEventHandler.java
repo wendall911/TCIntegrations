@@ -9,7 +9,7 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
-import slimeknights.tconstruct.library.tools.item.ModifiableItem;
+import slimeknights.tconstruct.library.tools.item.IModifiable;
 import tcintegrations.TCIntegrations;
 import tcintegrations.common.capabilities.BotaniaSet;
 import tcintegrations.common.capabilities.ToolEnergyCapability;
@@ -35,7 +35,7 @@ public class CapabilityEventHandler {
     @SubscribeEvent
     public static void onAttachCapabilitiesEvent(AttachCapabilitiesEvent<ItemStack> event) {
 
-        if ((!event.getCapabilities().containsKey(TOOL_ENERGY)) && (event.getObject().getItem() instanceof ModifiableItem)) {
+        if ((!event.getCapabilities().containsKey(TOOL_ENERGY)) && (event.getObject().getItem() instanceof IModifiable)) {
                     event.addCapability(
                             TOOL_ENERGY,
                             new ToolEnergyCapability.ForgeProvider(event.getObject())

@@ -29,6 +29,9 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String BEYOND_EARTH_MODID = "beyond_earth";
     public static final String BYG_MODID = "byg";
     public static final String MEKANISM_MODID = "mekanism";
+    //public static final String MEKANISM_TOOLS_MODID = "mekanismtools";
+    public static final String MEKANISM_GENERATORS_MODID = "mekanismgenerators";
+    //public static final String MEKANISM_ADDITIONS_MODID = "mekanismadditions";
     public static final String MYTHIC_BOTANY_MODID = "mythicbotany";
     public static final String IFD_MODID = "iceandfire";
     public static final String CONSECRATION_MODID = "consecration";
@@ -281,6 +284,9 @@ public final class ModIntegration extends TCIntegrationsModule {
 
     public static ResourceLocation mekanismLoc(String name) {
         return location(MEKANISM_MODID, name);
+    }
+    public static ResourceLocation mekgenLoc(String name) {
+        return location(MEKANISM_GENERATORS_MODID, name);
     }
 
     public static ResourceLocation adAstraLoc(String name) {

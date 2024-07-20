@@ -41,6 +41,12 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .addOptional(ModIntegration.ieLoc("capacitor_hv"))
                 .addOptional(ModIntegration.ieLoc("capacitor_creative"));
 
+        this.tag(TagManager.Items.SOLAR_PANEL_ITEMS)
+            .addOptional(ModIntegration.beyondEarthLoc("solar_panel"))
+            .addOptional(ModIntegration.adAstraLoc("solar_panel"))
+                .addOptional(ModIntegration.mekgenLoc("advanced_solar_generator"))
+            .addOptional(ModIntegration.mekgenLoc("solar_generator"));
+
         this.copy(TagManager.Blocks.BRONZE, TagManager.Items.BRONZE);
         copy(TinkerTags.Blocks.ANVIL_METAL, TinkerTags.Items.ANVIL_METAL);
 

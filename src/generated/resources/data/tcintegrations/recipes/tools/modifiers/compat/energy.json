@@ -1,6 +1,15 @@
 {
   "type": "tconstruct:modifier",
   "allow_crystal": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "tcintegrations:battery_items"
+      }
+    }
+  ],
   "inputs": [
     {
       "tag": "tcintegrations:battery_items"

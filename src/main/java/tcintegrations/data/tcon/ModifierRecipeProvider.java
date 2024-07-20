@@ -59,7 +59,8 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         Consumer<FinishedRecipe> malumConsumer = withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID));
         Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
         Consumer<FinishedRecipe> cheeseConsumer = withCondition(consumer, tagCondition(TagManager.Items.CHEESE.location().getPath()));
-        Consumer<FinishedRecipe> steelConsumer =  withCondition(consumer, tagCondition(TagManager.Items.STEEL_INGOTS.location().getPath()));
+        Consumer<FinishedRecipe> batteryConsumer =  withCondition(consumer, tagCondition(TagManager.Items.BATTERY_ITEMS.location().getPath()));
+        Consumer<FinishedRecipe> solarPanelConsumer = withCondition(consumer, tagCondition(TagManager.Items.SOLAR_PANEL_ITEMS.location().getPath()));
         Consumer<FinishedRecipe> ieConsumer = withCondition(consumer, modLoaded(ModIntegration.IE_MODID));
         Consumer<FinishedRecipe> mekanismConsumer = withCondition(consumer, modLoaded(ModIntegration.MEKANISM_MODID));
         Consumer<FinishedRecipe> mythicBotanyConsumer = withCondition(consumer, modLoaded(ModIntegration.MYTHIC_BOTANY_MODID));
@@ -81,8 +82,20 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
                 .setTools(TinkerTags.Items.MODIFIABLE)
                 .addInput(TagManager.Items.BATTERY_ITEMS)
                 .setSlots(SlotType.UPGRADE, 1)
-                .saveSalvage(steelConsumer, prefix(TCIntegrationsModifiers.ENERGY_HANDLER, compatSalvage))
-                .save(steelConsumer, prefix(TCIntegrationsModifiers.ENERGY_HANDLER, compatFolder));
+                .saveSalvage(batteryConsumer, prefix(TCIntegrationsModifiers.ENERGY_HANDLER, compatSalvage))
+                .save(batteryConsumer, prefix(TCIntegrationsModifiers.ENERGY_HANDLER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SOLAR_PANEL_HAT_MODIFIER)
+                .setTools(TinkerTags.Items.HELMETS)
+                .addInput(TagManager.Items.SOLAR_PANEL_ITEMS)
+                .addInput(TagManager.Items.SOLAR_PANEL_ITEMS)
+                .addInput(TagManager.Items.SOLAR_PANEL_ITEMS)
+                .addInput(TagManager.Items.SOLAR_PANEL_ITEMS)
+                .addInput(TagManager.Items.SOLAR_PANEL_ITEMS)
+                .setSlots(SlotType.ABILITY, 1)
+                .setMaxLevel(4)
+                .saveSalvage(solarPanelConsumer, prefix(TCIntegrationsModifiers.SOLAR_PANEL_HAT_MODIFIER, compatSalvage))
+                .save(solarPanelConsumer, prefix(TCIntegrationsModifiers.SOLAR_PANEL_HAT_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ALF_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)

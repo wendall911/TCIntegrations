@@ -1,0 +1,20 @@
+{
+  "values": [
+    {
+      "id": "beyond_earth:solar_panel",
+      "required": false
+    },
+    {
+      "id": "ad_astra:solar_panel",
+      "required": false
+    },
+    {
+      "id": "mekanismgenerators:advanced_solar_generator",
+      "required": false
+    },
+    {
+      "id": "mekanismgenerators:solar_generator",
+      "required": false
+    }
+  ]
+}
