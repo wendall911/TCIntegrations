@@ -20,6 +20,7 @@ public final class TagManager {
 
     public static final class Items {
 
+        public static final TagKey<Item> BATTERY_ITEMS = create("battery_items.json");
         public static final TagKey<Item> STEEL_INGOTS = forgeTag("ingots/steel");
         public static final TagKey<Item> REDSTONE_DUSTS = forgeTag("dusts/redstone");
         public static final TagKey<Item> BRONZE = forgeTag("storage_blocks/bronze");

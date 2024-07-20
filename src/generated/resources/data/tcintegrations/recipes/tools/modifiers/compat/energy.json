@@ -3,13 +3,10 @@
   "allow_crystal": true,
   "inputs": [
     {
-      "tag": "forge:dusts/redstone"
-    },
-    {
-      "tag": "forge:ingots/steel"
+      "tag": "tcintegrations:battery_items"
     }
   ],
-  "result": "tcintegration:energy",
+  "result": "tcintegrations:energy",
   "slots": {
     "upgrades": 1
   },

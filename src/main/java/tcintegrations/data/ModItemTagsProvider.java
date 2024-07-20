@@ -34,6 +34,13 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags() {
+        this.tag(TagManager.Items.BATTERY_ITEMS)
+            .addOptional(ModIntegration.mekanismLoc("energy_tablet"))
+                .addOptional(ModIntegration.ieLoc("capacitor_lv"))
+                .addOptional(ModIntegration.ieLoc("capacitor_mv"))
+                .addOptional(ModIntegration.ieLoc("capacitor_hv"))
+                .addOptional(ModIntegration.ieLoc("capacitor_creative"));
+
         this.copy(TagManager.Blocks.BRONZE, TagManager.Items.BRONZE);
         copy(TinkerTags.Blocks.ANVIL_METAL, TinkerTags.Items.ANVIL_METAL);
 

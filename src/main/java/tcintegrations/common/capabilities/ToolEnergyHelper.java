@@ -3,11 +3,14 @@ package tcintegrations.common.capabilities;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.minecraft.resources.ResourceLocation;
+import slimeknights.tconstruct.library.modifiers.modules.ModifierModule;
+import slimeknights.tconstruct.library.modifiers.modules.build.ModifierTraitModule;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.stat.INumericToolStat;
 import slimeknights.tconstruct.library.tools.stat.ToolStatId;
 import slimeknights.tconstruct.library.tools.stat.ToolStats;
 import tcintegrations.TCIntegrations;
+import tcintegrations.items.TCIntegrationsModifiers;
 
 /**
  * 与slimeknights.tconstruct.library.tools.capability.fluid.ToolTankHelper类似，
@@ -33,6 +36,12 @@ public class ToolEnergyHelper {
     /* 能量存储默认helper，用于处理能量的存储，将会把能量数据存储在工具nbt中的tic_persistent */
     public static final ToolEnergyHelper ENERGY_HELPER = new ToolEnergyHelper(
             ENERGY_CAPACITY_STAT, new ResourceLocation(TCIntegrations.MODID, "energy")
+    );
+    /* 打上这个modifier你就是富含fe的工具了 */
+    public static final ModifierModule ENERGY_HANDLER = new ModifierTraitModule(
+            TCIntegrationsModifiers.ENERGY_HANDLER.getId(),
+            1,
+            true
     );
     /* 能量容量属性 */
     private final INumericToolStat<?> capacityStat;

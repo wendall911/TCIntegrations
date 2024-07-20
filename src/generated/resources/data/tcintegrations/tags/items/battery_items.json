@@ -1,0 +1,24 @@
+{
+    "values": [
+        {
+            "id": "mekanism:energy_tablet",
+            "required": false
+        },
+        {
+            "id": "immersiveengineering:capacitor_lv",
+            "required": false
+        },
+        {
+            "id": "immersiveengineering:capacitor_mv",
+            "required": false
+        },
+        {
+            "id": "immersiveengineering:capacitor_hv",
+            "required": false
+        },
+        {
+            "id": "immersiveengineering:capacitor_creative",
+            "required": false
+        }
+    ]
+}

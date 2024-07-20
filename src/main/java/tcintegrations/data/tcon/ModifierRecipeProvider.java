@@ -79,8 +79,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ENERGY_HANDLER)
                 .setTools(TinkerTags.Items.MODIFIABLE)
-                .addInput(TagManager.Items.STEEL_INGOTS)
-                .addInput(TagManager.Items.REDSTONE_DUSTS)
+                .addInput(TagManager.Items.BATTERY_ITEMS)
                 .setSlots(SlotType.UPGRADE, 1)
                 .saveSalvage(steelConsumer, prefix(TCIntegrationsModifiers.ENERGY_HANDLER, compatSalvage))
                 .save(steelConsumer, prefix(TCIntegrationsModifiers.ENERGY_HANDLER, compatFolder));
