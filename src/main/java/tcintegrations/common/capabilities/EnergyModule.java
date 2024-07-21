@@ -10,6 +10,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
 import org.jetbrains.annotations.Nullable;
 import slimeknights.mantle.client.TooltipKey;
@@ -148,10 +149,12 @@ public class EnergyModule implements HookProvider,
         if(energyHelper.getCapacity(tool)>0 &&
            level.getBlockEntity(context.getClickedPos()) != null) {
             Direction side = context.getClickedFace();
-            Objects.requireNonNull(level.getBlockEntity(context.getClickedPos()))
-                    .getCapability(ForgeCapabilities.ENERGY,side)
-                    .ifPresent(energyHandler -> transferEnergy(context,energyHandler));
-            return InteractionResult.SUCCESS;
+             LazyOptional<IEnergyStorage> cap = Objects.requireNonNull(level.getBlockEntity(context.getClickedPos()))
+                    .getCapability(ForgeCapabilities.ENERGY,side);
+            cap.ifPresent(energyHandler -> transferEnergy(context,energyHandler));
+            if (cap.isPresent()) {
+                return InteractionResult.SUCCESS;
+            }
         }
         return InteractionResult.PASS;
     }

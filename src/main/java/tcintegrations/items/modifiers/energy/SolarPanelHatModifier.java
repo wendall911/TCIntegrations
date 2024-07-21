@@ -1,4 +1,4 @@
-package tcintegrations.items.modifiers.armor;
+package tcintegrations.items.modifiers.energy;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;

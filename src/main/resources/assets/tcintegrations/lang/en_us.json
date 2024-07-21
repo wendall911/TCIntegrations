@@ -224,5 +224,8 @@
     "message.tcintegrations.energy_released": "Released %s FE to this block.",
     "modifier.tcintegrations.solar_panel_hat": "Solar Panel",
     "modifier.tcintegrations.solar_panel_hat.flavor": "Sun power! ...Tech?",
-    "modifier.tcintegrations.solar_panel_hat.description": "Generates energy (20FE/t) from the sun. Every level multiplies the energy generation by 10."
+    "modifier.tcintegrations.solar_panel_hat.description": "Generates energy (20FE/t) from the sun. Every level multiplies the energy generation by 10.",
+    "modifier.tcintegrations.energy_repair": "Energy Repair",
+    "modifier.tcintegrations.energy_repair.flavor": "Renewable Tools!",
+    "modifier.tcintegrations.energy_repair.description": "Repairs the tool by 1 durability for 2500 FE every 10 seconds. Every level increases the repair rate by 1 durability."
 }
