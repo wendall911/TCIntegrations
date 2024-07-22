@@ -230,5 +230,8 @@
     "modifier.tcintegrations.energy_repair.description": "Repairs the tool by 1 durability for 2500 FE every 10 seconds. Every level increases the repair rate by 1 durability.",
     "modifier.tcintegrations.energy_dispatcher": "Energy Dispatcher",
     "modifier.tcintegrations.energy_dispatcher.flavor": "Wireless energy transfer, technically.",
-    "modifier.tcintegrations.energy_dispatcher.description": "Redistributes energy from all tinker's tools (that have energy storage) to share the same percentage of energy."
+    "modifier.tcintegrations.energy_dispatcher.description": "Redistributes energy from all tinker's tools (that have energy storage) to share the same percentage of energy. This will only affect tinker's tools.",
+    "modifier.tcintegrations.discharge": "Discharge",
+    "modifier.tcintegrations.discharge.flavor": "Electrolyze your enemies!",
+    "modifier.tcintegrations.discharge.description": "Deals extra damage to nearby enemies based on the energy stored in the tool and set them on fire. Every level increases the damage and range."
 }

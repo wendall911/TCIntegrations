@@ -22,9 +22,9 @@ public class EnergyDispatcherModifier extends EnergyInventoryTickModifier{
     }
 
     @Override
-    protected void serverPlayerTick(IToolStackView tool, ModifierEntry modifier, Level world, ServerPlayer holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
-        float remainingEnergy = 0;
-        float totalCap = 0;
+    protected void spInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, ServerPlayer holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
+        double remainingEnergy = 0;
+        double totalCap = 0;
         Set<IToolStackView> toolsWithEnergy = new HashSet<>();
         Inventory inv = holder.getInventory();
         for(ItemStack itemStack : Iterables.concat(inv.items, inv.armor, inv.offhand)){ // Iterate over all items in the player's inventory

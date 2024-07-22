@@ -17,6 +17,7 @@ import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.IncrementalModifierRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
+import slimeknights.tconstruct.library.recipe.modifiers.adding.MultilevelModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 import tcintegrations.TCIntegrations;
 import tcintegrations.common.TagManager;
@@ -103,6 +104,37 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
                 .setMaxLevel(1)
                 .saveSalvage(batteryConsumer, prefix(TCIntegrationsModifiers.ENERGY_DISPATCHER_MODIFIER, compatSalvage))
                 .save(batteryConsumer, prefix(TCIntegrationsModifiers.ENERGY_DISPATCHER_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.DISCHARGE_MODIFIER)    //level 1
+                .setTools(TinkerTags.Items.MELEE_PRIMARY)
+                .addInput(TagManager.Items.BATTERY_ITEMS)
+                .addInput(Items.LIGHTNING_ROD)
+                .addInput(Items.LIGHTNING_ROD)
+                .setSlots(SlotType.ABILITY, 1)
+                .setMaxLevel(1)
+                .disallowCrystal()
+                .save(batteryConsumer, wrap(TCIntegrationsModifiers.DISCHARGE_MODIFIER, compatFolder,"_level_1"));
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.DISCHARGE_MODIFIER)    //salvage
+                .setTools(TinkerTags.Items.MELEE_PRIMARY)
+                .exactLevel(1)
+                .useSalvageMax()
+                .setSlots(SlotType.ABILITY, 1)
+                .saveSalvage(consumer, prefix(TCIntegrationsModifiers.DISCHARGE_MODIFIER, compatSalvage));
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.DISCHARGE_MODIFIER)    //level 2+
+                .setTools(TinkerTags.Items.MELEE_PRIMARY)
+                .addInput(TagManager.Items.BATTERY_ITEMS)
+                .addInput(TagManager.Items.BATTERY_ITEMS)
+                .addInput(TagManager.Items.BATTERY_ITEMS)
+                .addInput(TagManager.Items.BATTERY_ITEMS)
+                .addInput(TagManager.Items.BATTERY_ITEMS)
+                .setLevelRange(2, 3)
+                .disallowCrystal()
+                .save(batteryConsumer, wrap(TCIntegrationsModifiers.DISCHARGE_MODIFIER, compatFolder,"_level_2plus"));
+        MultilevelModifierRecipeBuilder.modifier(TCIntegrationsModifiers.DISCHARGE_MODIFIER.getId()) //crystal
+                .setTools(TinkerTags.Items.MELEE_PRIMARY)
+                .addLevel(SlotType.ABILITY, 1, 1)
+                .addLevelRange(2, 3)
+                .save(batteryConsumer, wrap(TCIntegrationsModifiers.DISCHARGE_MODIFIER, compatFolder,"_crystal"));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SOLAR_PANEL_HAT_MODIFIER)
                 .setTools(TinkerTags.Items.HELMETS)
@@ -511,6 +543,9 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {
         return prefix(modifier.getId(), prefix);
+    }
+    public ResourceLocation wrap(LazyModifier modifier, String prefix, String suffix) {
+        return wrap(modifier.getId(), prefix, suffix);
     }
 
     @SafeVarargs

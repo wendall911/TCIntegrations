@@ -32,6 +32,7 @@ public final class NetworkHandler {
         if (ModList.get().isLoaded(ModIntegration.IFD_MODID)) {
             registerMessage(id++, LaunchGhostSword.class, LaunchGhostSword::new);
         }
+        registerMessage(id++, DischargeEffectData.class, DischargeEffectData::new);
     }
 
     private static <T extends IData> void registerMessage(int idx, Class<T> type, Function<FriendlyByteBuf, T> decoder) {

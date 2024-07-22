@@ -1,0 +1,40 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": false,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "tcintegrations:battery_items"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "tcintegrations:battery_items"
+    },
+    {
+      "tag": "tcintegrations:battery_items"
+    },
+    {
+      "tag": "tcintegrations:battery_items"
+    },
+    {
+      "tag": "tcintegrations:battery_items"
+    },
+    {
+      "tag": "tcintegrations:battery_items"
+    }
+  ],
+  "result": "tcintegrations:discharge",
+  "level": {
+    "max": 3,
+    "min": 2
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee/primary"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "discharge": {
+    "sounds": [
+      {
+        "name": "tcintegrations:discharge",
+        "volume": 1
+      }
+    ]
+  }
+}

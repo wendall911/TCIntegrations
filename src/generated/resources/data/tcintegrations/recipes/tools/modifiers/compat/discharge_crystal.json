@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:multilevel_modifier",
+  "allow_crystal": true,
+  "levels": [
+    {
+      "level": 1,
+      "slots": {
+        "abilities": 1
+      }
+    },
+    {
+      "level": {
+        "max": 3,
+        "min": 2
+      }
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "tcintegrations:battery_items"
+      }
+    }
+  ],
+  "result": "tcintegrations:discharge",
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee/primary"
+    }
+  ]
+}

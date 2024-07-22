@@ -19,7 +19,7 @@ public class EnergyRepairModifier extends EnergyInventoryTickModifier{
     }
 
     @Override
-    protected void serverPlayerTick(IToolStackView tool, ModifierEntry modifier, Level world, ServerPlayer holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
+    protected void spInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, ServerPlayer holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if (holder.tickCount % 200 != 0){
             return;
         }

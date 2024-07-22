@@ -15,8 +15,8 @@ import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import tcintegrations.common.capabilities.ToolEnergyHelper;
 
 public abstract class EnergyInventoryTickModifier extends Modifier implements InventoryTickModifierHook {
-    public abstract int getCapacityEachLevel();
-    protected abstract void serverPlayerTick(IToolStackView tool, ModifierEntry modifier, Level world, ServerPlayer holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack);
+    protected abstract int getCapacityEachLevel();
+    protected abstract void spInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, ServerPlayer holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack);
     @Override
     protected void registerHooks(ModuleHookMap.Builder hookBuilder) {
         super.registerHooks(hookBuilder);
@@ -29,7 +29,7 @@ public abstract class EnergyInventoryTickModifier extends Modifier implements In
         final Player player = holder instanceof Player ? (Player) holder : null;
         if (player != null && !player.level.isClientSide) {
             ServerPlayer sp = (ServerPlayer) player;
-            serverPlayerTick(tool, modifier, world, sp, itemSlot, isSelected, isCorrectSlot, stack);
+            spInventoryTick(tool, modifier, world, sp, itemSlot, isSelected, isCorrectSlot, stack);
         }
     }
 }

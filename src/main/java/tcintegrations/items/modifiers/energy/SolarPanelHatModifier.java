@@ -15,7 +15,7 @@ public class SolarPanelHatModifier extends EnergyInventoryTickModifier {
     }
 
     @Override
-    protected void serverPlayerTick(IToolStackView tool, ModifierEntry modifier, Level world, ServerPlayer holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
+    protected void spInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, ServerPlayer holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         if (world.isDay() &&
                 world.canSeeSky(holder.blockPosition()) &&
                 isCorrectSlot) {
