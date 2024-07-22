@@ -13,7 +13,6 @@ import org.jetbrains.annotations.NotNull;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
 import slimeknights.tconstruct.library.module.ModuleHook;
-import slimeknights.tconstruct.library.tools.capability.ToolCapabilityProvider;
 import slimeknights.tconstruct.library.tools.nbt.INamespacedNBTView;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.NamespacedNBT;
@@ -209,9 +208,8 @@ public class ToolEnergyCapability extends EnergyModifierHookIterator<ModifierEnt
 
     }
 
-    /**
-     * tc tools的energy capability提供器
-     */
+    /*
+
     public static class TinkerProvider implements ToolCapabilityProvider.IToolCapabilityProvider {
         private final LazyOptional<IEnergyStorage> handler;
         public TinkerProvider(ItemStack stack, Supplier<? extends IToolStackView> toolStack) {
@@ -222,12 +220,14 @@ public class ToolEnergyCapability extends EnergyModifierHookIterator<ModifierEnt
         public <T> LazyOptional<T> getCapability(IToolStackView tool, Capability<T> cap) {
             if (
                     cap != ForgeCapabilities.ENERGY ||
-                    tool.getVolatileData().getInt(TOTAL_CELL) == 0) {
+                            tool.getVolatileData().getInt(TOTAL_CELL) == 0) {
                 return LazyOptional.empty();
             }
             return this.handler.cast();
         }
     }
+
+     */
 
     /**
      * 上面那个provider注册不进去

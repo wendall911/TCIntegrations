@@ -120,7 +120,7 @@ public class EnergyModule implements HookProvider,
         if (tool.getDamage() > 0){
             return null;
         }
-        return energyHelper.getEnergy(tool) < energyHelper.getCapacity(tool);
+        return energyHelper.getEnergy(tool) < energyHelper.getCapacity(tool);  //先判定耐久条再判定能量条
     }
 
     @Override
@@ -168,7 +168,7 @@ public class EnergyModule implements HookProvider,
                 {
                     int diff = e.getMaxEnergyStored() - e.getEnergyStored();
                     int extracted = e.receiveEnergy(target.extractEnergy(diff, false), false);
-                    if (context.getLevel().isClientSide) {
+                    if (!context.getLevel().isClientSide) {
                         context.getPlayer().sendSystemMessage(Component.translatable("message.tcintegrations.energy_extracted", extracted));
                     }
                 }
@@ -179,7 +179,7 @@ public class EnergyModule implements HookProvider,
                 {
                     int diff = e.getEnergyStored();
                     int released = e.extractEnergy(target.receiveEnergy(diff, false), false);
-                    if (context.getLevel().isClientSide) {
+                    if (!context.getLevel().isClientSide) {
                         context.getPlayer().sendSystemMessage(Component.translatable("message.tcintegrations.energy_released", released));
                     }
                 }

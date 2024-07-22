@@ -95,6 +95,15 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
                 .saveSalvage(batteryConsumer, prefix(TCIntegrationsModifiers.ENERGY_REPAIR_MODIFIER, compatSalvage))
                 .save(batteryConsumer, prefix(TCIntegrationsModifiers.ENERGY_REPAIR_MODIFIER, compatFolder));
 
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ENERGY_DISPATCHER_MODIFIER)
+                .setTools(TinkerTags.Items.MODIFIABLE)
+                .addInput(TagManager.Items.BATTERY_ITEMS)
+                .addInput(Items.COMPARATOR)
+                .setSlots(SlotType.ABILITY, 1)
+                .setMaxLevel(1)
+                .saveSalvage(batteryConsumer, prefix(TCIntegrationsModifiers.ENERGY_DISPATCHER_MODIFIER, compatSalvage))
+                .save(batteryConsumer, prefix(TCIntegrationsModifiers.ENERGY_DISPATCHER_MODIFIER, compatFolder));
+
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SOLAR_PANEL_HAT_MODIFIER)
                 .setTools(TinkerTags.Items.HELMETS)
                 .addInput(TagManager.Items.SOLAR_PANEL_ITEMS)

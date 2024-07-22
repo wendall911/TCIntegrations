@@ -40,8 +40,9 @@
         "phantasmal": "#CCE2F0",
         "brass": "#E6D08D",
         "dragonscales": "#872A2A",
-        "energy": "##ffd966",
+        "energy": "#ffd966",
         "solar_panel_hat": "#6f88ff",
-        "energy_repair":"#e69138"
+        "energy_repair":"#e69138",
+        "energy_dispatcher":"#f6b26b"
     }
 }

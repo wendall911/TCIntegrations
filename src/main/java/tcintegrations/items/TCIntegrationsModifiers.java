@@ -11,6 +11,7 @@ import tcintegrations.common.capabilities.EnergyModule;
 import tcintegrations.common.capabilities.ToolEnergyHelper;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.modifiers.armor.*;
+import tcintegrations.items.modifiers.energy.EnergyDispatcherModifier;
 import tcintegrations.items.modifiers.energy.EnergyRepairModifier;
 import tcintegrations.items.modifiers.energy.SolarPanelHatModifier;
 import tcintegrations.items.modifiers.tool.*;
@@ -59,6 +60,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<Modifier> ENERGY_HANDLER;
     public static StaticModifier<SolarPanelHatModifier> SOLAR_PANEL_HAT_MODIFIER;
     public static StaticModifier<EnergyRepairModifier> ENERGY_REPAIR_MODIFIER;
+    public static StaticModifier<EnergyDispatcherModifier> ENERGY_DISPATCHER_MODIFIER;
 
     public static void init() {
 
@@ -74,6 +76,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
         );
         SOLAR_PANEL_HAT_MODIFIER = MODIFIERS_REGISTRY.register("solar_panel_hat", SolarPanelHatModifier::new);
         ENERGY_REPAIR_MODIFIER = MODIFIERS_REGISTRY.register("energy_repair", EnergyRepairModifier::new);
+        ENERGY_DISPATCHER_MODIFIER = MODIFIERS_REGISTRY.register("energy_dispatcher", EnergyDispatcherModifier::new);
 
 
         if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {

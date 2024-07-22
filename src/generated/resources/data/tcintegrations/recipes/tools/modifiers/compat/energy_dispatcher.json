@@ -1,0 +1,31 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "tcintegrations:battery_items"
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "tcintegrations:battery_items"
+    },
+    {
+      "item": "minecraft:comparator"
+    }
+  ],
+  "result": "tcintegrations:energy_dispatcher",
+  "level": 1,
+  "slots": {
+    "abilities": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable"
+    }
+  ]
+}

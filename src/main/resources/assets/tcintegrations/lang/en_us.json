@@ -227,5 +227,8 @@
     "modifier.tcintegrations.solar_panel_hat.description": "Generates energy (20FE/t) from the sun. Every level multiplies the energy generation by 10.",
     "modifier.tcintegrations.energy_repair": "Energy Repair",
     "modifier.tcintegrations.energy_repair.flavor": "Renewable Tools!",
-    "modifier.tcintegrations.energy_repair.description": "Repairs the tool by 1 durability for 2500 FE every 10 seconds. Every level increases the repair rate by 1 durability."
+    "modifier.tcintegrations.energy_repair.description": "Repairs the tool by 1 durability for 2500 FE every 10 seconds. Every level increases the repair rate by 1 durability.",
+    "modifier.tcintegrations.energy_dispatcher": "Energy Dispatcher",
+    "modifier.tcintegrations.energy_dispatcher.flavor": "Wireless energy transfer, technically.",
+    "modifier.tcintegrations.energy_dispatcher.description": "Redistributes energy from all tinker's tools (that have energy storage) to share the same percentage of energy."
 }
