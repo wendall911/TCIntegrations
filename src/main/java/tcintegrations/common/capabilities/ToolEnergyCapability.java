@@ -26,13 +26,11 @@ import java.util.function.Supplier;
 
 @RequiredArgsConstructor
 public class ToolEnergyCapability extends EnergyModifierHookIterator<ModifierEntry> implements IEnergyStorage {
-    /**
-     * 原版tc的ResourceLocation TOTAL_TANKS = TConstruct.getResource("total_tanks")是一个Boolean key
-     * 居然没注意
-     * 测试中的volatileData.getInt("tconstruct:total_tanks")总是1
+
+    /*
+        total_cell will be a fixed value 1 for each tool
      */
     public static final ResourceLocation TOTAL_CELL = new ResourceLocation(TCIntegrations.MODID, "total_cell");
-    /* 这个hook实例让工具有一个能量容量 */
     public static final ModuleHook<EnergyModifierHook> HOOK = ModifierHooks.register(
             new ResourceLocation((TCIntegrations.MODID), "energy"),
             EnergyModifierHook.class,
@@ -118,14 +116,10 @@ public class ToolEnergyCapability extends EnergyModifierHookIterator<ModifierEnt
 
 
     /**
-     * 需要一个接口整一整所有关于rf的modifier
-     * 原版tc这里FluidModifierHook接口定义了每个modifier的tank数和某个tank index对应的tank有多大
-     * 可能是用于支持移除modifier时的操作
-     * 这里默认每个energy modifier是一个电池(cell)好了
+     * The same logic as the fluid modifier hook iterator, but for energy.
      *
-     * 2024-07-18
-     * 原来tc某次提交的源码(<a href="https://github.com/SlimeKnights/TinkersConstruct/commit/988d84622056ce41aa34f937bcca86300a4ec383">#988d846</a>)
-     * 把整个流体储罐的实现改了，机理是
+     * (<a href="https://github.com/SlimeKnights/TinkersConstruct/commit/988d84622056ce41aa34f937bcca86300a4ec383">Tinker's Construct #988d846</a>)
+     *
      * Instead of shuffling the owner with every modifier implementing tanks, we have a single modifier that implements the tank, and other modifiers just add it as a trait
      * Modifiers using tanks can use the new helper to get and modify the fluid, instead of needing to talk to the module directly
      * Tank capacity has been moved from a volatile integer to a tool stat, reducing the need to have specialized modules for it. Custom tanks will just want to add their own custom stats or can handle capacity in another way if they prefer
@@ -139,7 +133,7 @@ public class ToolEnergyCapability extends EnergyModifierHookIterator<ModifierEnt
         }
 
         /**
-         * 获取某个cell的容量
+         * get the capacity of a cell
          *
          */
         default int getCellCapacity(IToolStackView tool, ModifierEntry modifier, int cellIndex) {
@@ -147,8 +141,7 @@ public class ToolEnergyCapability extends EnergyModifierHookIterator<ModifierEnt
         }
 
         /**
-         * 获取某个cell的能量
-         * 对应原版tc的FluidModifierHook.getFluidInTank
+         *  get the energy stored in a cell
          */
         default int getEnergy(IToolStackView tool, ModifierEntry modifier, int cellIndex) {
             return 0;
@@ -157,7 +150,6 @@ public class ToolEnergyCapability extends EnergyModifierHookIterator<ModifierEnt
         int receiveEnergy(IToolStackView tool, ModifierEntry modifier, int maxReceive, boolean simulate);
         int extractEnergy(IToolStackView tool, ModifierEntry modifier, int maxExtract, boolean simulate);
     }
-    /* 整合多个energy hook, 还是照着tc的源码改的*/
     @RequiredArgsConstructor
     private static class EnergyModifierMerger extends EnergyModifierHookIterator<EnergyModifierHook> implements EnergyModifierHook {
         private final Collection<EnergyModifierHook> hooks;
@@ -229,10 +221,7 @@ public class ToolEnergyCapability extends EnergyModifierHookIterator<ModifierEnt
 
      */
 
-    /**
-     * 上面那个provider注册不进去
-     * 重新写一个用forge注册事件注册的provider
-     */
+
     public static class ForgeProvider implements ICapabilityProvider {
         private final LazyOptional<IEnergyStorage> handler;
         private final ToolStack toolStack;

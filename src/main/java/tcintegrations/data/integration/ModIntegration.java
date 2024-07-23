@@ -5,11 +5,9 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
-
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
-
 import tcintegrations.common.CreativeTabs;
 import tcintegrations.common.TCIntegrationsModule;
 
@@ -23,6 +21,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String CREATE_MODID = "create";
     public static final String AQUACULTURE_MODID = "aquaculture";
     public static final String ARS_MODID = "ars_nouveau";
+    public static final String ARS_ELEMENTAL_MODID = "ars_elemental";
     public static final String ALEX_MODID = "alexsmobs";
     public static final String MALUM_MODID = "malum";
     public static final String UNDERGARDEN_MODID = "undergarden";
@@ -115,8 +114,16 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static Item IFD_DRAGONARMOR_COPPER_NECK;
     public static Item IFD_DRAGONARMOR_COPPER_BODY;
     public static Item IFD_DRAGONARMOR_COPPER_TAIL;
+    public static Item ARS_ELEMENTAL_MASTER_CORE;
+    public static Item ARS_AIR_ESSENCE;
+    public static Item ARS_FIRE_ESSENCE;
+    public static Item ARS_WATER_ESSENCE;
+    public static Item ARS_EARTH_ESSENCE;
 
     public static RegistryObject<MobEffect> OXYGEN_EFFECT;
+    public static MobEffect ARS_SHOCKED;
+    public static MobEffect ARS_ELEMENTAL_LIGHTNING_LURE;
+
 
     public static RegisterEvent.RegisterHelper<Item> ITEM_REGISTRY;
 
@@ -204,6 +211,17 @@ public final class ModIntegration extends TCIntegrationsModule {
             IFD_DRAGONARMOR_COPPER_NECK = registerItem(ifdLoc("dragonarmor_copper_neck"));
             IFD_DRAGONARMOR_COPPER_BODY = registerItem(ifdLoc("dragonarmor_copper_body"));
             IFD_DRAGONARMOR_COPPER_TAIL = registerItem(ifdLoc("dragonarmor_copper_tail"));
+            ARS_ELEMENTAL_MASTER_CORE = registerItem(arsElementalLoc("mark_of_mastery"));
+            ARS_AIR_ESSENCE = registerItem(arsElementalLoc("air_essence"));
+            ARS_FIRE_ESSENCE = registerItem(arsElementalLoc("fire_essence"));
+            ARS_WATER_ESSENCE = registerItem(arsElementalLoc("water_essence"));
+            ARS_EARTH_ESSENCE = registerItem(arsElementalLoc("earth_essence"));
+        }
+        if (canLoad(ARS_MODID)) {
+            ARS_SHOCKED = com.hollingsworth.arsnouveau.common.potions.ModPotions.SHOCKED_EFFECT.get();
+        }
+        if (canLoad(ARS_ELEMENTAL_MODID)) {
+            ARS_ELEMENTAL_LIGHTNING_LURE = alexthw.ars_elemental.registry.ModPotions.LIGHTNING_LURE.get();
         }
 
     }
@@ -252,6 +270,9 @@ public final class ModIntegration extends TCIntegrationsModule {
 
     public static ResourceLocation arsLoc(String name) {
         return location(ARS_MODID, name);
+    }
+    public static ResourceLocation arsElementalLoc(String name) {
+        return location(ARS_ELEMENTAL_MODID, name);
     }
 
     public static ResourceLocation ifdLoc(String name) {

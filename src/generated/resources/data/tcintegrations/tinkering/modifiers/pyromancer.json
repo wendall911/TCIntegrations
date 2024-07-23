@@ -1,0 +1,67 @@
+{
+  "type": "tconstruct:modifier",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ars_elemental"
+    }
+  ],
+  "allow_crystal": true,
+  "check_trait_level": true,
+  "inputs": [
+    {
+      "item": "ars_elemental:mark_of_mastery"
+    },
+    {
+      "item": "ars_nouveau:fire_essence"
+    },
+    {
+      "item": "ars_nouveau:fire_essence"
+    },{
+      "type": "tconstruct:composable",
+      "condition": {
+        "type": "forge:mod_loaded",
+        "modid": "ars_elemental"
+      },
+      "level_display": "tconstruct:no_levels",
+      "modules": [
+        {
+          "type": "tconstruct:requirements",
+          "display_modifiers": [
+            {
+              "level": 3,
+              "name": "tcintegrations:ars_nouveau"
+            }
+          ],
+          "requirement": {
+            "type": "tconstruct:has_modifier",
+            "check": "all",
+            "level": {
+              "min": 3
+            },
+            "modifier": {
+              "type": "tconstruct:single",
+              "modifier": "tcintegrations:ars_nouveau"
+            }
+          },
+          "translation_key": "modifier.tcintegrations.pyromancer.requirements"
+        }
+      ],
+      "tooltip_display": "always"
+    },
+    {
+      "item": "ars_nouveau:fire_essence"
+    },
+    {
+      "tag": "forge:ingots/netherite"
+    }
+  ],
+  "level": 1,
+  "result": "tcintegrations:pyromancer",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/armor/worn"
+  }
+}

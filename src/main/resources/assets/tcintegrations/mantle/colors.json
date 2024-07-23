@@ -44,6 +44,10 @@
         "solar_panel_hat": "#6f88ff",
         "energy_repair":"#e69138",
         "energy_dispatcher":"#f6b26b",
-        "discharge": "#e6d2bb"
+        "discharge": "#e6d2bb",
+        "aeromancer": "#edfea3",
+        "pyromancer": "#de3636",
+        "aquamancer": "#3d85c6",
+        "geomancer": "#69eb30"
     }
 }

@@ -138,6 +138,7 @@ dependencies {
 
         runtimeOnly fg.deobf("curse.maven:geckolib-388172:${geckolib_version}")
         implementation fg.deobf("curse.maven:arsnouveau-401955:${arsnouveau_version}")
+        implementation fg.deobf("curse.maven:arselemental-561470:${arselemental_version}")
         implementation fg.deobf("curse.maven:iceandfire-264231:${iceandfire_version}")
         implementation fg.deobf("curse.maven:mythicbotany-400058:${mythicbotany_version}")
         implementation fg.deobf("curse.maven:immersiveengineering-231951:${ie_version}")
@@ -156,8 +157,8 @@ dependencies {
         runtimeOnly fg.deobf("curse.maven:citadel-331936:${citadel_version}")
         runtimeOnly fg.deobf("curse.maven:curios-309927:${curios_version}")
         runtimeOnly fg.deobf("curse.maven:terrablender-563928:${terrablender_version}")
-        runtimeOnly fg.deobf("org.moddingx:LibX:${libx_version}") // For MyticBotany
-        runtimeOnly fg.deobf('io.github.noeppi_noeppi.mods:SandBox:1.19.2-1.0.1') // For MyticBotany
+        runtimeOnly fg.deobf("org.moddingx:LibX:${libx_version}") // For MythicBotany
+        runtimeOnly fg.deobf('io.github.noeppi_noeppi.mods:SandBox:1.19.2-1.0.1') // For MythicBotany
         // I should probably only have Beyond Earth OR Ad Astra enabled, but it doesn't crash ... yet?
         runtimeOnly fg.deobf("curse.maven:beyond_earth-377448:${beyond_earth_version}")
         runtimeOnly fg.deobf("curse.maven:ad_astra-635042:${ad_astra_version}")
@@ -182,6 +183,7 @@ dependencies {
          * shit for other mods?
          */
         compileOnly fg.deobf("curse.maven:arsnouveau-401955:${arsnouveau_version}")
+        compileOnly fg.deobf("curse.maven:arselemental-561470:${arselemental_version}")
         compileOnly fg.deobf("curse.maven:iceandfire-264231:${iceandfire_version}")
         compileOnly fg.deobf("curse.maven:mythicbotany-400058:${mythicbotany_version}")
         compileOnly fg.deobf("curse.maven:immersiveengineering-231951:${ie_version}")

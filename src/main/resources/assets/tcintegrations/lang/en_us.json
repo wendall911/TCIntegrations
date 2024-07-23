@@ -233,5 +233,22 @@
     "modifier.tcintegrations.energy_dispatcher.description": "Redistributes energy from all tinker's tools (that have energy storage) to share the same percentage of energy. This will only affect tinker's tools.",
     "modifier.tcintegrations.discharge": "Discharge",
     "modifier.tcintegrations.discharge.flavor": "Electrolyze your enemies!",
-    "modifier.tcintegrations.discharge.description": "Deals extra damage to nearby enemies based on the energy stored in the tool and set them on fire. Every level increases the damage and range."
+    "modifier.tcintegrations.discharge.description": "Deals extra damage to nearby enemies based on the energy stored in the tool and set them on fire. Every level increases the damage and range.",
+    "recipe.tcintegrations.modifier.discharge.level_2plus": "Discharge requires more capacitors for higher levels",
+    "modifier.tcintegrations.geomancer": "Geomancer",
+    "modifier.tcintegrations.geomancer.flavor": "Magic rocks!",
+    "modifier.tcintegrations.geomancer.description": "Gain the ability of the Geomancer set.",
+    "modifier.tcintegrations.geomancer.requirements": "Requires the mage modifier to be active.",
+    "modifier.tcintegrations.aquamancer": "Aquamancer",
+    "modifier.tcintegrations.aquamancer.flavor": "Magic stream!",
+    "modifier.tcintegrations.aquamancer.description": "Gain the ability of the Aquamancer set.",
+    "modifier.tcintegrations.aquamancer.requirements": "Requires the mage modifier to be active.",
+    "modifier.tcintegrations.aeromancer": "Aethermancer",
+    "modifier.tcintegrations.aeromancer.flavor": "Magic air!",
+    "modifier.tcintegrations.aeromancer.description": "Gain the ability of the Aethermancer set.",
+    "modifier.tcintegrations.aeromancer.requirements": "Requires the mage modifier to be active.",
+    "modifier.tcintegrations.pyromancer": "Pyromancer",
+    "modifier.tcintegrations.pyromancer.flavor": "Magic fire!",
+    "modifier.tcintegrations.pyromancer.description": "Gain the ability of the Pyromancer set.",
+    "modifier.tcintegrations.pyromancer.requirements": "Requires the mage modifier to be active."
 }

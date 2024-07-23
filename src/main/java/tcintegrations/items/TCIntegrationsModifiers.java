@@ -11,6 +11,7 @@ import tcintegrations.common.capabilities.EnergyModule;
 import tcintegrations.common.capabilities.ToolEnergyHelper;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.modifiers.armor.*;
+import tcintegrations.items.modifiers.armor.ArsElementalModifier;
 import tcintegrations.items.modifiers.energy.DischargeModifier;
 import tcintegrations.items.modifiers.energy.EnergyDispatcherModifier;
 import tcintegrations.items.modifiers.energy.EnergyRepairModifier;
@@ -21,6 +22,7 @@ import tcintegrations.items.modifiers.traits.*;
 import static tcintegrations.util.ResourceLocationHelper.resource;
 
 public class TCIntegrationsModifiers  extends TCIntegrationsModule {
+
 
     public static StaticModifier<ManaModifier> MANA_MODIFIER;
     public static StaticModifier<TerraModifier> TERRA_MODIFIER;
@@ -63,6 +65,12 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<EnergyRepairModifier> ENERGY_REPAIR_MODIFIER;
     public static StaticModifier<EnergyDispatcherModifier> ENERGY_DISPATCHER_MODIFIER;
     public static StaticModifier<DischargeModifier> DISCHARGE_MODIFIER;
+    public static StaticModifier<ArsElementalModifier> PYROMANCER_MODIFIER;
+    public static StaticModifier<ArsElementalModifier> AQUAMANCER_MODIFIER;
+    public static StaticModifier<ArsElementalModifier> GEOMANCER_MODIFIER;
+    public static StaticModifier<ArsElementalModifier> AEROMANCER_MODIFIER;
+
+
 
     public static void init() {
 
@@ -104,6 +112,12 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
         if (ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
             ARS_MODIFIER = MODIFIERS_REGISTRY.register("ars_nouveau", ArsNouveauModifier::new);
             ENCHANTERS_SHIELD_MODIFIER = MODIFIERS_REGISTRY.register("enchanters_shield", EnchantersShieldModifier::new);
+        }
+        if (ModIntegration.canLoad(ModIntegration.ARS_ELEMENTAL_MODID)){
+            PYROMANCER_MODIFIER = MODIFIERS_REGISTRY.register("pyromancer", () -> new ArsElementalModifier(com.hollingsworth.arsnouveau.api.spell.SpellSchools.ELEMENTAL_FIRE));
+            AQUAMANCER_MODIFIER = MODIFIERS_REGISTRY.register("aquamancer", () -> new ArsElementalModifier(com.hollingsworth.arsnouveau.api.spell.SpellSchools.ELEMENTAL_WATER));
+            GEOMANCER_MODIFIER = MODIFIERS_REGISTRY.register("geomancer", () -> new ArsElementalModifier(com.hollingsworth.arsnouveau.api.spell.SpellSchools.ELEMENTAL_EARTH));
+            AEROMANCER_MODIFIER = MODIFIERS_REGISTRY.register("aeromancer", () -> new ArsElementalModifier(com.hollingsworth.arsnouveau.api.spell.SpellSchools.ELEMENTAL_AIR));
         }
 
         if (ModIntegration.canLoad(ModIntegration.ALEX_MODID)) {

@@ -1,0 +1,32 @@
+{
+  "type": "tconstruct:composable",
+  "condition": {
+    "type": "forge:mod_loaded",
+    "modid": "ars_elemental"
+  },
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tconstruct:requirements",
+      "display_modifiers": [
+        {
+          "level": 3,
+          "name": "tcintegrations:ars_nouveau"
+        }
+      ],
+      "requirement": {
+        "type": "tconstruct:has_modifier",
+        "check": "all",
+        "level": {
+          "min": 3
+        },
+        "modifier": {
+          "type": "tconstruct:single",
+          "modifier": "tcintegrations:ars_nouveau"
+        }
+      },
+      "translation_key": "modifier.tcintegrations.geomancer.requirements"
+    }
+  ],
+  "tooltip_display": "always"
+}

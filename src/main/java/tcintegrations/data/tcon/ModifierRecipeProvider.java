@@ -66,6 +66,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         Consumer<FinishedRecipe> mekanismConsumer = withCondition(consumer, modLoaded(ModIntegration.MEKANISM_MODID));
         Consumer<FinishedRecipe> mythicBotanyConsumer = withCondition(consumer, modLoaded(ModIntegration.MYTHIC_BOTANY_MODID));
         Consumer<FinishedRecipe> ifdConsumer = withCondition(consumer, modLoaded(ModIntegration.IFD_MODID));
+        Consumer<FinishedRecipe> aeConsumer = withCondition(consumer, modLoaded(ModIntegration.ARS_ELEMENTAL_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
                 .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -313,6 +314,52 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .disallowCrystal()
             .saveSalvage(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatSalvage, "_level_3"))
             .save(arsConsumer, wrap(TCIntegrationsModifiers.ARS_MODIFIER.getId(), compatFolder, "_level_3"));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.PYROMANCER_MODIFIER)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
+            .setMaxLevel(1).checkTraitLevel()
+            .setSlots(SlotType.ABILITY,1).addInput(ModIntegration.ARS_ELEMENTAL_MASTER_CORE)
+            .addInput(Tags.Items.INGOTS_NETHERITE)
+            .addInput(ModIntegration.ARS_FIRE_ESSENCE)
+            .addInput(ModIntegration.ARS_FIRE_ESSENCE)
+            .addInput(ModIntegration.ARS_FIRE_ESSENCE)
+            .saveSalvage(aeConsumer, prefix(TCIntegrationsModifiers.PYROMANCER_MODIFIER, compatSalvage))
+            .save(aeConsumer, prefix(TCIntegrationsModifiers.PYROMANCER_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.AQUAMANCER_MODIFIER)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
+            .setMaxLevel(1).checkTraitLevel()
+            .setSlots(SlotType.ABILITY,1).addInput(ModIntegration.ARS_ELEMENTAL_MASTER_CORE)
+            .addInput(Tags.Items.INGOTS_NETHERITE)
+            .addInput(ModIntegration.ARS_WATER_ESSENCE)
+            .addInput(ModIntegration.ARS_WATER_ESSENCE)
+            .addInput(ModIntegration.ARS_WATER_ESSENCE)
+            .saveSalvage(aeConsumer, prefix(TCIntegrationsModifiers.AQUAMANCER_MODIFIER, compatSalvage))
+            .save(aeConsumer, prefix(TCIntegrationsModifiers.AQUAMANCER_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.GEOMANCER_MODIFIER)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
+            .setMaxLevel(1).checkTraitLevel()
+            .setSlots(SlotType.ABILITY,1).addInput(ModIntegration.ARS_ELEMENTAL_MASTER_CORE)
+            .addInput(Tags.Items.INGOTS_NETHERITE)
+            .addInput(ModIntegration.ARS_EARTH_ESSENCE)
+            .addInput(ModIntegration.ARS_EARTH_ESSENCE)
+            .addInput(ModIntegration.ARS_EARTH_ESSENCE)
+            .saveSalvage(aeConsumer, prefix(TCIntegrationsModifiers.GEOMANCER_MODIFIER, compatSalvage))
+            .save(aeConsumer, prefix(TCIntegrationsModifiers.GEOMANCER_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.AEROMANCER_MODIFIER)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
+            .setMaxLevel(1).checkTraitLevel()
+            .setSlots(SlotType.ABILITY,1).addInput(ModIntegration.ARS_ELEMENTAL_MASTER_CORE)
+            .addInput(Tags.Items.INGOTS_NETHERITE)
+            .addInput(ModIntegration.ARS_AIR_ESSENCE)
+            .addInput(ModIntegration.ARS_AIR_ESSENCE)
+            .addInput(ModIntegration.ARS_AIR_ESSENCE)
+            .saveSalvage(aeConsumer, prefix(TCIntegrationsModifiers.AEROMANCER_MODIFIER, compatSalvage))
+            .save(aeConsumer, prefix(TCIntegrationsModifiers.AEROMANCER_MODIFIER, compatFolder));
+
+
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER)
             .setTools(TinkerTags.Items.CHESTPLATES)

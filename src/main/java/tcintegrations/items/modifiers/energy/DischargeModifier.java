@@ -2,6 +2,7 @@ package tcintegrations.items.modifiers.energy;
 
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -16,6 +17,7 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import tcintegrations.client.TCIntegrationsSE;
 import tcintegrations.common.capabilities.ToolEnergyHelper;
+import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.network.DischargeEffectData;
 
 public class DischargeModifier extends Modifier implements MeleeHitModifierHook {
@@ -51,12 +53,21 @@ public class DischargeModifier extends Modifier implements MeleeHitModifierHook 
         Player attacker = context.getPlayerAttacker();
         LivingEntity target = context.getLivingTarget();
         Level world = attacker.level;
+        if (ModIntegration.canLoad(ModIntegration.ARS_ELEMENTAL_MODID) &&  //Ars Elemental Integration
+                target.hasEffect(ModIntegration.ARS_ELEMENTAL_LIGHTNING_LURE)){
+            target.hurt(DamageSource.playerAttack(attacker).bypassInvul(),damageDealt * 0.3f);
+            target.removeEffect(ModIntegration.ARS_ELEMENTAL_LIGHTNING_LURE);
+        }
+
         for (LivingEntity entity : world.getEntitiesOfClass(LivingEntity.class,
                 new AABB(target.blockPosition()).inflate(getRange(modifier.getLevel())),
                 (e) -> !e.equals(attacker))) {
             entity.hurt(DamageSource.playerAttack(attacker), getDamage(modifier.getLevel(), discharged, damageDealt));
             entity.setRemainingFireTicks(30);
             DischargeEffectData.send(world, target.getEyePosition(), entity.getEyePosition()); // send the effect to the client
+            if (ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
+                entity.addEffect(new MobEffectInstance(ModIntegration.ARS_SHOCKED, 121, modifier.getLevel()-1, false, false, true));
+            }
         }
         world.playSound(attacker, attacker.blockPosition(), TCIntegrationsSE.DISCHARGE.get(), SoundSource.PLAYERS, 1.0f, 1.0f);
         toolEnergyHelper.setEnergy(tool, toolEnergyHelper.getEnergy(tool) - discharged);
