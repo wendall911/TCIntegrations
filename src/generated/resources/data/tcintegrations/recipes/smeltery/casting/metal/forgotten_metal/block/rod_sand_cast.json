@@ -1,14 +1,15 @@
 {
   "type": "tconstruct:casting_table",
   "cast": {
-    "tag": "tconstruct:casts/multi_use/plate"
+    "tag": "tconstruct:casts/single_use/rod"
   },
+  "cast_consumed": true,
   "conditions": [
     {
       "type": "forge:not",
       "value": {
         "type": "forge:tag_empty",
-        "tag": "forge:plates/forgotten/block"
+        "tag": "forge:rods/forgotten_metal/block"
       }
     },
     {
@@ -16,12 +17,12 @@
       "modid": "undergarden"
     }
   ],
-  "cooling_time": 63,
+  "cooling_time": 45,
   "fluid": {
-    "amount": 90,
+    "amount": 45,
     "tag": "tcintegrations:forgotten"
   },
   "result": {
-    "tag": "forge:plates/forgotten/block"
+    "tag": "forge:rods/forgotten_metal/block"
   }
 }

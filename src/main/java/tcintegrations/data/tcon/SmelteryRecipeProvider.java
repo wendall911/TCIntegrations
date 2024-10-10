@@ -86,7 +86,7 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
         this.ingotCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE, false, ModIntegration.PENDORITE_SCRAPS, metalFolder + "pendorite/scrap");
         this.metalCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY, false, ModIntegration.PENDORITE_BLOCK, ModIntegration.PENDORITE_INGOT, null, metalFolder, "pendorite_alloy/block");
 
-        this.metalCasting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN, false, ModIntegration.FORGOTTEN_BLOCK, ModIntegration.FORGOTTEN_INGOT, ModIntegration.FORGOTTEN_NUGGET, metalFolder, "forgotten/block");
+        this.metalCasting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN, false, ModIntegration.FORGOTTEN_BLOCK, ModIntegration.FORGOTTEN_INGOT, ModIntegration.FORGOTTEN_NUGGET, metalFolder, "forgotten_metal/block");
 
         for (SmelteryCompat compat : SmelteryCompat.values()) {
             this.metalTagCasting(modConsumers.get(compat.getIdentifier()), compat.getFluid(), compat.getName(), metalFolder, false);

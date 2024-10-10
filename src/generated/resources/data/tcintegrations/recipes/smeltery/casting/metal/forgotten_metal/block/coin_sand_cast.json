@@ -1,7 +1,7 @@
 {
   "type": "tconstruct:casting_table",
   "cast": {
-    "tag": "tconstruct:casts/single_use/rod"
+    "tag": "tconstruct:casts/single_use/coin"
   },
   "cast_consumed": true,
   "conditions": [
@@ -9,7 +9,7 @@
       "type": "forge:not",
       "value": {
         "type": "forge:tag_empty",
-        "tag": "forge:rods/forgotten/block"
+        "tag": "forge:coins/forgotten_metal/block"
       }
     },
     {
@@ -17,12 +17,12 @@
       "modid": "undergarden"
     }
   ],
-  "cooling_time": 45,
+  "cooling_time": 37,
   "fluid": {
-    "amount": 45,
+    "amount": 30,
     "tag": "tcintegrations:forgotten"
   },
   "result": {
-    "tag": "forge:rods/forgotten/block"
+    "tag": "forge:coins/forgotten_metal/block"
   }
 }

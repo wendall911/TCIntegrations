@@ -1,14 +1,14 @@
 {
   "type": "tconstruct:casting_table",
   "cast": {
-    "tag": "tconstruct:casts/multi_use/wire"
+    "tag": "tconstruct:casts/multi_use/coin"
   },
   "conditions": [
     {
       "type": "forge:not",
       "value": {
         "type": "forge:tag_empty",
-        "tag": "forge:wires/forgotten/block"
+        "tag": "forge:coins/forgotten_metal/block"
       }
     },
     {
@@ -16,12 +16,12 @@
       "modid": "undergarden"
     }
   ],
-  "cooling_time": 45,
+  "cooling_time": 37,
   "fluid": {
-    "amount": 45,
+    "amount": 30,
     "tag": "tcintegrations:forgotten"
   },
   "result": {
-    "tag": "forge:wires/forgotten/block"
+    "tag": "forge:coins/forgotten_metal/block"
   }
 }

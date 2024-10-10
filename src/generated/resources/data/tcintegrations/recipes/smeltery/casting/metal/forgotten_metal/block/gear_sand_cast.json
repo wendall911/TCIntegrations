@@ -1,14 +1,15 @@
 {
   "type": "tconstruct:casting_table",
   "cast": {
-    "tag": "tconstruct:casts/multi_use/gear"
+    "tag": "tconstruct:casts/single_use/gear"
   },
+  "cast_consumed": true,
   "conditions": [
     {
       "type": "forge:not",
       "value": {
         "type": "forge:tag_empty",
-        "tag": "forge:gears/forgotten/block"
+        "tag": "forge:gears/forgotten_metal/block"
       }
     },
     {
@@ -22,6 +23,6 @@
     "tag": "tcintegrations:forgotten"
   },
   "result": {
-    "tag": "forge:gears/forgotten/block"
+    "tag": "forge:gears/forgotten_metal/block"
   }
 }
