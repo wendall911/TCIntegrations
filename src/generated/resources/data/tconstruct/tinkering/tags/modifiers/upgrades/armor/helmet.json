@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:frontier_cap",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:turtle_shell",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:bison_fur",
+      "required": false
+    }
+  ]
+}

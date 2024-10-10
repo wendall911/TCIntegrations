@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:enchanters_shield",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:shield_of_the_deep",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:crocodile",
+      "required": false
+    }
+  ]
+}

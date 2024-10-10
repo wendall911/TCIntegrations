@@ -1,0 +1,28 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:livingwood",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:engineers_goggles",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:multivision",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:alf",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:alfheim",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:terrestrial",
+      "required": false
+    }
+  ]
+}

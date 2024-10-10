@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:alf",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:glowup",
+      "required": false
+    }
+  ]
+}

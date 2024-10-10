@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:flamed",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:iced",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:zapped",
+      "required": false
+    }
+  ]
+}

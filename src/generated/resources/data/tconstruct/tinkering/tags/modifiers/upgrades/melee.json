@@ -1,0 +1,32 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:terra",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:elemental",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:siren",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:utherium",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flamed",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:iced",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:zapped",
+      "required": false
+    }
+  ]
+}

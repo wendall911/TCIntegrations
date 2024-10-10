@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:mechanical_arm",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:poseidon",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:alfheim",
+      "required": false
+    }
+  ]
+}

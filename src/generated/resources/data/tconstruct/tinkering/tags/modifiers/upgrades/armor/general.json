@@ -1,0 +1,24 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:great_fairy",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:alfheim",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:ars_nouveau",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:soul_stained",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:masticate",
+      "required": false
+    }
+  ]
+}

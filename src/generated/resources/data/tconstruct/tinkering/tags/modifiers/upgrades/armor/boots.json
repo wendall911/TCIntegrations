@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:roadrunner",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:mosquito",
+      "required": false
+    }
+  ]
+}

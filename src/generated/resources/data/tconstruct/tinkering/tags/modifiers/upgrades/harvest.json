@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:siren",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:froststeel",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:forgotten",
+      "required": false
+    }
+  ]
+}
