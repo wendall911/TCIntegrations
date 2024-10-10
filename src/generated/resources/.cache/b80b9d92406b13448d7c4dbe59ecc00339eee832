@@ -1,10 +1,11 @@
-// 1.19.2	2024-05-25T10:13:21.223070342	TCIntegrations - TCon Modifier Recipes
+// 1.19.2	2024-10-10T12:38:13.415078075	TCIntegrations - TCon Modifier Recipes
 4a4db57e9f4f164f9ab8780543aa51c303022bf1 data/tcintegrations/recipes/tools/modifiers/compat/alf.json
 64578586989240ff0516aeb3b57172b607349c72 data/tcintegrations/recipes/tools/modifiers/compat/alfheim.json
 f36fbdfb0b09517fbb6b75546eab2007a3541401 data/tcintegrations/recipes/tools/modifiers/compat/ars_nouveau_level_1.json
 13a84dae55a39de0e9450c4a614740b83d811d9b data/tcintegrations/recipes/tools/modifiers/compat/ars_nouveau_level_2.json
 e18d1bfab70d4cc65a858aaf0b70fd08e969f201 data/tcintegrations/recipes/tools/modifiers/compat/ars_nouveau_level_3.json
 52b140053a99015a235497c0fa0a065a29dd6756 data/tcintegrations/recipes/tools/modifiers/compat/bison_fur_boots.json
+b186338a22672239195a3cc98782a696cb064f8b data/tcintegrations/recipes/tools/modifiers/compat/capturing.json
 13a59e64a3559f1c39790d7d36b3051f9358bc24 data/tcintegrations/recipes/tools/modifiers/compat/cheesy.json
 58648148b2e4113ae9848ae7dfc2ea975bb6214a data/tcintegrations/recipes/tools/modifiers/compat/crocodile_chestplates.json
 017d185725d02570ccbc25b1770fc6d2fcd2a6c6 data/tcintegrations/recipes/tools/modifiers/compat/elemental.json
@@ -41,6 +42,7 @@ f0189bf9d1476ad43e64ef4b2f245baa24ae9ce7 data/tcintegrations/recipes/tools/modif
 7849eabb64e4957b41848e40de6e6f697159e00b data/tcintegrations/recipes/tools/modifiers/salvage/compat/ars_nouveau_level_2.json
 f9127e3030085c7a29bcadcb1ed513a4cd2fd049 data/tcintegrations/recipes/tools/modifiers/salvage/compat/ars_nouveau_level_3.json
 eedde98bf44b9e1cd730ebe23135fa704674dd1e data/tcintegrations/recipes/tools/modifiers/salvage/compat/bison_fur_boots.json
+86568c112204a3d92b712dd406e263bd99a3344b data/tcintegrations/recipes/tools/modifiers/salvage/compat/capturing.json
 d6e696ca5ca26e02366c55da054604814cf916eb data/tcintegrations/recipes/tools/modifiers/salvage/compat/cheesy.json
 c6c023e89d0e83aba7dda9973fac4486b732173f data/tcintegrations/recipes/tools/modifiers/salvage/compat/crocodile_chestplates.json
 13acbdfc9ef3bf136967fb66511136f0db7b5b50 data/tcintegrations/recipes/tools/modifiers/salvage/compat/elemental.json

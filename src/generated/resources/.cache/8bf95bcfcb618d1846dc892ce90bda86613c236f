@@ -1,0 +1,11 @@
+// 1.19.2	2024-10-10T12:38:13.416066886	TCIntegrations - TCon Modifier Tag Provider
+1507b493f18ceff880291060975e0d8662b70aee data/tconstruct/tinkering/tags/modifiers/abilities/general.json
+8dafb883ad55c5496f8eef47cbcfcd65014bdd97 data/tconstruct/tinkering/tags/modifiers/abilities/interaction.json
+33328e97fe1c0560a81b778852240f18de207314 data/tconstruct/tinkering/tags/modifiers/upgrades/armor/boots.json
+e2ca25bd6c2df7948a6872eea7d8560917df0e8d data/tconstruct/tinkering/tags/modifiers/upgrades/armor/chestplate.json
+208de92e4ff3126d7ca8ee2f0d0f7f2ae28f8934 data/tconstruct/tinkering/tags/modifiers/upgrades/armor/general.json
+4af4265438eb5d52a21dd2d6adc0606913c41dc7 data/tconstruct/tinkering/tags/modifiers/upgrades/armor/helmet.json
+49f613f0af06670d90ec0f68e66b8c63557893fb data/tconstruct/tinkering/tags/modifiers/upgrades/general.json
+af9f6f0dc65ac8d3d10de7c7f35b4b9691a43952 data/tconstruct/tinkering/tags/modifiers/upgrades/harvest.json
+87041e7a19fee3198e5135c49a6693eb5f143947 data/tconstruct/tinkering/tags/modifiers/upgrades/melee.json
+208be1461cc26b7838f1260f71273174e07ccaeb data/tconstruct/tinkering/tags/modifiers/upgrades/ranged.json

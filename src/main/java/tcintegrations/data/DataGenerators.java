@@ -8,13 +8,15 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 import slimeknights.tconstruct.fluids.data.FluidBlockstateModelProvider;
-
 import slimeknights.tconstruct.fluids.data.FluidBucketModelProvider;
+
 import tcintegrations.data.client.ModBlockStateProvider;
 import tcintegrations.data.client.ModItemModelProvider;
 import tcintegrations.data.integration.ProjectEConversionProvider;
 import tcintegrations.data.loot.ModLootTables;
 import tcintegrations.data.recipes.ModRecipesProvider;
+import tcintegrations.data.tcon.EnchantmentToModifierProvider;
+import tcintegrations.data.tcon.ModifierTagProvider;
 import tcintegrations.data.tcon.fluid.FluidTagProvider;
 import tcintegrations.data.tcon.fluid.FluidTextureProvider;
 import tcintegrations.data.tcon.ModifierProvider;
@@ -63,6 +65,8 @@ public final class DataGenerators {
         gen.addProvider(client, new FluidTextureProvider(gen));
         gen.addProvider(client, new FluidBlockstateModelProvider(gen, TCIntegrations.MODID));
         gen.addProvider(client, new FluidBucketModelProvider(gen, TCIntegrations.MODID));
+        gen.addProvider(server, new ModifierTagProvider(gen, TCIntegrations.MODID, existingFileHelper));
+        gen.addProvider(server, new EnchantmentToModifierProvider(gen));
     }
 
 }

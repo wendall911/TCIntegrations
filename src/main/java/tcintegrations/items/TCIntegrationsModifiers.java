@@ -22,6 +22,7 @@ import tcintegrations.items.modifiers.armor.ShieldOfTheDeepModifier;
 import tcintegrations.items.modifiers.armor.TerrestrialModifier;
 import tcintegrations.items.modifiers.armor.TurtleShellModifier;
 import tcintegrations.items.modifiers.tool.AlfModifier;
+import tcintegrations.items.modifiers.tool.CapturingModifier;
 import tcintegrations.items.modifiers.tool.CheesyModifier;
 import tcintegrations.items.modifiers.tool.ElementalModifier;
 import tcintegrations.items.modifiers.tool.FlamedModifier;
@@ -84,6 +85,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<ZappedModifier> ZAPPED_MODIFIER;
     public static StaticModifier<PhantasmalModifier> PHANTASMAL_MODIFIER;
     public static StaticModifier<DragonScalesModifier> DRAGON_SCALES_MODIFIER;
+    public static StaticModifier<CapturingModifier> CAPTURING_MODIFIER;
 
     public static void init() {
         if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
@@ -162,6 +164,10 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
         OXYGENATED_MODIFIER = MODIFIERS_REGISTRY.register("oxygenated", OxygenatedModifier::new);
 
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);
+
+        if (ModIntegration.canLoad(ModIntegration.APOTH_MODID)) {
+            CAPTURING_MODIFIER = MODIFIERS_REGISTRY.register("capturing", CapturingModifier::new);
+        }
     }
 
 }

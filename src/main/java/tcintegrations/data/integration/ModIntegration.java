@@ -33,6 +33,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String IFD_MODID = "iceandfire";
     public static final String CONSECRATION_MODID = "consecration";
     public static final String AD_ASTRA_MODID = "ad_astra";
+    public static final String APOTH_MODID = "apotheosis";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
     public static Item BEYOND_EARTH_CHEESE;

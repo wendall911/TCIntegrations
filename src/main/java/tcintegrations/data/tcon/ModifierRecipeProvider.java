@@ -38,7 +38,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "TCIntegrations - TCon Modifier Recipes";
     }
 
@@ -48,7 +48,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
     }
 
     @Override
-    public String getModId() {
+    public @NotNull String getModId() {
         return TCIntegrations.MODID;
     }
 
@@ -68,6 +68,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         Consumer<FinishedRecipe> mekanismConsumer = withCondition(consumer, modLoaded(ModIntegration.MEKANISM_MODID));
         Consumer<FinishedRecipe> mythicBotanyConsumer = withCondition(consumer, modLoaded(ModIntegration.MYTHIC_BOTANY_MODID));
         Consumer<FinishedRecipe> ifdConsumer = withCondition(consumer, modLoaded(ModIntegration.IFD_MODID));
+        Consumer<FinishedRecipe> apothConsumer = withCondition(consumer, modLoaded(ModIntegration.APOTH_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -472,6 +473,14 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setMaxLevel(1)
             .saveSalvage(ifdConsumer, prefix(TCIntegrationsModifiers.PHANTASMAL_MODIFIER, compatSalvage))
             .save(ifdConsumer, prefix(TCIntegrationsModifiers.PHANTASMAL_MODIFIER, compatFolder));
+
+        IncrementalModifierRecipeBuilder.modifier(TCIntegrationsModifiers.CAPTURING_MODIFIER)
+            .setTools(TinkerTags.Items.MELEE)
+            .setInput(Items.EXPERIENCE_BOTTLE, 1, 28)
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(5)
+            .saveSalvage(apothConsumer, prefix(TCIntegrationsModifiers.CAPTURING_MODIFIER, compatSalvage))
+            .save(apothConsumer, prefix(TCIntegrationsModifiers.CAPTURING_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {
