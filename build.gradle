@@ -4,10 +4,9 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'org.spongepowered.mixin' version '0.7.+'
-    id 'net.darkhax.curseforgegradle' version '1.+'
     id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
-    id 'com.modrinth.minotaur' version '2.+'
     id 'io.freefair.lombok' version '6.3.0'
+    id 'me.modmuss50.mod-publish-plugin' version '0.7.3'
 }
 
 repositories {
@@ -290,7 +289,7 @@ def updates = tasks.register("generateUpdates", Copy) {
     it.into 'files/'
 }
 
-def changelogFile = 'build/libs/' + project.getName() + '-' + version + '-changelog.txt'
+def changelogFile = project(":").projectDir.toString() + '/build/libs/' + project.getName() + '-' + version + '-changelog.txt'
 
 task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
     file = new File(changelogFile);
@@ -321,74 +320,72 @@ task signJar(type: SignJar, dependsOn: jar) {
     outputFile = jar.archiveFile
 }
 
-task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+def publishFile = project(":").projectDir.toString() + "/build/libs/${archivesBaseName}-${version}.jar"
+
+publishMods {
+    file = file(publishFile)
+    if (file(changelogFile).exists()) {
+        changelog = file(changelogFile).text
+    }
+    type = "${release_type}".startsWith("release") ? STABLE : ("${release_type}".startsWith("beta") ? BETA : ALPHA)
+    modLoaders.addAll(['forge'])
+
     if (project.hasProperty('ticurseApiKey')) {
-        apiToken = project.ticurseApiKey
-        def mainFile = upload(project.ticurseId, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
-        mainFile.changelog = file('build/libs/' + project.getName() + '-' + version + '-changelog.txt')
-        mainFile.addJavaVersion('Java 17')
-        mainFile.addModLoader('Forge')
-        mainFile.releaseType = "${release_type}"
-        "${release_versions}".split(',').each {
-            mainFile.addGameVersion("${it}")
+        curseforge {
+            accessToken = project.ticurseApiKey
+            projectId = project.ticurseId
+            javaVersions.add(JavaVersion.toVersion("${java_version}"))
+            clientRequired = true
+            serverRequired = true
+            minecraftVersions.addAll("${release_versions}".split(','))
+            embeds('spectrelib')
+            requires('mantle')
+            requires('tinkers-construct')
+            optional('configured')
+            optional('catalogue')
+            optional('immersive-engineering')
+            optional('botania')
+            optional('create')
+            optional('ars-nouveau')
+            optional('tinkersurvival')
+            optional('aquaculture')
+            optional('alexs-mobs')
+            optional('malum')
+            optional('the-undergarden')
+            optional('projecte')
+            optional('beyond-earth')
+            optional('oh-the-biomes-youll-go')
+            optional('mekanism')
+            optional('mythicbotany')
+            optional('ice-and-fire-dragons')
+            optional('consecration')
+            optional('ad-astra')
         }
-        mainFile.addRequirement('mantle')
-        mainFile.addRequirement('tinkers-construct')
-        mainFile.addOptional('configured')
-        mainFile.addOptional('catalogue')
-        mainFile.addOptional('immersive-engineering')
-        mainFile.addOptional('botania')
-        mainFile.addOptional('create')
-        mainFile.addOptional('ars-nouveau')
-        mainFile.addOptional('tinkersurvival')
-        mainFile.addOptional('aquaculture')
-        mainFile.addOptional('alexs-mobs')
-        mainFile.addOptional('malum')
-        mainFile.addOptional('the-undergarden')
-        mainFile.addOptional('projecte')
-        mainFile.addOptional('beyond-earth')
-        mainFile.addOptional('oh-the-biomes-youll-go')
-        mainFile.addOptional('mekanism')
-        mainFile.addOptional('mythicbotany')
-        mainFile.addOptional('ice-and-fire-dragons')
-        mainFile.addOptional('consecration')
-        mainFile.addOptional('ad-astra')
     }
-}
-
-tasks.curseforge.dependsOn build
-
-modrinth {
     if (project.hasProperty('tiModrinthId')) {
-        token = project.modrinthKey
-        projectId = project.tiModrinthId
-        version = getVersion()
-        versionType = "${release_type}"
-        if (file(changelogFile).exists()) {
-            changelog = file(changelogFile).text
-        }
-        uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
-        gameVersions = "${release_versions}".split(",") as List<String>
-        dependencies {
-            required.project 'mantle'
-            required.project 'tinkers-construct'
-            optional.project 'immersiveengineering'
-            optional.project 'botania'
-            optional.project 'create'
-            optional.project 'ars-nouveau'
-            optional.project 'tinkersurvival'
-            optional.project 'aquaculture'
-            optional.project 'alexs-mobs'
-            optional.project 'the-undergarden'
-            optional.project 'beyond-earth'
-			optional.project "biomesyougo"
-            optional.project 'mekanism'
-            optional.project 'mythicbotany'
-            optional.project 'ice-and-fire-dragons'
-            optional.project 'consecration'
-            optional.project 'ad-astra'
+        modrinth {
+            accessToken = project.modrinthKey
+            projectId = project.tiModrinthId
+            minecraftVersions.addAll("${release_versions}".split(','))
+            requires('mantle')
+            requires('tinkers-construct')
+            optional('immersiveengineering')
+            optional('botania')
+            optional('create')
+            optional('ars-nouveau')
+            optional('tinkersurvival')
+            optional('aquaculture')
+            optional('alexs-mobs')
+            optional('the-undergarden')
+            optional('beyond-earth')
+			optional('biomesyougo')
+            optional('mekanism')
+            optional('mythicbotany')
+            optional('ice-and-fire-dragons')
+            optional('consecration')
+            optional('ad-astra')
         }
     }
+    if (project.hasProperty('tiGithubToken')) {
+    }
 }
-
-tasks.modrinth.dependsOn build
