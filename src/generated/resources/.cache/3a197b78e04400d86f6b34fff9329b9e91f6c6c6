@@ -1,1 +1,9 @@
-// 1.19.2	2024-05-08T10:08:50.538454459	TCIntegrations - Recipies
+// 1.19.2	2024-10-10T09:38:15.178481524	TCIntegrations - Recipies
+f60aba7184b2250961d38c057e42ed0522ae2a6e data/tcintegrations/advancements/recipes/tcintegrations.items/bronze_block_from_ingots.json
+3ee0087b91e5bbbf5885815449ab2615db4e667c data/tcintegrations/advancements/recipes/tcintegrations.items/bronze_ingot_from_nuggets.json
+754e2ebbb211a9afb2fab3274148ac007e571da4 data/tcintegrations/advancements/recipes/tcintegrations.items/bronze_ingots_from_block.json
+e4161ad8d466052084ea6950b87d6e3b747d5f6c data/tcintegrations/advancements/recipes/tcintegrations.items/bronze_nuggets_from_ingot.json
+e9688d4a03853f301c8ccf83615296e652e47866 data/tcintegrations/recipes/bronze_block_from_ingots.json
+d2cd8ca8a2fbc4a33b9499cb401df47d298f06a5 data/tcintegrations/recipes/bronze_ingot_from_nuggets.json
+04ee9045018c785d704755958f14e014826b45d6 data/tcintegrations/recipes/bronze_ingots_from_block.json
+881a81cf0f57c7dbc21de70b40e29924ea1d8916 data/tcintegrations/recipes/bronze_nuggets_from_ingot.json
