@@ -33,10 +33,10 @@
   },
   "tools": [
     {
-      "tag": "tconstruct:modifiable/melee"
+      "tag": "tconstruct:modifiable/melee/primary"
     },
     {
-      "tag": "tconstruct:modifiable/harvest"
+      "tag": "tconstruct:modifiable/harvest/primary"
     }
   ]
 }
