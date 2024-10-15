@@ -198,7 +198,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(aquacultureConsumer, prefix(TCIntegrationsModifiers.POSEIDON_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SIREN_MODIFIER)
-            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE_PRIMARY, TinkerTags.Items.HARVEST_PRIMARY))
             .addInput(ModIntegration.NEPTUNIUM_INGOT)
             .addInput(ModIntegration.NEPTUNIUM_INGOT)
             .addInput(ModIntegration.NEPTUNIUM_INGOT)
@@ -365,7 +365,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(undergardenConsumer, prefix(TCIntegrationsModifiers.MASTICATE_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.UTHERIUM_MODIFIER)
-            .setTools(TinkerTags.Items.MELEE)
+            .setTools(TinkerTags.Items.MELEE_PRIMARY)
             .addInput(ModIntegration.UTHERIUM_CRYSTAL)
             .addInput(ModIntegration.UTHERIUM_CRYSTAL)
             .addInput(ModIntegration.UTHERIUM_CRYSTAL)
@@ -375,7 +375,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(undergardenConsumer, prefix(TCIntegrationsModifiers.UTHERIUM_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.FROSTSTEEL_MODIFIER)
-            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE_PRIMARY, TinkerTags.Items.HARVEST_PRIMARY))
             .addInput(ModIntegration.FROSTSTEEL_INGOT)
             .addInput(ModIntegration.FROSTSTEEL_INGOT)
             .addInput(ModIntegration.FROSTSTEEL_INGOT)
@@ -387,7 +387,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(undergardenConsumer, prefix(TCIntegrationsModifiers.FROSTSTEEL_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.FORGOTTEN_MODIFIER)
-            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE_PRIMARY, TinkerTags.Items.HARVEST_PRIMARY))
             .addInput(ModIntegration.FORGOTTEN_INGOT)
             .addInput(ModIntegration.CLOGGRUM_INGOT)
             .addInput(ModIntegration.CLOGGRUM_INGOT)
@@ -399,7 +399,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(undergardenConsumer, prefix(TCIntegrationsModifiers.FORGOTTEN_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.CHEESY_MODIFIER)
-            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE_PRIMARY, TinkerTags.Items.HARVEST_PRIMARY))
             .addInput(TagManager.Items.CHEESE)
             .addInput(TagManager.Items.CHEESE)
             .addInput(TagManager.Items.CHEESE)
@@ -419,7 +419,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(ieConsumer, prefix(TciModifierIds.multiVision, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.GLOWUP_MODIFIER)
-            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST))
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE_PRIMARY, TinkerTags.Items.HARVEST_PRIMARY))
             .addInput(ModIntegration.INGOT_REFINED_GLOWSTONE)
             .addInput(ModIntegration.INGOT_REFINED_GLOWSTONE)
             .addInput(ModIntegration.INGOT_REFINED_GLOWSTONE)
@@ -431,7 +431,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(mekanismConsumer, prefix(TCIntegrationsModifiers.GLOWUP_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.FLAMED_MODIFIER)
-            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.RANGED))
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE_PRIMARY, TinkerTags.Items.RANGED))
             .addInput(ModIntegration.DRAGON_BONE)
             .addInput(ModIntegration.DRAGON_BONE)
             .addInput(TagManager.Items.WITHER_BONES)
@@ -442,7 +442,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(ifdConsumer, prefix(TCIntegrationsModifiers.FLAMED_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ICED_MODIFIER)
-            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.RANGED))
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE_PRIMARY, TinkerTags.Items.RANGED))
             .addInput(ModIntegration.DRAGON_BONE)
             .addInput(ModIntegration.DRAGON_BONE)
             .addInput(TagManager.Items.WITHER_BONES)
@@ -453,7 +453,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(ifdConsumer, prefix(TCIntegrationsModifiers.ICED_MODIFIER, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ZAPPED_MODIFIER)
-            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.RANGED))
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE_PRIMARY, TinkerTags.Items.RANGED))
             .addInput(ModIntegration.DRAGON_BONE)
             .addInput(ModIntegration.DRAGON_BONE)
             .addInput(TagManager.Items.WITHER_BONES)
@@ -475,10 +475,10 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .save(ifdConsumer, prefix(TCIntegrationsModifiers.PHANTASMAL_MODIFIER, compatFolder));
 
         IncrementalModifierRecipeBuilder.modifier(TCIntegrationsModifiers.CAPTURING_MODIFIER)
-            .setTools(TinkerTags.Items.MELEE)
+            .setTools(TinkerTags.Items.MELEE_PRIMARY)
             .setInput(Items.EXPERIENCE_BOTTLE, 1, 28)
             .setSlots(SlotType.UPGRADE, 1)
-            .setMaxLevel(5)
+            .setMaxLevel(7)
             .saveSalvage(apothConsumer, prefix(TCIntegrationsModifiers.CAPTURING_MODIFIER, compatSalvage))
             .save(apothConsumer, prefix(TCIntegrationsModifiers.CAPTURING_MODIFIER, compatFolder));
     }
