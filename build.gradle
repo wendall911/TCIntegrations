@@ -135,6 +135,7 @@ dependencies {
     implementation fg.deobf("curse.maven:projecte-226410:${projecte_version}")
     runtimeOnly fg.deobf("curse.maven:placebo-283644:${placebo_version}")
     implementation fg.deobf("curse.maven:apotheosis-313970:${apotheosis_version}")
+    runtimeOnly fg.deobf("curse.maven:attributeslib-898963:${attributeslib_version}")
 
     implementation fg.deobf(fileTree(dir: 'libs', include: '*.jar'))
 
