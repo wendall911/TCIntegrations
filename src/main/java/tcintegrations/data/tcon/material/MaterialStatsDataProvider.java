@@ -36,14 +36,14 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         addMaterialStats(MaterialIds.livingWood,
             new HeadMaterialStats(60, 2F, WOOD,0F),
             new LimbMaterialStats(60, 0, 0,0),
-            new GripMaterialStats(1.0F, 0, 0),
+            new GripMaterialStats(0F, 0, 0),
             HandleMaterialStats.percents().build(),
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.SHIELD_CORE);
         addMaterialStats(MaterialIds.livingRock,
             new HeadMaterialStats(130, 4F, STONE, 1F),
             new LimbMaterialStats(130, 0.05F, 0.05F, -0.1F),
-            new GripMaterialStats(1.05F, -0.05F, 0.75F),
+            new GripMaterialStats(0.05F, -0.05F, 0.75F),
             HandleMaterialStats.multipliers().durability(1.2F).attackDamage(1.2F).build(),
             StatlessMaterialStats.BINDING,
             StatlessMaterialStats.SHIELD_CORE);
@@ -52,19 +52,19 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         addMaterialStats(MaterialIds.desh,
             new HeadMaterialStats(250, 6F, IRON, 2F),
             new LimbMaterialStats(250, -0.2F, 0.1F, 0),
-            new GripMaterialStats(1.1F, 0F, 2F),
+            new GripMaterialStats(0.1F, 0F, 2F),
             HandleMaterialStats.multipliers().durability(1.10F).build(),
             StatlessMaterialStats.BINDING);
         addMaterialStats(MaterialIds.calorite,
             new HeadMaterialStats(250, 6F, IRON, 2F),
             new LimbMaterialStats(250, -0.2F, 0.1F, 0),
-            new GripMaterialStats(1.1F, 0F, 2F),
+            new GripMaterialStats(0.1F, 0F, 2F),
             HandleMaterialStats.multipliers().durability(1.10F).build(),
             StatlessMaterialStats.BINDING);
         addMaterialStats(MaterialIds.ostrum,
             new HeadMaterialStats(250, 6F, IRON, 2F),
             new LimbMaterialStats(250, -0.2F, 0.1F, 0),
-            new GripMaterialStats(1.1F, 0F, 2F),
+            new GripMaterialStats(0.1F, 0F, 2F),
             HandleMaterialStats.multipliers().durability(1.10F).build(),
             StatlessMaterialStats.BINDING);
 
@@ -73,7 +73,7 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
             new HeadMaterialStats(775, 6F, DIAMOND, 2.75F),
             HandleMaterialStats.multipliers().durability(1.05F).miningSpeed(1.05F).attackSpeed(1.05F).build(),
             new LimbMaterialStats(775, -0.3F, 0.2F, -0.1F),
-            new GripMaterialStats(1.05F, -0.05F, 2.75F),
+            new GripMaterialStats(0.05F, -0.05F, 2.75F),
             StatlessMaterialStats.BINDING);
         addArmorShieldStats(MaterialIds.manaSteel,
             PlatingMaterialStats.builder()
@@ -84,19 +84,19 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         addMaterialStats(MaterialIds.brass,
             new HeadMaterialStats(730, 6F, DIAMOND, 2.25F),
             new LimbMaterialStats(730, -0.2f, 0.15f, -0.2f),
-            new GripMaterialStats(1.1f, 0f, 2.25f),
+            new GripMaterialStats(0.1f, 0f, 2.25f),
             HandleMaterialStats.multipliers().durability(1.05F).miningSpeed(1.15F).build(),
             StatlessMaterialStats.BINDING);
         addMaterialStats(MaterialIds.neptunium,
             new HeadMaterialStats(765, 7F, DIAMOND, 2.65F),
             HandleMaterialStats.multipliers().durability(1.15F).miningSpeed(1.25F).attackSpeed(1.2F).build(),
             new LimbMaterialStats(765, -0.25F, 0.18F, -0.15F),
-            new GripMaterialStats(1.05F, -0.05F, 2.5F),
+            new GripMaterialStats(0.05F, -0.05F, 2.5F),
             StatlessMaterialStats.BINDING);
         addMaterialStats(MaterialIds.soulStainedSteel,
             new HeadMaterialStats(785, 6F, DIAMOND, 2.75F),
             new LimbMaterialStats(785, -0.3F, 0.2F, -0.1F),
-            new GripMaterialStats(1.1F, -0.05F, 2.75F),
+            new GripMaterialStats(0.1F, -0.05F, 2.75F),
             HandleMaterialStats.multipliers().durability(1.05F).miningSpeed(1.05F).attackSpeed(1.05F).build(),
             StatlessMaterialStats.BINDING);
         addMaterialStats(MaterialIds.manaString, StatlessMaterialStats.BINDING);
@@ -105,7 +105,7 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
         addMaterialStats(MaterialIds.pendoriteAlloy,
             new HeadMaterialStats(1450, 8f, NETHERITE, 3.0F),
             new LimbMaterialStats(1450, 0, -0.20F,0.05F),
-            new GripMaterialStats(1.2F, -0.15F, 3.0F),
+            new GripMaterialStats(0.2F, -0.15F, 3.0F),
             HandleMaterialStats.multipliers().durability(1.4F).miningSpeed(1.2F).attackSpeed(1.1F).attackDamage(1.25F).build(),
             StatlessMaterialStats.BINDING);
         addArmorShieldStats(MaterialIds.dragonsteelFire,
