@@ -55,22 +55,9 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         // Molten objects with Bucket, Block, Ingot, and Nugget forms with standard values
         String metalFolder = folder + "metal/";
 
-        //Map<String, Consumer<FinishedRecipe>> modConsumers = new HashMap<>();
         Consumer<FinishedRecipe> arsConsumer = withCondition(consumer, modLoaded(ModIntegration.ARS_MODID));
         Consumer<FinishedRecipe> bygConsumer = withCondition(consumer, modLoaded(ModIntegration.BYG_MODID));
         Consumer<FinishedRecipe> undergardenConsumer = withCondition(consumer, modLoaded(ModIntegration.UNDERGARDEN_MODID));
-
-        /*
-        modConsumers.put(ModIntegration.BOTANIA_MODID, withCondition(consumer, modLoaded(ModIntegration.BOTANIA_MODID)));
-        modConsumers.put(ModIntegration.AQUACULTURE_MODID, withCondition(consumer, modLoaded(ModIntegration.AQUACULTURE_MODID)));
-        modConsumers.put(ModIntegration.MALUM_MODID, withCondition(consumer, modLoaded(ModIntegration.MALUM_MODID)));
-        modConsumers.put(ModIntegration.UNDERGARDEN_MODID, undergardenConsumer);
-        modConsumers.put(ModIntegration.BYG_MODID, bygConsumer);
-        modConsumers.put(MaterialIds.desh.getPath(), withCondition(consumer, tagCondition("ingots/" + MaterialIds.desh.getPath())));
-        modConsumers.put(MaterialIds.calorite.getPath(), withCondition(consumer, tagCondition("ingots/" + MaterialIds.calorite.getPath())));
-        modConsumers.put(MaterialIds.ostrum.getPath(), withCondition(consumer, tagCondition("ingots/" + MaterialIds.ostrum.getPath())));
-        modConsumers.put(ModIntegration.IFD_MODID, withCondition(consumer, modLoaded(ModIntegration.IFD_MODID)));
-         */
 
         this.gemCasting(arsConsumer, TCIntegrationsItems.MOLTEN_SOURCE_GEM, ModIntegration.SOURCE_GEM, folder + "source_gem/gem");
         ItemCastingRecipeBuilder.basinRecipe(ModIntegration.SOURCE_GEM_BLOCK)
@@ -79,11 +66,9 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
 
         this.ingotCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE, FluidValues.INGOT, ModIntegration.PENDORITE_SCRAPS, metalFolder + "pendorite/scrap");
 
-        //this.metalCasting(bygConsumer, TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY, ModIntegration.PENDORITE_BLOCK, ModIntegration.PENDORITE_INGOT, null, metalFolder, "pendorite_alloy/block");
         MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.PENDORITE_BLOCK), TCIntegrationsItems.MOLTEN_PENDORITE.get(), FluidValues.INGOT * 9, 2.0F)
             .save(bygConsumer, location(metalFolder + "pendorite_alloy/block"));
 
-        //this.metalCasting(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN, false, ModIntegration.FORGOTTEN_BLOCK, ModIntegration.FORGOTTEN_INGOT, ModIntegration.FORGOTTEN_NUGGET, metalFolder, "forgotten_metal/block");
         MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.FORGOTTEN_BLOCK), TCIntegrationsItems.MOLTEN_FORGOTTEN.get(), FluidValues.INGOT * 9, 2.0F)
             .save(undergardenConsumer, location(metalFolder + "forgotten_metal/block"));
     }
@@ -104,29 +89,17 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         Consumer<FinishedRecipe> ifdConsumer = withCondition(consumer, modLoaded(ModIntegration.IFD_MODID));
         Consumer<FinishedRecipe> arsConsumer = withCondition(consumer, modLoaded(ModIntegration.ARS_MODID));
 
-        //addMetal(botaniaConsumer, TCIntegrationsItems.MOLTEN_MANASTEEL, false, metalFolder, false, Byproduct.IRON);
         metal(botaniaConsumer, TCIntegrationsItems.MOLTEN_MANASTEEL).metal();
-        //addMetal(aquacultureConsumer, TCIntegrationsItems.MOLTEN_NEPTUNIUM, false, metalFolder, false, null);
         metal(aquacultureConsumer, TCIntegrationsItems.MOLTEN_NEPTUNIUM).metal();
-        //addMetal(malumConsumer, TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL, false, metalFolder, false, Byproduct.IRON);
         metal(malumConsumer, TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL).metal();
-        //addMetal(undergardenConsumer, TCIntegrationsItems.MOLTEN_CLOGGRUM, true, metalFolder, false, null);
         metal(undergardenConsumer, TCIntegrationsItems.MOLTEN_CLOGGRUM).metal();
-        //addMetal(undergardenConsumer, TCIntegrationsItems.MOLTEN_FROSTSTEEL, true, metalFolder, false, null);
         metal(undergardenConsumer, TCIntegrationsItems.MOLTEN_FROSTSTEEL).metal();
-        //addMetal(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN, false, metalFolder, false, null);
         metal(undergardenConsumer, TCIntegrationsItems.MOLTEN_FORGOTTEN).metal();
-        //addMetal(deshConsumer, TCIntegrationsItems.MOLTEN_DESH, true, metalFolder, false, null);
         metal(deshConsumer, TCIntegrationsItems.MOLTEN_DESH).metal();
-        //addMetal(caloriteConsumer, TCIntegrationsItems.MOLTEN_CALORITE, true, metalFolder, false, null);
         metal(caloriteConsumer, TCIntegrationsItems.MOLTEN_CALORITE).metal();
-        //addMetal(ostrumConsumer, TCIntegrationsItems.MOLTEN_OSTRUM, true, metalFolder, false, null);
         metal(ostrumConsumer, TCIntegrationsItems.MOLTEN_OSTRUM).metal();
-        //addMetal(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE, false, metalFolder, false, Byproduct.IRON);
         metal(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE).metal();
-        //addMetal(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE, false, metalFolder, false, Byproduct.IRON);
         metal(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE).metal();
-        //addMetal(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING, false, metalFolder, false, Byproduct.IRON);
         metal(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING).metal();
 
         MeltingRecipeBuilder.melting(Ingredient.of(TagManager.Items.EMERALDITE_SHARDS), TinkerFluids.moltenEmerald.get(), FluidValues.GEM_SHARD, 1.0F)
@@ -144,7 +117,6 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
             .save(bygConsumer, location(metalFolder + "pendorite/scrap"));
         MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.PENDORITE_INGOT), TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.get(), FluidValues.INGOT, 2.0F)
             .save(bygConsumer, location(metalFolder + "pendorite_alloy/ingot"));
-        //gemMelting(arsConsumer, TCIntegrationsItems.MOLTEN_SOURCE_GEM.get(), "source_gem", false, 4, folder, false);
         MeltingRecipeBuilder.melting(Ingredient.of(ModIntegration.SOURCE_GEM_BLOCK), TCIntegrationsItems.MOLTEN_SOURCE_GEM.get(), FluidValues.SMALL_GEM_BLOCK, 2.0F)
             .save(arsConsumer, location(folder + "source_gem/block"));
 
