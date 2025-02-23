@@ -1,7 +1,7 @@
 package tcintegrations.data;
 
 import net.minecraft.data.DataGenerator;
-
+import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -38,35 +38,36 @@ public final class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
         DataGenerator gen = event.getGenerator();
+        PackOutput packOutput = gen.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        ModBlockTagsProvider blockTags = new ModBlockTagsProvider(gen, existingFileHelper);
+        ModBlockTagsProvider blockTags = new ModBlockTagsProvider(packOutput, event.getLookupProvider(), existingFileHelper);
         TinkerMaterialSpriteProvider materialSprites = new TinkerMaterialSpriteProvider();
-        MaterialDataProvider materials = new MaterialDataProvider(gen);
+        MaterialDataProvider materials = new MaterialDataProvider(packOutput);
         boolean server = event.includeServer();
         boolean client = event.includeClient();
 
-        gen.addProvider(server, new ModItemModelProvider(gen, existingFileHelper));
-        gen.addProvider(server, new ModBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(server, new ModItemModelProvider(packOutput, existingFileHelper));
+        gen.addProvider(server, new ModBlockStateProvider(packOutput, existingFileHelper));
         gen.addProvider(server, blockTags);
-        gen.addProvider(server, new ModItemTagsProvider(gen, blockTags, existingFileHelper));
-        gen.addProvider(server, new FluidTagProvider(gen, existingFileHelper));
-        gen.addProvider(server, new ModifierRecipeProvider(gen));
-        gen.addProvider(server, new ModRecipesProvider(gen));
-        gen.addProvider(server, new ModLootTables(gen));
-        gen.addProvider(client, new MaterialRenderInfoProvider(gen, materialSprites, existingFileHelper));
-        gen.addProvider(server, new MaterialStatsDataProvider(gen, materials));
-        gen.addProvider(server, new MaterialTraitsDataProvider(gen, materials));
-        gen.addProvider(server, new MaterialRecipeProvider(gen));
-        gen.addProvider(server, new SmelteryRecipeProvider(gen));
+        gen.addProvider(server, new ModItemTagsProvider(packOutput, event.getLookupProvider(), blockTags, existingFileHelper));
+        gen.addProvider(server, new FluidTagProvider(packOutput, event.getLookupProvider(), existingFileHelper));
+        gen.addProvider(server, new ModifierRecipeProvider(packOutput));
+        gen.addProvider(server, new ModRecipesProvider(packOutput));
+        gen.addProvider(server, ModLootTables.create(packOutput));
+        gen.addProvider(client, new MaterialRenderInfoProvider(packOutput, materialSprites, existingFileHelper));
+        gen.addProvider(server, new MaterialStatsDataProvider(packOutput, materials));
+        gen.addProvider(server, new MaterialTraitsDataProvider(packOutput, materials));
+        gen.addProvider(server, new MaterialRecipeProvider(packOutput));
+        gen.addProvider(server, new SmelteryRecipeProvider(packOutput));
         gen.addProvider(server, materials);
-        gen.addProvider(server, new EntityTypeTagProvider(gen, existingFileHelper));
-        gen.addProvider(server, new ProjectEConversionProvider(gen));
-        gen.addProvider(server, new ModifierProvider(gen));
-        gen.addProvider(client, new FluidTextureProvider(gen));
-        gen.addProvider(client, new FluidBlockstateModelProvider(gen, TCIntegrations.MODID));
-        gen.addProvider(client, new FluidBucketModelProvider(gen, TCIntegrations.MODID));
-        gen.addProvider(server, new ModifierTagProvider(gen, TCIntegrations.MODID, existingFileHelper));
-        gen.addProvider(server, new EnchantmentToModifierProvider(gen));
+        gen.addProvider(server, new EntityTypeTagProvider(packOutput, event.getLookupProvider(), existingFileHelper));
+        gen.addProvider(server, new ProjectEConversionProvider(packOutput, event.getLookupProvider()));
+        gen.addProvider(server, new ModifierProvider(packOutput));
+        gen.addProvider(client, new FluidTextureProvider(packOutput));
+        gen.addProvider(client, new FluidBlockstateModelProvider(packOutput, TCIntegrations.MODID));
+        gen.addProvider(client, new FluidBucketModelProvider(packOutput, TCIntegrations.MODID));
+        gen.addProvider(server, new ModifierTagProvider(packOutput, TCIntegrations.MODID, existingFileHelper));
+        gen.addProvider(server, new EnchantmentToModifierProvider(packOutput));
     }
 
 }

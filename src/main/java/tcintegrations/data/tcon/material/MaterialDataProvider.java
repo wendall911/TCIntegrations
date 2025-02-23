@@ -1,6 +1,6 @@
 package tcintegrations.data.tcon.material;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 
 import net.minecraftforge.common.crafting.conditions.ICondition;
 import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
@@ -11,8 +11,8 @@ import tcintegrations.data.integration.ModIntegration;
 
 public class MaterialDataProvider extends AbstractMaterialDataProvider {
 
-    public MaterialDataProvider(DataGenerator gen) {
-        super(gen);
+    public MaterialDataProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override

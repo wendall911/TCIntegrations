@@ -1,6 +1,7 @@
 package tcintegrations.data.tcon;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
+
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import slimeknights.tconstruct.library.data.tinkering.AbstractModifierTagProvider;
@@ -21,8 +22,8 @@ import static slimeknights.tconstruct.common.TinkerTags.Modifiers.RANGED_UPGRADE
 
 public class ModifierTagProvider extends AbstractModifierTagProvider {
 
-    public ModifierTagProvider(DataGenerator generator, String modId, ExistingFileHelper existingFileHelper) {
-        super(generator, modId, existingFileHelper);
+    public ModifierTagProvider(PackOutput packOutput, String modId, ExistingFileHelper existingFileHelper) {
+        super(packOutput, modId, existingFileHelper);
     }
 
     @Override

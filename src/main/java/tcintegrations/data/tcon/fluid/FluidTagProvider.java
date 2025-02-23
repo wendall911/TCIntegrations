@@ -1,6 +1,11 @@
 package tcintegrations.data.tcon.fluid;
 
-import net.minecraft.data.DataGenerator;
+import java.util.concurrent.CompletableFuture;
+
+import org.jetbrains.annotations.NotNull;
+
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.FluidTagsProvider;
 
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -17,8 +22,8 @@ import static tcintegrations.util.ResourceLocationHelper.resource;
 @SuppressWarnings("unchecked")
 public class FluidTagProvider extends FluidTagsProvider {
 
-    public FluidTagProvider(DataGenerator generatorIn, ExistingFileHelper helper) {
-        super(generatorIn, TCIntegrations.MODID, helper);
+    public FluidTagProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper helper) {
+        super(packOutput, lookupProvider, TCIntegrations.MODID, helper);
     }
 
     @Override
@@ -27,7 +32,7 @@ public class FluidTagProvider extends FluidTagsProvider {
     }
 
     @Override
-    public void addTags() {
+    public void addTags(HolderLookup.@NotNull Provider provider) {
         tagAll(TCIntegrationsItems.MOLTEN_MANASTEEL);
         tagAll(TCIntegrationsItems.MOLTEN_NEPTUNIUM);
         tagLocal(TCIntegrationsItems.MOLTEN_SOURCE_GEM);
@@ -45,38 +50,38 @@ public class FluidTagProvider extends FluidTagsProvider {
         tagAll(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING);
 
         this.tag(TinkerTags.Fluids.METAL_TOOLTIPS)
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_MANASTEEL.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_NEPTUNIUM.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_CLOGGRUM.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_FROSTSTEEL.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_DESH.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_CALORITE.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_OSTRUM.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING.getForgeTag().location());
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_MANASTEEL.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_NEPTUNIUM.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_CLOGGRUM.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_FROSTSTEEL.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_DESH.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_CALORITE.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_OSTRUM.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING.getTag().location());
 
         this.tag(TinkerTags.Fluids.AVERAGE_METAL_SPILLING)
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_MANASTEEL.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_CLOGGRUM.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_FROSTSTEEL.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING.getForgeTag().location());
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_MANASTEEL.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_CLOGGRUM.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_FROSTSTEEL.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING.getTag().location());
 
         this.tag(TinkerTags.Fluids.EXPENSIVE_METAL_SPILLING)
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_NEPTUNIUM.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE.getForgeTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING.getForgeTag().location());
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_NEPTUNIUM.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING.getTag().location());
 
         this.tag(TinkerTags.Fluids.SMALL_GEM_TOOLTIPS)
             .addOptionalTag(TCIntegrationsItems.MOLTEN_SOURCE_GEM.getId());
@@ -91,7 +96,7 @@ public class FluidTagProvider extends FluidTagsProvider {
 
     private void tagAll(FlowingFluidObject<?> fluid) {
         tagLocal(fluid);
-        tag(fluid.getForgeTag()).addOptionalTag(fluid.getLocalTag().location());
+        tag(fluid.getTag()).addOptionalTag(fluid.getLocalTag().location());
     }
 
 }

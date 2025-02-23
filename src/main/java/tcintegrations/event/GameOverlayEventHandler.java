@@ -18,6 +18,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Font;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
@@ -104,7 +105,7 @@ public class GameOverlayEventHandler {
         ArrayList<String> text = new ArrayList<>();
 
         boolean matches = VoltmeterItem.lastEnergyUpdate.pos().equals(pos);
-        long sinceLast = player.level.getGameTime() - VoltmeterItem.lastEnergyUpdate.measuredInTick();
+        long sinceLast = player.level().getGameTime() - VoltmeterItem.lastEnergyUpdate.measuredInTick();
 
         if (!matches || sinceLast > 20) {
             ImmersiveEngineering.packetHandler.sendToServer(new MessageRequestEnergyUpdate(pos));
@@ -122,7 +123,7 @@ public class GameOverlayEventHandler {
 
         if (pos.isLeft()) {
             matches = VoltmeterItem.lastRedstoneUpdate.pos().equals(pos.leftNonnull());
-            sinceLast = player.level.getGameTime() - VoltmeterItem.lastRedstoneUpdate.measuredInTick();
+            sinceLast = player.level().getGameTime() - VoltmeterItem.lastRedstoneUpdate.measuredInTick();
 
             if (!matches || sinceLast > 20) {
                 ImmersiveEngineering.packetHandler.sendToServer(new MessageRequestRedstoneUpdate(pos.leftNonnull()));
@@ -148,7 +149,7 @@ public class GameOverlayEventHandler {
                 ClientUtils.font().drawInBatch(
                         s, scaledWidth / 2 - w / 2f,
                         scaledHeight / 2 + 4 + (i++) * (ClientUtils.font().lineHeight + 2), col,
-                        false, transform.last().pose(), buffer, false,
+                        false, transform.last().pose(), buffer, Font.DisplayMode.NORMAL,
                         0, 0xf000f0
                 );
             }

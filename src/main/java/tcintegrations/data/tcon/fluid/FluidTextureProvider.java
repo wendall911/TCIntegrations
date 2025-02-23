@@ -1,6 +1,8 @@
 package tcintegrations.data.tcon.fluid;
 
-import net.minecraft.data.DataGenerator;
+import org.jetbrains.annotations.NotNull;
+
+import net.minecraft.data.PackOutput;
 
 import slimeknights.mantle.fluid.texture.AbstractFluidTextureProvider;
 import slimeknights.mantle.fluid.texture.FluidTexture;
@@ -10,17 +12,18 @@ import tcintegrations.TCIntegrations;
 import tcintegrations.items.TCIntegrationsItems;
 
 import static slimeknights.tconstruct.TConstruct.getResource;
+
 import static tcintegrations.util.ResourceLocationHelper.resource;
 
 @SuppressWarnings({"UnusedReturnValue", "SameParameterValue"})
 public class FluidTextureProvider extends AbstractFluidTextureProvider {
 
-    public FluidTextureProvider(DataGenerator generator) {
-        super(generator, TCIntegrations.MODID);
+    public FluidTextureProvider(PackOutput packOutput) {
+        super(packOutput, TCIntegrations.MODID);
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "TCIntegrations - TCon Fluid Textures";
     }
 

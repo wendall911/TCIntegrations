@@ -2,7 +2,7 @@ package tcintegrations.data.client;
 
 import java.util.Objects;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
 
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
@@ -13,8 +13,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import tcintegrations.TCIntegrations;
 
 public class ModItemModelProvider extends ItemModelProvider {
-    public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, TCIntegrations.MODID, existingFileHelper);
+    public ModItemModelProvider(PackOutput packOutput, ExistingFileHelper existingFileHelper) {
+        super(packOutput, TCIntegrations.MODID, existingFileHelper);
     }
 
     @Override

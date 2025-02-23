@@ -1,14 +1,19 @@
 package tcintegrations.data.tcon;
 
-import net.minecraft.data.DataGenerator;
-import shadows.apotheosis.Apoth;
+import org.jetbrains.annotations.NotNull;
+
+import net.minecraft.data.PackOutput;
+
+import dev.shadowsoffire.apotheosis.Apoth;
+
 import slimeknights.tconstruct.library.data.tinkering.AbstractEnchantmentToModifierProvider;
+
 import tcintegrations.items.TCIntegrationsModifiers;
 
 public class EnchantmentToModifierProvider extends AbstractEnchantmentToModifierProvider {
 
-    public EnchantmentToModifierProvider(DataGenerator generator) {
-        super(generator);
+    public EnchantmentToModifierProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
@@ -17,7 +22,7 @@ public class EnchantmentToModifierProvider extends AbstractEnchantmentToModifier
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "TCIntegrations - TCon Enchantment to Modifier Mapping";
     }
 

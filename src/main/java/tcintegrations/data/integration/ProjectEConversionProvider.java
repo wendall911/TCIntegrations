@@ -1,8 +1,11 @@
 package tcintegrations.data.integration;
 
+import java.util.concurrent.CompletableFuture;
+
 import moze_intel.projecte.api.data.CustomConversionProvider;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 
 import slimeknights.tconstruct.shared.TinkerMaterials;
 
@@ -12,8 +15,8 @@ import static tcintegrations.util.ResourceLocationHelper.location;
 
 public class ProjectEConversionProvider extends CustomConversionProvider {
 
-    public ProjectEConversionProvider(DataGenerator generator) {
-        super(generator);
+    public ProjectEConversionProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+        super(packOutput, lookupProvider);
     }
 
     @Override
@@ -22,8 +25,9 @@ public class ProjectEConversionProvider extends CustomConversionProvider {
     }
 
     @Override
-    protected void addCustomConversions() {
+    protected void addCustomConversions(HolderLookup.Provider provider) {
         createConversionBuilder(location(TCIntegrations.MODID, "metals"))
             .before(TinkerMaterials.cobalt.getIngot(), 6_144);
     }
+
 }

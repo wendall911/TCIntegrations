@@ -32,7 +32,7 @@ public class WaterPowered extends NoLevelsModifier implements ToolDamageModifier
     public int onDamageTool(IToolStackView tool, ModifierEntry modifier, int amount, @Nullable LivingEntity holder) {
         final Player player = holder instanceof Player ? (Player) holder : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
             boolean isPartialSubmersion = !sp.isUnderWater() && sp.isInWater() && sp.isInWaterRainOrBubble();
             boolean isSubmerged = sp.isUnderWater() && sp.isInWater() && sp.isInWaterRainOrBubble();

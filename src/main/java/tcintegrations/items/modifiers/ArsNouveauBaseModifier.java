@@ -1,6 +1,6 @@
 package tcintegrations.items.modifiers;
 
-import com.hollingsworth.arsnouveau.common.capability.CapabilityRegistry;
+import com.hollingsworth.arsnouveau.setup.registry.CapabilityRegistry;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
@@ -28,7 +28,7 @@ public class ArsNouveauBaseModifier extends NoLevelsModifier implements Inventor
         final Player player = holder instanceof Player ? (Player) holder : null;
 
         if (player != null
-                && !player.level.isClientSide
+                && !player.level().isClientSide
                 && holder.tickCount % 200 == 0
                 && tool.getDamage() > 0) {
             final ServerPlayer sp = (ServerPlayer) player;

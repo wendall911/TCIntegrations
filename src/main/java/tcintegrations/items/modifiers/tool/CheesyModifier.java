@@ -78,7 +78,7 @@ public class CheesyModifier extends Modifier implements GeneralInteractionModifi
         if (!tool.isBroken() && entity instanceof Player player && player.canEat(false)) {
             // eat the food
             int level = modifier.getLevel();
-            Level world = entity.getLevel();
+            Level world = entity.level();
             player.getFoodData().eat(level, level * 0.1F);
             ModifierUtil.foodConsumer.onConsume(player, CHEESE_STACK.get(), level, level * 0.1F);
             player.awardStat(Stats.ITEM_USED.get(tool.getItem()));

@@ -4,7 +4,6 @@ import org.jetbrains.annotations.Nullable;
 
 import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
 
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -23,7 +22,7 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
-import slimeknights.tconstruct.library.tools.nbt.NamespacedNBT;
+import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 
 public class FlamedModifier extends NoLevelsModifier implements ProjectileLaunchModifierHook, ProjectileHitModifierHook, MeleeHitModifierHook {
 
@@ -58,7 +57,7 @@ public class FlamedModifier extends NoLevelsModifier implements ProjectileLaunch
     }
 
     @Override
-    public boolean onProjectileHitEntity(ModifierNBT modifiers, NamespacedNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
+    public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
         // Apply knockback
         if (hit.getEntity() instanceof LivingEntity living) {
             if (projectile instanceof AbstractArrow arrow) {
@@ -76,7 +75,7 @@ public class FlamedModifier extends NoLevelsModifier implements ProjectileLaunch
 
     private void doSecondaryDamage(Entity entity, LivingEntity target) {
         if (target instanceof EntityIceDragon) {
-            ToolAttackUtil.attackEntitySecondary(DamageSource.IN_FIRE, 13.5F, entity, target, false);
+            ToolAttackUtil.attackEntitySecondary(entity.level().damageSources().inFire(), 13.5F, entity, target, false);
         }
         if (target != null) {
             target.setSecondsOnFire(5);
@@ -84,7 +83,7 @@ public class FlamedModifier extends NoLevelsModifier implements ProjectileLaunch
     }
 
     @Override
-    public void onProjectileLaunch(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter, Projectile projectile, @Nullable AbstractArrow arrow, NamespacedNBT persistentData, boolean primary) {
+    public void onProjectileLaunch(IToolStackView tool, ModifierEntry modifier, LivingEntity shooter, Projectile projectile, @Nullable AbstractArrow arrow, ModDataNBT persistentData, boolean primary) {
         projectile.setSecondsOnFire(5);
     }
 

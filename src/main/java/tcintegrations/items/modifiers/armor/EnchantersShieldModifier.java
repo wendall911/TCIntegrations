@@ -1,6 +1,6 @@
 package tcintegrations.items.modifiers.armor;
 
-import com.hollingsworth.arsnouveau.common.potions.ModPotions;
+import com.hollingsworth.arsnouveau.setup.registry.ModPotions;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.damagesource.DamageSource;
@@ -29,7 +29,7 @@ public class EnchantersShieldModifier extends ArsNouveauBaseModifier implements 
     @Override
     public void onAttacked(IToolStackView tool, ModifierEntry modifier, EquipmentContext context, EquipmentSlot slotType, DamageSource source, float amount, boolean isDirectDamage) {
         if (context.getEntity() instanceof Player player
-                && !player.level.isClientSide
+                && !player.level().isClientSide
                 && player.isBlocking()
                 && source.getEntity() instanceof LivingEntity
                 && isDirectDamage) {

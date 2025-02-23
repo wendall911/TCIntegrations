@@ -11,6 +11,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 
+import net.minecraft.world.item.ArmorItem;
 import net.minecraftforge.common.ForgeMod;
 
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -32,7 +33,7 @@ public class CrocodileModifier extends NoLevelsModifier implements EquipmentChan
     private static final AttributeModifier INCREASED_ARMOR = new AttributeModifier(
         UUID.fromString("bcb5131d-3bb9-499e-b336-e9aad469ace4"),
         "Crocodile Chestplate Armor",
-        AMItemRegistry.CROCODILE_ARMOR_MATERIAL.getDefenseForSlot(EquipmentSlot.CHEST),
+        AMItemRegistry.CROCODILE_ARMOR_MATERIAL.getDefenseForType(ArmorItem.Type.CHESTPLATE),
         AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier INCREASED_ARMOR_TOUGHNESS = new AttributeModifier(
@@ -52,7 +53,7 @@ public class CrocodileModifier extends NoLevelsModifier implements EquipmentChan
     public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
             AttributeInstance swimSpeed = sp.getAttribute(ForgeMod.SWIM_SPEED.get());
             AttributeInstance armor = sp.getAttribute(Attributes.ARMOR);
@@ -79,7 +80,7 @@ public class CrocodileModifier extends NoLevelsModifier implements EquipmentChan
     public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
             AttributeInstance swimSpeed = sp.getAttribute(ForgeMod.SWIM_SPEED.get());
             AttributeInstance armor = sp.getAttribute(Attributes.ARMOR);

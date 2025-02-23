@@ -1,13 +1,16 @@
 package tcintegrations.data;
 
-import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
 
-import net.minecraft.data.tags.BlockTagsProvider;
+import org.jetbrains.annotations.NotNull;
+
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.PackOutput;
+import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.common.Tags;
@@ -21,21 +24,23 @@ import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.data.tcon.SmelteryCompat;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
-import tcintegrations.util.IBlockProvider;
 import tcintegrations.common.TagManager;
 
-public class ModBlockTagsProvider extends BlockTagsProvider {
-    public ModBlockTagsProvider(DataGenerator generatorIn, ExistingFileHelper existingFileHelper) {
-        super(generatorIn, TCIntegrations.MODID, existingFileHelper);
+import static slimeknights.mantle.Mantle.commonResource;
+
+public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
+
+    public ModBlockTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
+        super(output, Registries.BLOCK, lookupProvider, (block) -> block.builtInRegistryHolder().key(), TCIntegrations.MODID, existingFileHelper);
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "TCIntegrations - Block Tags";
     }
 
     @Override 
-    protected void addTags() {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         this.tag(TagManager.Blocks.BRONZE).add(TCIntegrationsItems.BRONZE.get());
         this.tag(TagManager.Blocks.SOUL_STAINED_STEEL).addOptional(ModIntegration.malumLoc("block_of_soul_stained_steel"));
         this.tag(Tags.Blocks.STORAGE_BLOCKS)
@@ -55,14 +60,12 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         }
 
         addMetalTags(TCIntegrationsItems.BRONZE);
-    }
 
-    private void builder(TagKey<Block> tag, IBlockProvider... items) {
-        getBuilder(tag).add(Arrays.stream(items).map(IBlockProvider::asBlock).toArray(Block[]::new));
-    }
-
-    protected TagsProvider.TagAppender<Block> getBuilder(TagKey<Block> tag) {
-        return tag(tag);
+        for (SmelteryCompat compat : SmelteryCompat.values()) {
+            if (!compat.isOre()) {
+                builder.addOptionalTag(commonResource("storage_blocks/" + compat.getName()));
+            }
+        }
     }
 
     private void addMetalTags(MetalItemObject metal) {

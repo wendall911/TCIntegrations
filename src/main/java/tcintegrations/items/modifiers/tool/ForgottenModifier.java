@@ -53,7 +53,7 @@ public class ForgottenModifier extends NoLevelsModifier implements MeleeDamageMo
 
         if (target != null) {
             LivingEntity attacker = context.getAttacker();
-            BlockState state = attacker.level.getBlockState(attacker.getOnPos());
+            BlockState state = attacker.level().getBlockState(attacker.getOnPos());
 
             if (tool.hasTag(TinkerTags.Items.MELEE) && isUndergarden(state, attacker)) {
                 return damage * 1.5F;
@@ -74,7 +74,7 @@ public class ForgottenModifier extends NoLevelsModifier implements MeleeDamageMo
 
     @Override
     public void addTooltip(IToolStackView tool, ModifierEntry modifier, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
-        BlockState state = player != null ? player.level.getBlockState(player.getOnPos()) : null;
+        BlockState state = player != null ? player.level().getBlockState(player.getOnPos()) : null;
 
         if (state != null && isUndergarden(state, player)) {
             if (tool.hasTag(TinkerTags.Items.HARVEST)) {

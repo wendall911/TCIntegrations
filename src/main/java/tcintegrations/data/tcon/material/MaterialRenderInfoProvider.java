@@ -1,6 +1,6 @@
 package tcintegrations.data.tcon.material;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -9,8 +9,8 @@ import slimeknights.tconstruct.library.client.data.material.AbstractMaterialSpri
 
 public class MaterialRenderInfoProvider extends AbstractMaterialRenderInfoProvider {
 
-    public MaterialRenderInfoProvider(DataGenerator gen, AbstractMaterialSpriteProvider spriteProvider, ExistingFileHelper existingFileHelper) {
-        super(gen, spriteProvider, existingFileHelper);
+    public MaterialRenderInfoProvider(PackOutput packOutput, AbstractMaterialSpriteProvider spriteProvider, ExistingFileHelper existingFileHelper) {
+        super(packOutput, spriteProvider, existingFileHelper);
     }
 
     @Override

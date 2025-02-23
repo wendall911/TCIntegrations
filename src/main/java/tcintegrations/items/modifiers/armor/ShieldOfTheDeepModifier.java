@@ -28,7 +28,7 @@ public class ShieldOfTheDeepModifier extends NoLevelsModifier implements OnAttac
     @Override
     public void onAttacked(IToolStackView tool, ModifierEntry modifier, EquipmentContext context, EquipmentSlot slotType, DamageSource source, float amount, boolean isDirectDamage) {
         if (context.getEntity() instanceof Player player
-                && !player.level.isClientSide
+                && !player.level().isClientSide
                 && source.getEntity() instanceof LivingEntity attacker
                 && isDirectDamage) {
             final ServerPlayer sp = (ServerPlayer) player;

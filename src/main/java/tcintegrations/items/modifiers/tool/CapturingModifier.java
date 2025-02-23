@@ -13,7 +13,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
 import net.minecraftforge.common.ForgeSpawnEggItem;
 
-import shadows.apotheosis.spawn.SpawnerModule;
+import dev.shadowsoffire.apotheosis.spawn.SpawnerModule;
 
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -42,7 +42,7 @@ public class CapturingModifier extends Modifier implements ProcessLootModifierHo
 
             if (SpawnerModule.bannedMobs.contains(EntityType.getKey(entity.getType()))) return;
 
-            if (entity.level.random.nextFloat() < level / 250F) {
+            if (entity.level().random.nextFloat() < level / 250F) {
                 Item eggItem = ForgeSpawnEggItem.fromEntityType(entity.getType());
 
                 if (eggItem == null) return;

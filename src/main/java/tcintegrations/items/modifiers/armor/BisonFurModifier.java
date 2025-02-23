@@ -24,7 +24,7 @@ public class BisonFurModifier extends NoLevelsModifier implements EquipmentChang
     public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             ItemStack replacement = context.getReplacement();
             CompoundTag tag = replacement.getOrCreateTag();
 

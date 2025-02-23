@@ -2,6 +2,7 @@ package tcintegrations.data.tcon;
 
 import java.util.function.Consumer;
 
+import net.minecraft.data.PackOutput;
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.data.DataGenerator;
@@ -33,17 +34,12 @@ import tcintegrations.TCIntegrations;
 
 public class ModifierRecipeProvider extends RecipeProvider implements IConditionBuilder, IRecipeHelper {
 
-    public ModifierRecipeProvider(DataGenerator generator) {
-        super(generator);
+    public ModifierRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    public @NotNull String getName() {
-        return "TCIntegrations - TCon Modifier Recipes";
-    }
-
-    @Override
-    protected void buildCraftingRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
         addModifierRecipes(consumer);
     }
 

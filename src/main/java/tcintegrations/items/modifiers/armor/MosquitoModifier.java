@@ -46,7 +46,7 @@ public class MosquitoModifier extends Modifier implements ArmorWalkModifierHook 
         double z = living.getZ();
         float range = 3F + level;
 
-        List<LivingEntity> entities = living.level.getEntitiesOfClass(LivingEntity.class, new AABB(x - range, y - range, z - range, x + range, y + range, z + range));
+        List<LivingEntity> entities = living.level().getEntitiesOfClass(LivingEntity.class, new AABB(x - range, y - range, z - range, x + range, y + range, z + range));
 
         if (!entities.isEmpty() && living.tickCount % 100 == 0) {
             living.playSound(AMSoundRegistry.MOSQUITO_LOOP.get(), 1.0F, 1.0F);
@@ -55,7 +55,7 @@ public class MosquitoModifier extends Modifier implements ArmorWalkModifierHook 
         for (LivingEntity livingEntity : entities) {
             if (!livingEntity.equals(living) && living.tickCount % 20 == 0) {
                 for (int i = 0; i < 3; i++) {
-                    livingEntity.level.addParticle(ParticleTypes.CRIMSON_SPORE, livingEntity.getRandomX(1.0), livingEntity.getRandomY(), livingEntity.getRandomZ(1.0), 0, 0, 0);
+                    livingEntity.level().addParticle(ParticleTypes.CRIMSON_SPORE, livingEntity.getRandomX(1.0), livingEntity.getRandomY(), livingEntity.getRandomZ(1.0), 0, 0, 0);
                 }
             }
         }

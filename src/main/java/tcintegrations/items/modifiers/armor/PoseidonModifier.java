@@ -43,7 +43,7 @@ public class PoseidonModifier extends NoLevelsModifier implements InventoryTickM
     public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
             AttributeInstance swimSpeed = sp.getAttribute(ForgeMod.SWIM_SPEED.get());
 
@@ -59,7 +59,7 @@ public class PoseidonModifier extends NoLevelsModifier implements InventoryTickM
     public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
             AttributeInstance swimSpeed = sp.getAttribute(ForgeMod.SWIM_SPEED.get());
 
@@ -75,7 +75,7 @@ public class PoseidonModifier extends NoLevelsModifier implements InventoryTickM
     public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         final Player player = holder instanceof Player ? (Player) holder : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
             boolean isSubmerged = sp.isUnderWater() && sp.isInWater() && sp.isInWaterRainOrBubble();
 

@@ -57,10 +57,10 @@ public class RoadrunnerModifier extends Modifier implements ArmorWalkModifierHoo
         int z = Mth.floor(position.z);
         BlockPos pos = new BlockPos(x, y, z);
 
-        if (living.level.isEmptyBlock(pos)) {
+        if (living.level().isEmptyBlock(pos)) {
             BlockPos below = pos.below();
-            BlockState blockstate = living.level.getBlockState(below);
-            if (blockstate.collisionExtendsVertically(living.level, below, living)) {
+            BlockState blockstate = living.level().getBlockState(below);
+            if (blockstate.collisionExtendsVertically(living.level(), below, living)) {
                 return below;
             }
         }
@@ -71,7 +71,7 @@ public class RoadrunnerModifier extends Modifier implements ArmorWalkModifierHoo
     @Override
     public void onWalk(IToolStackView tool, ModifierEntry modifier, LivingEntity living, BlockPos prevPos, BlockPos newPos) {
         // no point trying if not on the ground
-        if (tool.isBroken() || !living.isOnGround() || living.level.isClientSide) {
+        if (tool.isBroken() || !living.onGround() || living.level().isClientSide) {
             return;
         }
         // must have speed
@@ -81,7 +81,7 @@ public class RoadrunnerModifier extends Modifier implements ArmorWalkModifierHoo
         }
         // not above air
         BlockPos belowPos = getOnPosition(living);
-        BlockState below = living.level.getBlockState(belowPos);
+        BlockState below = living.level().getBlockState(belowPos);
         if (below.isAir()) {
             return;
         }
@@ -107,14 +107,14 @@ public class RoadrunnerModifier extends Modifier implements ArmorWalkModifierHoo
 
             // particles and sounds
             Vec3 motion = living.getDeltaMovement();
-            if (living.level instanceof ServerLevel) {
-                ((ServerLevel)living.level).sendParticles(ParticleTypes.ASH,
+            if (living.level() instanceof ServerLevel) {
+                ((ServerLevel)living.level()).sendParticles(ParticleTypes.ASH,
                         living.getX() + (rand.nextDouble() - 0.5) * living.getBbWidth(),
                         living.getY() + 0.1,
                         living.getZ() + (rand.nextDouble() - 0.5) * living.getBbWidth(),
                         0, motion.x * -0.2, 0.1, motion.z * -0.2, 1);
             }
-            living.level.playSound(null, living.getX(), living.getY(), living.getZ(), SoundEvents.SAND_FALL, living.getSoundSource(), rand.nextFloat() * 0.4f + rand.nextFloat() > 0.9f ? 0.6f : 0.0f, 0.6f + rand.nextFloat() * 0.4f);
+            living.level().playSound(null, living.getX(), living.getY(), living.getZ(), SoundEvents.SAND_FALL, living.getSoundSource(), rand.nextFloat() * 0.4f + rand.nextFloat() > 0.9f ? 0.6f : 0.0f, 0.6f + rand.nextFloat() * 0.4f);
         }
     }
 
@@ -123,7 +123,7 @@ public class RoadrunnerModifier extends Modifier implements ArmorWalkModifierHoo
         // remove boost when boots are removed
         LivingEntity livingEntity = context.getEntity();
 
-        if (!livingEntity.level.isClientSide && context.getChangedSlot() == EquipmentSlot.FEET) {
+        if (!livingEntity.level().isClientSide && context.getChangedSlot() == EquipmentSlot.FEET) {
             IToolStackView newTool = context.getReplacementTool();
             // damaging the tool will trigger this hook, so ensure the new tool has the same level
             if (newTool == null || newTool.isBroken() || newTool.getModifierLevel(this) != modifier.getEffectiveLevel()) {
@@ -138,7 +138,7 @@ public class RoadrunnerModifier extends Modifier implements ArmorWalkModifierHoo
 
     @Override
     public void addTooltip(IToolStackView tool, ModifierEntry modifier, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
-        if (player == null || tooltipKey == TooltipKey.SHIFT || (!player.isFallFlying() && player.level.getBlockState(getOnPosition(player)).is(BlockTags.SAND))) {
+        if (player == null || tooltipKey == TooltipKey.SHIFT || (!player.isFallFlying() && player.level().getBlockState(getOnPosition(player)).is(BlockTags.SAND))) {
             TooltipModifierHook.addPercentBoost(modifier.getModifier(), getDisplayName(), modifier.getEffectiveLevel() * SPEED_FACTOR, tooltip);
         }
     }

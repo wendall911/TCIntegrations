@@ -26,7 +26,7 @@ public class MasticateModifier extends ThornsModifier {
                 float damage = scaledLevel > 10 ? scaledLevel - 10 : 1 + TCIntegrations.RANDOM.nextInt(4);
                 LivingEntity user = context.getEntity();
 
-                attacker.hurt(DamageSource.thorns(user), damage);
+                attacker.hurt(user.level().damageSources().thorns(user), damage);
                 ToolDamageUtil.damageAnimated(tool, 1, user, slotType);
             }
         }

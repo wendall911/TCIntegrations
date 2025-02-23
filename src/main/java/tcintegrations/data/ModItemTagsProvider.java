@@ -1,9 +1,12 @@
 package tcintegrations.data;
 
 import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
 
-import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import org.jetbrains.annotations.NotNull;
+
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.TagKey;
@@ -23,17 +26,17 @@ import tcintegrations.TCIntegrations;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
 
-    public ModItemTagsProvider(DataGenerator dataGenerator, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
-        super(dataGenerator, blockTagsProvider, TCIntegrations.MODID, existingFileHelper);
+    public ModItemTagsProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider, ModBlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
+        super(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), TCIntegrations.MODID, existingFileHelper);
     }
 
     @Override
-    public String getName() {
+    public @NotNull String getName() {
         return "TCIntegrations - Item Tags";
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         this.copy(TagManager.Blocks.BRONZE, TagManager.Items.BRONZE);
         copy(TinkerTags.Blocks.ANVIL_METAL, TinkerTags.Items.ANVIL_METAL);
 
@@ -44,8 +47,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .add(TCIntegrationsItems.BRONZE.getNugget())
             .addOptional(ModIntegration.malumLoc("soul_stained_steel_nugget"));
 
-        getBuilder(TagManager.Items.BRONZE_INGOTS).add(TCIntegrationsItems.BRONZE.getIngot());
-        getBuilder(TagManager.Items.BRONZE_NUGGETS).add(TCIntegrationsItems.BRONZE.getNugget());
+        this.tag(TagManager.Items.BRONZE_INGOTS).add(TCIntegrationsItems.BRONZE.getIngot());
+        this.tag(TagManager.Items.BRONZE_NUGGETS).add(TCIntegrationsItems.BRONZE.getNugget());
 
         // Botania
         addBotaniaLogVariants(TagManager.Items.BOTANIA_LIVINGWOOD_LOGS, "livingwood");
@@ -54,42 +57,42 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
         // Malum
         this.copy(TagManager.Blocks.SOUL_STAINED_STEEL, TagManager.Items.SOUL_STAINED_STEEL);
-        getBuilder(TagManager.Items.SOUL_STAINED_STEEL_INGOTS).addOptional(ModIntegration.malumLoc("soul_stained_steel_ingot"));
-        getBuilder(TagManager.Items.SOUL_STAINED_STEEL_NUGGETS).addOptional(ModIntegration.malumLoc("soul_stained_steel_nugget"));
+        this.tag(TagManager.Items.SOUL_STAINED_STEEL_INGOTS).addOptional(ModIntegration.malumLoc("soul_stained_steel_ingot"));
+        this.tag(TagManager.Items.SOUL_STAINED_STEEL_NUGGETS).addOptional(ModIntegration.malumLoc("soul_stained_steel_nugget"));
 
         // BYG
-        getBuilder(TagManager.Items.EMERALDITE_SHARDS)
+        this.tag(TagManager.Items.EMERALDITE_SHARDS)
             .addOptional(ModIntegration.bygLoc("emeraldite_shards"));
-        getBuilder(TagManager.Items.EMERALDITE_ORE)
+        this.tag(TagManager.Items.EMERALDITE_ORE)
             .addOptional(ModIntegration.bygLoc("emeraldite_ore"));
-        getBuilder(TagManager.Items.PENDORITE_ALLOY_INGOTS)
+        this.tag(TagManager.Items.PENDORITE_ALLOY_INGOTS)
             .addOptional(ModIntegration.bygLoc("pendorite_ingot"));
 
         // Ice and Fire: Dragons
-        getBuilder(TagManager.Items.WITHER_BONES)
+        this.tag(TagManager.Items.WITHER_BONES)
             .add(TinkerMaterials.necroticBone.get())
             .addOptional(ModIntegration.ifdLoc("witherbone"));
         this.copy(TagManager.Blocks.DRAGONSTEEL_FIRE, TagManager.Items.DRAGONSTEEL_FIRE);
-        getBuilder(TagManager.Items.DRAGONSTEEL_FIRE_INGOTS).addOptional(ModIntegration.ifdLoc("dragonsteel_fire_ingot"));
+        this.tag(TagManager.Items.DRAGONSTEEL_FIRE_INGOTS).addOptional(ModIntegration.ifdLoc("dragonsteel_fire_ingot"));
         this.copy(TagManager.Blocks.DRAGONSTEEL_ICE, TagManager.Items.DRAGONSTEEL_ICE);
-        getBuilder(TagManager.Items.DRAGONSTEEL_ICE_INGOTS).addOptional(ModIntegration.ifdLoc("dragonsteel_ice_ingot"));
+        this.tag(TagManager.Items.DRAGONSTEEL_ICE_INGOTS).addOptional(ModIntegration.ifdLoc("dragonsteel_ice_ingot"));
         this.copy(TagManager.Blocks.DRAGONSTEEL_LIGHTNING, TagManager.Items.DRAGONSTEEL_LIGHTNING);
-        getBuilder(TagManager.Items.DRAGONSTEEL_LIGHTNING_INGOTS).addOptional(ModIntegration.ifdLoc("dragonsteel_lightning_ingot"));
+        this.tag(TagManager.Items.DRAGONSTEEL_LIGHTNING_INGOTS).addOptional(ModIntegration.ifdLoc("dragonsteel_lightning_ingot"));
 
         // Ad Astra & Beyond Earth
-        getBuilder(TagManager.Items.CHEESE)
+        this.tag(TagManager.Items.CHEESE)
             .addOptional(ModIntegration.adAstraLoc("cheese"))
             .addOptional(ModIntegration.beyondEarthLoc("cheese"));
 
         // Ars Nouveau
-        getBuilder(TagManager.Items.SOURCE_GEM)
+        this.tag(TagManager.Items.SOURCE_GEM)
             .add(ModIntegration.SOURCE_GEM);
-        getBuilder(TagManager.Items.SOURCE_GEM_BLOCK)
+        this.tag(TagManager.Items.SOURCE_GEM_BLOCK)
             .add(ModIntegration.SOURCE_GEM_BLOCK);
     }
 
     private void addBotaniaLogVariants(TagKey<Item> tag, String type) {
-        getBuilder(tag)
+        this.tag(tag)
             .addOptional(ModIntegration.botaniaLoc(type + "_log"))
             .addOptional(ModIntegration.botaniaLoc("stripped_" + type + "_log"))
             .addOptional(ModIntegration.botaniaLoc(type))
@@ -97,15 +100,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     }
 
     private void builder(TagKey<Item> tag) {
-        getBuilder(tag);
+        this.tag(tag);
     }
 
     private void builder(TagKey<Item> tag, ItemLike... items) {
-        getBuilder(tag).add(Arrays.stream(items).map(ItemLike::asItem).toArray(Item[]::new));
-    }
-
-    protected TagsProvider.TagAppender<Item> getBuilder(TagKey<Item> tag) {
-        return tag(tag);
+        this.tag(tag).add(Arrays.stream(items).map(ItemLike::asItem).toArray(Item[]::new));
     }
 
 }

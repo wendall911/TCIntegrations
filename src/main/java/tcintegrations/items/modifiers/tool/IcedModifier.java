@@ -4,16 +4,14 @@ import org.jetbrains.annotations.Nullable;
 
 import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
 
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.phys.Vec3;
-
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.phys.EntityHitResult;
+import net.minecraft.world.phys.Vec3;
 
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
 import slimeknights.tconstruct.library.modifiers.ModifierHooks;
@@ -25,7 +23,7 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
-import slimeknights.tconstruct.library.tools.nbt.NamespacedNBT;
+import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 
 public class IcedModifier extends NoLevelsModifier implements ProjectileHitModifierHook, MeleeHitModifierHook {
 
@@ -45,7 +43,7 @@ public class IcedModifier extends NoLevelsModifier implements ProjectileHitModif
     }
 
     @Override
-    public boolean onProjectileHitEntity(ModifierNBT modifiers, NamespacedNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
+    public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
         // Apply knockback
         if (hit.getEntity() instanceof LivingEntity living) {
             if (projectile instanceof AbstractArrow arrow) {
@@ -63,8 +61,9 @@ public class IcedModifier extends NoLevelsModifier implements ProjectileHitModif
 
     private void doSecondaryDamage(Entity entity, LivingEntity target) {
         if (target instanceof EntityFireDragon) {
-            ToolAttackUtil.attackEntitySecondary(DamageSource.DROWN, 13.5F, entity, target, false);
+            ToolAttackUtil.attackEntitySecondary(entity.level().damageSources().drown(), 13.5F, entity, target, false);
         }
+
         if (target != null) {
             target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 2));
             target.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, 100, 2));

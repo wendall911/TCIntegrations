@@ -1,6 +1,6 @@
 package tcintegrations.proxy;
 
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -47,7 +47,7 @@ public class CommonProxy {
 
         @SubscribeEvent(priority = EventPriority.HIGHEST)
         public static void registerItems(RegisterEvent event) {
-            event.register(Registry.ITEM_REGISTRY, ModIntegration::init);
+            event.register(Registries.ITEM, ModIntegration::init);
         }
 
         @SubscribeEvent

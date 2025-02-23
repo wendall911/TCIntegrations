@@ -48,7 +48,7 @@ public class ElementalModifier extends ManaModifier implements MeleeHitModifierH
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         final Player player = context.getPlayerAttacker() != null ? (Player) context.getPlayerAttacker() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
             ItemStack stack = sp.getItemInHand(InteractionHand.MAIN_HAND);
 
@@ -66,7 +66,7 @@ public class ElementalModifier extends ManaModifier implements MeleeHitModifierH
 
         Entity entity = context.getParamOrNull(LootContextParams.THIS_ENTITY);
 
-        if (entity != null && !entity.level.isClientSide && entity.getType().is(TagManager.EntityTypes.ELEMENTAL_SEVERING_MOBS)) {
+        if (entity != null && !entity.level().isClientSide && entity.getType().is(TagManager.EntityTypes.ELEMENTAL_SEVERING_MOBS)) {
             if (generatedLoot.stream().noneMatch(stack -> stack.is(Tags.Items.HEADS))) {
                 List<SeveringRecipe> recipes = SeveringRecipeCache.findRecipe(context.getLevel().getRecipeManager(), entity.getType());
 

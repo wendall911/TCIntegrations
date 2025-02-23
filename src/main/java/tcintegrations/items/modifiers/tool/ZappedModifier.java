@@ -5,7 +5,6 @@ import org.jetbrains.annotations.Nullable;
 import com.github.alexthe666.iceandfire.entity.EntityFireDragon;
 import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
 
-import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LightningBolt;
@@ -25,7 +24,7 @@ import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.helper.ToolAttackUtil;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
-import slimeknights.tconstruct.library.tools.nbt.NamespacedNBT;
+import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 
 public class ZappedModifier extends NoLevelsModifier implements ProjectileHitModifierHook, MeleeHitModifierHook {
 
@@ -45,7 +44,7 @@ public class ZappedModifier extends NoLevelsModifier implements ProjectileHitMod
     }
 
     @Override
-    public boolean onProjectileHitEntity(ModifierNBT modifiers, NamespacedNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
+    public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
         // Apply knockback
         if (hit.getEntity() instanceof LivingEntity living) {
             if (projectile instanceof AbstractArrow arrow) {
@@ -63,13 +62,13 @@ public class ZappedModifier extends NoLevelsModifier implements ProjectileHitMod
 
     private void doSecondaryDamage(Entity entity, LivingEntity target) {
         if (target instanceof EntityFireDragon || target instanceof EntityIceDragon) {
-            ToolAttackUtil.attackEntitySecondary(DamageSource.LIGHTNING_BOLT, 9.5F, entity, target, false);
+            ToolAttackUtil.attackEntitySecondary(entity.level().damageSources().lightningBolt(), 9.5F, entity, target, false);
         }
         if (target != null) {
-            LightningBolt lightningBolt = EntityType.LIGHTNING_BOLT.create(target.level);
+            LightningBolt lightningBolt = EntityType.LIGHTNING_BOLT.create(target.level());
 
             lightningBolt.moveTo(target.position());
-            target.level.addFreshEntity(lightningBolt);
+            target.level().addFreshEntity(lightningBolt);
         }
     }
 

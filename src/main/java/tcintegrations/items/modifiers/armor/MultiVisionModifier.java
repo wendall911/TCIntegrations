@@ -2,7 +2,7 @@ package tcintegrations.items.modifiers.armor;
 
 import java.util.List;
 
-import slimeknights.mantle.data.registry.GenericLoaderRegistry;
+import slimeknights.mantle.data.loadable.record.SingletonLoader;
 
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.Modifier;
@@ -19,7 +19,7 @@ public enum MultiVisionModifier implements ModifierModule, RawDataModifierHook {
     INSTANCE;
 
     private static final List<ModuleHook<?>> DEFAULT_HOOKS = HookProvider.<MultiVisionModifier>defaultHooks(ModifierHooks.RAW_DATA);
-    public static final GenericLoaderRegistry.IGenericLoader<MultiVisionModifier> LOADER = new GenericLoaderRegistry.SingletonLoader<>(INSTANCE);
+    public static final SingletonLoader<MultiVisionModifier> LOADER = new SingletonLoader<>(INSTANCE);
     public static final String VOLTMETER = "ie_voltmeter";
 
     @Override
@@ -40,7 +40,7 @@ public enum MultiVisionModifier implements ModifierModule, RawDataModifierHook {
     }
 
     @Override
-    public GenericLoaderRegistry.IGenericLoader<? extends ModifierModule> getLoader() {
+    public SingletonLoader<? extends ModifierModule> getLoader() {
         return LOADER;
     }
 

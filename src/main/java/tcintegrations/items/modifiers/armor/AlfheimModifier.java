@@ -43,33 +43,35 @@ import tcintegrations.network.NetworkHandler;
 import tcintegrations.util.BotaniaClientHelper;
 import tcintegrations.util.BotaniaHelper;
 
+import static net.minecraft.world.item.ArmorItem.ARMOR_MODIFIER_UUID_PER_TYPE;
+
 public class AlfheimModifier extends Modifier implements IArmorJumpModifier, EquipmentChangeModifierHook, InventoryTickModifierHook {
 
     private static final int MANA_PER_DAMAGE = 110;
 
     private static final AttributeModifier HELMET_REACH_DISTANCE = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.HEAD.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.HEAD.getIndex()),
             "Helmet Reach Distance",
             MythicConfig.alftools.reach_modifier,
             AttributeModifier.Operation.ADDITION
     );
 
     private static final AttributeModifier CHESTPLATE_KNOCKBACK_RESISTANCE = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.CHEST.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.CHEST.getIndex()),
             "Chestplate Knockback Resistance",
             MythicConfig.alftools.knockback_resistance_modifier,
             AttributeModifier.Operation.ADDITION
     );
 
     private static final AttributeModifier LEGGINGS_MOVEMENT_SPEED = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.LEGS.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.LEGS.getIndex()),
             "Leggings Movement Speed",
             MythicConfig.alftools.speed_modifier,
             AttributeModifier.Operation.ADDITION
     );
 
     private static final AttributeModifier LEGGINGS_SWIM_SPEED = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.LEGS.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.LEGS.getIndex()),
             "Leggings Swim Speed",
             MythicConfig.alftools.speed_modifier,
             AttributeModifier.Operation.ADDITION
@@ -104,7 +106,7 @@ public class AlfheimModifier extends Modifier implements IArmorJumpModifier, Equ
     public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
 
             sp.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
@@ -130,7 +132,7 @@ public class AlfheimModifier extends Modifier implements IArmorJumpModifier, Equ
     public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
 
             sp.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
@@ -150,7 +152,7 @@ public class AlfheimModifier extends Modifier implements IArmorJumpModifier, Equ
     public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level world, LivingEntity holder, int itemSlot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
         final Player player = holder instanceof Player ? (Player) holder : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
 
             // Heal armor if damaged and has mana source
@@ -175,7 +177,7 @@ public class AlfheimModifier extends Modifier implements IArmorJumpModifier, Equ
     }
 
     public void changeEquipment(ServerPlayer sp, EquipmentChangeContext context, boolean remove) {
-        final AttributeInstance reachDistance = sp.getAttribute(ForgeMod.REACH_DISTANCE.get());
+        final AttributeInstance reachDistance = sp.getAttribute(ForgeMod.BLOCK_REACH.get());
         final AttributeInstance knockbackResistance = sp.getAttribute(Attributes.KNOCKBACK_RESISTANCE);
         final AttributeInstance movementSpeed = sp.getAttribute(Attributes.MOVEMENT_SPEED);
         final AttributeInstance swimSpeed = sp.getAttribute(ForgeMod.SWIM_SPEED.get());

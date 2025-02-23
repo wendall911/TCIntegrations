@@ -57,7 +57,7 @@ public class KineticModifier extends NoLevelsModifier implements MeleeHitModifie
     public void afterBlockBreak(IToolStackView tool, ModifierEntry modifier, ToolHarvestContext context) {
         final ServerPlayer sp = context.getPlayer();
 
-        if (sp != null && !sp.level.isClientSide) {
+        if (sp != null && !sp.level().isClientSide) {
             chargeInventoryItem(sp);
         }
     }

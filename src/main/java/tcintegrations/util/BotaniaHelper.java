@@ -33,12 +33,12 @@ public class BotaniaHelper {
     };
 
     public static void spawnPixie(ServerPlayer sp, ItemStack stack, LivingEntity target) {
-        PixieEntity pixie = new PixieEntity(sp.level);
+        PixieEntity pixie = new PixieEntity(sp.level());
 
         pixie.setPos(sp.getX(), sp.getY() + 2, sp.getZ());
 
         if (hasGreatFairyArmorSet(sp)) {
-            pixie.setApplyPotionEffect(new MobEffectInstance(potions[sp.level.random.nextInt(potions.length)], 40, 0));
+            pixie.setApplyPotionEffect(new MobEffectInstance(potions[sp.level().random.nextInt(potions.length)], 40, 0));
         }
 
         float dmg = 4;
@@ -49,10 +49,10 @@ public class BotaniaHelper {
 
         pixie.setProps(target, sp, 0, dmg);
         pixie.finalizeSpawn(
-                (ServerLevelAccessor) sp.level,
-                sp.level.getCurrentDifficultyAt(pixie.blockPosition()),
+                (ServerLevelAccessor) sp.level(),
+                sp.level().getCurrentDifficultyAt(pixie.blockPosition()),
                 MobSpawnType.EVENT, null, null);
-        sp.level.addFreshEntity(pixie);
+        sp.level().addFreshEntity(pixie);
     }
 
 

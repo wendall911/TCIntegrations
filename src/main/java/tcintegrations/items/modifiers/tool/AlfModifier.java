@@ -40,7 +40,7 @@ public class AlfModifier extends ManaModifier implements GeneralInteractionModif
     @Override
     public InteractionResult onToolUse(IToolStackView tool, ModifierEntry modifier, Player player, InteractionHand hand, InteractionSource source) {
         if (tool.hasTag(TinkerTags.Items.MELEE_PRIMARY)) {
-            Level level = player.getLevel();
+            Level level = player.level();
             double x = player.getX();
             double y = player.getY();
             double z = player.getZ();

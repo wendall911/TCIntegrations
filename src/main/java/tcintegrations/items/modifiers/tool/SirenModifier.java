@@ -68,7 +68,7 @@ public class SirenModifier extends NoLevelsModifier implements BreakSpeedModifie
     public void onBreakSpeed(IToolStackView tool, ModifierEntry modifier, PlayerEvent.BreakSpeed event, Direction sideHit, boolean isEffective, float miningSpeedModifier) {
         final Player player = event.getEntity();
 
-        if (player != null && !player.level.isClientSide && !tool.isBroken()) {
+        if (player != null && !player.level().isClientSide && !tool.isBroken()) {
             final ServerPlayer sp = (ServerPlayer) player;
             boolean isSubmerged = sp.isUnderWater() && sp.isInWater() && sp.isInWaterRainOrBubble();
 

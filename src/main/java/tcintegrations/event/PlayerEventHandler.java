@@ -22,7 +22,7 @@ public class PlayerEventHandler {
     public static void onEntityJoinWorld(EntityJoinLevelEvent event) {
         final Player player = event.getEntity() instanceof Player ? (Player) event.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
 
             if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {

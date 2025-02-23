@@ -3,7 +3,7 @@ package tcintegrations.items.modifiers.armor;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.hollingsworth.arsnouveau.common.enchantment.EnchantmentRegistry;
+import com.hollingsworth.arsnouveau.setup.registry.EnchantmentRegistry;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -46,7 +46,7 @@ public class ArsNouveauModifier extends ArsNouveauBaseModifier implements Equipm
     public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             ItemStack replacement = context.getReplacement();
             Map<Enchantment, Integer> enchantments = new HashMap<>();
 

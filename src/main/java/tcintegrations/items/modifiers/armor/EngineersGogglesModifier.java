@@ -2,7 +2,8 @@ package tcintegrations.items.modifiers.armor;
 
 import java.util.List;
 
-import slimeknights.mantle.data.registry.GenericLoaderRegistry;
+import slimeknights.mantle.data.loadable.record.SingletonLoader;
+
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierEntry;
@@ -18,7 +19,7 @@ public enum EngineersGogglesModifier implements ModifierModule, RawDataModifierH
     INSTANCE;
 
     private static final List<ModuleHook<?>> DEFAULT_HOOKS = HookProvider.<EngineersGogglesModifier>defaultHooks(ModifierHooks.RAW_DATA);
-    public static final GenericLoaderRegistry.IGenericLoader<EngineersGogglesModifier> LOADER = new GenericLoaderRegistry.SingletonLoader<>(INSTANCE);
+    public static final SingletonLoader<EngineersGogglesModifier> LOADER = new SingletonLoader<>(INSTANCE);
     public static final String CREATE_GOGGLES = "create_goggles";
 
     @Override
@@ -39,7 +40,7 @@ public enum EngineersGogglesModifier implements ModifierModule, RawDataModifierH
     }
 
     @Override
-    public GenericLoaderRegistry.IGenericLoader<? extends ModifierModule> getLoader() {
+    public SingletonLoader<? extends ModifierModule> getLoader() {
         return LOADER;
     }
 

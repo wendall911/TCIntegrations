@@ -10,7 +10,6 @@ import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.RegisterEvent;
 import net.minecraftforge.registries.RegistryObject;
 
-import tcintegrations.common.CreativeTabs;
 import tcintegrations.common.TCIntegrationsModule;
 
 import static tcintegrations.util.ResourceLocationHelper.location;
@@ -225,7 +224,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     }
 
     private static Item registerItem(ResourceLocation loc) {
-        Item item = (new Item(new Item.Properties().tab(CreativeTabs.INTEGRATION_TAB_GROUP)));
+        Item item = (new Item(new Item.Properties()));
 
         ITEM_REGISTRY.register(loc, item);
 

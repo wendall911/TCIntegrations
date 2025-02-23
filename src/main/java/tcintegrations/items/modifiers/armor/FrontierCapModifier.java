@@ -43,7 +43,7 @@ public class FrontierCapModifier extends Modifier implements IArmorCrouchModifie
     @Override
     public void onCrouch(IToolStackView tool, int level, LivingEntity living) {
         // no point trying if not on the ground
-        if (tool.isBroken() || !living.isOnGround() || living.level.isClientSide) {
+        if (tool.isBroken() || !living.onGround() || living.level().isClientSide) {
             return;
         }
         // must have speed
@@ -89,7 +89,7 @@ public class FrontierCapModifier extends Modifier implements IArmorCrouchModifie
     public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         // remove boost when helmet is removed
         LivingEntity livingEntity = context.getEntity();
-        if (!livingEntity.level.isClientSide && context.getChangedSlot() == EquipmentSlot.HEAD) {
+        if (!livingEntity.level().isClientSide && context.getChangedSlot() == EquipmentSlot.HEAD) {
             IToolStackView newTool = context.getReplacementTool();
             // damaging the tool will trigger this hook, so ensure the new tool has the same level
             if (newTool == null || newTool.isBroken() || newTool.getModifierLevel(this) != modifier.getEffectiveLevel()) {

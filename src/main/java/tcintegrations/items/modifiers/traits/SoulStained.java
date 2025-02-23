@@ -37,59 +37,61 @@ import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.context.ToolAttackContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 import slimeknights.tconstruct.library.tools.nbt.ModifierNBT;
-import slimeknights.tconstruct.library.tools.nbt.NamespacedNBT;
+import slimeknights.tconstruct.library.tools.nbt.ModDataNBT;
 import slimeknights.tconstruct.tools.TinkerTools;
 
 import team.lodestar.lodestone.registry.common.LodestoneAttributeRegistry;
+
+import static net.minecraft.world.item.ArmorItem.ARMOR_MODIFIER_UUID_PER_TYPE;
 
 import static tcintegrations.util.ResourceLocationHelper.resource;
 
 public class SoulStained extends NoLevelsModifier implements ProjectileHitModifierHook, EquipmentChangeModifierHook, MeleeHitModifierHook, TooltipModifierHook {
 
     private static final AttributeModifier HELMET_MAGIC_RESISTANCE = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.HEAD.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.HEAD.getIndex()),
             "Helmet Magic Resistance",
             1.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier CHESTPLATE_MAGIC_RESISTANCE = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.CHEST.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.CHEST.getIndex()),
             "Chestplate Magic Resistance",
             1.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier LEGGINGS_MAGIC_RESISTANCE = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.LEGS.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.LEGS.getIndex()),
             "Leggings Magic Resistance",
             1.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier BOOTS_MAGIC_RESISTANCE = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.FEET.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.FEET.getIndex()),
             "Boots Magic Resistance",
             1.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier HELMET_SOUL_WARD_CAP = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.HEAD.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.HEAD.getIndex()),
             "Helmet Soul Ward Cap",
             3.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier CHESTPLATE_SOUL_WARD_CAP = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.CHEST.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.CHEST.getIndex()),
             "Chestplate Soul Ward Cap",
             3.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier LEGGINGS_SOUL_WARD_CAP = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.LEGS.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.LEGS.getIndex()),
             "Leggings Soul Ward Cap",
             3.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier BOOTS_SOUL_WARD_CAP = new AttributeModifier(
-            ArmorItem.ARMOR_MODIFIER_UUID_PER_SLOT[EquipmentSlot.FEET.getIndex()],
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.FEET.getIndex()),
             "Boots Soul Ward Cap",
             3.0F,
             AttributeModifier.Operation.ADDITION
@@ -149,7 +151,7 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
 
             changeEquipment(sp, context, false);
@@ -160,7 +162,7 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
 
             changeEquipment(sp, context, true);
@@ -175,7 +177,7 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     }
 
     @Override
-    public boolean onProjectileHitEntity(ModifierNBT modifiers, NamespacedNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
+    public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
         if (hit.getEntity() instanceof LivingEntity living) {
             applyExposedSoulDuration(living);
         }

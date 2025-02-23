@@ -70,7 +70,7 @@ public class GreatFairyModifier extends Modifier implements InventoryTickModifie
     public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
 
             sp.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
@@ -94,7 +94,7 @@ public class GreatFairyModifier extends Modifier implements InventoryTickModifie
     public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
 
             sp.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
@@ -123,7 +123,7 @@ public class GreatFairyModifier extends Modifier implements InventoryTickModifie
     @Override
     public void onAttacked(IToolStackView tool, ModifierEntry modifier, EquipmentContext context, EquipmentSlot slotType, DamageSource source, float amount, boolean isDirectDamage) {
         if (context.getEntity() instanceof Player player
-                && !player.level.isClientSide
+                && !player.level().isClientSide
                 && source.getEntity() instanceof LivingEntity attacker
                 && isDirectDamage
                 && BotaniaHelper.hasGreatFairyArmorSet(player)) {

@@ -1,18 +1,16 @@
 package tcintegrations.data.tcon.material;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 
 import slimeknights.tconstruct.library.data.material.AbstractMaterialDataProvider;
 import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataProvider;
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
-import static slimeknights.tconstruct.tools.data.material.MaterialIds.osmium;
-
 public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvider {
 
-    public MaterialTraitsDataProvider(DataGenerator gen, AbstractMaterialDataProvider materials) {
-        super(gen, materials);
+    public MaterialTraitsDataProvider(PackOutput packOutput, AbstractMaterialDataProvider materials) {
+        super(packOutput, materials);
     }
 
     @Override

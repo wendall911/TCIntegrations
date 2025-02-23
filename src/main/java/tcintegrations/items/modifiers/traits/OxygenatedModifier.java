@@ -26,7 +26,7 @@ public class OxygenatedModifier extends Modifier implements BlockBreakModifierHo
     public void afterBlockBreak(IToolStackView tool, ModifierEntry modifier, ToolHarvestContext context) {
         final ServerPlayer sp = context.getPlayer();
 
-        if (sp != null && !sp.level.isClientSide) {
+        if (sp != null && !sp.level().isClientSide) {
             sp.setAirSupply(Math.min(sp.getMaxAirSupply(), sp.getAirSupply() + 20));
         }
     }

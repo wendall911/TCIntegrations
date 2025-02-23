@@ -36,7 +36,7 @@ public class ModerateModifier extends NoLevelsModifier implements BreakSpeedModi
 
     //Gets the bonus for the given position
     private static float getBonus(Player player, BlockPos pos) {
-        float biomeTemp = player.level.getBiome(pos).value().getHeightAdjustedTemperature(pos);
+        float biomeTemp = player.level().getBiome(pos).value().getHeightAdjustedTemperature(pos);
 
         return MAX_BOOST - (Math.abs(BASELINE_TEMPERATURE - biomeTemp) * 4.4F);
     }

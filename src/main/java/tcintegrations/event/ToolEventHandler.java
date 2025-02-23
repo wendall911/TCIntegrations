@@ -39,7 +39,7 @@ public class ToolEventHandler {
     static void onLivingUpdate(LivingEvent.LivingTickEvent event) {
         LivingEntity living = event.getEntity();
 
-        if (!living.isSpectator() && !living.level.isClientSide() && living.isAlive()) {
+        if (!living.isSpectator() && !living.level().isClientSide() && living.isAlive()) {
             ItemStack helmet = living.getItemBySlot(EquipmentSlot.HEAD);
 
             if (!helmet.isEmpty() && helmet.is(TinkerTags.Items.HELMETS)) {
@@ -63,7 +63,7 @@ public class ToolEventHandler {
     static void onLivingJump(LivingEvent.LivingJumpEvent event) {
         LivingEntity living = event.getEntity();
 
-        if (!living.isSpectator() && !living.level.isClientSide() && living.isAlive()) {
+        if (!living.isSpectator() && !living.level().isClientSide() && living.isAlive()) {
             ItemStack boots = living.getItemBySlot(EquipmentSlot.FEET);
 
             if (!boots.isEmpty() && boots.is(TinkerTags.Items.BOOTS)) {

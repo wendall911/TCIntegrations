@@ -40,13 +40,13 @@ public class TerraModifier extends ManaModifier implements MeleeHitModifierHook 
     public void afterMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damageDealt) {
         final Player player = context.getPlayerAttacker() != null ? context.getPlayerAttacker() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
-            DamageSource source = DamageSource.indirectMagic(sp, null);
+            DamageSource source = sp.level().damageSources().indirectMagic(sp, null);
             ItemStack stack = sp.getItemInHand(InteractionHand.MAIN_HAND);
 
             if (sp.getAttackStrengthScale(0F) == 1 && ManaItemHandler.instance().requestManaExactForTool(stack, sp, getManaPerDamage(sp) * 2, true)) {
-                sp.level.playSound(null, sp.getX(), sp.getY(), sp.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
+                sp.level().playSound(null, sp.getX(), sp.getY(), sp.getZ(), BotaniaSounds.terraBlade, SoundSource.PLAYERS, 1F, 1F);
                 ToolAttackUtil.attackEntitySecondary(source, 7.0F, context.getTarget(), context.getLivingTarget(), true);
             }
         }

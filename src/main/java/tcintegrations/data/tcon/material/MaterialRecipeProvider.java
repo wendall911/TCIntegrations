@@ -2,7 +2,7 @@ package tcintegrations.data.tcon.material;
 
 import java.util.function.Consumer;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.ItemStack;
@@ -21,17 +21,12 @@ import tcintegrations.TCIntegrations;
 
 public class MaterialRecipeProvider extends RecipeProvider implements IMaterialRecipeHelper, IConditionBuilder {
 
-    public MaterialRecipeProvider(DataGenerator generator) {
-        super(generator);
+    public MaterialRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override
-    public String getName() {
-        return "TCIntegrations - TCon Material Recipe";
-    }
-
-    @Override
-    protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
         addMaterialItems(consumer);
         addMaterialSmeltery(consumer);
     }

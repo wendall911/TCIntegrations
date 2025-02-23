@@ -41,27 +41,15 @@ repositories {
         name 'LibX maven'
         url = 'https://maven.melanx.de/'
     }
+	maven {
+		name = "C4's Maven"
+		url = "https://maven.theillusivec4.top/"
+	}
     maven { url 'https://plugins.gradle.org/m2/' }
     maven { url = 'https://maven.moddingx.org/' }
     maven { // CraftTweaker, Immersive Engineering, JEI
         name 'BlameJared Maven'
         url 'https://maven.blamejared.com'
-    }
-	maven {
-        name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/wendall911/SurvivalistEssentials")
-        credentials {
-            username = project.githubusername
-            password = project.githubtoken
-        }
-    }
-	maven {
-        name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/wendall911/TinkerSurvival")
-        credentials {
-            username = project.githubusername
-            password = project.githubtoken
-        }
     }
 }
 
@@ -151,19 +139,16 @@ dependencies {
     implementation fg.deobf(fileTree(dir: 'libs', include: '*.jar'))
 
     if (System.getenv('DATA_GEN') == null) {
-        runtimeOnly fg.deobf("com.github.wendall911.survivalistessentials:survivalistessentials:${se_version}") {
-            transitive = false
-        }
-        runtimeOnly fg.deobf("com.github.wendall911.tinkersurvival:tinkersurvival:${minecraft_version}-${ts_version}") {
-            transitive = false
-        }
+        runtimeOnly fg.deobf("curse.maven:se-676800:${se_version}")
+        runtimeOnly fg.deobf("curse.maven:ts-294667:${ts_version}")
         runtimeOnly fg.deobf("curse.maven:geckolib-388172:${geckolib_version}")
         implementation fg.deobf("curse.maven:arsnouveau-401955:${arsnouveau_version}")
         implementation fg.deobf("curse.maven:iceandfire-264231:${iceandfire_version}")
         implementation fg.deobf("curse.maven:mythicbotany-400058:${mythicbotany_version}")
         implementation fg.deobf("curse.maven:immersiveengineering-231951:${ie_version}")
         implementation fg.deobf("curse.maven:alexsmobs-426558:${alexsmobs_version}")
-        implementation fg.deobf("curse.maven:byg-247560:${byg_version}")
+        implementation fg.deobf("curse.maven:byg-1070751:${byg_version}")
+        implementation fg.deobf("curse.maven:tyg-962544:${tyg_version}")
         implementation fg.deobf("curse.maven:create-328085:${create_version}")
         implementation fg.deobf("curse.maven:malum-484064:${malum_version}")
         implementation fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
@@ -175,7 +160,7 @@ dependencies {
         runtimeOnly fg.deobf("curse.maven:cyanide-541676:${cyanide_version}")
         runtimeOnly fg.deobf("curse.maven:corgilib-693313:${corgi_version}")
         runtimeOnly fg.deobf("curse.maven:citadel-331936:${citadel_version}")
-        runtimeOnly fg.deobf("curse.maven:curios-309927:${curios_version}")
+        runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}+${minecraft_version}")
         runtimeOnly fg.deobf("curse.maven:terrablender-563928:${terrablender_version}")
         runtimeOnly fg.deobf("org.moddingx:LibX:${libx_version}") // For MyticBotany
         runtimeOnly fg.deobf('io.github.noeppi_noeppi.mods:SandBox:1.19.2-1.0.1') // For MyticBotany
@@ -185,10 +170,10 @@ dependencies {
         runtimeOnly fg.deobf("curse.maven:resourceful_lib-570073:${resourceful_lib_version}")
         runtimeOnly fg.deobf("curse.maven:botarium-704113:${botarium_version}")
         runtimeOnly fg.deobf("curse.maven:resourceful_config-714059:${resourceful_config_version}")
-        runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_short_version}-${probe_version}") {
+        runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_version}-${probe_version}") {
             transitive = false
         }
-        runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
+        runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}-FORGE")
         runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
         //runtimeOnly fg.deobf("curse.maven:mutant_monsters-852665:4569847")
         //runtimeOnly fg.deobf("curse.maven:puzzles_lib-495476:4600775")
@@ -207,7 +192,7 @@ dependencies {
         compileOnly fg.deobf("curse.maven:mythicbotany-400058:${mythicbotany_version}")
         compileOnly fg.deobf("curse.maven:immersiveengineering-231951:${ie_version}")
         compileOnly fg.deobf("curse.maven:alexsmobs-426558:${alexsmobs_version}")
-        compileOnly fg.deobf("curse.maven:byg-247560:${byg_version}")
+        compileOnly fg.deobf("curse.maven:byg-1070751:${byg_version}")
         compileOnly fg.deobf("curse.maven:create-328085:${create_version}")
         compileOnly fg.deobf("curse.maven:malum-484064:${malum_version}")
         compileOnly fg.deobf("curse.maven:aquaculture-60028:${aquaculture_version}")
