@@ -18,7 +18,9 @@ import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.tags.ITag;
 
+import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.data.tcon.SmelteryCompat;
+import tcintegrations.items.TCIntegrationsItems;
 
 import static tcintegrations.util.ResourceLocationHelper.location;
 import static tcintegrations.util.ResourceLocationHelper.resource;
@@ -45,6 +47,16 @@ public class JEIPlugin implements IModPlugin {
                 }
                 catch (NullPointerException ignored) {}
             }
+        }
+
+
+        if (!ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_SOURCE_GEM.get(), TCIntegrationsItems.MOLTEN_SOURCE_GEM.getBucket());
+        }
+
+        if (!ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.get(), TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getBucket());
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_PENDORITE.get(), TCIntegrationsItems.MOLTEN_PENDORITE.getBucket());
         }
     }
 
