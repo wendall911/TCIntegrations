@@ -4,36 +4,33 @@ import java.util.function.Consumer;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-
-import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import slimeknights.mantle.recipe.helper.ItemOutput;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.IMaterialRecipeHelper;
 
 import tcintegrations.common.TagManager;
+import tcintegrations.data.BaseRecipeProvider;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationsItems;
-import tcintegrations.TCIntegrations;
 
-public class MaterialRecipeProvider extends RecipeProvider implements IMaterialRecipeHelper, IConditionBuilder {
+public class MaterialRecipeProvider extends BaseRecipeProvider implements IMaterialRecipeHelper {
 
     public MaterialRecipeProvider(PackOutput packOutput) {
         super(packOutput);
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
-        addMaterialItems(consumer);
-        addMaterialSmeltery(consumer);
+    public String getName() {
+        return "TCIntegrations - TCon Material Recipes";
     }
 
     @Override
-    public String getModId() {
-        return TCIntegrations.MODID;
+    protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
+        addMaterialItems(consumer);
+        addMaterialSmeltery(consumer);
     }
 
     private void addMaterialItems(Consumer<FinishedRecipe> consumer) {

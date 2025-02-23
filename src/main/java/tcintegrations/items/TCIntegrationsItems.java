@@ -76,56 +76,56 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
 
         // Fluids
         if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
-            MOLTEN_MANASTEEL = FLUID_REGISTRY.register("manasteel").type(hot("manasteel")
+            MOLTEN_MANASTEEL = FLUID_REGISTRY.register("molten_manasteel").type(hot("molten_manasteel")
                 .temperature(1250).lightLevel(13)).block(createBurning(MapColor.RAW_IRON, 13, 10, 5f)).bucket().flowing();
         }
 
         if (ModIntegration.canLoad(ModIntegration.AQUACULTURE_MODID)) {
-            MOLTEN_NEPTUNIUM = FLUID_REGISTRY.register("neptunium").type(hot("neptunium")
+            MOLTEN_NEPTUNIUM = FLUID_REGISTRY.register("molten_neptunium").type(hot("molten_neptunium")
                 .temperature(1250).lightLevel(14)).block(createBurning(MapColor.EMERALD, 14, 10, 5f)).bucket().flowing();
         }
 
         if (ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
-            MOLTEN_SOURCE_GEM = FLUID_REGISTRY.register("source_gem").type(hot("source_gem")
+            MOLTEN_SOURCE_GEM = FLUID_REGISTRY.register("molten_source_gem").type(hot("molten_source_gem")
                 .temperature(1280).lightLevel(14)).block(createBurning(MapColor.COLOR_PURPLE, 14, 10, 5f)).bucket().flowing();
         }
 
         if (ModIntegration.canLoad(ModIntegration.MALUM_MODID)) {
-            MOLTEN_SOUL_STAINED_STEEL = FLUID_REGISTRY.register("soul_stained_steel").type(hot("soul_stained_steel")
+            MOLTEN_SOUL_STAINED_STEEL = FLUID_REGISTRY.register("molten_soul_stained_steel").type(hot("molten_soul_stained_steel")
                 .temperature(1250).lightLevel(12)).block(createBurning(MapColor.COLOR_MAGENTA, 12, 10, 5f)).bucket().flowing();
         }
 
         if (ModIntegration.canLoad(ModIntegration.UNDERGARDEN_MODID)) {
-            MOLTEN_CLOGGRUM = FLUID_REGISTRY.register("cloggrum").type(hot("cloggrum")
+            MOLTEN_CLOGGRUM = FLUID_REGISTRY.register("molten_cloggrum").type(hot("molten_cloggrum")
                 .temperature(1200).lightLevel(8)).block(createBurning(MapColor.TERRACOTTA_BROWN, 8, 10, 5f)).bucket().flowing();
-            MOLTEN_FROSTSTEEL = FLUID_REGISTRY.register("froststeel").type(hot("froststeel")
+            MOLTEN_FROSTSTEEL = FLUID_REGISTRY.register("molten_froststeel").type(hot("molten_froststeel")
                 .temperature(1200).lightLevel(11)).block(createBurning(MapColor.WATER, 11, 10, 6f)).bucket().flowing();
-            MOLTEN_FORGOTTEN = FLUID_REGISTRY.register("forgotten").type(hot("forgotten")
+            MOLTEN_FORGOTTEN = FLUID_REGISTRY.register("molten_forgotten").type(hot("molten_forgotten")
                 .temperature(1200).lightLevel(14)).block(createBurning(MapColor.EMERALD, 14, 10, 6f)).bucket().flowing();
         }
 
         if (ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
-            MOLTEN_PENDORITE = FLUID_REGISTRY.register("pendorite").type(hot("pendorite")
+            MOLTEN_PENDORITE = FLUID_REGISTRY.register("molten_pendorite").type(hot("molten_pendorite")
                 .temperature(1200).lightLevel(14)).block(createBurning(MapColor.TERRACOTTA_PURPLE, 14, 10, 5f)).bucket().flowing();
-            MOLTEN_PENDORITE_ALLOY = FLUID_REGISTRY.register("pendorite_alloy").type(hot("pendorite_alloy")
+            MOLTEN_PENDORITE_ALLOY = FLUID_REGISTRY.register("molten_pendorite_alloy").type(hot("molten_pendorite_alloy")
                 .temperature(1200).lightLevel(14)).block(createBurning(MapColor.COLOR_PURPLE, 14, 10, 5f)).bucket().flowing();
         }
 
         if (ModIntegration.canLoad(ModIntegration.IFD_MODID)) {
-            MOLTEN_DRAGONSTEEL_FIRE = FLUID_REGISTRY.register("dragonsteel_fire").type(hot("dragonsteel_fire")
+            MOLTEN_DRAGONSTEEL_FIRE = FLUID_REGISTRY.register("molten_dragonsteel_fire").type(hot("molten_dragonsteel_fire")
                 .temperature(1750).lightLevel(12)).block(createBurning(MapColor.TERRACOTTA_RED, 12, 10, 5f)).bucket().flowing();
-            MOLTEN_DRAGONSTEEL_ICE = FLUID_REGISTRY.register("dragonsteel_ice").type(hot("dragonsteel_ice")
+            MOLTEN_DRAGONSTEEL_ICE = FLUID_REGISTRY.register("molten_dragonsteel_ice").type(hot("molten_dragonsteel_ice")
                 .temperature(1750).lightLevel(11)).block(createBurning(MapColor.ICE, 11, 10, 5f)).bucket().flowing();
-            MOLTEN_DRAGONSTEEL_LIGHTNING = FLUID_REGISTRY.register("dragonsteel_lightning").type(hot("dragonsteel_lightning")
+            MOLTEN_DRAGONSTEEL_LIGHTNING = FLUID_REGISTRY.register("molten_dragonsteel_lightning").type(hot("molten_dragonsteel_lightning")
                 .temperature(1750).lightLevel(14)).block(createBurning(MapColor.TERRACOTTA_YELLOW, 14, 10, 5f)).bucket().flowing();
         }
 
         // Space trash
-        MOLTEN_DESH = FLUID_REGISTRY.register("desh").type(hot("desh")
+        MOLTEN_DESH = FLUID_REGISTRY.register("molten_desh").type(hot("molten_desh")
             .temperature(800).lightLevel(4)).block(createBurning(MapColor.TERRACOTTA_GREEN, 4, 8, 3f)).bucket().flowing();
-        MOLTEN_OSTRUM = FLUID_REGISTRY.register("ostrum").type(hot("ostrum")
+        MOLTEN_OSTRUM = FLUID_REGISTRY.register("molten_ostrum").type(hot("molten_ostrum")
             .temperature(800).lightLevel(4)).block(createBurning(MapColor.TERRACOTTA_PURPLE, 4, 8, 3f)).bucket().flowing();
-        MOLTEN_CALORITE = FLUID_REGISTRY.register("calorite").type(hot("calorite")
+        MOLTEN_CALORITE = FLUID_REGISTRY.register("molten_calorite").type(hot("molten_calorite")
             .temperature(800).lightLevel(4)).block(createBurning(MapColor.TERRACOTTA_RED, 4, 8, 3f)).bucket().flowing();
         
         // Metals

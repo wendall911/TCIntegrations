@@ -6,13 +6,11 @@ import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.material.Fluid;
 
 import net.minecraftforge.common.crafting.ConditionalRecipe;
-import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.common.crafting.conditions.TagEmptyCondition;
 
 import slimeknights.mantle.recipe.data.ICommonRecipeHelper;
@@ -26,16 +24,21 @@ import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.melting.MeltingRecipeBuilder;
 
 import tcintegrations.common.TagManager;
+import tcintegrations.data.BaseRecipeProvider;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.data.tcon.material.MaterialIds;
 import tcintegrations.items.TCIntegrationsItems;
-import tcintegrations.TCIntegrations;
 import tcintegrations.util.ResourceLocationHelper;
 
-public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryRecipeHelper, ICommonRecipeHelper, IConditionBuilder {
+public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelteryRecipeHelper, ICommonRecipeHelper {
 
     public SmelteryRecipeProvider(PackOutput packOutput) {
         super(packOutput);
+    }
+
+    @Override
+    public String getName() {
+        return "TCIntegrations - Smeltery Recipes";
     }
 
     @Override
@@ -43,11 +46,6 @@ public class SmelteryRecipeProvider extends RecipeProvider implements ISmelteryR
         this.addMeltingRecipes(consumer);
         this.addCastingRecipes(consumer);
         this.addAlloyRecipes(consumer);
-    }
-
-    @Override
-    public @NotNull String getModId() {
-        return TCIntegrations.MODID;
     }
 
     private void addCastingRecipes(Consumer<FinishedRecipe> consumer) {

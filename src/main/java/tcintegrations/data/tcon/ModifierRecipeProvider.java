@@ -2,12 +2,11 @@ package tcintegrations.data.tcon;
 
 import java.util.function.Consumer;
 
-import net.minecraft.data.PackOutput;
+import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -15,10 +14,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 import net.minecraftforge.common.crafting.CompoundIngredient;
-import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.common.Tags;
-
-import slimeknights.mantle.recipe.data.IRecipeHelper;
 
 import slimeknights.tconstruct.common.TinkerTags;
 import slimeknights.tconstruct.library.modifiers.util.LazyModifier;
@@ -27,25 +23,25 @@ import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBui
 import slimeknights.tconstruct.library.tools.SlotType;
 
 import tcintegrations.common.TagManager;
+import tcintegrations.data.BaseRecipeProvider;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.data.tcon.material.TciModifierIds;
 import tcintegrations.items.TCIntegrationsModifiers;
-import tcintegrations.TCIntegrations;
 
-public class ModifierRecipeProvider extends RecipeProvider implements IConditionBuilder, IRecipeHelper {
+public class ModifierRecipeProvider extends BaseRecipeProvider {
 
     public ModifierRecipeProvider(PackOutput packOutput) {
         super(packOutput);
     }
 
     @Override
-    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
-        addModifierRecipes(consumer);
+    public String getName() {
+        return "TCIntegrations - TCon Modifier Recipes";
     }
 
     @Override
-    public @NotNull String getModId() {
-        return TCIntegrations.MODID;
+    protected void buildRecipes(@NotNull Consumer<FinishedRecipe> consumer) {
+        addModifierRecipes(consumer);
     }
 
     private void addModifierRecipes(Consumer<FinishedRecipe> consumer) {
@@ -170,6 +166,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setTools(TinkerTags.Items.HELMETS)
             .addInput(ModIntegration.GOGGLES)
             .setMaxLevel(1)
+            .setSlots(SlotType.ABILITY, 1)
             .saveSalvage(createConsumer, prefix(TciModifierIds.engineersGoggles, compatSalvage))
             .save(createConsumer, prefix(TciModifierIds.engineersGoggles, compatFolder));
 

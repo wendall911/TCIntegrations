@@ -46,12 +46,12 @@ public final class DataGenerators {
         boolean server = event.includeServer();
         boolean client = event.includeClient();
 
+        gen.addProvider(server, new ModifierRecipeProvider(packOutput));
         gen.addProvider(server, new ModItemModelProvider(packOutput, existingFileHelper));
         gen.addProvider(server, new ModBlockStateProvider(packOutput, existingFileHelper));
         gen.addProvider(server, blockTags);
         gen.addProvider(server, new ModItemTagsProvider(packOutput, event.getLookupProvider(), blockTags, existingFileHelper));
         gen.addProvider(server, new FluidTagProvider(packOutput, event.getLookupProvider(), existingFileHelper));
-        gen.addProvider(server, new ModifierRecipeProvider(packOutput));
         gen.addProvider(server, new ModRecipesProvider(packOutput));
         gen.addProvider(server, ModLootTables.create(packOutput));
         gen.addProvider(client, new MaterialRenderInfoProvider(packOutput, materialSprites, existingFileHelper));

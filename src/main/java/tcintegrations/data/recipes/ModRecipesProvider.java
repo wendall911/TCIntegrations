@@ -5,18 +5,23 @@ import java.util.function.Consumer;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 
-import tcintegrations.TCIntegrations;
+import tcintegrations.data.BaseRecipeProvider;
 import tcintegrations.items.TCIntegrationsItems;
+import tcintegrations.TCIntegrations;
 
-public class ModRecipesProvider extends RecipeProvider {
+public class ModRecipesProvider extends BaseRecipeProvider {
 
     public ModRecipesProvider(PackOutput packOutput) {
         super(packOutput);
+    }
+
+    @Override
+    public String getName() {
+        return "TCIntegrations - Mod Recipes";
     }
 
     @Override
