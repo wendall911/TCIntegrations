@@ -86,9 +86,9 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
         // Ars Nouveau
         this.tag(TagManager.Items.SOURCE_GEM)
-            .add(ModIntegration.SOURCE_GEM);
+            .addOptional(ModIntegration.arsLoc("source_gem"));
         this.tag(TagManager.Items.SOURCE_GEM_BLOCK)
-            .add(ModIntegration.SOURCE_GEM_BLOCK);
+            .addOptional(ModIntegration.arsLoc("source_gem_block"));
     }
 
     private void addBotaniaLogVariants(TagKey<Item> tag, String type) {
