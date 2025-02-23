@@ -2,7 +2,6 @@ package tcintegrations.data.tcon;
 
 import java.util.function.Consumer;
 
-import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.data.PackOutput;
