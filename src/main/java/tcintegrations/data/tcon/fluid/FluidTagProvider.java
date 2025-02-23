@@ -1,5 +1,6 @@
 package tcintegrations.data.tcon.fluid;
 
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 import org.jetbrains.annotations.NotNull;
@@ -7,17 +8,18 @@ import org.jetbrains.annotations.NotNull;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.FluidTagsProvider;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.level.material.Fluid;
 
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import slimeknights.mantle.registration.object.FlowingFluidObject;
+import slimeknights.mantle.registration.object.FluidObject;
 
 import slimeknights.tconstruct.common.TinkerTags;
 
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
-
-import static tcintegrations.util.ResourceLocationHelper.resource;
 
 @SuppressWarnings("unchecked")
 public class FluidTagProvider extends FluidTagsProvider {
@@ -33,21 +35,21 @@ public class FluidTagProvider extends FluidTagsProvider {
 
     @Override
     public void addTags(HolderLookup.@NotNull Provider provider) {
-        tagAll(TCIntegrationsItems.MOLTEN_MANASTEEL);
-        tagAll(TCIntegrationsItems.MOLTEN_NEPTUNIUM);
-        tagLocal(TCIntegrationsItems.MOLTEN_SOURCE_GEM);
-        tagAll(TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL);
-        tagAll(TCIntegrationsItems.MOLTEN_CLOGGRUM);
-        tagAll(TCIntegrationsItems.MOLTEN_FROSTSTEEL);
-        tagAll(TCIntegrationsItems.MOLTEN_FORGOTTEN);
-        tagAll(TCIntegrationsItems.MOLTEN_PENDORITE);
-        tagAll(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY);
-        tagAll(TCIntegrationsItems.MOLTEN_DESH);
-        tagAll(TCIntegrationsItems.MOLTEN_CALORITE);
-        tagAll(TCIntegrationsItems.MOLTEN_OSTRUM);
-        tagAll(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE);
-        tagAll(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE);
-        tagAll(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING);
+        fluidTag(TCIntegrationsItems.MOLTEN_MANASTEEL);
+        fluidTag(TCIntegrationsItems.MOLTEN_NEPTUNIUM);
+        fluidTag(TCIntegrationsItems.MOLTEN_SOURCE_GEM);
+        fluidTag(TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL);
+        fluidTag(TCIntegrationsItems.MOLTEN_CLOGGRUM);
+        fluidTag(TCIntegrationsItems.MOLTEN_FROSTSTEEL);
+        fluidTag(TCIntegrationsItems.MOLTEN_FORGOTTEN);
+        fluidTag(TCIntegrationsItems.MOLTEN_PENDORITE);
+        fluidTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY);
+        fluidTag(TCIntegrationsItems.MOLTEN_DESH);
+        fluidTag(TCIntegrationsItems.MOLTEN_CALORITE);
+        fluidTag(TCIntegrationsItems.MOLTEN_OSTRUM);
+        fluidTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE);
+        fluidTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE);
+        fluidTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING);
 
         this.tag(TinkerTags.Fluids.METAL_TOOLTIPS)
             .addOptionalTag(TCIntegrationsItems.MOLTEN_MANASTEEL.getTag().location())
@@ -87,16 +89,18 @@ public class FluidTagProvider extends FluidTagsProvider {
             .addOptionalTag(TCIntegrationsItems.MOLTEN_SOURCE_GEM.getId());
     }
 
-    /** Tags this fluid using local tags */
-    private void tagLocal(FlowingFluidObject<?> fluid) {
-        String name = fluid.getLocalTag().location().getPath();
-
-        tag(fluid.getLocalTag()).addOptional(resource(name)).addOptional(resource("flowing_" + name));
+    private void fluidTag(FluidObject<?> fluid) {
+        tag(Objects.requireNonNull(fluid.getCommonTag())).add(fluid.get());
     }
 
-    private void tagAll(FlowingFluidObject<?> fluid) {
-        tagLocal(fluid);
-        tag(fluid.getTag()).addOptionalTag(fluid.getLocalTag().location());
+    /** Adds tags for a placable fluid */
+    private void fluidTag(FlowingFluidObject<?> fluid) {
+        tag(fluid.getLocalTag()).add(fluid.getStill(), fluid.getFlowing());
+        TagKey<Fluid> tag = fluid.getCommonTag();
+
+        if (tag != null) {
+            tag(tag).addTag(fluid.getLocalTag());
+        }
     }
 
 }
