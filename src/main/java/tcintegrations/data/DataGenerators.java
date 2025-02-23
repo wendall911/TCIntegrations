@@ -51,16 +51,16 @@ public final class DataGenerators {
         gen.addProvider(server, new ModBlockStateProvider(packOutput, existingFileHelper));
         gen.addProvider(server, blockTags);
         gen.addProvider(server, new ModItemTagsProvider(packOutput, event.getLookupProvider(), blockTags, existingFileHelper));
-        gen.addProvider(server, new FluidTagProvider(packOutput, event.getLookupProvider(), existingFileHelper));
         gen.addProvider(server, new ModRecipesProvider(packOutput));
         gen.addProvider(server, ModLootTables.create(packOutput));
+        gen.addProvider(server, new EntityTypeTagProvider(packOutput, event.getLookupProvider(), existingFileHelper));
+        gen.addProvider(server, new FluidTagProvider(packOutput, event.getLookupProvider(), existingFileHelper));
         gen.addProvider(client, new MaterialRenderInfoProvider(packOutput, materialSprites, existingFileHelper));
         gen.addProvider(server, new MaterialStatsDataProvider(packOutput, materials));
         gen.addProvider(server, new MaterialTraitsDataProvider(packOutput, materials));
         gen.addProvider(server, new MaterialRecipeProvider(packOutput));
         gen.addProvider(server, new SmelteryRecipeProvider(packOutput));
         gen.addProvider(server, materials);
-        gen.addProvider(server, new EntityTypeTagProvider(packOutput, event.getLookupProvider(), existingFileHelper));
         gen.addProvider(server, new ProjectEConversionProvider(packOutput, event.getLookupProvider()));
         gen.addProvider(server, new ModifierProvider(packOutput));
         gen.addProvider(client, new FluidTextureProvider(packOutput));
