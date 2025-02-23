@@ -110,8 +110,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(ModIntegration.RUNE_SPRING)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
-            .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_helmets"), compatSalvage))
-            .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_helmets"), compatFolder));
+            .saveSalvage(botaniaConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_helmets"), compatSalvage))
+            .save(botaniaConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_helmets"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER)
             .setTools(TinkerTags.Items.CHESTPLATES)
@@ -122,8 +122,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(ModIntegration.RUNE_SUMMER)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
-            .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_chestplates"), compatSalvage))
-            .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_chestplates"), compatFolder));
+            .saveSalvage(botaniaConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_chestplates"), compatSalvage))
+            .save(botaniaConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_chestplates"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER)
             .setTools(TinkerTags.Items.LEGGINGS)
@@ -134,8 +134,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(ModIntegration.RUNE_AUTUMN)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
-            .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_leggings"), compatSalvage))
-            .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_leggings"), compatFolder));
+            .saveSalvage(botaniaConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_leggings"), compatSalvage))
+            .save(botaniaConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_leggings"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER)
             .setTools(TinkerTags.Items.BOOTS)
@@ -146,8 +146,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(ModIntegration.RUNE_WINTER)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
-            .saveSalvage(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatSalvage))
-            .save(botaniaConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatFolder));
+            .saveSalvage(botaniaConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatSalvage))
+            .save(botaniaConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId() + "_boots"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.GREAT_FAIRY_MODIFIER)
             .setTools(TinkerTags.Items.WORN_ARMOR)
@@ -249,8 +249,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(Items.SHIELD)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
-            .saveSalvage(arsConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER.getId() + "_chestplates"), compatSalvage))
-            .save(arsConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER.getId() + "_chestplates"), compatFolder));
+            .saveSalvage(arsConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER.getId() + "_chestplates"), compatSalvage))
+            .save(arsConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.ENCHANTERS_SHIELD_MODIFIER.getId() + "_chestplates"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ROADRUNNER_MODIFIER)
             .setTools(TinkerTags.Items.BOOTS)
@@ -261,8 +261,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(ModIntegration.ROADRUNNER_FEATHER)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(3)
-            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ROADRUNNER_MODIFIER.getId() + "_boots"), compatSalvage))
-            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.ROADRUNNER_MODIFIER.getId() + "_boots"), compatFolder));
+            .saveSalvage(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.ROADRUNNER_MODIFIER.getId() + "_boots"), compatSalvage))
+            .save(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.ROADRUNNER_MODIFIER.getId() + "_boots"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.FRONTIER_CAP_MODIFIER)
             .setTools(TinkerTags.Items.HELMETS)
@@ -273,8 +273,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(ModIntegration.RACCOON_TAIL)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(3)
-            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.FRONTIER_CAP_MODIFIER.getId() + "_helmets"), compatSalvage))
-            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.FRONTIER_CAP_MODIFIER.getId() + "_helmets"), compatFolder));
+            .saveSalvage(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.FRONTIER_CAP_MODIFIER.getId() + "_helmets"), compatSalvage))
+            .save(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.FRONTIER_CAP_MODIFIER.getId() + "_helmets"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TURTLE_SHELL_MODIFIER)
             .setTools(TinkerTags.Items.HELMETS)
@@ -285,8 +285,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(ModIntegration.SPIKED_SCUTE)
             .setSlots(SlotType.ABILITY, 1)
             .setMaxLevel(1)
-            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TURTLE_SHELL_MODIFIER.getId() + "_helmets"), compatSalvage))
-            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TURTLE_SHELL_MODIFIER.getId() + "_helmets"), compatFolder));
+            .saveSalvage(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.TURTLE_SHELL_MODIFIER.getId() + "_helmets"), compatSalvage))
+            .save(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.TURTLE_SHELL_MODIFIER.getId() + "_helmets"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.BISON_FUR_MODIFIER)
             .setTools(TinkerTags.Items.BOOTS)
@@ -297,8 +297,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(ModIntegration.BISON_FUR)
             .setSlots(SlotType.ABILITY, 1)
             .setMaxLevel(1)
-            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.BISON_FUR_MODIFIER.getId() + "_boots"), compatSalvage))
-            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.BISON_FUR_MODIFIER.getId() + "_boots"), compatFolder));
+            .saveSalvage(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.BISON_FUR_MODIFIER.getId() + "_boots"), compatSalvage))
+            .save(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.BISON_FUR_MODIFIER.getId() + "_boots"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SHIELD_OF_THE_DEEP_MODIFIER)
             .setTools(TinkerTags.Items.CHESTPLATES)
@@ -309,8 +309,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(ModIntegration.SHARK_TOOTH)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
-            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.SHIELD_OF_THE_DEEP_MODIFIER.getId() + "_chestplates"), compatSalvage))
-            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.SHIELD_OF_THE_DEEP_MODIFIER.getId() + "_chestplates"), compatFolder));
+            .saveSalvage(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.SHIELD_OF_THE_DEEP_MODIFIER.getId() + "_chestplates"), compatSalvage))
+            .save(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.SHIELD_OF_THE_DEEP_MODIFIER.getId() + "_chestplates"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.MOSQUITO_MODIFIER)
             .setTools(TinkerTags.Items.BOOTS)
@@ -333,8 +333,8 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .addInput(ModIntegration.CROCODILE_SCUTE)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
-            .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.CROCODILE_MODIFIER.getId() + "_chestplates"), compatSalvage))
-            .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.CROCODILE_MODIFIER.getId() + "_chestplates"), compatFolder));
+            .saveSalvage(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.CROCODILE_MODIFIER.getId() + "_chestplates"), compatSalvage))
+            .save(alexConsumer, prefix(ResourceLocation.parse(TCIntegrationsModifiers.CROCODILE_MODIFIER.getId() + "_chestplates"), compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SOUL_STAINED_MODIFIER)
             .setTools(TinkerTags.Items.WORN_ARMOR)

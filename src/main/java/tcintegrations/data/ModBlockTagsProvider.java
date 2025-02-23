@@ -56,7 +56,7 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
         TagsProvider.TagAppender<Block> builder = this.tag(TinkerTags.Blocks.ANVIL_METAL);
 
         for (SmelteryCompat compat : SmelteryCompat.values()) {
-            builder.addOptionalTag(new ResourceLocation("forge", "storage_blocks/" + compat.getName()));
+            builder.addOptionalTag(ResourceLocation.fromNamespaceAndPath("forge", "storage_blocks/" + compat.getName()));
         }
 
         addMetalTags(TCIntegrationsItems.BRONZE);
