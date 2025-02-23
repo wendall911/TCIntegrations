@@ -182,15 +182,27 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         };
 
         event.enqueueWork(() -> {
-            DispenserBlock.registerBehavior(MOLTEN_CLOGGRUM, dispenseItemBehavior);
-            DispenserBlock.registerBehavior(MOLTEN_FORGOTTEN, dispenseItemBehavior);
-            DispenserBlock.registerBehavior(MOLTEN_FROSTSTEEL, dispenseItemBehavior);
-            DispenserBlock.registerBehavior(MOLTEN_MANASTEEL, dispenseItemBehavior);
-            DispenserBlock.registerBehavior(MOLTEN_NEPTUNIUM, dispenseItemBehavior);
-            DispenserBlock.registerBehavior(MOLTEN_PENDORITE, dispenseItemBehavior);
-            DispenserBlock.registerBehavior(MOLTEN_PENDORITE_ALLOY, dispenseItemBehavior);
-            DispenserBlock.registerBehavior(MOLTEN_SOUL_STAINED_STEEL, dispenseItemBehavior);
-            DispenserBlock.registerBehavior(MOLTEN_SOURCE_GEM, dispenseItemBehavior);
+            if (ModIntegration.canLoad(ModIntegration.UNDERGARDEN_MODID)) {
+                DispenserBlock.registerBehavior(MOLTEN_CLOGGRUM, dispenseItemBehavior);
+                DispenserBlock.registerBehavior(MOLTEN_FORGOTTEN, dispenseItemBehavior);
+                DispenserBlock.registerBehavior(MOLTEN_FROSTSTEEL, dispenseItemBehavior);
+            }
+            if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
+                DispenserBlock.registerBehavior(MOLTEN_MANASTEEL, dispenseItemBehavior);
+            }
+            if (ModIntegration.canLoad(ModIntegration.AQUACULTURE_MODID)) {
+                DispenserBlock.registerBehavior(MOLTEN_NEPTUNIUM, dispenseItemBehavior);
+            }
+            if (ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
+                DispenserBlock.registerBehavior(MOLTEN_PENDORITE, dispenseItemBehavior);
+                DispenserBlock.registerBehavior(MOLTEN_PENDORITE_ALLOY, dispenseItemBehavior);
+            }
+            if (ModIntegration.canLoad(ModIntegration.MALUM_MODID)) {
+                DispenserBlock.registerBehavior(MOLTEN_SOUL_STAINED_STEEL, dispenseItemBehavior);
+            }
+            if (ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
+                DispenserBlock.registerBehavior(MOLTEN_SOURCE_GEM, dispenseItemBehavior);
+            }
             DispenserBlock.registerBehavior(MOLTEN_DESH, dispenseItemBehavior);
             DispenserBlock.registerBehavior(MOLTEN_OSTRUM, dispenseItemBehavior);
             DispenserBlock.registerBehavior(MOLTEN_CALORITE, dispenseItemBehavior);
@@ -202,21 +214,43 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         output.accept(BRONZE.getIngot());
         output.accept(BRONZE.get());
         output.accept(GENERAL_TOOLTIP_BLOCK_ITEM.apply(BRONZE.get()));
-        output.accept(MOLTEN_MANASTEEL);
-        output.accept(MOLTEN_NEPTUNIUM);
-        output.accept(MOLTEN_SOURCE_GEM);
-        output.accept(MOLTEN_SOUL_STAINED_STEEL);
-        output.accept(MOLTEN_CLOGGRUM);
-        output.accept(MOLTEN_FROSTSTEEL);
-        output.accept(MOLTEN_FORGOTTEN);
-        output.accept(MOLTEN_PENDORITE);
-        output.accept(MOLTEN_PENDORITE_ALLOY);
+
+        if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
+            output.accept(MOLTEN_MANASTEEL);
+        }
+
+        if (ModIntegration.canLoad(ModIntegration.AQUACULTURE_MODID)) {
+            output.accept(MOLTEN_NEPTUNIUM);
+        }
+
+        if (ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
+            output.accept(MOLTEN_SOURCE_GEM);
+        }
+
+        if (ModIntegration.canLoad(ModIntegration.MALUM_MODID)) {
+            output.accept(MOLTEN_SOUL_STAINED_STEEL);
+        }
+
+        if (ModIntegration.canLoad(ModIntegration.UNDERGARDEN_MODID)) {
+            output.accept(MOLTEN_CLOGGRUM);
+            output.accept(MOLTEN_FROSTSTEEL);
+            output.accept(MOLTEN_FORGOTTEN);
+        }
+
+        if (ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
+            output.accept(MOLTEN_PENDORITE);
+            output.accept(MOLTEN_PENDORITE_ALLOY);
+        }
+
         output.accept(MOLTEN_DESH);
         output.accept(MOLTEN_OSTRUM);
         output.accept(MOLTEN_CALORITE);
-        output.accept(MOLTEN_DRAGONSTEEL_FIRE);
-        output.accept(MOLTEN_DRAGONSTEEL_ICE);
-        output.accept(MOLTEN_DRAGONSTEEL_LIGHTNING);
+
+        if (ModIntegration.canLoad(ModIntegration.IFD_MODID)) {
+            output.accept(MOLTEN_DRAGONSTEEL_FIRE);
+            output.accept(MOLTEN_DRAGONSTEEL_ICE);
+            output.accept(MOLTEN_DRAGONSTEEL_LIGHTNING);
+        }
     }
 
 }
