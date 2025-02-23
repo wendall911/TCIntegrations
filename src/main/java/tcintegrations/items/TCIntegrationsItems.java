@@ -26,13 +26,14 @@ import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-
 import net.minecraftforge.registries.RegistryObject;
+
 import slimeknights.mantle.item.BlockTooltipItem;
 import slimeknights.mantle.registration.object.FlowingFluidObject;
 import slimeknights.mantle.registration.object.MetalItemObject;
 
 import slimeknights.tconstruct.world.TinkerWorld;
+
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.TCIntegrations;
@@ -75,50 +76,36 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         GENERAL_TOOLTIP_BLOCK_ITEM = (b) -> new BlockTooltipItem(b, new Item.Properties());
 
         // Fluids
-        if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
-            MOLTEN_MANASTEEL = FLUID_REGISTRY.register("molten_manasteel").type(hot("molten_manasteel")
-                .temperature(1250).lightLevel(13)).block(createBurning(MapColor.RAW_IRON, 13, 10, 5f)).bucket().flowing();
-        }
+        MOLTEN_MANASTEEL = FLUID_REGISTRY.register("molten_manasteel").type(hot("molten_manasteel")
+            .temperature(1250).lightLevel(13)).block(createBurning(MapColor.RAW_IRON, 13, 10, 5f)).bucket().flowing();
 
-        if (ModIntegration.canLoad(ModIntegration.AQUACULTURE_MODID)) {
-            MOLTEN_NEPTUNIUM = FLUID_REGISTRY.register("molten_neptunium").type(hot("molten_neptunium")
-                .temperature(1250).lightLevel(14)).block(createBurning(MapColor.EMERALD, 14, 10, 5f)).bucket().flowing();
-        }
+        MOLTEN_NEPTUNIUM = FLUID_REGISTRY.register("molten_neptunium").type(hot("molten_neptunium")
+            .temperature(1250).lightLevel(14)).block(createBurning(MapColor.EMERALD, 14, 10, 5f)).bucket().flowing();
 
-        if (ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
-            MOLTEN_SOURCE_GEM = FLUID_REGISTRY.register("molten_source_gem").type(hot("molten_source_gem")
-                .temperature(1280).lightLevel(14)).block(createBurning(MapColor.COLOR_PURPLE, 14, 10, 5f)).bucket().flowing();
-        }
+        MOLTEN_SOURCE_GEM = FLUID_REGISTRY.register("molten_source_gem").type(hot("molten_source_gem")
+            .temperature(1280).lightLevel(14)).block(createBurning(MapColor.COLOR_PURPLE, 14, 10, 5f)).bucket().flowing();
 
-        if (ModIntegration.canLoad(ModIntegration.MALUM_MODID)) {
-            MOLTEN_SOUL_STAINED_STEEL = FLUID_REGISTRY.register("molten_soul_stained_steel").type(hot("molten_soul_stained_steel")
-                .temperature(1250).lightLevel(12)).block(createBurning(MapColor.COLOR_MAGENTA, 12, 10, 5f)).bucket().flowing();
-        }
+        MOLTEN_SOUL_STAINED_STEEL = FLUID_REGISTRY.register("molten_soul_stained_steel").type(hot("molten_soul_stained_steel")
+            .temperature(1250).lightLevel(12)).block(createBurning(MapColor.COLOR_MAGENTA, 12, 10, 5f)).bucket().flowing();
 
-        if (ModIntegration.canLoad(ModIntegration.UNDERGARDEN_MODID)) {
-            MOLTEN_CLOGGRUM = FLUID_REGISTRY.register("molten_cloggrum").type(hot("molten_cloggrum")
-                .temperature(1200).lightLevel(8)).block(createBurning(MapColor.TERRACOTTA_BROWN, 8, 10, 5f)).bucket().flowing();
-            MOLTEN_FROSTSTEEL = FLUID_REGISTRY.register("molten_froststeel").type(hot("molten_froststeel")
-                .temperature(1200).lightLevel(11)).block(createBurning(MapColor.WATER, 11, 10, 6f)).bucket().flowing();
-            MOLTEN_FORGOTTEN = FLUID_REGISTRY.register("molten_forgotten").type(hot("molten_forgotten")
-                .temperature(1200).lightLevel(14)).block(createBurning(MapColor.EMERALD, 14, 10, 6f)).bucket().flowing();
-        }
+        MOLTEN_CLOGGRUM = FLUID_REGISTRY.register("molten_cloggrum").type(hot("molten_cloggrum")
+            .temperature(1200).lightLevel(8)).block(createBurning(MapColor.TERRACOTTA_BROWN, 8, 10, 5f)).bucket().flowing();
+        MOLTEN_FROSTSTEEL = FLUID_REGISTRY.register("molten_froststeel").type(hot("molten_froststeel")
+            .temperature(1200).lightLevel(11)).block(createBurning(MapColor.WATER, 11, 10, 6f)).bucket().flowing();
+        MOLTEN_FORGOTTEN = FLUID_REGISTRY.register("molten_forgotten").type(hot("molten_forgotten")
+            .temperature(1200).lightLevel(14)).block(createBurning(MapColor.EMERALD, 14, 10, 6f)).bucket().flowing();
 
-        if (ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
-            MOLTEN_PENDORITE = FLUID_REGISTRY.register("molten_pendorite").type(hot("molten_pendorite")
-                .temperature(1200).lightLevel(14)).block(createBurning(MapColor.TERRACOTTA_PURPLE, 14, 10, 5f)).bucket().flowing();
-            MOLTEN_PENDORITE_ALLOY = FLUID_REGISTRY.register("molten_pendorite_alloy").type(hot("molten_pendorite_alloy")
-                .temperature(1200).lightLevel(14)).block(createBurning(MapColor.COLOR_PURPLE, 14, 10, 5f)).bucket().flowing();
-        }
+        MOLTEN_PENDORITE = FLUID_REGISTRY.register("molten_pendorite").type(hot("molten_pendorite")
+            .temperature(1200).lightLevel(14)).block(createBurning(MapColor.TERRACOTTA_PURPLE, 14, 10, 5f)).bucket().flowing();
+        MOLTEN_PENDORITE_ALLOY = FLUID_REGISTRY.register("molten_pendorite_alloy").type(hot("molten_pendorite_alloy")
+            .temperature(1200).lightLevel(14)).block(createBurning(MapColor.COLOR_PURPLE, 14, 10, 5f)).bucket().flowing();
 
-        if (ModIntegration.canLoad(ModIntegration.IFD_MODID)) {
-            MOLTEN_DRAGONSTEEL_FIRE = FLUID_REGISTRY.register("molten_dragonsteel_fire").type(hot("molten_dragonsteel_fire")
-                .temperature(1750).lightLevel(12)).block(createBurning(MapColor.TERRACOTTA_RED, 12, 10, 5f)).bucket().flowing();
-            MOLTEN_DRAGONSTEEL_ICE = FLUID_REGISTRY.register("molten_dragonsteel_ice").type(hot("molten_dragonsteel_ice")
-                .temperature(1750).lightLevel(11)).block(createBurning(MapColor.ICE, 11, 10, 5f)).bucket().flowing();
-            MOLTEN_DRAGONSTEEL_LIGHTNING = FLUID_REGISTRY.register("molten_dragonsteel_lightning").type(hot("molten_dragonsteel_lightning")
-                .temperature(1750).lightLevel(14)).block(createBurning(MapColor.TERRACOTTA_YELLOW, 14, 10, 5f)).bucket().flowing();
-        }
+        MOLTEN_DRAGONSTEEL_FIRE = FLUID_REGISTRY.register("molten_dragonsteel_fire").type(hot("molten_dragonsteel_fire")
+            .temperature(1750).lightLevel(12)).block(createBurning(MapColor.TERRACOTTA_RED, 12, 10, 5f)).bucket().flowing();
+        MOLTEN_DRAGONSTEEL_ICE = FLUID_REGISTRY.register("molten_dragonsteel_ice").type(hot("molten_dragonsteel_ice")
+            .temperature(1750).lightLevel(11)).block(createBurning(MapColor.ICE, 11, 10, 5f)).bucket().flowing();
+        MOLTEN_DRAGONSTEEL_LIGHTNING = FLUID_REGISTRY.register("molten_dragonsteel_lightning").type(hot("molten_dragonsteel_lightning")
+            .temperature(1750).lightLevel(14)).block(createBurning(MapColor.TERRACOTTA_YELLOW, 14, 10, 5f)).bucket().flowing();
 
         // Space trash
         MOLTEN_DESH = FLUID_REGISTRY.register("molten_desh").type(hot("molten_desh")
@@ -187,22 +174,12 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
                 DispenserBlock.registerBehavior(MOLTEN_FORGOTTEN, dispenseItemBehavior);
                 DispenserBlock.registerBehavior(MOLTEN_FROSTSTEEL, dispenseItemBehavior);
             }
-            if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
-                DispenserBlock.registerBehavior(MOLTEN_MANASTEEL, dispenseItemBehavior);
-            }
-            if (ModIntegration.canLoad(ModIntegration.AQUACULTURE_MODID)) {
-                DispenserBlock.registerBehavior(MOLTEN_NEPTUNIUM, dispenseItemBehavior);
-            }
-            if (ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
-                DispenserBlock.registerBehavior(MOLTEN_PENDORITE, dispenseItemBehavior);
-                DispenserBlock.registerBehavior(MOLTEN_PENDORITE_ALLOY, dispenseItemBehavior);
-            }
-            if (ModIntegration.canLoad(ModIntegration.MALUM_MODID)) {
-                DispenserBlock.registerBehavior(MOLTEN_SOUL_STAINED_STEEL, dispenseItemBehavior);
-            }
-            if (ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
-                DispenserBlock.registerBehavior(MOLTEN_SOURCE_GEM, dispenseItemBehavior);
-            }
+            DispenserBlock.registerBehavior(MOLTEN_MANASTEEL, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_NEPTUNIUM, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_PENDORITE, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_PENDORITE_ALLOY, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_SOUL_STAINED_STEEL, dispenseItemBehavior);
+            DispenserBlock.registerBehavior(MOLTEN_SOURCE_GEM, dispenseItemBehavior);
             DispenserBlock.registerBehavior(MOLTEN_DESH, dispenseItemBehavior);
             DispenserBlock.registerBehavior(MOLTEN_OSTRUM, dispenseItemBehavior);
             DispenserBlock.registerBehavior(MOLTEN_CALORITE, dispenseItemBehavior);
@@ -213,44 +190,21 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         output.accept(BRONZE.getNugget());
         output.accept(BRONZE.getIngot());
         output.accept(BRONZE.get());
-        output.accept(GENERAL_TOOLTIP_BLOCK_ITEM.apply(BRONZE.get()));
-
-        if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
-            output.accept(MOLTEN_MANASTEEL);
-        }
-
-        if (ModIntegration.canLoad(ModIntegration.AQUACULTURE_MODID)) {
-            output.accept(MOLTEN_NEPTUNIUM);
-        }
-
-        if (ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
-            output.accept(MOLTEN_SOURCE_GEM);
-        }
-
-        if (ModIntegration.canLoad(ModIntegration.MALUM_MODID)) {
-            output.accept(MOLTEN_SOUL_STAINED_STEEL);
-        }
-
-        if (ModIntegration.canLoad(ModIntegration.UNDERGARDEN_MODID)) {
-            output.accept(MOLTEN_CLOGGRUM);
-            output.accept(MOLTEN_FROSTSTEEL);
-            output.accept(MOLTEN_FORGOTTEN);
-        }
-
-        if (ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
-            output.accept(MOLTEN_PENDORITE);
-            output.accept(MOLTEN_PENDORITE_ALLOY);
-        }
-
+        output.accept(MOLTEN_MANASTEEL);
+        output.accept(MOLTEN_NEPTUNIUM);
+        output.accept(MOLTEN_SOURCE_GEM);
+        output.accept(MOLTEN_SOUL_STAINED_STEEL);
+        output.accept(MOLTEN_CLOGGRUM);
+        output.accept(MOLTEN_FROSTSTEEL);
+        output.accept(MOLTEN_FORGOTTEN);
+        output.accept(MOLTEN_PENDORITE);
+        output.accept(MOLTEN_PENDORITE_ALLOY);
         output.accept(MOLTEN_DESH);
         output.accept(MOLTEN_OSTRUM);
         output.accept(MOLTEN_CALORITE);
-
-        if (ModIntegration.canLoad(ModIntegration.IFD_MODID)) {
-            output.accept(MOLTEN_DRAGONSTEEL_FIRE);
-            output.accept(MOLTEN_DRAGONSTEEL_ICE);
-            output.accept(MOLTEN_DRAGONSTEEL_LIGHTNING);
-        }
+        output.accept(MOLTEN_DRAGONSTEEL_FIRE);
+        output.accept(MOLTEN_DRAGONSTEEL_ICE);
+        output.accept(MOLTEN_DRAGONSTEEL_LIGHTNING);
     }
 
 }
