@@ -1,0 +1,5 @@
+{
+  "color": "FFFFFFFF",
+  "flowing": "tcintegrations:fluid/molten/compat_alloy/molten_manasteel/flowing",
+  "still": "tcintegrations:fluid/molten/compat_alloy/molten_manasteel/still"
+}

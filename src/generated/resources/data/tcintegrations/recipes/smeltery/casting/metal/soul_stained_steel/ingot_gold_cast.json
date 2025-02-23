@@ -5,13 +5,6 @@
   },
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/soul_stained_steel"
-      }
-    },
-    {
       "type": "forge:mod_loaded",
       "modid": "malum"
     }
@@ -19,7 +12,7 @@
   "cooling_time": 65,
   "fluid": {
     "amount": 90,
-    "tag": "forge:soul_stained_steel"
+    "tag": "tcintegrations:molten_soul_stained_steel"
   },
   "result": {
     "tag": "forge:ingots/soul_stained_steel"

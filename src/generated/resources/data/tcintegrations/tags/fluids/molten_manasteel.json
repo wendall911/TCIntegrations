@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:molten_manasteel",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_molten_manasteel",
+      "required": false
+    },
+    {
+      "id": "#tcintegrations:molten_manasteel",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "color": "FFFFFFFF",
+  "flowing": "tcintegrations:fluid/molten/compat_alloy/molten_dragonsteel_fire/flowing",
+  "still": "tcintegrations:fluid/molten/compat_alloy/molten_dragonsteel_fire/still"
+}

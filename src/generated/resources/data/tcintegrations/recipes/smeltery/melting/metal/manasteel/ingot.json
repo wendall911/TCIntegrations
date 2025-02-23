@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:manasteel"
+    "fluid": "tcintegrations:molten_manasteel"
   },
   "temperature": 950,
   "time": 65

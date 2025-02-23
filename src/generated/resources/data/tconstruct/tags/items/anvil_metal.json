@@ -51,6 +51,42 @@
     {
       "id": "#forge:storage_blocks/dragonsteel_lightning",
       "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/neptunium",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/soul_stained_steel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/cloggrum",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/froststeel",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/forgotten",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/pendorite_alloy",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/desh",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/calorite",
+      "required": false
+    },
+    {
+      "id": "#forge:storage_blocks/ostrum",
+      "required": false
     }
   ]
 }

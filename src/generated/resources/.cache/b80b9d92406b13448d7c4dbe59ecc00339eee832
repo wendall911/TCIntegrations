@@ -1,4 +1,4 @@
-// 1.19.2	2024-10-15T10:20:37.927480849	TCIntegrations - TCon Modifier Recipes
+// 1.20.1	2025-02-23T07:58:25.125542444	TCIntegrations - TCon Modifier Recipes
 4a4db57e9f4f164f9ab8780543aa51c303022bf1 data/tcintegrations/recipes/tools/modifiers/compat/alf.json
 64578586989240ff0516aeb3b57172b607349c72 data/tcintegrations/recipes/tools/modifiers/compat/alfheim.json
 f36fbdfb0b09517fbb6b75546eab2007a3541401 data/tcintegrations/recipes/tools/modifiers/compat/ars_nouveau_level_1.json
@@ -6,11 +6,11 @@ f36fbdfb0b09517fbb6b75546eab2007a3541401 data/tcintegrations/recipes/tools/modif
 e18d1bfab70d4cc65a858aaf0b70fd08e969f201 data/tcintegrations/recipes/tools/modifiers/compat/ars_nouveau_level_3.json
 52b140053a99015a235497c0fa0a065a29dd6756 data/tcintegrations/recipes/tools/modifiers/compat/bison_fur_boots.json
 c4e22691bb9d8e088413198397de82d7ef418197 data/tcintegrations/recipes/tools/modifiers/compat/capturing.json
-827d7f75e09ebe5fb10750fe90b521ddac10b4c1 data/tcintegrations/recipes/tools/modifiers/compat/cheesy.json
+d8216b7c584c3fddc200551bf9217975d1f9e5c6 data/tcintegrations/recipes/tools/modifiers/compat/cheesy.json
 58648148b2e4113ae9848ae7dfc2ea975bb6214a data/tcintegrations/recipes/tools/modifiers/compat/crocodile_chestplates.json
 017d185725d02570ccbc25b1770fc6d2fcd2a6c6 data/tcintegrations/recipes/tools/modifiers/compat/elemental.json
 25c9a7873c64787bfb99cfd5cae8bb521cf51337 data/tcintegrations/recipes/tools/modifiers/compat/enchanters_shield_chestplates.json
-355f0ef3e93672633a164eb383c2ce62710de3ba data/tcintegrations/recipes/tools/modifiers/compat/engineers_goggles.json
+b2263873df7c3a63f51ebfaf44e16fd3f3c8cb34 data/tcintegrations/recipes/tools/modifiers/compat/engineers_goggles.json
 a525246e2e8eab8b4a51a97e90e1b2e10285aba5 data/tcintegrations/recipes/tools/modifiers/compat/flamed.json
 0b385184df52c04c5ab206359cbfe5d390e0a144 data/tcintegrations/recipes/tools/modifiers/compat/forgotten.json
 2ea2d23995bc19e2e2aae11d46169b37c0fcfa8b data/tcintegrations/recipes/tools/modifiers/compat/frontier_cap_helmets.json
@@ -43,11 +43,11 @@ f0189bf9d1476ad43e64ef4b2f245baa24ae9ce7 data/tcintegrations/recipes/tools/modif
 f9127e3030085c7a29bcadcb1ed513a4cd2fd049 data/tcintegrations/recipes/tools/modifiers/salvage/compat/ars_nouveau_level_3.json
 eedde98bf44b9e1cd730ebe23135fa704674dd1e data/tcintegrations/recipes/tools/modifiers/salvage/compat/bison_fur_boots.json
 6c9b9d24d882960f072561587a221c657e5f6b47 data/tcintegrations/recipes/tools/modifiers/salvage/compat/capturing.json
-e0b27d1264e8e1d868b93e7a514c886c99469905 data/tcintegrations/recipes/tools/modifiers/salvage/compat/cheesy.json
+a728866f78f5f56d288752adf6428e60cbd1a1fc data/tcintegrations/recipes/tools/modifiers/salvage/compat/cheesy.json
 c6c023e89d0e83aba7dda9973fac4486b732173f data/tcintegrations/recipes/tools/modifiers/salvage/compat/crocodile_chestplates.json
 13acbdfc9ef3bf136967fb66511136f0db7b5b50 data/tcintegrations/recipes/tools/modifiers/salvage/compat/elemental.json
 ad6162022cf733cbf93f02da8d1ef9955471a13c data/tcintegrations/recipes/tools/modifiers/salvage/compat/enchanters_shield_chestplates.json
-15ad7966ba3122e239915f51106d527c5e727bbb data/tcintegrations/recipes/tools/modifiers/salvage/compat/engineers_goggles.json
+310baf7befa26a9783d11cbdb7b3a03c8ccf3eee data/tcintegrations/recipes/tools/modifiers/salvage/compat/engineers_goggles.json
 7d4073275a28d75e09226e5858440bb8dfda95b2 data/tcintegrations/recipes/tools/modifiers/salvage/compat/flamed.json
 478146e44662569760cb4767276903ed1732c743 data/tcintegrations/recipes/tools/modifiers/salvage/compat/forgotten.json
 2bc537e10ddde2a57660ebeb377d84057e4e9a0f data/tcintegrations/recipes/tools/modifiers/salvage/compat/frontier_cap_helmets.json

@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 810,
-    "fluid": "tcintegrations:froststeel"
+    "fluid": "tcintegrations:molten_froststeel"
   },
   "temperature": 900,
   "time": 190

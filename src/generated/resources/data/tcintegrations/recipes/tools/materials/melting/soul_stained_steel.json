@@ -2,17 +2,14 @@
   "type": "tconstruct:material_melting",
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/soul_stained_steel"
-      }
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/soul_stained_steel"
     }
   ],
   "input": "tcintegrations:soul_stained_steel",
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:soul_stained_steel"
+    "fluid": "tcintegrations:molten_soul_stained_steel"
   },
   "temperature": 950
 }

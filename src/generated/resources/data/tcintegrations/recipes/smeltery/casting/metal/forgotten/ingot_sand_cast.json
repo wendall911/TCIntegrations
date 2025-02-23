@@ -6,13 +6,6 @@
   "cast_consumed": true,
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/forgotten"
-      }
-    },
-    {
       "type": "forge:mod_loaded",
       "modid": "undergarden"
     }
@@ -20,7 +13,7 @@
   "cooling_time": 63,
   "fluid": {
     "amount": 90,
-    "tag": "forge:forgotten"
+    "tag": "tcintegrations:molten_forgotten"
   },
   "result": {
     "tag": "forge:ingots/forgotten"

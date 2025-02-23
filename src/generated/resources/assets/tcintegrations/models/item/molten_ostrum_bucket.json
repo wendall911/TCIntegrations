@@ -1,0 +1,6 @@
+{
+  "parent": "forge:item/bucket_drip",
+  "flip_gas": false,
+  "fluid": "tcintegrations:molten_ostrum",
+  "loader": "tconstruct:fluid_container"
+}

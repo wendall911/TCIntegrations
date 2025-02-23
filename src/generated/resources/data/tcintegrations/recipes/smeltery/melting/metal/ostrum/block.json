@@ -2,11 +2,8 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/ostrum"
-      }
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/ostrum"
     }
   ],
   "ingredient": {
@@ -14,7 +11,7 @@
   },
   "result": {
     "amount": 810,
-    "fluid": "tcintegrations:ostrum"
+    "fluid": "tcintegrations:molten_ostrum"
   },
   "temperature": 500,
   "time": 150

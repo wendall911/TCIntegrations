@@ -1,0 +1,15 @@
+{
+  "type": "tconstruct:casting_basin",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
+    }
+  ],
+  "cooling_time": 139,
+  "fluid": {
+    "amount": 400,
+    "tag": "tcintegrations:molten_source_gem"
+  },
+  "result": "ars_nouveau:source_gem_block"
+}

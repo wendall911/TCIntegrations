@@ -12,7 +12,7 @@
   "cooling_time": 69,
   "fluid": {
     "amount": 100,
-    "tag": "tcintegrations:source_gem"
+    "tag": "tcintegrations:molten_source_gem"
   },
   "result": "ars_nouveau:source_gem"
 }

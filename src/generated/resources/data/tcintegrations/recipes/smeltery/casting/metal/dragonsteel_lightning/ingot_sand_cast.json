@@ -6,13 +6,6 @@
   "cast_consumed": true,
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/dragonsteel_lightning"
-      }
-    },
-    {
       "type": "forge:mod_loaded",
       "modid": "iceandfire"
     }
@@ -20,7 +13,7 @@
   "cooling_time": 79,
   "fluid": {
     "amount": 90,
-    "tag": "forge:dragonsteel_lightning"
+    "tag": "tcintegrations:molten_dragonsteel_lightning"
   },
   "result": {
     "tag": "forge:ingots/dragonsteel_lightning"

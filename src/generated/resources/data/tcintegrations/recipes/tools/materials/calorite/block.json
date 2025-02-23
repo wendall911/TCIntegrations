@@ -2,18 +2,12 @@
   "type": "tconstruct:material",
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:storage_blocks/calorite"
-      }
+      "type": "mantle:tag_filled",
+      "tag": "forge:storage_blocks/calorite"
     },
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/calorite"
-      }
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/calorite"
     }
   ],
   "ingredient": {

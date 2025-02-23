@@ -5,24 +5,14 @@
   },
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:nuggets/calorite"
-      }
-    },
-    {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/calorite"
-      }
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/calorite"
     }
   ],
   "cooling_time": 17,
   "fluid": {
     "amount": 10,
-    "tag": "forge:calorite"
+    "tag": "tcintegrations:molten_calorite"
   },
   "result": {
     "tag": "forge:nuggets/calorite"

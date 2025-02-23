@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:molten_dragonsteel_ice",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_molten_dragonsteel_ice",
+      "required": false
+    },
+    {
+      "id": "#tcintegrations:molten_dragonsteel_ice",
+      "required": false
+    }
+  ]
+}

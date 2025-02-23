@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 10,
-    "fluid": "tcintegrations:dragonsteel_ice"
+    "fluid": "tcintegrations:molten_dragonsteel_ice"
   },
   "temperature": 1450,
   "time": 26

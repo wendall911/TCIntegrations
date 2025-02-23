@@ -2,17 +2,14 @@
   "type": "tconstruct:material_melting",
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/neptunium"
-      }
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/neptunium"
     }
   ],
   "input": "tcintegrations:neptunium",
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:neptunium"
+    "fluid": "tcintegrations:molten_neptunium"
   },
   "temperature": 950
 }

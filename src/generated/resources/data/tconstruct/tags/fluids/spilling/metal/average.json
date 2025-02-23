@@ -1,31 +1,31 @@
 {
   "values": [
     {
-      "id": "#forge:manasteel",
+      "id": "#tcintegrations:molten_manasteel",
       "required": false
     },
     {
-      "id": "#forge:soul_stained_steel",
+      "id": "#tcintegrations:molten_soul_stained_steel",
       "required": false
     },
     {
-      "id": "#forge:cloggrum",
+      "id": "#tcintegrations:molten_cloggrum",
       "required": false
     },
     {
-      "id": "#forge:froststeel",
+      "id": "#tcintegrations:molten_froststeel",
       "required": false
     },
     {
-      "id": "#forge:dragonsteel_fire",
+      "id": "#tcintegrations:molten_dragonsteel_fire",
       "required": false
     },
     {
-      "id": "#forge:dragonsteel_ice",
+      "id": "#tcintegrations:molten_dragonsteel_ice",
       "required": false
     },
     {
-      "id": "#forge:dragonsteel_lightning",
+      "id": "#tcintegrations:molten_dragonsteel_lightning",
       "required": false
     }
   ]

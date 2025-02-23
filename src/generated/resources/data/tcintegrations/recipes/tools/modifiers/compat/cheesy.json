@@ -3,11 +3,8 @@
   "allow_crystal": true,
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:food/cheese"
-      }
+      "type": "mantle:tag_filled",
+      "tag": "forge:food/cheese"
     }
   ],
   "inputs": [

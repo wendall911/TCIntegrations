@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:molten_source_gem",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_molten_source_gem",
+      "required": false
+    }
+  ]
+}

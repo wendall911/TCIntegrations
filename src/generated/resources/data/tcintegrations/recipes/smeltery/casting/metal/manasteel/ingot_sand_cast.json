@@ -6,13 +6,6 @@
   "cast_consumed": true,
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/manasteel"
-      }
-    },
-    {
       "type": "forge:mod_loaded",
       "modid": "botania"
     }
@@ -20,7 +13,7 @@
   "cooling_time": 65,
   "fluid": {
     "amount": 90,
-    "tag": "forge:manasteel"
+    "tag": "tcintegrations:molten_manasteel"
   },
   "result": {
     "tag": "forge:ingots/manasteel"

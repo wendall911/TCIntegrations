@@ -1,31 +1,31 @@
 {
   "values": [
     {
-      "id": "#forge:neptunium",
+      "id": "#tcintegrations:molten_neptunium",
       "required": false
     },
     {
-      "id": "#forge:forgotten",
+      "id": "#tcintegrations:molten_forgotten",
       "required": false
     },
     {
-      "id": "#forge:pendorite",
+      "id": "#tcintegrations:molten_pendorite",
       "required": false
     },
     {
-      "id": "#forge:pendorite_alloy",
+      "id": "#tcintegrations:molten_pendorite_alloy",
       "required": false
     },
     {
-      "id": "#forge:dragonsteel_fire",
+      "id": "#tcintegrations:molten_dragonsteel_fire",
       "required": false
     },
     {
-      "id": "#forge:dragonsteel_ice",
+      "id": "#tcintegrations:molten_dragonsteel_ice",
       "required": false
     },
     {
-      "id": "#forge:dragonsteel_lightning",
+      "id": "#tcintegrations:molten_dragonsteel_lightning",
       "required": false
     }
   ]

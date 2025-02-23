@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:pendorite_alloy"
+    "fluid": "tcintegrations:molten_pendorite_alloy"
   },
   "temperature": 900,
   "time": 127

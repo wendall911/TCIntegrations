@@ -5,13 +5,6 @@
   },
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:nuggets/forgotten"
-      }
-    },
-    {
       "type": "forge:mod_loaded",
       "modid": "undergarden"
     }
@@ -19,7 +12,7 @@
   "cooling_time": 21,
   "fluid": {
     "amount": 10,
-    "tag": "forge:forgotten"
+    "tag": "tcintegrations:molten_forgotten"
   },
   "result": {
     "tag": "forge:nuggets/forgotten"

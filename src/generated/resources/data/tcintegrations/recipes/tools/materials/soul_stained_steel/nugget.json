@@ -2,11 +2,8 @@
   "type": "tconstruct:material",
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:nuggets/soul_stained_steel"
-      }
+      "type": "mantle:tag_filled",
+      "tag": "forge:nuggets/soul_stained_steel"
     },
     {
       "type": "forge:mod_loaded",

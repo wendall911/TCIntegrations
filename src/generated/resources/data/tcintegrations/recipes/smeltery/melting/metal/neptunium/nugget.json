@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 10,
-    "fluid": "tcintegrations:neptunium"
+    "fluid": "tcintegrations:molten_neptunium"
   },
   "temperature": 950,
   "time": 22

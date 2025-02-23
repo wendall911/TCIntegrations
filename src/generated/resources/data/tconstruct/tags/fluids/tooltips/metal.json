@@ -1,59 +1,59 @@
 {
   "values": [
     {
-      "id": "#forge:manasteel",
+      "id": "#tcintegrations:molten_manasteel",
       "required": false
     },
     {
-      "id": "#forge:neptunium",
+      "id": "#tcintegrations:molten_neptunium",
       "required": false
     },
     {
-      "id": "#forge:soul_stained_steel",
+      "id": "#tcintegrations:molten_soul_stained_steel",
       "required": false
     },
     {
-      "id": "#forge:cloggrum",
+      "id": "#tcintegrations:molten_cloggrum",
       "required": false
     },
     {
-      "id": "#forge:froststeel",
+      "id": "#tcintegrations:molten_froststeel",
       "required": false
     },
     {
-      "id": "#forge:forgotten",
+      "id": "#tcintegrations:molten_forgotten",
       "required": false
     },
     {
-      "id": "#forge:pendorite",
+      "id": "#tcintegrations:molten_pendorite",
       "required": false
     },
     {
-      "id": "#forge:pendorite_alloy",
+      "id": "#tcintegrations:molten_pendorite_alloy",
       "required": false
     },
     {
-      "id": "#forge:desh",
+      "id": "#tcintegrations:molten_desh",
       "required": false
     },
     {
-      "id": "#forge:calorite",
+      "id": "#tcintegrations:molten_calorite",
       "required": false
     },
     {
-      "id": "#forge:ostrum",
+      "id": "#tcintegrations:molten_ostrum",
       "required": false
     },
     {
-      "id": "#forge:dragonsteel_fire",
+      "id": "#tcintegrations:molten_dragonsteel_fire",
       "required": false
     },
     {
-      "id": "#forge:dragonsteel_ice",
+      "id": "#tcintegrations:molten_dragonsteel_ice",
       "required": false
     },
     {
-      "id": "#forge:dragonsteel_lightning",
+      "id": "#tcintegrations:molten_dragonsteel_lightning",
       "required": false
     }
   ]

@@ -1,0 +1,16 @@
+{
+  "values": [
+    {
+      "id": "tcintegrations:molten_soul_stained_steel",
+      "required": false
+    },
+    {
+      "id": "tcintegrations:flowing_molten_soul_stained_steel",
+      "required": false
+    },
+    {
+      "id": "#tcintegrations:molten_soul_stained_steel",
+      "required": false
+    }
+  ]
+}

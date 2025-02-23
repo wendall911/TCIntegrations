@@ -5,13 +5,6 @@
   },
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:nuggets/neptunium"
-      }
-    },
-    {
       "type": "forge:mod_loaded",
       "modid": "aquaculture"
     }
@@ -19,7 +12,7 @@
   "cooling_time": 22,
   "fluid": {
     "amount": 10,
-    "tag": "forge:neptunium"
+    "tag": "tcintegrations:molten_neptunium"
   },
   "result": {
     "tag": "forge:nuggets/neptunium"

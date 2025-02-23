@@ -6,24 +6,14 @@
   "cast_consumed": true,
   "conditions": [
     {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/ostrum"
-      }
-    },
-    {
-      "type": "forge:not",
-      "value": {
-        "type": "forge:tag_empty",
-        "tag": "forge:ingots/ostrum"
-      }
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/ostrum"
     }
   ],
   "cooling_time": 50,
   "fluid": {
     "amount": 90,
-    "tag": "forge:ostrum"
+    "tag": "tcintegrations:molten_ostrum"
   },
   "result": {
     "tag": "forge:ingots/ostrum"
