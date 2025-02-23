@@ -1,16 +1,6 @@
 {
   "values": [
-    {
-      "id": "tcintegrations:molten_cloggrum",
-      "required": false
-    },
-    {
-      "id": "tcintegrations:flowing_molten_cloggrum",
-      "required": false
-    },
-    {
-      "id": "#tcintegrations:molten_cloggrum",
-      "required": false
-    }
+    "tcintegrations:molten_cloggrum",
+    "tcintegrations:flowing_molten_cloggrum"
   ]
 }

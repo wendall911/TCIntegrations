@@ -1,16 +1,6 @@
 {
   "values": [
-    {
-      "id": "tcintegrations:molten_neptunium",
-      "required": false
-    },
-    {
-      "id": "tcintegrations:flowing_molten_neptunium",
-      "required": false
-    },
-    {
-      "id": "#tcintegrations:molten_neptunium",
-      "required": false
-    }
+    "tcintegrations:molten_neptunium",
+    "tcintegrations:flowing_molten_neptunium"
   ]
 }

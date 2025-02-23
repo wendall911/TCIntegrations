@@ -1,16 +1,6 @@
 {
   "values": [
-    {
-      "id": "tcintegrations:molten_calorite",
-      "required": false
-    },
-    {
-      "id": "tcintegrations:flowing_molten_calorite",
-      "required": false
-    },
-    {
-      "id": "#tcintegrations:molten_calorite",
-      "required": false
-    }
+    "tcintegrations:molten_calorite",
+    "tcintegrations:flowing_molten_calorite"
   ]
 }

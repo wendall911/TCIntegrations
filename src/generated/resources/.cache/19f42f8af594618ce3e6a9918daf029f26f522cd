@@ -1,7 +1,7 @@
-// 1.20.1	2025-02-23T07:58:25.124700355	TCIntegrations - Item Tags
+// 1.20.1	2025-02-23T10:20:28.583768292	TCIntegrations - Item Tags
 bf8013b7b89e72b3b697279e85a4cd5c6e4b86e8 data/forge/tags/items/bones/wither.json
 100a2a6ac5e9c09f163d62b2c8833a5d9c6d7b32 data/forge/tags/items/food/cheese.json
-0fab28203f8c9e1daa9c635ecb6c026ba0be0ba1 data/forge/tags/items/gems/source_gem.json
+29a4b327c6f271d66b27b286b4324a462bb77aa0 data/forge/tags/items/gems/source_gem.json
 70cc37e9f49963a29bbea14192b77849e83f908a data/forge/tags/items/ingots.json
 318d684dde2e9b86aac78cfbae48caa667e8c52c data/forge/tags/items/ingots/bronze.json
 19271cd6e1dfcf62143ec3ba4923d8ec92095da6 data/forge/tags/items/ingots/dragonsteel_fire.json
@@ -17,7 +17,7 @@ d1469884bf98bcdd373c1df3ca95b87cb1982f19 data/forge/tags/items/storage_blocks/br
 3fce02fd08d310fe91b91245b14676c3a77ca11c data/forge/tags/items/storage_blocks/dragonsteel_ice.json
 5acf17ee84990c341cbcccfa8bff3bf9af9dd769 data/forge/tags/items/storage_blocks/dragonsteel_lightning.json
 09d03a67c93d8bca0ee48265ef02154eafaae49f data/forge/tags/items/storage_blocks/soul_stained_steel.json
-6febc815f11d70abf442be0be941a9132ddd072d data/forge/tags/items/storage_blocks/source_gem_block.json
+ae4c75618a07b97ca06b6cd992d22ae3e836f9b6 data/forge/tags/items/storage_blocks/source_gem_block.json
 fb72dac54e68711ab0a0bd4f882d1fdfb9bffce6 data/tcintegrations/tags/items/emeraldite_ore.json
 bad3aa20e91268a9bed85bbc448827c2477f4fd4 data/tcintegrations/tags/items/emeraldite_shards.json
 dc173f7327691c1cf1ab5ca84a41ad91e95db3d9 data/tcintegrations/tags/items/livingwood_logs.json

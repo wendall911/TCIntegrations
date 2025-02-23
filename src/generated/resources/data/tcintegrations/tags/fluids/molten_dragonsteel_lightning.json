@@ -1,16 +1,6 @@
 {
   "values": [
-    {
-      "id": "tcintegrations:molten_dragonsteel_lightning",
-      "required": false
-    },
-    {
-      "id": "tcintegrations:flowing_molten_dragonsteel_lightning",
-      "required": false
-    },
-    {
-      "id": "#tcintegrations:molten_dragonsteel_lightning",
-      "required": false
-    }
+    "tcintegrations:molten_dragonsteel_lightning",
+    "tcintegrations:flowing_molten_dragonsteel_lightning"
   ]
 }

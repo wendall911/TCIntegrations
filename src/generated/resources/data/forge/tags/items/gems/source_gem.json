@@ -1,5 +1,8 @@
 {
   "values": [
-    "ars_nouveau:source_gem"
+    {
+      "id": "ars_nouveau:source_gem",
+      "required": false
+    }
   ]
 }

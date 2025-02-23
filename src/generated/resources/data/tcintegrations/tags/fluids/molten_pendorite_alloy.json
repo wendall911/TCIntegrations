@@ -1,16 +1,6 @@
 {
   "values": [
-    {
-      "id": "tcintegrations:molten_pendorite_alloy",
-      "required": false
-    },
-    {
-      "id": "tcintegrations:flowing_molten_pendorite_alloy",
-      "required": false
-    },
-    {
-      "id": "#tcintegrations:molten_pendorite_alloy",
-      "required": false
-    }
+    "tcintegrations:molten_pendorite_alloy",
+    "tcintegrations:flowing_molten_pendorite_alloy"
   ]
 }

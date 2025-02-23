@@ -1,16 +1,6 @@
 {
   "values": [
-    {
-      "id": "tcintegrations:molten_froststeel",
-      "required": false
-    },
-    {
-      "id": "tcintegrations:flowing_molten_froststeel",
-      "required": false
-    },
-    {
-      "id": "#tcintegrations:molten_froststeel",
-      "required": false
-    }
+    "tcintegrations:molten_froststeel",
+    "tcintegrations:flowing_molten_froststeel"
   ]
 }

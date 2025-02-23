@@ -1,16 +1,6 @@
 {
   "values": [
-    {
-      "id": "tcintegrations:molten_ostrum",
-      "required": false
-    },
-    {
-      "id": "tcintegrations:flowing_molten_ostrum",
-      "required": false
-    },
-    {
-      "id": "#tcintegrations:molten_ostrum",
-      "required": false
-    }
+    "tcintegrations:molten_ostrum",
+    "tcintegrations:flowing_molten_ostrum"
   ]
 }

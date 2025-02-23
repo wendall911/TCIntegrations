@@ -1,16 +1,6 @@
 {
   "values": [
-    {
-      "id": "tcintegrations:molten_dragonsteel_fire",
-      "required": false
-    },
-    {
-      "id": "tcintegrations:flowing_molten_dragonsteel_fire",
-      "required": false
-    },
-    {
-      "id": "#tcintegrations:molten_dragonsteel_fire",
-      "required": false
-    }
+    "tcintegrations:molten_dragonsteel_fire",
+    "tcintegrations:flowing_molten_dragonsteel_fire"
   ]
 }
