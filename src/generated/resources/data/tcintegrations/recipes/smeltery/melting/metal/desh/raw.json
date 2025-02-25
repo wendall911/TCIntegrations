@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:ore_melting",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/desh"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:raw_materials/desh"
+  },
+  "rate": "metal",
+  "result": {
+    "amount": 90,
+    "fluid": "tcintegrations:molten_desh"
+  },
+  "temperature": 500,
+  "time": 75
+}

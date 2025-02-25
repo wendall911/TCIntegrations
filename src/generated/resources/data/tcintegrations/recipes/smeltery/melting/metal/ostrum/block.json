@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/ostrum"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:storage_blocks/ostrum"
+  },
+  "result": {
+    "amount": 810,
+    "fluid": "tcintegrations:molten_ostrum"
+  },
+  "temperature": 500,
+  "time": 150
+}

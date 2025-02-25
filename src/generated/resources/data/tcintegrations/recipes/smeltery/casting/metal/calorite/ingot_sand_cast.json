@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/ingot"
+  },
+  "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "mantle:tag_filled",
+      "tag": "forge:ingots/calorite"
+    }
+  ],
+  "cooling_time": 50,
+  "fluid": {
+    "amount": 90,
+    "tag": "tcintegrations:molten_calorite"
+  },
+  "result": {
+    "tag": "forge:ingots/calorite"
+  }
+}

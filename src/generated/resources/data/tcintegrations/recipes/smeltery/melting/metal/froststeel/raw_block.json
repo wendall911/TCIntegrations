@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:ore_melting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:storage_blocks/raw_froststeel"
+  },
+  "rate": "metal",
+  "result": {
+    "amount": 810,
+    "fluid": "tcintegrations:molten_froststeel"
+  },
+  "temperature": 900,
+  "time": 380
+}

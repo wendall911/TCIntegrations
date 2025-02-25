@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:casting_basin",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "malum"
+    }
+  ],
+  "cooling_time": 194,
+  "fluid": {
+    "amount": 810,
+    "tag": "tcintegrations:molten_soul_stained_steel"
+  },
+  "result": {
+    "tag": "forge:storage_blocks/soul_stained_steel"
+  }
+}

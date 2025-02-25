@@ -1,0 +1,18 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "botania"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:storage_blocks/manasteel"
+  },
+  "result": {
+    "amount": 810,
+    "fluid": "tcintegrations:molten_manasteel"
+  },
+  "temperature": 950,
+  "time": 194
+}

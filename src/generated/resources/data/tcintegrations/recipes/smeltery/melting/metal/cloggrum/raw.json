@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:ore_melting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:raw_materials/cloggrum"
+  },
+  "rate": "metal",
+  "result": {
+    "amount": 90,
+    "fluid": "tcintegrations:molten_cloggrum"
+  },
+  "temperature": 900,
+  "time": 95
+}

@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:casting_basin",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ],
+  "cooling_time": 194,
+  "fluid": {
+    "amount": 810,
+    "tag": "tcintegrations:molten_neptunium"
+  },
+  "result": {
+    "tag": "forge:storage_blocks/neptunium"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:casting_table",
+  "cast": {
+    "tag": "tconstruct:casts/single_use/ingot"
+  },
+  "cast_consumed": true,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ],
+  "cooling_time": 65,
+  "fluid": {
+    "amount": 90,
+    "tag": "tcintegrations:molten_neptunium"
+  },
+  "result": {
+    "tag": "forge:ingots/neptunium"
+  }
+}

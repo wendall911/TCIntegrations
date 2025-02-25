@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-23T10:27:04.146280334	TCIntegrations - TCon Material Recipes
+// 1.20.1	2025-02-24T17:47:35.990337727	TCIntegrations - TCon Material Recipes
 676142e6dcca07ee07833ad9f08c2112b4cec82b data/tcintegrations/recipes/tools/materials/brass/block.json
 ce06605d8eb5547d53519b740a07cbd4d9346b18 data/tcintegrations/recipes/tools/materials/brass/ingot.json
 c1d2ff774eb6615425c53b77a8468a9e8d58f431 data/tcintegrations/recipes/tools/materials/brass/nugget.json
@@ -14,7 +14,6 @@ e74d4bccf9bdc1bc8cb32ed93fb05c6c5af9ee71 data/tcintegrations/recipes/tools/mater
 ace1f71153b53378a73e237f6489c212cf3b4cfb data/tcintegrations/recipes/tools/materials/casting/manasteel.json
 306f9177b1235ff3055ff0ba2f2a856e11a76dcc data/tcintegrations/recipes/tools/materials/casting/neptunium.json
 a2d588f8881f8c1947e5e6a65c1939bd811768bd data/tcintegrations/recipes/tools/materials/casting/ostrum.json
-1af0383e2f9fe364150114f163e5e11790150f59 data/tcintegrations/recipes/tools/materials/casting/pendorite_alloy.json
 d26c1a4896266026f849351fbb1022c2f63f8a17 data/tcintegrations/recipes/tools/materials/casting/soul_stained_steel.json
 b771a8e8c17e1d152067c1fab9d2a69c58f506d6 data/tcintegrations/recipes/tools/materials/desh/block.json
 1f8f443c216bf3006381cfefe7ec5a915de25bf3 data/tcintegrations/recipes/tools/materials/desh/ingot.json
@@ -44,7 +43,6 @@ f54cdd3f407154223e720da98a4328afdb5e3f35 data/tcintegrations/recipes/tools/mater
 64ec8fba597c4fd13ef1e659390fa60374aaba4f data/tcintegrations/recipes/tools/materials/melting/manasteel.json
 246063308ea9b241996d282530cebc6e8d0b616a data/tcintegrations/recipes/tools/materials/melting/neptunium.json
 4110bd162ef0f41ce0e248295675dec6abe4167e data/tcintegrations/recipes/tools/materials/melting/ostrum.json
-f6370e71e7bc43f7c401fce0a548471e751a78a0 data/tcintegrations/recipes/tools/materials/melting/pendorite_alloy.json
 b62b03ccf2cd10d229be5ee1d18b929e73d7f356 data/tcintegrations/recipes/tools/materials/melting/soul_stained_steel.json
 5254d48dc7fac7c0d2d73206e2b33c258345ef6e data/tcintegrations/recipes/tools/materials/neptunium/block.json
 cb9d098892f6deb5ae4086c1803ad764e4b04603 data/tcintegrations/recipes/tools/materials/neptunium/ingot.json
@@ -52,9 +50,6 @@ cb9d098892f6deb5ae4086c1803ad764e4b04603 data/tcintegrations/recipes/tools/mater
 4a221af5bfed5a5e23406a5944935f22e9f38e6c data/tcintegrations/recipes/tools/materials/ostrum/block.json
 6e1bca6c87382269cb843aa936a20986411e9074 data/tcintegrations/recipes/tools/materials/ostrum/ingot.json
 38d455c43eb991fa2855444255d702b7406cb251 data/tcintegrations/recipes/tools/materials/ostrum/nugget.json
-0ffbf2f38058e851a0b1f61f0f7bf35c267e4ccc data/tcintegrations/recipes/tools/materials/pendorite_alloy/block.json
-534dc1aaa49fb8ee57f533e04bcf5508e2d4ad77 data/tcintegrations/recipes/tools/materials/pendorite_alloy/ingot.json
-ebc89cd100467d44b45e312b66c8fdd0766fe982 data/tcintegrations/recipes/tools/materials/pendorite_alloy/nugget.json
 eaf7a14607c8a4a8d3727770c432706b64d8bc8a data/tcintegrations/recipes/tools/materials/soul_stained_steel/block.json
 ce2b95345a296eb51d11959e51ed0dddb0c8bf5a data/tcintegrations/recipes/tools/materials/soul_stained_steel/ingot.json
 ca79fc53a459bd3615be6d96c78708a2d1dd8946 data/tcintegrations/recipes/tools/materials/soul_stained_steel/nugget.json
