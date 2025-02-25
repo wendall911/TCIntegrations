@@ -125,10 +125,6 @@ Almost everything in the mod is datapack driven and can be overridden via datapa
    * When harvesting, creates an oxygen bubble around player
  * Adds "**Cheesy**" modifier
    * Can eat tool to restore some hunger
-### Oh The Biomes You'll Go
- * Adds "**Pendorite**" and Pendorite Alloy" to smeltery
- * Adds "**Hellish**" modifier to Pendorite Alloy
-   * When attacking, lights target on fire for 20 seconds
 ### Immersive Engineering
  * Adds an ability modifier "**MultiVision**"
    * Allows multimeter visual overlay to always be enabled
@@ -156,14 +152,14 @@ Almost everything in the mod is datapack driven and can be overridden via datapa
 ### Smeltery Additions
  * Bronze
    * Adds back bronze block/ingot/nuggets
-   * Adds alternative recipe for bronze 3 copper ingots + 1 quartz = 4 bronze ingots
+   * Adds alternative recipe for bronze 3 copper ingots + 1 obsidion = 4 bronze ingots
+     * Recipe only exists if modpack does not have Tin
  * Manasteel (see Botania)
  * Neptunium (see Aquaculture 2)
  * Source Gem (see Ars Nouveau)
  * Soul Stained Steel (see Malum)
  * Cloggrum, Froststeel, Forgotten (See The Undergarden)
  * Desh, Calorite and Ostrum (See Beyond Earth)
- * Pendoite, Pendorite Alloy (See Oh The Biomes You'll Go)
 
 ## Links of Interest
 
