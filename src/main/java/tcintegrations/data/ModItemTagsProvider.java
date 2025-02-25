@@ -8,7 +8,6 @@ import org.jetbrains.annotations.NotNull;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
@@ -38,7 +37,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {
         this.copy(TagManager.Blocks.BRONZE, TagManager.Items.BRONZE);
-        copy(TinkerTags.Blocks.ANVIL_METAL, TinkerTags.Items.ANVIL_METAL);
 
         this.tag(Tags.Items.INGOTS)
             .add(TCIntegrationsItems.BRONZE.getIngot())
@@ -59,14 +57,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         this.copy(TagManager.Blocks.SOUL_STAINED_STEEL, TagManager.Items.SOUL_STAINED_STEEL);
         this.tag(TagManager.Items.SOUL_STAINED_STEEL_INGOTS).addOptional(ModIntegration.malumLoc("soul_stained_steel_ingot"));
         this.tag(TagManager.Items.SOUL_STAINED_STEEL_NUGGETS).addOptional(ModIntegration.malumLoc("soul_stained_steel_nugget"));
-
-        // BYG
-        this.tag(TagManager.Items.EMERALDITE_SHARDS)
-            .addOptional(ModIntegration.bygLoc("emeraldite_shards"));
-        this.tag(TagManager.Items.EMERALDITE_ORE)
-            .addOptional(ModIntegration.bygLoc("emeraldite_ore"));
-        this.tag(TagManager.Items.PENDORITE_ALLOY_INGOTS)
-            .addOptional(ModIntegration.bygLoc("pendorite_ingot"));
 
         // Ice and Fire: Dragons
         this.tag(TagManager.Items.WITHER_BONES)
@@ -97,14 +87,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
             .addOptional(ModIntegration.botaniaLoc("stripped_" + type + "_log"))
             .addOptional(ModIntegration.botaniaLoc(type))
             .addOptional(ModIntegration.botaniaLoc("stripped_" + type));
-    }
-
-    private void builder(TagKey<Item> tag) {
-        this.tag(tag);
-    }
-
-    private void builder(TagKey<Item> tag, ItemLike... items) {
-        this.tag(tag).add(Arrays.stream(items).map(ItemLike::asItem).toArray(Item[]::new));
     }
 
 }

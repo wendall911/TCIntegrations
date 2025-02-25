@@ -30,12 +30,10 @@ public class FluidTextureProvider extends AbstractFluidTextureProvider {
     @Override
     public void addTextures() {
         tintedStone(TCIntegrationsItems.MOLTEN_CLOGGRUM).color(0xFFB79A7A);
-        compatAlloy(TCIntegrationsItems.MOLTEN_FORGOTTEN); // metal_still - metal_flow
+        compatAlloy(TCIntegrationsItems.MOLTEN_FORGOTTEN_METAL); // metal_still - metal_flow
         compatAlloy(TCIntegrationsItems.MOLTEN_FROSTSTEEL); // metal_still - metal_flow
         compatAlloy(TCIntegrationsItems.MOLTEN_MANASTEEL); // metal_shiny_still - metal_shiny_flow
         compatAlloy(TCIntegrationsItems.MOLTEN_NEPTUNIUM); // metal_still - metal_flow
-        compatAlloy(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY); // metal_still - metal_flow
-        tintedStone(TCIntegrationsItems.MOLTEN_PENDORITE).color(0xFF604FA0);
         compatAlloy(TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL); // metal_still - metal_flow
         compatOre(TCIntegrationsItems.MOLTEN_SOURCE_GEM); // crystal_still - crystal_flow
         tintedStone(TCIntegrationsItems.MOLTEN_DESH).color(0xFFCD7F48);

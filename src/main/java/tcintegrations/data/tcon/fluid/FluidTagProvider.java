@@ -41,9 +41,7 @@ public class FluidTagProvider extends FluidTagsProvider {
         fluidTag(TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL);
         fluidTag(TCIntegrationsItems.MOLTEN_CLOGGRUM);
         fluidTag(TCIntegrationsItems.MOLTEN_FROSTSTEEL);
-        fluidTag(TCIntegrationsItems.MOLTEN_FORGOTTEN);
-        fluidTag(TCIntegrationsItems.MOLTEN_PENDORITE);
-        fluidTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY);
+        fluidTag(TCIntegrationsItems.MOLTEN_FORGOTTEN_METAL);
         fluidTag(TCIntegrationsItems.MOLTEN_DESH);
         fluidTag(TCIntegrationsItems.MOLTEN_CALORITE);
         fluidTag(TCIntegrationsItems.MOLTEN_OSTRUM);
@@ -57,9 +55,7 @@ public class FluidTagProvider extends FluidTagsProvider {
             .addOptionalTag(TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL.getTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_CLOGGRUM.getTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_FROSTSTEEL.getTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN.getTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE.getTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN_METAL.getTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_DESH.getTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_CALORITE.getTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_OSTRUM.getTag().location())
@@ -78,9 +74,7 @@ public class FluidTagProvider extends FluidTagsProvider {
 
         this.tag(TinkerTags.Fluids.EXPENSIVE_METAL_SPILLING)
             .addOptionalTag(TCIntegrationsItems.MOLTEN_NEPTUNIUM.getTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN.getTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE.getTag().location())
-            .addOptionalTag(TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getTag().location())
+            .addOptionalTag(TCIntegrationsItems.MOLTEN_FORGOTTEN_METAL.getTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE.getTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE.getTag().location())
             .addOptionalTag(TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING.getTag().location());

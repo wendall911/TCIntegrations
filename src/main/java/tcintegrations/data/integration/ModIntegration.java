@@ -26,7 +26,6 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String MALUM_MODID = "malum";
     public static final String UNDERGARDEN_MODID = "undergarden";
     public static final String BEYOND_EARTH_MODID = "beyond_earth";
-    public static final String BYG_MODID = "byg";
     public static final String MEKANISM_MODID = "mekanism";
     public static final String MYTHIC_BOTANY_MODID = "mythicbotany";
     public static final String IFD_MODID = "iceandfire";
@@ -57,12 +56,6 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static Item MOSQUITO_PROBOSCIS;
     public static Item CROCODILE_SCUTE;
     public static Item RACCOON_TAIL;
-    public static Item PENDORITE_BLOCK;
-    public static Item PENDORITE_SCRAPS;
-    public static Item PENDORITE_INGOT;
-    public static Item PENDORITE_ORE;
-    public static Item RAW_PENDORITE;
-    public static Item RAW_PENDORITE_BLOCK;
     public static Item MECHANICAL_ARM;
     public static Item GOGGLES;
     public static Item SOUL_STAINED_STEEL_INGOT;
@@ -146,12 +139,6 @@ public final class ModIntegration extends TCIntegrationsModule {
             MOSQUITO_PROBOSCIS = registerItem(alexLoc("mosquito_proboscis"));
             CROCODILE_SCUTE = registerItem(alexLoc("crocodile_scute"));
             RACCOON_TAIL = registerItem(alexLoc("raccoon_tail"));
-            PENDORITE_BLOCK = registerItem(bygLoc("pendorite_block"));
-            PENDORITE_SCRAPS = registerItem(bygLoc("pendorite_scraps"));
-            PENDORITE_INGOT = registerItem(bygLoc("pendorite_ingot"));
-            PENDORITE_ORE = registerItem(bygLoc("pendorite_ore"));
-            RAW_PENDORITE = registerItem(bygLoc("raw_pendorite"));
-            RAW_PENDORITE_BLOCK = registerItem(bygLoc("raw_pendorite_block"));
             MECHANICAL_ARM = registerItem(createLoc("mechanical_arm"));
             GOGGLES = registerItem(createLoc("goggles"));
             SOUL_STAINED_STEEL_INGOT = registerItem(malumLoc("soul_stained_steel_ingot"));
@@ -241,10 +228,6 @@ public final class ModIntegration extends TCIntegrationsModule {
 
     public static ResourceLocation beyondEarthLoc(String name) {
         return location(BEYOND_EARTH_MODID, name);
-    }
-
-    public static ResourceLocation bygLoc(String name) {
-        return location(BYG_MODID, name);
     }
 
     public static ResourceLocation arsLoc(String name) {

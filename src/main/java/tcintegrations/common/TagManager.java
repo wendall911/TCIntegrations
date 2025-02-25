@@ -39,11 +39,6 @@ public final class TagManager {
         public static final TagKey<Item> SOUL_STAINED_STEEL_INGOTS = forgeTag("ingots/soul_stained_steel");
         public static final TagKey<Item> SOUL_STAINED_STEEL_NUGGETS = forgeTag("nuggets/soul_stained_steel");
 
-        // BYG
-        public static final TagKey<Item> EMERALDITE_SHARDS = create("emeraldite_shards");
-        public static final TagKey<Item> EMERALDITE_ORE = create("emeraldite_ore");
-        public static final TagKey<Item> PENDORITE_ALLOY_INGOTS = forgeTag("ingots/pendorite_alloy");
-
         // Ice and Fire: Dragons
         public static final TagKey<Item> WITHER_BONES = forgeTag("bones/wither");
         public static final TagKey<Item> DRAGONSTEEL_FIRE = forgeTag("storage_blocks/dragonsteel_fire");
@@ -55,7 +50,7 @@ public final class TagManager {
 
         // Ars Nouveau
         public static final TagKey<Item> SOURCE_GEM = forgeTag("gems/source_gem");
-        public static final TagKey<Item> SOURCE_GEM_BLOCK = forgeTag("storage_blocks/source_gem_block");
+        public static final TagKey<Item> SOURCE_GEM_BLOCK = forgeTag("storage_blocks/source_gem");
 
         private static TagKey<Item> create(String id) {
             return Objects.requireNonNull(ForgeRegistries.ITEMS.tags()).createOptionalTagKey(resource(id), Collections.emptySet());

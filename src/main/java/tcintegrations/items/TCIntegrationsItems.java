@@ -51,9 +51,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_SOUL_STAINED_STEEL;
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_CLOGGRUM;
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_FROSTSTEEL;
-    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_FORGOTTEN;
-    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_PENDORITE;
-    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_PENDORITE_ALLOY;
+    public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_FORGOTTEN_METAL;
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_DESH;
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_OSTRUM;
     public static FlowingFluidObject<ForgeFlowingFluid> MOLTEN_CALORITE;
@@ -92,13 +90,8 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
             .temperature(1200).lightLevel(8)).block(createBurning(MapColor.TERRACOTTA_BROWN, 8, 10, 5f)).bucket().flowing();
         MOLTEN_FROSTSTEEL = FLUID_REGISTRY.register("molten_froststeel").type(hot("molten_froststeel")
             .temperature(1200).lightLevel(11)).block(createBurning(MapColor.WATER, 11, 10, 6f)).bucket().flowing();
-        MOLTEN_FORGOTTEN = FLUID_REGISTRY.register("molten_forgotten").type(hot("molten_forgotten")
+        MOLTEN_FORGOTTEN_METAL = FLUID_REGISTRY.register("molten_forgotten_metal").type(hot("molten_forgotten_metal")
             .temperature(1200).lightLevel(14)).block(createBurning(MapColor.EMERALD, 14, 10, 6f)).bucket().flowing();
-
-        MOLTEN_PENDORITE = FLUID_REGISTRY.register("molten_pendorite").type(hot("molten_pendorite")
-            .temperature(1200).lightLevel(14)).block(createBurning(MapColor.TERRACOTTA_PURPLE, 14, 10, 5f)).bucket().flowing();
-        MOLTEN_PENDORITE_ALLOY = FLUID_REGISTRY.register("molten_pendorite_alloy").type(hot("molten_pendorite_alloy")
-            .temperature(1200).lightLevel(14)).block(createBurning(MapColor.COLOR_PURPLE, 14, 10, 5f)).bucket().flowing();
 
         MOLTEN_DRAGONSTEEL_FIRE = FLUID_REGISTRY.register("molten_dragonsteel_fire").type(hot("molten_dragonsteel_fire")
             .temperature(1750).lightLevel(12)).block(createBurning(MapColor.TERRACOTTA_RED, 12, 10, 5f)).bucket().flowing();
@@ -171,13 +164,11 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         event.enqueueWork(() -> {
             if (ModIntegration.canLoad(ModIntegration.UNDERGARDEN_MODID)) {
                 DispenserBlock.registerBehavior(MOLTEN_CLOGGRUM, dispenseItemBehavior);
-                DispenserBlock.registerBehavior(MOLTEN_FORGOTTEN, dispenseItemBehavior);
+                DispenserBlock.registerBehavior(MOLTEN_FORGOTTEN_METAL, dispenseItemBehavior);
                 DispenserBlock.registerBehavior(MOLTEN_FROSTSTEEL, dispenseItemBehavior);
             }
             DispenserBlock.registerBehavior(MOLTEN_MANASTEEL, dispenseItemBehavior);
             DispenserBlock.registerBehavior(MOLTEN_NEPTUNIUM, dispenseItemBehavior);
-            DispenserBlock.registerBehavior(MOLTEN_PENDORITE, dispenseItemBehavior);
-            DispenserBlock.registerBehavior(MOLTEN_PENDORITE_ALLOY, dispenseItemBehavior);
             DispenserBlock.registerBehavior(MOLTEN_SOUL_STAINED_STEEL, dispenseItemBehavior);
             DispenserBlock.registerBehavior(MOLTEN_SOURCE_GEM, dispenseItemBehavior);
             DispenserBlock.registerBehavior(MOLTEN_DESH, dispenseItemBehavior);
@@ -196,9 +187,7 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         output.accept(MOLTEN_SOUL_STAINED_STEEL);
         output.accept(MOLTEN_CLOGGRUM);
         output.accept(MOLTEN_FROSTSTEEL);
-        output.accept(MOLTEN_FORGOTTEN);
-        output.accept(MOLTEN_PENDORITE);
-        output.accept(MOLTEN_PENDORITE_ALLOY);
+        output.accept(MOLTEN_FORGOTTEN_METAL);
         output.accept(MOLTEN_DESH);
         output.accept(MOLTEN_OSTRUM);
         output.accept(MOLTEN_CALORITE);

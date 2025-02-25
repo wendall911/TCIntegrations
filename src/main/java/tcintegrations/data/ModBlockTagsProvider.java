@@ -8,25 +8,16 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
-import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
 
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-import slimeknights.mantle.registration.object.MetalItemObject;
-
-import slimeknights.tconstruct.common.TinkerTags;
-
 import tcintegrations.data.integration.ModIntegration;
-import tcintegrations.data.tcon.SmelteryCompat;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.TCIntegrations;
 import tcintegrations.common.TagManager;
-
-import static slimeknights.mantle.Mantle.commonResource;
 
 public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
 
@@ -52,24 +43,6 @@ public class ModBlockTagsProvider extends IntrinsicHolderTagsProvider<Block> {
         this.tag(TagManager.Blocks.DRAGONSTEEL_ICE).addOptional(ModIntegration.ifdLoc("dragonsteel_ice_block"));
         this.tag(TagManager.Blocks.DRAGONSTEEL_LIGHTNING).addOptional(ModIntegration.ifdLoc("dragonsteel_lightning_block"));
         this.tag(TagManager.Blocks.SOURCE_GEM_BLOCK).addOptional(ModIntegration.arsLoc("source_gem_block"));
-
-        TagsProvider.TagAppender<Block> builder = this.tag(TinkerTags.Blocks.ANVIL_METAL);
-
-        for (SmelteryCompat compat : SmelteryCompat.values()) {
-            builder.addOptionalTag(ResourceLocation.fromNamespaceAndPath("forge", "storage_blocks/" + compat.getName()));
-        }
-
-        addMetalTags(TCIntegrationsItems.BRONZE);
-
-        for (SmelteryCompat compat : SmelteryCompat.values()) {
-            if (!compat.isOre()) {
-                builder.addOptionalTag(commonResource("storage_blocks/" + compat.getName()));
-            }
-        }
-    }
-
-    private void addMetalTags(MetalItemObject metal) {
-        this.tag(Tags.Blocks.STORAGE_BLOCKS).addTag(metal.getBlockTag());
     }
 
 }
