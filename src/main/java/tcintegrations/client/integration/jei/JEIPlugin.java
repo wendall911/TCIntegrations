@@ -1,13 +1,13 @@
 package tcintegrations.client.integration.jei;
 
+import java.util.Collections;
+
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.forge.ForgeTypes;
 import mezz.jei.api.runtime.IIngredientManager;
 import mezz.jei.api.runtime.IJeiRuntime;
-
-import java.util.Collections;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -49,14 +49,32 @@ public class JEIPlugin implements IModPlugin {
             }
         }
 
+        if (!ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_MANASTEEL.get(), TCIntegrationsItems.MOLTEN_MANASTEEL.getBucket());
+        }
+
+        if (!ModIntegration.canLoad(ModIntegration.AQUACULTURE_MODID)) {
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_NEPTUNIUM.get(), TCIntegrationsItems.MOLTEN_NEPTUNIUM.getBucket());
+        }
+
+        if (!ModIntegration.canLoad(ModIntegration.MALUM_MODID)) {
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL.get(), TCIntegrationsItems.MOLTEN_SOUL_STAINED_STEEL.getBucket());
+        }
+
+        if (!ModIntegration.canLoad(ModIntegration.UNDERGARDEN_MODID)) {
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_CLOGGRUM.get(), TCIntegrationsItems.MOLTEN_CLOGGRUM.getBucket());
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_FROSTSTEEL.get(), TCIntegrationsItems.MOLTEN_FROSTSTEEL.getBucket());
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_FORGOTTEN_METAL.get(), TCIntegrationsItems.MOLTEN_FORGOTTEN_METAL.getBucket());
+        }
+
+        if (!ModIntegration.canLoad(ModIntegration.IFD_MODID)) {
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE.get(), TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE.getBucket());
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE.get(), TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE.getBucket());
+            removeFluid(manager, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING.get(), TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING.getBucket());
+        }
 
         if (!ModIntegration.canLoad(ModIntegration.ARS_MODID)) {
             removeFluid(manager, TCIntegrationsItems.MOLTEN_SOURCE_GEM.get(), TCIntegrationsItems.MOLTEN_SOURCE_GEM.getBucket());
-        }
-
-        if (!ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
-            removeFluid(manager, TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.get(), TCIntegrationsItems.MOLTEN_PENDORITE_ALLOY.getBucket());
-            removeFluid(manager, TCIntegrationsItems.MOLTEN_PENDORITE.get(), TCIntegrationsItems.MOLTEN_PENDORITE.getBucket());
         }
     }
 
