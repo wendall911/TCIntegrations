@@ -38,7 +38,6 @@ import tcintegrations.items.modifiers.tool.TerraModifier;
 import tcintegrations.items.modifiers.tool.UtheriumModifier;
 import tcintegrations.items.modifiers.tool.ZappedModifier;
 import tcintegrations.items.modifiers.traits.DragonScalesModifier;
-import tcintegrations.items.modifiers.traits.HellishModifier;
 import tcintegrations.items.modifiers.traits.KineticModifier;
 import tcintegrations.items.modifiers.traits.ManaModifier;
 import tcintegrations.items.modifiers.traits.OxygenatedModifier;
@@ -75,7 +74,6 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<ForgottenModifier> FORGOTTEN_MODIFIER;
     public static StaticModifier<CheesyModifier> CHEESY_MODIFIER;
     public static StaticModifier<OxygenatedModifier> OXYGENATED_MODIFIER;
-    public static StaticModifier<HellishModifier> HELLISH_MODIFIER;
     public static StaticModifier<AlfheimModifier> ALFHEIM_MODIFIER;
     public static StaticModifier<AlfModifier> ALF_MODIFIER;
     public static StaticModifier<KineticModifier> KINETIC_MODIFIER;
@@ -131,10 +129,6 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             UTHERIUM_MODIFIER = MODIFIERS_REGISTRY.register("utherium", UtheriumModifier::new);
             FROSTSTEEL_MODIFIER = MODIFIERS_REGISTRY.register("froststeel", FroststeelModifier::new);
             FORGOTTEN_MODIFIER = MODIFIERS_REGISTRY.register("forgotten", ForgottenModifier::new);
-        }
-
-        if (ModIntegration.canLoad(ModIntegration.BYG_MODID)) {
-            HELLISH_MODIFIER = MODIFIERS_REGISTRY.register("hellish", HellishModifier::new);
         }
 
         if (ModIntegration.canLoad(ModIntegration.IE_MODID)) {
