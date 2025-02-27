@@ -41,12 +41,6 @@ public class ModifierProvider extends AbstractModifierProvider implements ICondi
         buildModifier(TciModifierIds.multiVision, modLoaded(ModIntegration.IE_MODID))
             .levelDisplay(ModifierLevelDisplay.NO_LEVELS)
             .addModule(MultiVisionModifier.INSTANCE);
-        buildModifier(TCIntegrationsModifiers.ALF_MODIFIER.getId(), modLoaded(ModIntegration.MYTHIC_BOTANY_MODID))
-            .addModule(ModifierRequirementsModule.builder().requireModifier(TCIntegrationsModifiers.TERRA_MODIFIER.getId(), 1)
-            .modifierKey(TCIntegrationsModifiers.ALF_MODIFIER.getId()).build());
-        buildModifier(TCIntegrationsModifiers.ALFHEIM_MODIFIER.getId(), modLoaded(ModIntegration.MYTHIC_BOTANY_MODID))
-            .addModule(ModifierRequirementsModule.builder().requireModifier(TCIntegrationsModifiers.TERRESTRIAL_MODIFIER.getId(), 1)
-            .modifierKey(TCIntegrationsModifiers.ALFHEIM_MODIFIER.getId()).build());
     }
 
 }
