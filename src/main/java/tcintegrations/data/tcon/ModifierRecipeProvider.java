@@ -85,6 +85,10 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ALF_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
             .addInput(ModIntegration.ALFSTEEL_INGOT)
+            .addInput(TagManager.Items.INGOTS_TERRASTEEL)
+            .addInput(TagManager.Items.INGOTS_TERRASTEEL)
+            .addInput(TagManager.Items.MYSTICAL_FLOWERS)
+            .addInput(TagManager.Items.DOUBLE_MYSTICAL_FLOWERS)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALF_MODIFIER, compatSalvage))
@@ -93,6 +97,10 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.ALFHEIM_MODIFIER)
             .setTools(TinkerTags.Items.WORN_ARMOR)
             .addInput(ModIntegration.ALFSTEEL_INGOT)
+            .addInput(TagManager.Items.INGOTS_TERRASTEEL)
+            .addInput(TagManager.Items.INGOTS_TERRASTEEL)
+            .addInput(TagManager.Items.MYSTICAL_FLOWERS)
+            .addInput(TagManager.Items.DOUBLE_MYSTICAL_FLOWERS)
             .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(mythicBotanyConsumer, prefix(TCIntegrationsModifiers.ALFHEIM_MODIFIER, compatSalvage))
@@ -173,7 +181,6 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         ModifierRecipeBuilder.modifier(TciModifierIds.engineersGoggles)
             .setTools(TinkerTags.Items.HELMETS)
             .addInput(ModIntegration.GOGGLES)
-            .setMaxLevel(1)
             .saveSalvage(createConsumer, prefix(TciModifierIds.engineersGoggles, compatSalvage))
             .save(createConsumer, prefix(TciModifierIds.engineersGoggles, compatFolder));
 
@@ -192,7 +199,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(ModIntegration.NEPTUNIUM_INGOT)
             .addInput(ModIntegration.TIN_CAN)
             .addInput(ModIntegration.REDSTONE_HOOK)
-            .setSlots(SlotType.ABILITY, 1)
+            .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(aquacultureConsumer, prefix(TCIntegrationsModifiers.POSEIDON_MODIFIER, compatSalvage))
             .save(aquacultureConsumer, prefix(TCIntegrationsModifiers.POSEIDON_MODIFIER, compatFolder));
@@ -291,7 +298,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(ModIntegration.SPIKED_SCUTE)
             .addInput(ModIntegration.SPIKED_SCUTE)
             .addInput(ModIntegration.SPIKED_SCUTE)
-            .setSlots(SlotType.ABILITY, 1)
+            .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TURTLE_SHELL_MODIFIER.getId() + "_helmets"), compatSalvage))
             .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.TURTLE_SHELL_MODIFIER.getId() + "_helmets"), compatFolder));
@@ -303,7 +310,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .addInput(ModIntegration.BISON_FUR)
             .addInput(ModIntegration.BISON_FUR)
             .addInput(ModIntegration.BISON_FUR)
-            .setSlots(SlotType.ABILITY, 1)
+            .setSlots(SlotType.UPGRADE, 1)
             .setMaxLevel(1)
             .saveSalvage(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.BISON_FUR_MODIFIER.getId() + "_boots"), compatSalvage))
             .save(alexConsumer, prefix(new ResourceLocation(TCIntegrationsModifiers.BISON_FUR_MODIFIER.getId() + "_boots"), compatFolder));
@@ -413,8 +420,6 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         ModifierRecipeBuilder.modifier(TciModifierIds.multiVision)
             .setTools(TinkerTags.Items.HELMETS)
             .addInput(ModIntegration.VOLTMETER)
-            .setSlots(SlotType.ABILITY, 1)
-            .setMaxLevel(1)
             .saveSalvage(ieConsumer, prefix(TciModifierIds.multiVision, compatSalvage))
             .save(ieConsumer, prefix(TciModifierIds.multiVision, compatFolder));
 
