@@ -181,7 +181,6 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         ModifierRecipeBuilder.modifier(TciModifierIds.engineersGoggles)
             .setTools(TinkerTags.Items.HELMETS)
             .addInput(ModIntegration.GOGGLES)
-            .saveSalvage(createConsumer, prefix(TciModifierIds.engineersGoggles, compatSalvage))
             .save(createConsumer, prefix(TciModifierIds.engineersGoggles, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.MECHANICAL_ARM_MODIFIER)
@@ -420,7 +419,6 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         ModifierRecipeBuilder.modifier(TciModifierIds.multiVision)
             .setTools(TinkerTags.Items.HELMETS)
             .addInput(ModIntegration.VOLTMETER)
-            .saveSalvage(ieConsumer, prefix(TciModifierIds.multiVision, compatSalvage))
             .save(ieConsumer, prefix(TciModifierIds.multiVision, compatFolder));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.GLOWUP_MODIFIER)
