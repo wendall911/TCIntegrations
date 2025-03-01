@@ -5,18 +5,22 @@ import slimeknights.tconstruct.library.modifiers.util.StaticModifier;
 
 import tcintegrations.common.TCIntegrationsModule;
 import tcintegrations.data.integration.ModIntegration;
+import tcintegrations.items.modifiers.armor.AethermancerModifier;
 import tcintegrations.items.modifiers.armor.AlfheimModifier;
+import tcintegrations.items.modifiers.armor.AquamancerModifier;
 import tcintegrations.items.modifiers.armor.ArsNouveauModifier;
 import tcintegrations.items.modifiers.armor.BisonFurModifier;
 import tcintegrations.items.modifiers.armor.CrocodileModifier;
 import tcintegrations.items.modifiers.armor.EnchantersShieldModifier;
 import tcintegrations.items.modifiers.armor.EngineersGogglesModifier;
 import tcintegrations.items.modifiers.armor.FrontierCapModifier;
+import tcintegrations.items.modifiers.armor.GeomancerModifier;
 import tcintegrations.items.modifiers.armor.GreatFairyModifier;
 import tcintegrations.items.modifiers.armor.MasticateModifier;
 import tcintegrations.items.modifiers.armor.MosquitoModifier;
 import tcintegrations.items.modifiers.armor.MultiVisionModifier;
 import tcintegrations.items.modifiers.armor.PoseidonModifier;
+import tcintegrations.items.modifiers.armor.PyromancerModifier;
 import tcintegrations.items.modifiers.armor.RoadrunnerModifier;
 import tcintegrations.items.modifiers.armor.ShieldOfTheDeepModifier;
 import tcintegrations.items.modifiers.armor.TerrestrialModifier;
@@ -86,6 +90,10 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<PhantasmalModifier> PHANTASMAL_MODIFIER;
     public static StaticModifier<DragonScalesModifier> DRAGON_SCALES_MODIFIER;
     public static StaticModifier<CapturingModifier> CAPTURING_MODIFIER;
+    public static StaticModifier<AethermancerModifier> AETHERMANCER_MODIFIER;
+    public static StaticModifier<AquamancerModifier> AQUAMANCER_MODIFIER;
+    public static StaticModifier<GeomancerModifier> GEOMANCER_MODIFIER;
+    public static StaticModifier<PyromancerModifier> PYROMANCER_MODIFIER;
 
     public static void init() {
         if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
@@ -167,6 +175,13 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModIntegration.canLoad(ModIntegration.APOTH_MODID)) {
             CAPTURING_MODIFIER = MODIFIERS_REGISTRY.register("capturing", CapturingModifier::new);
+        }
+
+        if (ModIntegration.canLoad(ModIntegration.ARS_ELEMENTAL_MODID)) {
+            AETHERMANCER_MODIFIER = MODIFIERS_REGISTRY.register("aethermancer", AethermancerModifier::new);
+            AQUAMANCER_MODIFIER = MODIFIERS_REGISTRY.register("aquamancer", AquamancerModifier::new);
+            GEOMANCER_MODIFIER = MODIFIERS_REGISTRY.register("geomancer", GeomancerModifier::new);
+            PYROMANCER_MODIFIER = MODIFIERS_REGISTRY.register("pyromancer", PyromancerModifier::new);
         }
     }
 

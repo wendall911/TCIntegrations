@@ -11,6 +11,7 @@ import net.minecraftforge.network.PacketDistributor;
 
 import tcintegrations.common.capabilities.CapabilityRegistry;
 import tcintegrations.data.integration.ModIntegration;
+import tcintegrations.network.ArsElementalSetData;
 import tcintegrations.network.BotaniaSetData;
 import tcintegrations.network.NetworkHandler;
 import tcintegrations.TCIntegrations;
@@ -27,10 +28,17 @@ public class PlayerEventHandler {
 
             if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
                 sp.getCapability(CapabilityRegistry.BOTANIA_SET_CAPABILITY).ifPresent(data -> {
-
                     NetworkHandler.INSTANCE.send(
                         PacketDistributor.PLAYER.with(() -> sp),
                         new BotaniaSetData(data.hasTerrestrial(), data.hasGreatFairy(), data.hasAlfheim())
+                    );
+                });
+            }
+            if (ModList.get().isLoaded(ModIntegration.ARS_ELEMENTAL_MODID)) {
+                sp.getCapability(CapabilityRegistry.ARS_ELEMENTAL_SET_CAPABILITY).ifPresent(data -> {
+                    NetworkHandler.INSTANCE.send(
+                        PacketDistributor.PLAYER.with(() -> sp),
+                        new ArsElementalSetData(data.hasAir(), data.hasAqua(), data.hasEarth(), data.hasFire())
                     );
                 });
             }

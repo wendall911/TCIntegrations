@@ -34,6 +34,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String CONSECRATION_MODID = "consecration";
     public static final String AD_ASTRA_MODID = "ad_astra";
     public static final String APOTH_MODID = "apotheosis";
+    public static final String ARS_ELEMENTAL_MODID = "ars_elemental";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
     public static Item BEYOND_EARTH_CHEESE;
@@ -42,6 +43,10 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static Item MAGE_FIBER;
     public static Item BLAZE_FIBER;
     public static Item END_FIBER;
+    public static Item AIR_ESSENCE;
+    public static Item WATER_ESSENCE;
+    public static Item EARTH_ESSENCE;
+    public static Item FIRE_ESSENCE;
     public static Item DRAGON_BONE;
     public static Item FIRE_DRAGON_BLOOD;
     public static Item ICE_DRAGON_BLOOD;
@@ -113,6 +118,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static Item IFD_DRAGONARMOR_COPPER_NECK;
     public static Item IFD_DRAGONARMOR_COPPER_BODY;
     public static Item IFD_DRAGONARMOR_COPPER_TAIL;
+    public static Item MARK_OF_MASTERY;
 
     public static RegistryObject<MobEffect> OXYGEN_EFFECT;
 
@@ -131,6 +137,10 @@ public final class ModIntegration extends TCIntegrationsModule {
             MAGE_FIBER = registerItem(arsLoc("magebloom_fiber"));
             BLAZE_FIBER = registerItem(arsLoc("blaze_fiber"));
             END_FIBER = registerItem(arsLoc("end_fiber"));
+            AIR_ESSENCE = registerItem(arsLoc("air_essence"));
+            WATER_ESSENCE = registerItem(arsLoc("water_essence"));
+            EARTH_ESSENCE = registerItem(arsLoc("earth_essence"));
+            FIRE_ESSENCE = registerItem(arsLoc("fire_essence"));
             DRAGON_BONE = registerItem(ifdLoc("dragonbone"));
             FIRE_DRAGON_BLOOD = registerItem(ifdLoc("fire_dragon_blood"));
             ICE_DRAGON_BLOOD = registerItem(ifdLoc("ice_dragon_blood"));
@@ -202,6 +212,7 @@ public final class ModIntegration extends TCIntegrationsModule {
             IFD_DRAGONARMOR_COPPER_NECK = registerItem(ifdLoc("dragonarmor_copper_neck"));
             IFD_DRAGONARMOR_COPPER_BODY = registerItem(ifdLoc("dragonarmor_copper_body"));
             IFD_DRAGONARMOR_COPPER_TAIL = registerItem(ifdLoc("dragonarmor_copper_tail"));
+            MARK_OF_MASTERY = registerItem(arsElementalLoc("mark_of_mastery"));
         }
 
     }
@@ -286,6 +297,10 @@ public final class ModIntegration extends TCIntegrationsModule {
 
     public static ResourceLocation adAstraLoc(String name) {
         return location(AD_ASTRA_MODID, name);
+    }
+
+    public static ResourceLocation arsElementalLoc(String name) {
+        return location(ARS_ELEMENTAL_MODID, name);
     }
 
     public static boolean canLoad(String modid) {

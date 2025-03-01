@@ -10,6 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
+import tcintegrations.common.capabilities.ArsElementalSet;
 import tcintegrations.common.capabilities.BotaniaSet;
 import tcintegrations.TCIntegrations;
 import tcintegrations.data.integration.ModIntegration;
@@ -26,7 +27,13 @@ public class CapabilityEventHandler {
                     new BotaniaSet.Provider()
                 );
             }
+            if (ModList.get().isLoaded(ModIntegration.ARS_ELEMENTAL_MODID)) {
+                event.addCapability(
+                    new ResourceLocation(TCIntegrations.MODID, "arselementalset"),
+                    new ArsElementalSet.Provider()
+                );
+            }
         }
     }
-    
+
 }

@@ -182,6 +182,9 @@ dependencies {
         // I should probably only have Beyond Earth OR Ad Astra enabled, but it doesn't crash ... yet?
         runtimeOnly fg.deobf("curse.maven:beyond_earth-377448:${beyond_earth_version}")
         runtimeOnly fg.deobf("curse.maven:ad_astra-635042:${ad_astra_version}")
+        runtimeOnly fg.deobf("curse.maven:twighlight_forest-227639:${twighlight_forest_version}")
+        runtimeOnly fg.deobf("curse.maven:ars_elemental-561470:${ars_elemental_version}")
+        runtimeOnly fg.deobf("curse.maven:deeperdarker-659011:${deeperdarker_version}")
         runtimeOnly fg.deobf("curse.maven:resourceful_lib-570073:${resourceful_lib_version}")
         runtimeOnly fg.deobf("curse.maven:botarium-704113:${botarium_version}")
         runtimeOnly fg.deobf("curse.maven:resourceful_config-714059:${resourceful_config_version}")
