@@ -70,6 +70,7 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
         Consumer<FinishedRecipe> ifdConsumer = withCondition(consumer, modLoaded(ModIntegration.IFD_MODID));
         Consumer<FinishedRecipe> apothConsumer = withCondition(consumer, modLoaded(ModIntegration.APOTH_MODID));
         Consumer<FinishedRecipe> arsElementalConsumer = withCondition(consumer, modLoaded(ModIntegration.ARS_ELEMENTAL_MODID));
+        Consumer<FinishedRecipe> deeperDarkerConsumer = withCondition(consumer, modLoaded(ModIntegration.DEEPERDARKER_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -529,6 +530,18 @@ public class ModifierRecipeProvider extends RecipeProvider implements ICondition
             .setMaxLevel(7)
             .saveSalvage(apothConsumer, prefix(TCIntegrationsModifiers.CAPTURING_MODIFIER, compatSalvage))
             .save(apothConsumer, prefix(TCIntegrationsModifiers.CAPTURING_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.SCULKING_MODIFIER)
+            .setTools(TinkerTags.Items.WORN_ARMOR)
+            .addInput(ModIntegration.REINFORCED_ECHO_SHARD)
+            .addInput(Items.NETHERITE_INGOT)
+            .addInput(Items.DIAMOND)
+            .addInput(Items.DIAMOND)
+            .addInput(Items.DIAMOND)
+            .setSlots(SlotType.UPGRADE, 1)
+            .setMaxLevel(1)
+            .saveSalvage(deeperDarkerConsumer, prefix(TCIntegrationsModifiers.SCULKING_MODIFIER, compatSalvage))
+            .save(deeperDarkerConsumer, prefix(TCIntegrationsModifiers.SCULKING_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

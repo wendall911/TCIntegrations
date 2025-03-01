@@ -35,6 +35,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String AD_ASTRA_MODID = "ad_astra";
     public static final String APOTH_MODID = "apotheosis";
     public static final String ARS_ELEMENTAL_MODID = "ars_elemental";
+    public static final String DEEPERDARKER_MODID = "deeperdarker";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
     public static Item BEYOND_EARTH_CHEESE;
@@ -119,6 +120,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static Item IFD_DRAGONARMOR_COPPER_BODY;
     public static Item IFD_DRAGONARMOR_COPPER_TAIL;
     public static Item MARK_OF_MASTERY;
+    public static Item REINFORCED_ECHO_SHARD;
 
     public static RegistryObject<MobEffect> OXYGEN_EFFECT;
 
@@ -213,6 +215,7 @@ public final class ModIntegration extends TCIntegrationsModule {
             IFD_DRAGONARMOR_COPPER_BODY = registerItem(ifdLoc("dragonarmor_copper_body"));
             IFD_DRAGONARMOR_COPPER_TAIL = registerItem(ifdLoc("dragonarmor_copper_tail"));
             MARK_OF_MASTERY = registerItem(arsElementalLoc("mark_of_mastery"));
+            REINFORCED_ECHO_SHARD = registerItem(deeperDarkerLoc("reinforced_echo_shard"));
         }
 
     }
@@ -301,6 +304,10 @@ public final class ModIntegration extends TCIntegrationsModule {
 
     public static ResourceLocation arsElementalLoc(String name) {
         return location(ARS_ELEMENTAL_MODID, name);
+    }
+
+    public static ResourceLocation deeperDarkerLoc(String name) {
+        return location(DEEPERDARKER_MODID, name);
     }
 
     public static boolean canLoad(String modid) {

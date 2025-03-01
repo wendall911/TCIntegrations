@@ -226,5 +226,8 @@
     "modifier.tcintegrations.geomancer.description": "Absorb some earth-related damage and convert into mana, gives food deep underground if about to starve.",
     "modifier.tcintegrations.pyromancer": "Pyromancer's Set",
     "modifier.tcintegrations.pyromancer.flavor": "Master of Fire",
-    "modifier.tcintegrations.pyromancer.description": "Absorb some fire-related damage and convert into mana, instantly clears fire."
+    "modifier.tcintegrations.pyromancer.description": "Absorb some fire-related damage and convert into mana, instantly clears fire.",
+    "modifier.tcintegrations.sculking": "Sculking",
+    "modifier.tcintegrations.sculking.flavor": "I can see!",
+    "modifier.tcintegrations.sculking.description": "Removes blindness and darkness effects."
 }

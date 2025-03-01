@@ -22,6 +22,7 @@ import tcintegrations.items.modifiers.armor.MultiVisionModifier;
 import tcintegrations.items.modifiers.armor.PoseidonModifier;
 import tcintegrations.items.modifiers.armor.PyromancerModifier;
 import tcintegrations.items.modifiers.armor.RoadrunnerModifier;
+import tcintegrations.items.modifiers.armor.SculkingModifier;
 import tcintegrations.items.modifiers.armor.ShieldOfTheDeepModifier;
 import tcintegrations.items.modifiers.armor.TerrestrialModifier;
 import tcintegrations.items.modifiers.armor.TurtleShellModifier;
@@ -94,6 +95,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<AquamancerModifier> AQUAMANCER_MODIFIER;
     public static StaticModifier<GeomancerModifier> GEOMANCER_MODIFIER;
     public static StaticModifier<PyromancerModifier> PYROMANCER_MODIFIER;
+    public static StaticModifier<SculkingModifier> SCULKING_MODIFIER;
 
     public static void init() {
         if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
@@ -182,6 +184,10 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             AQUAMANCER_MODIFIER = MODIFIERS_REGISTRY.register("aquamancer", AquamancerModifier::new);
             GEOMANCER_MODIFIER = MODIFIERS_REGISTRY.register("geomancer", GeomancerModifier::new);
             PYROMANCER_MODIFIER = MODIFIERS_REGISTRY.register("pyromancer", PyromancerModifier::new);
+        }
+
+        if (ModIntegration.canLoad(ModIntegration.DEEPERDARKER_MODID)) {
+            SCULKING_MODIFIER = MODIFIERS_REGISTRY.register("sculking", SculkingModifier::new);
         }
     }
 
