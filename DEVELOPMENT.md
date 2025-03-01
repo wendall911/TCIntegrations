@@ -1,0 +1,62 @@
+## Integration Resources
+- Tinkers' Construct
+  - [Source](https://github.com/SlimeKnights/TinkersConstruct)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/tinkers-construct)
+  - [Mantle Source](https://github.com/SlimeKnights/Mantle)
+- Botania
+  - [Source](https://github.com/VazkiiMods/Botania)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/botania)
+- Patchouli
+  - [Source](https://github.com/Vazkii/Patchouli)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/patchouli)
+- Curios
+  - [Source](https://github.com/TheIllusiveC4/Curios)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/curios)
+- MythicBotany
+  - [Source](https://github.com/noeppi-noeppi/MythicBotany)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/mythicbotany)
+- Create
+  - [Source](https://github.com/Creators-of-Create/Create)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/create)
+- Aquaculture
+  - [Source](https://github.com/TeamMetallurgy/Aquaculture)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/aquaculture)
+- Ars Nouveau
+  - [Source](https://github.com/baileyholl/Ars-Nouveau)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/ars-nouveau)
+- Alex's Mobs
+  - [Source](https://github.com/Alex-the-666/AlexsMobs)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/alexs-mobs)
+- Malum
+  - [Source](https://github.com/SammySemicolon/Malum-Mod)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/malum)
+- The Undergarden
+  - [Source](https://github.com/quek04/The-Undergarden)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/the-undergarden)
+- ProjectE
+  - [Source](https://github.com/sinkillerj/ProjectE)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/projecte)
+- Beyond Earth
+  - [Source](https://github.com/st0x0ef/Beyond-Earth)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/beyond-earth)
+- Ad Astra
+  - [Source](https://github.com/terrarium-earth/Ad-Astra)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/ad-astra)
+- Immersive Engineering
+  - [Source](https://github.com/BluSunrize/ImmersiveEngineering)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/immersive-engineering)
+- Mekanism
+  - [Source](https://github.com/mekanism/mekanism)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/mekanism)
+- Ice and Fire Dragons
+  - [Source](https://github.com/Alex-the-666/Ice_and_Fire)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/ice-and-fire-dragons)
+- Ars Elemental
+  - [Source](https://github.com/Alexthw46/Ars-Elemental)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/ars-elemental)
+- Twilight Forest
+  - [Source](https://github.com/TeamTwilight/twilightforest)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/the-twilight-forest)
+- Deeper and Darker 
+  - [Source](https://github.com/KyaniteMods/DeeperAndDarker)
+  - [CurseForge](https://legacy.curseforge.com/minecraft/mc-mods/deeperdarker)
