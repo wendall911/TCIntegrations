@@ -157,6 +157,9 @@ Almost everything in the mod is datapack driven and can be overridden via datapa
    * Launches Ghost Sword when swinging sword in air
 ### Consecration
  * Enables support for Holy Damage that was disabled due to the glacial pace that Tinkers' Construct updates.
+### Deeper and Darker
+ * Adds "**Skulking** modifier - Armor
+   * Removes blindness and darkness effects.
 ### Smeltery Additions
  * Bronze
    * Adds back bronze block/ingot/nuggets
