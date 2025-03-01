@@ -8,7 +8,6 @@ public class MechanicalArmModifier extends OffhandAttackModifier {
     @Override
     protected void registerHooks(Builder hookBuilder) {
         super.registerHooks(hookBuilder);
-        hookBuilder.addHook(this);
     }
 
     @Override
