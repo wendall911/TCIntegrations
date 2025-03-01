@@ -32,6 +32,9 @@ public final class NetworkHandler {
         if (ModList.get().isLoaded(ModIntegration.IFD_MODID)) {
             registerMessage(id++, LaunchGhostSword.class, LaunchGhostSword::new);
         }
+        if (ModList.get().isLoaded(ModIntegration.ARS_ELEMENTAL_MODID)) {
+            registerMessage(id++, ArsElementalSetData.class, ArsElementalSetData::new);
+        }
     }
 
     private static <T extends IData> void registerMessage(int idx, Class<T> type, Function<FriendlyByteBuf, T> decoder) {

@@ -13,10 +13,12 @@ import tcintegrations.TCIntegrations;
 public class CapabilityRegistry {
 
     public static final Capability<BotaniaSet> BOTANIA_SET_CAPABILITY = CapabilityManager.get(new CapabilityToken<>(){});
+    public static final Capability<ArsElementalSet> ARS_ELEMENTAL_SET_CAPABILITY = CapabilityManager.get(new CapabilityToken<>(){});
 
     @SubscribeEvent
     public static void registerCapability(RegisterCapabilitiesEvent event) {
         event.register(BotaniaSet.class);
+        event.register(ArsElementalSet.class);
     }
 
 }

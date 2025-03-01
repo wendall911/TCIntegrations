@@ -1,0 +1,6 @@
+{
+  "tcintegrations:aethermancer": ["ars_elemental:item/air_robes", "tcintegrations:gui/modifiers/plus"],
+  "tcintegrations:aquamancer": ["ars_elemental:item/aqua_robes", "tcintegrations:gui/modifiers/plus"],
+  "tcintegrations:geomancer": ["ars_elemental:item/earth_robes", "tcintegrations:gui/modifiers/plus"],
+  "tcintegrations:pyromancer": ["ars_elemental:item/fire_robes", "tcintegrations:gui/modifiers/plus"]
+}

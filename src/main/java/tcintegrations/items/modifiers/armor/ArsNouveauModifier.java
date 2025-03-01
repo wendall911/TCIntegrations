@@ -20,6 +20,7 @@ import slimeknights.tconstruct.library.module.ModuleHookMap.Builder;
 import slimeknights.tconstruct.library.tools.context.EquipmentChangeContext;
 import slimeknights.tconstruct.library.tools.nbt.IToolStackView;
 
+import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.items.modifiers.ArsNouveauBaseModifier;
 
 public class ArsNouveauModifier extends ArsNouveauBaseModifier implements EquipmentChangeModifierHook {
@@ -49,9 +50,20 @@ public class ArsNouveauModifier extends ArsNouveauBaseModifier implements Equipm
         if (player != null && !player.level().isClientSide) {
             ItemStack replacement = context.getReplacement();
             Map<Enchantment, Integer> enchantments = new HashMap<>();
+            int modifierLevel = tool.getModifierLevel(modifier.getModifier());
 
-            enchantments.put(EnchantmentRegistry.MANA_BOOST_ENCHANTMENT.get(), tool.getModifierLevel(modifier.getModifier()));
-            enchantments.put(EnchantmentRegistry.MANA_REGEN_ENCHANTMENT.get(), tool.getModifierLevel(modifier.getModifier()));
+            if (tool.getModifierLevel(TCIntegrationsModifiers.AETHERMANCER_MODIFIER.get()) > 0) {
+                modifierLevel++;
+            }
+            else if (tool.getModifierLevel(TCIntegrationsModifiers.GEOMANCER_MODIFIER.get()) > 0) {
+                modifierLevel++;
+            }
+            else if (tool.getModifierLevel(TCIntegrationsModifiers.AQUAMANCER_MODIFIER.get()) > 0) {
+                modifierLevel++;
+            }
+
+            enchantments.put(EnchantmentRegistry.MANA_BOOST_ENCHANTMENT.get(), modifierLevel);
+            enchantments.put(EnchantmentRegistry.MANA_REGEN_ENCHANTMENT.get(), modifierLevel);
 
             EnchantmentHelper.setEnchantments(enchantments, replacement);
         }

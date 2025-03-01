@@ -78,6 +78,12 @@ Almost everything in the mod is datapack driven and can be overridden via datapa
  * Adds "**Enchanter's Shield**" modifier for Chestplates
    * Upon blocking damage, the user will gain a short duration of Mana Regeneration and Spell Damage.
    * Uses mana to repair item
+## Ars Elemental
+ * Adds **Aethermancer's Set**, **Aquamancer's Set**, **Geomancer's Set** and **Pyromancer's Set** modifiers to armor
+   * Uses mana to repair item
+   * Provides one Mana Boost enchantment level that can be combined with Ars Nouveau Modifier Levels for a Max of 4
+   * Provides one Mana Regen enchantment level that can be combined with Ars Nouveau Modifier Levels for a Max of 4
+   * Provides damage protection and mana regeneration depending on the specific set bonus when an entire set is equipped
 ### ⚪ Alex's Mobs
  * "**Roadrunner Boots**" upgrade modifier - Boots
    * Adds a speed boost per level on sand
@@ -118,7 +124,7 @@ Almost everything in the mod is datapack driven and can be overridden via datapa
    * 1.5x attack damage against mobs while in the Undergarden
 ### ProjectE
  * Adds EMC for Cobalt
-### Beyond Earth
+### Beyond Earth / Ad Astra
  * Improved Tinkers' Construct support
    * Add ore smelting for Desh, Calorite and Ostrum
  * Adds "**Oxegenated**" material property to Desh, Calorite and Ostrum
@@ -149,6 +155,8 @@ Almost everything in the mod is datapack driven and can be overridden via datapa
    * Bonus damage against Ice and Fire Dragons
  * Adds "**Phantasmal**" upgrade modifier - Swords
    * Launches Ghost Sword when swinging sword in air
+### Consecration
+ * Enables support for Holy Damage that was disabled due to the glacial pace that Tinkers' Construct updates.
 ### Smeltery Additions
  * Bronze
    * Adds back bronze block/ingot/nuggets
