@@ -3,5 +3,7 @@
   "tcintegrations:aquamancer": ["ars_elemental:item/aqua_robes", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:geomancer": ["ars_elemental:item/earth_robes", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:pyromancer": ["ars_elemental:item/fire_robes", "tcintegrations:gui/modifiers/plus"],
-  "tcintegrations:sculking": ["deeperdarker:item/warden_chestplate", "tcintegrations:gui/modifiers/plus"]
+  "tcintegrations:sculking": ["deeperdarker:item/warden_chestplate", "tcintegrations:gui/modifiers/plus"],
+  "tcintegrations:precipitate": ["minecraft:item/sugar", "tcintegrations:gui/modifiers/plus"],
+  "tcintegrations:twilit": ["minecraft:block/daylight_detector_top", "tcintegrations:gui/modifiers/plus"]
 }

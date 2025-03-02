@@ -21,6 +21,7 @@ import slimeknights.tconstruct.library.recipe.modifiers.adding.IncrementalModifi
 import slimeknights.tconstruct.library.recipe.modifiers.adding.ModifierRecipeBuilder;
 import slimeknights.tconstruct.library.tools.SlotType;
 
+import slimeknights.tconstruct.tools.TinkerModifiers;
 import tcintegrations.common.TagManager;
 import tcintegrations.data.BaseRecipeProvider;
 import tcintegrations.data.integration.ModIntegration;
@@ -62,6 +63,7 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
         Consumer<FinishedRecipe> apothConsumer = withCondition(consumer, modLoaded(ModIntegration.APOTH_MODID));
         Consumer<FinishedRecipe> arsElementalConsumer = withCondition(consumer, modLoaded(ModIntegration.ARS_ELEMENTAL_MODID));
         Consumer<FinishedRecipe> deeperDarkerConsumer = withCondition(consumer, modLoaded(ModIntegration.DEEPERDARKER_MODID));
+        Consumer<FinishedRecipe> twilightForestConsumer = withCondition(consumer, modLoaded(ModIntegration.TWILIGHT_MODID));
 
         ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TERRA_MODIFIER)
             .setTools(TinkerTags.Items.MELEE_PRIMARY)
@@ -533,6 +535,57 @@ public class ModifierRecipeProvider extends BaseRecipeProvider {
             .setMaxLevel(1)
             .saveSalvage(deeperDarkerConsumer, prefix(TCIntegrationsModifiers.SCULKING_MODIFIER, compatSalvage))
             .save(deeperDarkerConsumer, prefix(TCIntegrationsModifiers.SCULKING_MODIFIER, compatFolder));
+
+        IncrementalModifierRecipeBuilder.modifier(TinkerModifiers.fiery)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.BOWS, TinkerTags.Items.WORN_ARMOR, TinkerTags.Items.SHIELDS))
+            .setInput(ModIntegration.FIERY_INGOT, 1, 2)
+            .setMaxLevel(7) // +25 seconds fire damage
+            .setSlots(SlotType.UPGRADE, 1)
+            .saveSalvage(twilightForestConsumer, prefix(TinkerModifiers.fiery, compatSalvage))
+            .save(twilightForestConsumer, prefix(TinkerModifiers.fiery, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TinkerModifiers.freezing)
+            .addInput(ModIntegration.ARCTIC_FUR)
+            .setMaxLevel(5)
+            .setSlots(SlotType.UPGRADE, 1)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.BOWS, TinkerTags.Items.WORN_ARMOR, TinkerTags.Items.SHIELDS))
+            .saveSalvage(twilightForestConsumer, prefix(TinkerModifiers.freezing, compatSalvage))
+            .save(twilightForestConsumer, prefix(TinkerModifiers.freezing, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TinkerModifiers.autosmelt)
+            .addInput(Tags.Items.RAW_MATERIALS)
+            .addInput(ModIntegration.FIERY_INGOT)
+            .addInput(ModIntegration.FIERY_INGOT)
+            .addInput(ModIntegration.FIERY_INGOT)
+            .setMaxLevel(1).checkTraitLevel()
+            .setSlots(SlotType.ABILITY, 1)
+            .setTools(TinkerTags.Items.HARVEST)
+            .saveSalvage(twilightForestConsumer, prefix(TinkerModifiers.autosmelt, compatSalvage))
+            .save(twilightForestConsumer, prefix(TinkerModifiers.autosmelt, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.PRECIPITATE_MODIFIER)
+            .addInput(ModIntegration.NAGA_SCALE)
+            .addInput(ModIntegration.NAGA_SCALE)
+            .addInput(ModIntegration.NAGA_SCALE)
+            .addInput(ModIntegration.NAGA_SCALE)
+            .addInput(ModIntegration.NAGA_SCALE)
+            .setMaxLevel(1)
+            .setSlots(SlotType.ABILITY, 1)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST, TinkerTags.Items.RANGED))
+            .saveSalvage(twilightForestConsumer, prefix(TCIntegrationsModifiers.PRECIPITATE_MODIFIER, compatSalvage))
+            .save(twilightForestConsumer, prefix(TCIntegrationsModifiers.PRECIPITATE_MODIFIER, compatFolder));
+
+        ModifierRecipeBuilder.modifier(TCIntegrationsModifiers.TWILIT_MODIFIER)
+            .addInput(ModIntegration.FIERY_INGOT)
+            .addInput(ModIntegration.FIERY_INGOT)
+            .addInput(ModIntegration.FIERY_INGOT)
+            .addInput(ModIntegration.STEELEAF_INGOT)
+            .addInput(ModIntegration.NAGA_SCALE)
+            .setMaxLevel(1)
+            .setSlots(SlotType.ABILITY, 1)
+            .setTools(ingredientFromTags(TinkerTags.Items.MELEE, TinkerTags.Items.HARVEST, TinkerTags.Items.RANGED))
+            .saveSalvage(twilightForestConsumer, prefix(TCIntegrationsModifiers.TWILIT_MODIFIER, compatSalvage))
+            .save(twilightForestConsumer, prefix(TCIntegrationsModifiers.TWILIT_MODIFIER, compatFolder));
     }
 
     public ResourceLocation prefix(LazyModifier modifier, String prefix) {

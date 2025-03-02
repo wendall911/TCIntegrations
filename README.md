@@ -160,6 +160,20 @@ Almost everything in the mod is datapack driven and can be overridden via datapa
 ### Deeper and Darker
  * Adds "**Skulking** modifier - Armor
    * Removes blindness and darkness effects.
+### Twightlight Forest
+ * Adds **Precipitate** ability modifier - Weapons / Harvest Tools
+   * Mining speed increases as heath decreases.
+   * Attack Speed increases as health decreases.
+   * Arrow velocity increases as health decreases.
+ * Adds **Twilit** upgrade modifier
+   * 200% mining speed when using tool in the Twilight Forest
+   * 10% arrow velocity increase when in the Twilight Forest
+   * 150% attack damage when NOT in the Twilight Forest
+ * Adds alternative recipe for the **Fiery** modifier
+   * Increases max level to 7 from 5
+ * Adds alternative recipe for the **Freezing** modifier
+   * Increases max level from 3 to 5
+ * Adds alternative recipe for the **Autosmelt** modifier
 ### Smeltery Additions
  * Bronze
    * Adds back bronze block/ingot/nuggets
