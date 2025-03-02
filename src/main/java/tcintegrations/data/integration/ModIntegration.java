@@ -36,6 +36,7 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static final String APOTH_MODID = "apotheosis";
     public static final String ARS_ELEMENTAL_MODID = "ars_elemental";
     public static final String DEEPERDARKER_MODID = "deeperdarker";
+    public static final String TWILIGHT_MODID = "twilightforest";
 
     public static Item BOTANIA_LIVINGWOOD_PLANKS;
     public static Item BEYOND_EARTH_CHEESE;
@@ -121,6 +122,10 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static Item IFD_DRAGONARMOR_COPPER_TAIL;
     public static Item MARK_OF_MASTERY;
     public static Item REINFORCED_ECHO_SHARD;
+    public static Item ARCTIC_FUR;
+    public static Item FIERY_INGOT;
+    public static Item NAGA_SCALE;
+    public static Item STEELEAF_INGOT;
 
     public static RegistryObject<MobEffect> OXYGEN_EFFECT;
 
@@ -216,6 +221,10 @@ public final class ModIntegration extends TCIntegrationsModule {
             IFD_DRAGONARMOR_COPPER_TAIL = registerItem(ifdLoc("dragonarmor_copper_tail"));
             MARK_OF_MASTERY = registerItem(arsElementalLoc("mark_of_mastery"));
             REINFORCED_ECHO_SHARD = registerItem(deeperDarkerLoc("reinforced_echo_shard"));
+            ARCTIC_FUR = registerItem(twilightLoc("arctic_fur"));
+            FIERY_INGOT = registerItem(twilightLoc("fiery_ingot"));
+            NAGA_SCALE = registerItem(twilightLoc("naga_scale"));
+            STEELEAF_INGOT = registerItem(twilightLoc("steeleaf_ingot"));
         }
 
     }
@@ -308,6 +317,10 @@ public final class ModIntegration extends TCIntegrationsModule {
 
     public static ResourceLocation deeperDarkerLoc(String name) {
         return location(DEEPERDARKER_MODID, name);
+    }
+
+    public static ResourceLocation twilightLoc(String name) {
+        return location(TWILIGHT_MODID, name);
     }
 
     public static boolean canLoad(String modid) {

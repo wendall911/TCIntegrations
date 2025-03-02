@@ -38,8 +38,10 @@ import tcintegrations.items.modifiers.tool.IcedModifier;
 import tcintegrations.items.modifiers.tool.MechanicalArmModifier;
 import tcintegrations.items.modifiers.tool.ModerateModifier;
 import tcintegrations.items.modifiers.tool.PhantasmalModifier;
+import tcintegrations.items.modifiers.tool.PrecipitateModifier;
 import tcintegrations.items.modifiers.tool.SirenModifier;
 import tcintegrations.items.modifiers.tool.TerraModifier;
+import tcintegrations.items.modifiers.tool.TwilitModifier;
 import tcintegrations.items.modifiers.tool.UtheriumModifier;
 import tcintegrations.items.modifiers.tool.ZappedModifier;
 import tcintegrations.items.modifiers.traits.DragonScalesModifier;
@@ -96,6 +98,8 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
     public static StaticModifier<GeomancerModifier> GEOMANCER_MODIFIER;
     public static StaticModifier<PyromancerModifier> PYROMANCER_MODIFIER;
     public static StaticModifier<SculkingModifier> SCULKING_MODIFIER;
+    public static StaticModifier<PrecipitateModifier> PRECIPITATE_MODIFIER;
+    public static StaticModifier<TwilitModifier> TWILIT_MODIFIER;
 
     public static void init() {
         if (ModIntegration.canLoad(ModIntegration.BOTANIA_MODID)) {
@@ -172,7 +176,6 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
         // Ad Astra / Beyond Earth, etc. and whatever other space clones
         CHEESY_MODIFIER = MODIFIERS_REGISTRY.register("cheesy", CheesyModifier::new);
         OXYGENATED_MODIFIER = MODIFIERS_REGISTRY.register("oxygenated", OxygenatedModifier::new);
-
         MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);
 
         if (ModIntegration.canLoad(ModIntegration.APOTH_MODID)) {
@@ -188,6 +191,11 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
 
         if (ModIntegration.canLoad(ModIntegration.DEEPERDARKER_MODID)) {
             SCULKING_MODIFIER = MODIFIERS_REGISTRY.register("sculking", SculkingModifier::new);
+        }
+
+        if (ModIntegration.canLoad(ModIntegration.TWILIGHT_MODID)) {
+            PRECIPITATE_MODIFIER = MODIFIERS_REGISTRY.register("precipitate", PrecipitateModifier::new);
+            TWILIT_MODIFIER = MODIFIERS_REGISTRY.register("twilit", TwilitModifier::new);
         }
     }
 

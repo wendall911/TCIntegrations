@@ -229,5 +229,15 @@
     "modifier.tcintegrations.pyromancer.description": "Absorb some fire-related damage and convert into mana, instantly clears fire.",
     "modifier.tcintegrations.sculking": "Sculking",
     "modifier.tcintegrations.sculking.flavor": "I can see!",
-    "modifier.tcintegrations.sculking.description": "Removes blindness and darkness effects."
+    "modifier.tcintegrations.sculking.description": "Removes blindness and darkness effects.",
+    "modifier.tcintegrations.precipitate": "Precipitate",
+    "modifier.tcintegrations.precipitate.flavor": "The last standing escape plan.",
+    "modifier.tcintegrations.precipitate.description": "The less health you have, the speedier it is!",
+    "modifier.tcintegrations.precipitate.speed": "Precipitate Speed",
+    "modifier.tcintegrations.twilit": "Twilit",
+    "modifier.tcintegrations.twilit.flavor": "The Twilight Forest's illuminating blessing.",
+    "modifier.tcintegrations.twilit.description": "Speedier in the Twilight Forest. More damage outside the Twilight Forest.",
+    "modifier.tcintegrations.twilit.mining_speed": "Twilit Speed",
+    "modifier.tcintegrations.twilit.velocity": "Twilit Velocity",
+    "modifier.tcintegrations.twilit.damage": "Twilit Damage"
 }
