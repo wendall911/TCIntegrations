@@ -27,7 +27,7 @@
   "level": 1,
   "result": "tcintegrations:turtle_shell",
   "slots": {
-    "abilities": 1
+    "upgrades": 1
   },
   "tools": {
     "tag": "tconstruct:modifiable/armor/helmets"

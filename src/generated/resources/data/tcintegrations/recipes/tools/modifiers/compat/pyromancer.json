@@ -4,28 +4,25 @@
   "conditions": [
     {
       "type": "forge:mod_loaded",
-      "modid": "mythicbotany"
+      "modid": "ars_elemental"
     }
   ],
   "inputs": [
     {
-      "item": "mythicbotany:alfsteel_ingot"
+      "item": "ars_elemental:mark_of_mastery"
     },
     {
-      "tag": "botania:terrasteel_ingots"
+      "item": "ars_nouveau:fire_essence"
     },
     {
-      "tag": "botania:terrasteel_ingots"
+      "item": "ars_nouveau:fire_essence"
     },
     {
-      "tag": "botania:mystical_flowers"
-    },
-    {
-      "tag": "botania:double_mystical_flowers"
+      "item": "minecraft:netherite_ingot"
     }
   ],
   "level": 1,
-  "result": "tcintegrations:alfheim",
+  "result": "tcintegrations:pyromancer",
   "slots": {
     "upgrades": 1
   },

@@ -9,19 +9,19 @@
   ],
   "inputs": [
     {
-      "item": "ars_nouveau:blaze_fiber"
+      "item": "ars_nouveau:magebloom_fiber"
     },
     {
-      "item": "ars_nouveau:blaze_fiber"
+      "item": "ars_nouveau:magebloom_fiber"
     },
     {
-      "item": "ars_nouveau:blaze_fiber"
+      "item": "ars_nouveau:magebloom_fiber"
     },
     {
-      "item": "ars_nouveau:blaze_fiber"
+      "item": "minecraft:blaze_rod"
     },
     {
-      "item": "ars_nouveau:blaze_fiber"
+      "item": "minecraft:blaze_rod"
     }
   ],
   "level": 2,

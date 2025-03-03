@@ -1,0 +1,33 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "check_trait_level": true,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "forge:raw_materials"
+    },
+    {
+      "item": "twilightforest:fiery_ingot"
+    },
+    {
+      "item": "twilightforest:fiery_ingot"
+    },
+    {
+      "item": "twilightforest:fiery_ingot"
+    }
+  ],
+  "level": 1,
+  "result": "tconstruct:autosmelt",
+  "slots": {
+    "abilities": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/harvest"
+  }
+}

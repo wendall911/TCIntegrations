@@ -9,19 +9,19 @@
   ],
   "inputs": [
     {
-      "item": "ars_nouveau:end_fiber"
+      "item": "ars_nouveau:magebloom_fiber"
     },
     {
-      "item": "ars_nouveau:end_fiber"
+      "item": "ars_nouveau:magebloom_fiber"
     },
     {
-      "item": "ars_nouveau:end_fiber"
+      "item": "minecraft:chorus_fruit"
     },
     {
-      "item": "ars_nouveau:end_fiber"
+      "item": "minecraft:ender_pearl"
     },
     {
-      "item": "ars_nouveau:end_fiber"
+      "item": "minecraft:ender_pearl"
     }
   ],
   "level": 3,

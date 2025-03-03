@@ -12,11 +12,7 @@
       "item": "immersiveengineering:voltmeter"
     }
   ],
-  "level": 1,
   "result": "tcintegrations:multivision",
-  "slots": {
-    "abilities": 1
-  },
   "tools": {
     "tag": "tconstruct:modifiable/armor/helmets"
   }

@@ -3,14 +3,14 @@
   "conditions": [
     {
       "type": "forge:mod_loaded",
-      "modid": "create"
+      "modid": "deeperdarker"
     }
   ],
-  "modifier": "tcintegrations:engineers_goggles",
+  "modifier": "tcintegrations:sculking",
   "slots": {
-    "abilities": 1
+    "upgrades": 1
   },
   "tools": {
-    "tag": "tconstruct:modifiable/armor/helmets"
+    "tag": "tconstruct:modifiable/armor/worn"
   }
 }
