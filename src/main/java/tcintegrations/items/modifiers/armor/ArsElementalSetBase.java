@@ -3,13 +3,14 @@ package tcintegrations.items.modifiers.armor;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.hollingsworth.arsnouveau.common.enchantment.EnchantmentRegistry;
-import com.hollingsworth.arsnouveau.common.potions.ModPotions;
+import com.hollingsworth.arsnouveau.setup.registry.EnchantmentRegistry;
+import com.hollingsworth.arsnouveau.setup.registry.ModPotions;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -70,7 +71,7 @@ public class ArsElementalSetBase extends Modifier implements EquipmentChangeModi
     public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
             ItemStack replacement = context.getReplacement();
             Map<Enchantment, Integer> enchantments = new HashMap<>();
@@ -106,7 +107,7 @@ public class ArsElementalSetBase extends Modifier implements EquipmentChangeModi
     public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             final ServerPlayer sp = (ServerPlayer) player;
 
             sp.getCapability(CapabilityRegistry.ARS_ELEMENTAL_SET_CAPABILITY).ifPresent(data -> {
@@ -145,15 +146,15 @@ public class ArsElementalSetBase extends Modifier implements EquipmentChangeModi
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
         int bonusReduction = 0;
 
-        if (player != null && !player.level.isClientSide) {
-            if (hasArmorSet(player) && damageSource.isFall()) {
+        if (player != null && !player.level().isClientSide) {
+            if (hasArmorSet(player) && damageSource.is(DamageTypeTags.IS_FALL)) {
                 bonusReduction += 5;
             }
-            else if (hasArmorSet(player) && damageSource == DamageSource.DROWN) {
+            else if (hasArmorSet(player) && damageSource.is(DamageTypeTags.IS_DROWNING)) {
                 player.setAirSupply(player.getMaxAirSupply());
                 bonusReduction += 5;
             }
-            else if (hasArmorSet(player) && (damageSource == DamageSource.IN_FIRE || damageSource == DamageSource.ON_FIRE)) {
+            else if (hasArmorSet(player) && damageSource.is(DamageTypeTags.IS_FIRE)) {
                 player.clearFire();
                 bonusReduction += 5;
             }
@@ -162,7 +163,7 @@ public class ArsElementalSetBase extends Modifier implements EquipmentChangeModi
         if (bonusReduction > 0) {
             int finalBonusReduction = bonusReduction;
 
-            com.hollingsworth.arsnouveau.common.capability.CapabilityRegistry.getMana(player).ifPresent(mana -> {
+            com.hollingsworth.arsnouveau.setup.registry.CapabilityRegistry.getMana(player).ifPresent(mana -> {
                 mana.addMana(amount);
                 player.addEffect(new MobEffectInstance(ModPotions.MANA_REGEN_EFFECT.get(), 200, finalBonusReduction / 2));
             });

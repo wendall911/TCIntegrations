@@ -54,7 +54,7 @@ public class PrecipitateModifier extends Modifier implements ConditionalStatModi
     public float modifyStat(IToolStackView tool, ModifierEntry modifier, LivingEntity holder, FloatToolStat stat, float baseValue, float multiplier) {
         final Player player = holder instanceof Player ? (Player) holder : null;
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             if (stat == ToolStats.VELOCITY) {
                 return baseValue + (baseValue * getBonusPercentage(player));
             }
@@ -70,7 +70,7 @@ public class PrecipitateModifier extends Modifier implements ConditionalStatModi
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         final Player player = context.getPlayerAttacker();
 
-        if (player != null && !player.level.isClientSide) {
+        if (player != null && !player.level().isClientSide) {
             return damage * (1 + getBonusPercentage(player));
         }
 

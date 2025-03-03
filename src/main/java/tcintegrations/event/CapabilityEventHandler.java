@@ -29,7 +29,7 @@ public class CapabilityEventHandler {
             }
             if (ModList.get().isLoaded(ModIntegration.ARS_ELEMENTAL_MODID)) {
                 event.addCapability(
-                    new ResourceLocation(TCIntegrations.MODID, "arselementalset"),
+                    ResourceLocation.fromNamespaceAndPath(TCIntegrations.MODID, "arselementalset"),
                     new ArsElementalSet.Provider()
                 );
             }

@@ -58,7 +58,7 @@ public class TwilitModifier extends Modifier implements ConditionalStatModifierH
         if (stat == ToolStats.VELOCITY) {
             final Player player = entity instanceof Player ? (Player) entity : null;
 
-            if (player != null && !player.level.isClientSide) {
+            if (player != null && !player.level().isClientSide) {
                 return getVelocityBonus(player, baseValue);
             }
         }
@@ -70,7 +70,7 @@ public class TwilitModifier extends Modifier implements ConditionalStatModifierH
     public float getMeleeDamage(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float baseDamage, float damage) {
         final Player player = context.getPlayerAttacker();
 
-        if (player != null && !player.level.isClientSide && !isTwilightForest(player)) {
+        if (player != null && !player.level().isClientSide && !isTwilightForest(player)) {
             return getMeleeDamageBonus(player, damage);
         }
 
@@ -128,7 +128,7 @@ public class TwilitModifier extends Modifier implements ConditionalStatModifierH
     }
 
     private static boolean isTwilightForest(Player player) {
-        return player.level.dimension().location().toString().contains(ModIntegration.twilightLoc("twilight_forest").toString());
+        return player.level().dimension().location().toString().contains(ModIntegration.twilightLoc("twilight_forest").toString());
     }
 
 }

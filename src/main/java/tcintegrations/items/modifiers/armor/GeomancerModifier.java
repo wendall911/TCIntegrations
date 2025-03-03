@@ -50,7 +50,7 @@ public class GeomancerModifier extends ArsElementalSetBase implements InventoryT
     public void onInventoryTick(IToolStackView tool, ModifierEntry modifier, Level level, LivingEntity entity, int slot, boolean isSelected, boolean isCorrectSlot, ItemStack stack) {
        final Player player = entity instanceof Player ? (Player) entity : null;
 
-        if (player != null && !player.level.isClientSide && hasArmorSet(player) && player.getEyePosition().y() < 20 && player.getFoodData().getFoodLevel() < 2) {
+        if (player != null && !player.level().isClientSide && hasArmorSet(player) && player.getEyePosition().y() < 20 && player.getFoodData().getFoodLevel() < 2) {
             player.getFoodData().setFoodLevel(20);
         }
     }

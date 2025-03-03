@@ -8,7 +8,7 @@
   "tcintegrations:twilit": ["minecraft:item/clock_16", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:alfheim": ["mythicbotany:item/alfsteel_chestplate", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:alf": ["mythicbotany:item/alfsteel_axe", "tcintegrations:gui/modifiers/plus"],
-  "tcintegrations:ars_nouveau": ["ars_nouveau:items/magebloom_fiber", "tcintegrations:gui/modifiers/plus"],
+  "tcintegrations:ars_nouveau": ["ars_nouveau:item/magebloom_fiber", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:bison_fur": ["minecraft:item/powder_snow_bucket", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:capturing": ["minecraft:item/spawn_egg", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:cheesy": ["tconstruct:item/materials/cheese_ingot", "tcintegrations:gui/modifiers/plus"],
