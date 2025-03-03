@@ -80,7 +80,6 @@ Almost everything in the mod is datapack driven and can be overridden via datapa
    * Uses mana to repair item
 ### Ars Elemental
  * Adds **Aethermancer's Set**, **Aquamancer's Set**, **Geomancer's Set** and **Pyromancer's Set** modifiers to armor
-   * Uses mana to repair item
    * Provides one Mana Boost enchantment level that can be combined with Ars Nouveau Modifier Levels for a Max of 4
    * Provides one Mana Regen enchantment level that can be combined with Ars Nouveau Modifier Levels for a Max of 4
    * Provides damage protection and mana regeneration depending on the specific set bonus when an entire set is equipped
