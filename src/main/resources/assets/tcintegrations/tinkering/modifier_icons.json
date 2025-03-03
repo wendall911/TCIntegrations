@@ -30,7 +30,7 @@
   "tcintegrations:phantasmal": ["iceandfire:item/ghost_sword", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:poseidon": ["aquaculture:item/neptunium_chestplate", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:roadrunner": ["alexsmobs:item/roadrunner_boots", "tcintegrations:gui/modifiers/plus"],
-  "tcintegrations:shield_of_the_deep": ["alexsmobs:armor/shield_of_the_deep", "tcintegrations:gui/modifiers/plus"],
+  "tcintegrations:shield_of_the_deep": ["minecraft:item/empty_armor_slot_shield", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:siren": ["aquaculture:item/neptunium_hoe", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:soul_stained": ["malum:item/soul_stained_steel_chestplate", "tcintegrations:gui/modifiers/plus"],
   "tcintegrations:terra": ["botania:item/terra_sword", "tcintegrations:gui/modifiers/plus"],
