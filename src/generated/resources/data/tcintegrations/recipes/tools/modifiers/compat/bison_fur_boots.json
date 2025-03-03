@@ -27,7 +27,7 @@
   "level": 1,
   "result": "tcintegrations:bison_fur",
   "slots": {
-    "abilities": 1
+    "upgrades": 1
   },
   "tools": {
     "tag": "tconstruct:modifiable/armor/boots"

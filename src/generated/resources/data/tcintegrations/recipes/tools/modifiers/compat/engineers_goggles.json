@@ -12,7 +12,6 @@
       "item": "create:goggles"
     }
   ],
-  "level": 1,
   "result": "tcintegrations:engineers_goggles",
   "tools": {
     "tag": "tconstruct:modifiable/armor/helmets"

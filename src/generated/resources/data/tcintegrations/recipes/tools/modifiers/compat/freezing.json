@@ -1,0 +1,36 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "twilightforest"
+    }
+  ],
+  "inputs": [
+    {
+      "item": "twilightforest:arctic_fur"
+    }
+  ],
+  "level": {
+    "max": 5
+  },
+  "result": "tconstruct:freezing",
+  "slots": {
+    "upgrades": 1
+  },
+  "tools": [
+    {
+      "tag": "tconstruct:modifiable/melee"
+    },
+    {
+      "tag": "tconstruct:modifiable/ranged/bows"
+    },
+    {
+      "tag": "tconstruct:modifiable/armor/worn"
+    },
+    {
+      "tag": "tconstruct:modifiable/shields"
+    }
+  ]
+}

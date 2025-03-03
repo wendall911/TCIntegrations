@@ -4,28 +4,28 @@
   "conditions": [
     {
       "type": "forge:mod_loaded",
-      "modid": "mythicbotany"
+      "modid": "deeperdarker"
     }
   ],
   "inputs": [
     {
-      "item": "mythicbotany:alfsteel_ingot"
+      "item": "deeperdarker:reinforced_echo_shard"
     },
     {
-      "tag": "botania:terrasteel_ingots"
+      "item": "minecraft:netherite_ingot"
     },
     {
-      "tag": "botania:terrasteel_ingots"
+      "item": "minecraft:diamond"
     },
     {
-      "tag": "botania:mystical_flowers"
+      "item": "minecraft:diamond"
     },
     {
-      "tag": "botania:double_mystical_flowers"
+      "item": "minecraft:diamond"
     }
   ],
   "level": 1,
-  "result": "tcintegrations:alfheim",
+  "result": "tcintegrations:sculking",
   "slots": {
     "upgrades": 1
   },
