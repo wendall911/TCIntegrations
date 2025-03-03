@@ -41,8 +41,6 @@ public final class ModIntegration extends TCIntegrationsModule {
     public static Item SOURCE_GEM;
     public static Item SOURCE_GEM_BLOCK;
     public static Item MAGE_FIBER;
-    public static Item BLAZE_FIBER;
-    public static Item END_FIBER;
     public static Item AIR_ESSENCE;
     public static Item WATER_ESSENCE;
     public static Item EARTH_ESSENCE;
@@ -134,8 +132,6 @@ public final class ModIntegration extends TCIntegrationsModule {
             SOURCE_GEM = registerItem(arsLoc("source_gem"));
             SOURCE_GEM_BLOCK = registerItem(arsLoc("source_gem_block"));
             MAGE_FIBER = registerItem(arsLoc("magebloom_fiber"));
-            BLAZE_FIBER = registerItem(arsLoc("blaze_fiber"));
-            END_FIBER = registerItem(arsLoc("end_fiber"));
             AIR_ESSENCE = registerItem(arsLoc("air_essence"));
             WATER_ESSENCE = registerItem(arsLoc("water_essence"));
             EARTH_ESSENCE = registerItem(arsLoc("earth_essence"));
