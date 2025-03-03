@@ -366,6 +366,9 @@ publishMods {
             optional('consecration')
             optional('ad-astra')
             optional('apotheosis')
+            optional('ars-elemental')
+            optional('the-twilight-forest')
+            optional('deeperdarker')
         }
     }
     if (project.hasProperty('tiModrinthId')) {
@@ -390,6 +393,7 @@ publishMods {
             optional('ice-and-fire-dragons')
             optional('consecration')
             optional('ad-astra')
+            optional('deeperdarker')
         }
     }
     if (project.hasProperty('tiGithubToken')) {
