@@ -78,7 +78,7 @@ Almost everything in the mod is datapack driven and can be overridden via datapa
  * Adds "**Enchanter's Shield**" modifier for Chestplates
    * Upon blocking damage, the user will gain a short duration of Mana Regeneration and Spell Damage.
    * Uses mana to repair item
-## Ars Elemental
+### Ars Elemental
  * Adds **Aethermancer's Set**, **Aquamancer's Set**, **Geomancer's Set** and **Pyromancer's Set** modifiers to armor
    * Provides one Mana Boost enchantment level that can be combined with Ars Nouveau Modifier Levels for a Max of 4
    * Provides one Mana Regen enchantment level that can be combined with Ars Nouveau Modifier Levels for a Max of 4
