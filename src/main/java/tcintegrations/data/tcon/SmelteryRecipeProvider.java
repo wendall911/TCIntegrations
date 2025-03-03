@@ -2,6 +2,7 @@ package tcintegrations.data.tcon;
 
 import java.util.function.Consumer;
 
+import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 import net.minecraft.data.PackOutput;
@@ -14,19 +15,26 @@ import net.minecraftforge.common.crafting.ConditionalRecipe;
 import net.minecraftforge.common.crafting.conditions.TagEmptyCondition;
 
 import slimeknights.mantle.recipe.data.ICommonRecipeHelper;
+import slimeknights.mantle.recipe.helper.ItemOutput;
 import slimeknights.mantle.registration.object.FluidObject;
 import slimeknights.tconstruct.fluids.TinkerFluids;
 import slimeknights.tconstruct.library.data.recipe.ISmelteryRecipeHelper;
 import slimeknights.tconstruct.library.data.recipe.SmelteryRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.alloying.AlloyRecipeBuilder;
 import slimeknights.tconstruct.library.recipe.FluidValues;
+import slimeknights.tconstruct.library.recipe.casting.ItemCastingRecipeBuilder;
+import slimeknights.tconstruct.library.recipe.melting.IMeltingContainer;
+import slimeknights.tconstruct.library.recipe.melting.IMeltingRecipe;
 import slimeknights.tconstruct.library.recipe.melting.MeltingRecipeBuilder;
 
+import slimeknights.tconstruct.smeltery.TinkerSmeltery;
 import tcintegrations.data.BaseRecipeProvider;
 import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.data.tcon.material.MaterialIds;
 import tcintegrations.items.TCIntegrationsItems;
 import tcintegrations.util.ResourceLocationHelper;
+
+import static slimeknights.tconstruct.library.data.recipe.SmelteryRecipeBuilder.itemTag;
 
 public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelteryRecipeHelper, ICommonRecipeHelper {
 
@@ -70,9 +78,9 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
         metal(deshConsumer, TCIntegrationsItems.MOLTEN_DESH).ore().metal();
         metal(caloriteConsumer, TCIntegrationsItems.MOLTEN_CALORITE).ore().metal();
         metal(ostrumConsumer, TCIntegrationsItems.MOLTEN_OSTRUM).ore().metal();
-        metal(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE).metal();
-        metal(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE).metal();
-        metal(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING).metal();
+        metalWithoutNugget(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_FIRE);
+        metalWithoutNugget(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_ICE);
+        metalWithoutNugget(ifdConsumer, TCIntegrationsItems.MOLTEN_DRAGONSTEEL_LIGHTNING);
 
         // IFD Silver Items
         // armor
@@ -166,6 +174,29 @@ public class SmelteryRecipeProvider extends BaseRecipeProvider implements ISmelt
     /** Creates a smeltery builder for a metal fluid */
     public SmelteryRecipeBuilder metal(Consumer<FinishedRecipe> consumer, FluidObject<?> fluid) {
         return molten(consumer, fluid).castingFolder("smeltery/casting/metal").meltingFolder("smeltery/melting/metal");
+    }
+
+    private void metalWithoutNugget(Consumer<FinishedRecipe> consumer, FluidObject<?> fluid) {
+        SmelteryRecipeBuilder builder = molten(consumer, fluid).castingFolder("smeltery/casting/metal").meltingFolder("smeltery/melting/metal");
+        ResourceLocation name = this.location(fluid.getId().getPath().substring("molten_".length()));
+
+        builder.oreRate(IMeltingContainer.OreRateType.METAL);
+        builder.baseUnit(90);
+        builder.damageUnit(10);
+        builder.melting(9.0F, "block", "storage_blocks", 3.0F, false, false);
+        basinMetalCasting(builder, consumer, fluid,  name);
+        builder.meltingCasting(1.0F, TinkerSmeltery.ingotCast, 1.0F, false);
+    }
+
+    private void basinMetalCasting(SmelteryRecipeBuilder builder, Consumer<FinishedRecipe> consumer, FluidObject<?> fluid, ResourceLocation name) {
+        String castingFolder = "smeltery/casting/metal/";
+        String tagName = "storage_blocks/" + name.getPath();
+
+        ItemCastingRecipeBuilder.basinRecipe(ItemOutput.fromTag(itemTag(tagName))).setFluid(fluid.ingredient(810)).setCoolingTime(IMeltingRecipe.getTemperature(fluid), 810).save(consumer, location(name, castingFolder, "block"));
+    }
+
+    private ResourceLocation location(ResourceLocation name, String folder, String variant) {
+        return name.withPath(folder + name.getPath() + "/" + variant);
     }
 
 }
