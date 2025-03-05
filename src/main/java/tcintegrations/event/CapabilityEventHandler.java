@@ -23,13 +23,13 @@ public class CapabilityEventHandler {
         if (event.getObject() instanceof Player && !(event.getObject() instanceof FakePlayer)) {
             if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
                 event.addCapability(
-                    ResourceLocation.fromNamespaceAndPath(TCIntegrations.MODID, "botaniaset"),
+                    new ResourceLocation(TCIntegrations.MODID, "botaniaset"),
                     new BotaniaSet.Provider()
                 );
             }
             if (ModList.get().isLoaded(ModIntegration.ARS_ELEMENTAL_MODID)) {
                 event.addCapability(
-                    ResourceLocation.fromNamespaceAndPath(TCIntegrations.MODID, "arselementalset"),
+                    new ResourceLocation(TCIntegrations.MODID, "arselementalset"),
                     new ArsElementalSet.Provider()
                 );
             }
