@@ -35,6 +35,7 @@ public class ManaModifier extends NoLevelsModifier implements InventoryTickModif
         if (!world.isClientSide
                 && holder.tickCount % 20 == 0
                 && holder instanceof ServerPlayer sp
+                && holder.getUseItem() != stack
                 && tool.getDamage() > 0
                 && ManaItemHandler.instance().requestManaExactForTool(stack, sp, getManaPerDamage(sp) * 2, true)) {
             tool.setDamage(tool.getDamage() - 1);

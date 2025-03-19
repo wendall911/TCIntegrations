@@ -30,6 +30,7 @@ public class ArsNouveauBaseModifier extends NoLevelsModifier implements Inventor
         if (player != null
                 && !player.level().isClientSide
                 && holder.tickCount % 200 == 0
+                && holder.getUseItem() != stack
                 && tool.getDamage() > 0) {
             final ServerPlayer sp = (ServerPlayer) player;
 
