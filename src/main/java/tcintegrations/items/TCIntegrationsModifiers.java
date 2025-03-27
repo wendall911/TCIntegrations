@@ -167,10 +167,11 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             DRAGON_SCALES_MODIFIER = MODIFIERS_REGISTRY.register("dragonscales", DragonScalesModifier::new);
         }
 
-        // Ad Astra / Beyond Earth, etc. and whatever other space clones
-        CHEESY_MODIFIER = MODIFIERS_REGISTRY.register("cheesy", CheesyModifier::new);
-        OXYGENATED_MODIFIER = MODIFIERS_REGISTRY.register("oxygenated", OxygenatedModifier::new);
-        MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);
+        if (ModIntegration.canLoad(ModIntegration.AD_ASTRA_MODID) || ModIntegration.canLoad(ModIntegration.BEYOND_EARTH_MODID)) {
+            CHEESY_MODIFIER = MODIFIERS_REGISTRY.register("cheesy", CheesyModifier::new);
+            OXYGENATED_MODIFIER = MODIFIERS_REGISTRY.register("oxygenated", OxygenatedModifier::new);
+            MODERATE_MODIFIER = MODIFIERS_REGISTRY.register("moderate", ModerateModifier::new);
+        }
 
         if (ModIntegration.canLoad(ModIntegration.APOTH_MODID)) {
             CAPTURING_MODIFIER = MODIFIERS_REGISTRY.register("capturing", CapturingModifier::new);
