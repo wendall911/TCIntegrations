@@ -2,11 +2,10 @@ package tcintegrations;
 
 import java.util.Random;
 
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,18 +21,19 @@ public class TCIntegrations {
     public static final Logger LOGGER = LogManager.getFormatterLogger(TCIntegrations.MODID);
     public static final Random RANDOM = new Random();
 
-    public static TCIntegrations INSTANCE;
     public static IEventBus BUS;
 
     public TCIntegrations() {
         BUS = FMLJavaModLoadingContext.get().getModEventBus();
-        INSTANCE = this;
-
-        MinecraftForge.EVENT_BUS.register(INSTANCE);
 
         TCIntegrationsModule.initRegistries(TCIntegrations.BUS);
 
-        DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
+        if (FMLEnvironment.dist.isClient()) {
+            BUS.register(new ClientProxy());
+        }
+        else {
+            BUS.register(new ServerProxy());
+        }
     }
 
 }
