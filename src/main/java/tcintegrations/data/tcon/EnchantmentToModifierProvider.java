@@ -18,7 +18,7 @@ public class EnchantmentToModifierProvider extends AbstractEnchantmentToModifier
 
     @Override
     protected void addEnchantmentMappings() {
-        add(Apoth.Enchantments.CAPTURING.get(), TCIntegrationsModifiers.CAPTURING_MODIFIER.getId());
+        addOptional(Apoth.Enchantments.CAPTURING.getId(), TCIntegrationsModifiers.CAPTURING_MODIFIER.getId(), true);
     }
 
     @Override
