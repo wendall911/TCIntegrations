@@ -21,6 +21,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.pathfinder.BlockPathTypes;
 
 import net.minecraftforge.common.SoundActions;
 import net.minecraftforge.fluids.FluidType;
@@ -75,38 +76,38 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
 
         // Fluids
         MOLTEN_MANASTEEL = FLUID_REGISTRY.register("molten_manasteel").type(hot("molten_manasteel")
-            .temperature(1250).lightLevel(13)).block(createBurning(MapColor.RAW_IRON, 13, 10, 5f)).bucket().flowing();
+            .temperature(1250).lightLevel(13)).block(createBurning(MapColor.RAW_IRON, 13, 10, 5f)).bucket().commonTag().flowing();
 
         MOLTEN_NEPTUNIUM = FLUID_REGISTRY.register("molten_neptunium").type(hot("molten_neptunium")
-            .temperature(1250).lightLevel(14)).block(createBurning(MapColor.EMERALD, 14, 10, 5f)).bucket().flowing();
+            .temperature(1250).lightLevel(14)).block(createBurning(MapColor.EMERALD, 14, 10, 5f)).bucket().commonTag().flowing();
 
         MOLTEN_SOURCE_GEM = FLUID_REGISTRY.register("molten_source_gem").type(hot("molten_source_gem")
-            .temperature(1280).lightLevel(14)).block(createBurning(MapColor.COLOR_PURPLE, 14, 10, 5f)).bucket().flowing();
+            .temperature(1280).lightLevel(14)).block(createBurning(MapColor.COLOR_PURPLE, 14, 10, 5f)).bucket().commonTag().flowing();
 
         MOLTEN_SOUL_STAINED_STEEL = FLUID_REGISTRY.register("molten_soul_stained_steel").type(hot("molten_soul_stained_steel")
-            .temperature(1250).lightLevel(12)).block(createBurning(MapColor.COLOR_MAGENTA, 12, 10, 5f)).bucket().flowing();
+            .temperature(1250).lightLevel(12)).block(createBurning(MapColor.COLOR_MAGENTA, 12, 10, 5f)).bucket().commonTag().flowing();
 
         MOLTEN_CLOGGRUM = FLUID_REGISTRY.register("molten_cloggrum").type(hot("molten_cloggrum")
-            .temperature(1200).lightLevel(8)).block(createBurning(MapColor.TERRACOTTA_BROWN, 8, 10, 5f)).bucket().flowing();
+            .temperature(1200).lightLevel(8)).block(createBurning(MapColor.TERRACOTTA_BROWN, 8, 10, 5f)).bucket().commonTag().flowing();
         MOLTEN_FROSTSTEEL = FLUID_REGISTRY.register("molten_froststeel").type(hot("molten_froststeel")
-            .temperature(1200).lightLevel(11)).block(createBurning(MapColor.WATER, 11, 10, 6f)).bucket().flowing();
+            .temperature(1200).lightLevel(11)).block(createBurning(MapColor.WATER, 11, 10, 6f)).bucket().commonTag().flowing();
         MOLTEN_FORGOTTEN_METAL = FLUID_REGISTRY.register("molten_forgotten_metal").type(hot("molten_forgotten_metal")
-            .temperature(1200).lightLevel(14)).block(createBurning(MapColor.EMERALD, 14, 10, 6f)).bucket().flowing();
+            .temperature(1200).lightLevel(14)).block(createBurning(MapColor.EMERALD, 14, 10, 6f)).bucket().commonTag().flowing();
 
         MOLTEN_DRAGONSTEEL_FIRE = FLUID_REGISTRY.register("molten_dragonsteel_fire").type(hot("molten_dragonsteel_fire")
-            .temperature(1750).lightLevel(12)).block(createBurning(MapColor.TERRACOTTA_RED, 12, 10, 5f)).bucket().flowing();
+            .temperature(1750).lightLevel(12)).block(createBurning(MapColor.TERRACOTTA_RED, 12, 10, 5f)).bucket().commonTag().flowing();
         MOLTEN_DRAGONSTEEL_ICE = FLUID_REGISTRY.register("molten_dragonsteel_ice").type(hot("molten_dragonsteel_ice")
-            .temperature(1750).lightLevel(11)).block(createBurning(MapColor.ICE, 11, 10, 5f)).bucket().flowing();
+            .temperature(1750).lightLevel(11)).block(createBurning(MapColor.ICE, 11, 10, 5f)).bucket().commonTag().flowing();
         MOLTEN_DRAGONSTEEL_LIGHTNING = FLUID_REGISTRY.register("molten_dragonsteel_lightning").type(hot("molten_dragonsteel_lightning")
-            .temperature(1750).lightLevel(14)).block(createBurning(MapColor.TERRACOTTA_YELLOW, 14, 10, 5f)).bucket().flowing();
+            .temperature(1750).lightLevel(14)).block(createBurning(MapColor.TERRACOTTA_YELLOW, 14, 10, 5f)).bucket().commonTag().flowing();
 
         // Space trash
         MOLTEN_DESH = FLUID_REGISTRY.register("molten_desh").type(hot("molten_desh")
-            .temperature(800).lightLevel(4)).block(createBurning(MapColor.TERRACOTTA_GREEN, 4, 8, 3f)).bucket().flowing();
+            .temperature(800).lightLevel(4)).block(createBurning(MapColor.TERRACOTTA_GREEN, 4, 8, 3f)).bucket().commonTag().flowing();
         MOLTEN_OSTRUM = FLUID_REGISTRY.register("molten_ostrum").type(hot("molten_ostrum")
-            .temperature(800).lightLevel(4)).block(createBurning(MapColor.TERRACOTTA_PURPLE, 4, 8, 3f)).bucket().flowing();
+            .temperature(800).lightLevel(4)).block(createBurning(MapColor.TERRACOTTA_PURPLE, 4, 8, 3f)).bucket().commonTag().flowing();
         MOLTEN_CALORITE = FLUID_REGISTRY.register("molten_calorite").type(hot("molten_calorite")
-            .temperature(800).lightLevel(4)).block(createBurning(MapColor.TERRACOTTA_RED, 4, 8, 3f)).bucket().flowing();
+            .temperature(800).lightLevel(4)).block(createBurning(MapColor.TERRACOTTA_RED, 4, 8, 3f)).bucket().commonTag().flowing();
         
         // Metals
         BRONZE = METAL_BLOCK_REGISTRY.registerMetal(
@@ -121,7 +122,10 @@ public final class TCIntegrationsItems extends TCIntegrationsModule {
         return FluidType.Properties.create().density(2000).viscosity(10000).temperature(1000)
             .descriptionId(makeDescriptionId("fluid", name))
             .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
-            .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA);
+            .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
+            .motionScale(0.0023333333333333335D)
+            .canSwim(false).canDrown(false)
+            .pathType(BlockPathTypes.LAVA).adjacentPathType(null);
     }
 
     private static BlockBehaviour.Properties builder(SoundType soundType) {
