@@ -8,7 +8,7 @@
   ],
   "fluid": {
     "amount": 90,
-    "tag": "tcintegrations:molten_dragonsteel_lightning"
+    "tag": "forge:molten_dragonsteel_lightning"
   },
   "output": "tcintegrations:dragonsteel_lightning",
   "temperature": 1450

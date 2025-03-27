@@ -9,7 +9,7 @@
   "cooling_time": 190,
   "fluid": {
     "amount": 810,
-    "tag": "tcintegrations:molten_froststeel"
+    "tag": "forge:molten_froststeel"
   },
   "result": {
     "tag": "forge:storage_blocks/froststeel"

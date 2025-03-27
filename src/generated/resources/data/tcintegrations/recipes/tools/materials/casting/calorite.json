@@ -8,7 +8,7 @@
   ],
   "fluid": {
     "amount": 90,
-    "tag": "tcintegrations:molten_calorite"
+    "tag": "forge:molten_calorite"
   },
   "output": "tcintegrations:calorite",
   "temperature": 500

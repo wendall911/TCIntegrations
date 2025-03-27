@@ -1,0 +1,44 @@
+{
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "aquaculture"
+    }
+  ],
+  "entity_effects": [
+    {
+      "type": "tconstruct:conditional",
+      "effect": {
+        "type": "tconstruct:damage",
+        "damage": 2.0,
+        "damage_type": {
+          "melee": "tconstruct:fluid_fire_melee",
+          "ranged": "tconstruct:fluid_fire_ranged"
+        }
+      },
+      "target": {
+        "type": "mantle:inverted",
+        "inverted_type": "mantle:fire_immune"
+      }
+    },
+    {
+      "type": "tconstruct:conditional",
+      "effect": {
+        "type": "tconstruct:damage",
+        "damage": 2.0,
+        "damage_type": {
+          "melee": "tconstruct:water_melee",
+          "ranged": "tconstruct:water_ranged"
+        }
+      },
+      "target": "mantle:water_sensitive"
+    },
+    {
+      "type": "tconstruct:extinguish"
+    }
+  ],
+  "fluid": {
+    "amount": 10,
+    "tag": "forge:molten_neptunium"
+  }
+}

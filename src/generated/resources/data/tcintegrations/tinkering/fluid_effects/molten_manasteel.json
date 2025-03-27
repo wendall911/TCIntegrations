@@ -1,0 +1,41 @@
+{
+  "block_effects": [
+    {
+      "type": "tconstruct:mob_effect_cloud",
+      "effects": [
+        {
+          "effect": "ars_nouveau:recovery",
+          "level": 2,
+          "time": 120
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "botania"
+    }
+  ],
+  "entity_effects": [
+    {
+      "type": "tconstruct:damage",
+      "damage": 2.0,
+      "damage_type": {
+        "melee": "tconstruct:fluid_magic_melee",
+        "ranged": "tconstruct:fluid_magic_ranged"
+      }
+    },
+    {
+      "type": "tconstruct:mob_effect",
+      "action": "set",
+      "effect": "ars_nouveau:recovery",
+      "level": 2,
+      "time": 120
+    }
+  ],
+  "fluid": {
+    "amount": 10,
+    "tag": "forge:molten_manasteel"
+  }
+}

@@ -5,14 +5,23 @@
   },
   "conditions": [
     {
-      "type": "mantle:tag_filled",
-      "tag": "forge:ingots/desh"
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "ad_astra"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "beyond_earth"
+        }
+      ]
     }
   ],
   "cooling_time": 50,
   "fluid": {
     "amount": 90,
-    "tag": "tcintegrations:molten_desh"
+    "tag": "forge:molten_desh"
   },
   "result": {
     "tag": "forge:ingots/desh"

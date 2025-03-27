@@ -6,8 +6,17 @@
       "tag": "forge:storage_blocks/ostrum"
     },
     {
-      "type": "mantle:tag_filled",
-      "tag": "forge:ingots/ostrum"
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "ad_astra"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "beyond_earth"
+        }
+      ]
     }
   ],
   "ingredient": {

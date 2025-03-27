@@ -27,7 +27,7 @@
   "rate": "metal",
   "result": {
     "amount": 540,
-    "fluid": "tcintegrations:molten_froststeel"
+    "tag": "forge:molten_froststeel"
   },
   "temperature": 900,
   "time": 285

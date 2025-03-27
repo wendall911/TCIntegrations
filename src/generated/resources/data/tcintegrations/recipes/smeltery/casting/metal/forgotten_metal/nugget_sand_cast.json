@@ -13,7 +13,7 @@
   "cooling_time": 21,
   "fluid": {
     "amount": 10,
-    "tag": "tcintegrations:molten_forgotten_metal"
+    "tag": "forge:molten_forgotten_metal"
   },
   "result": {
     "tag": "forge:nuggets/forgotten_metal"

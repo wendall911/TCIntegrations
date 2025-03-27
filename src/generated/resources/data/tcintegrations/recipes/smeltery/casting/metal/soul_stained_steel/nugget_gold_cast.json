@@ -12,7 +12,7 @@
   "cooling_time": 22,
   "fluid": {
     "amount": 10,
-    "tag": "tcintegrations:molten_soul_stained_steel"
+    "tag": "forge:molten_soul_stained_steel"
   },
   "result": {
     "tag": "forge:nuggets/soul_stained_steel"

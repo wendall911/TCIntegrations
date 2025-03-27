@@ -9,7 +9,7 @@
   "input": "tcintegrations:desh",
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:molten_desh"
+    "tag": "forge:molten_desh"
   },
   "temperature": 500
 }

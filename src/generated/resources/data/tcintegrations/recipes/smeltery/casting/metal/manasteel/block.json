@@ -9,7 +9,7 @@
   "cooling_time": 194,
   "fluid": {
     "amount": 810,
-    "tag": "tcintegrations:molten_manasteel"
+    "tag": "forge:molten_manasteel"
   },
   "result": {
     "tag": "forge:storage_blocks/manasteel"

@@ -13,7 +13,7 @@
   "cooling_time": 22,
   "fluid": {
     "amount": 10,
-    "tag": "tcintegrations:molten_manasteel"
+    "tag": "forge:molten_manasteel"
   },
   "result": {
     "tag": "forge:nuggets/manasteel"

@@ -13,7 +13,7 @@
   "cooling_time": 65,
   "fluid": {
     "amount": 90,
-    "tag": "tcintegrations:molten_neptunium"
+    "tag": "forge:molten_neptunium"
   },
   "result": {
     "tag": "forge:ingots/neptunium"

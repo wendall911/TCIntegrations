@@ -1,0 +1,33 @@
+{
+  "block_effects": [
+    {
+      "type": "tconstruct:mob_effect_cloud",
+      "effects": [
+        {
+          "effect": "undergarden:chilly",
+          "level": 2,
+          "time": 80
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "undergarden"
+    }
+  ],
+  "entity_effects": [
+    {
+      "type": "tconstruct:mob_effect",
+      "action": "set",
+      "effect": "undergarden:chilly",
+      "level": 2,
+      "time": 80
+    }
+  ],
+  "fluid": {
+    "amount": 10,
+    "tag": "forge:molten_froststeel"
+  }
+}

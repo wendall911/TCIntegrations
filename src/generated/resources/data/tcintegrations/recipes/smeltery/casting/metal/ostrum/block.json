@@ -2,14 +2,23 @@
   "type": "tconstruct:casting_basin",
   "conditions": [
     {
-      "type": "mantle:tag_filled",
-      "tag": "forge:ingots/ostrum"
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "ad_astra"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "beyond_earth"
+        }
+      ]
     }
   ],
   "cooling_time": 150,
   "fluid": {
     "amount": 810,
-    "tag": "tcintegrations:molten_ostrum"
+    "tag": "forge:molten_ostrum"
   },
   "result": {
     "tag": "forge:storage_blocks/ostrum"

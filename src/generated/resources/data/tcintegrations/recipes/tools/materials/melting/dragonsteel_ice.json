@@ -9,7 +9,7 @@
   "input": "tcintegrations:dragonsteel_ice",
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:molten_dragonsteel_ice"
+    "tag": "forge:molten_dragonsteel_ice"
   },
   "temperature": 1450
 }

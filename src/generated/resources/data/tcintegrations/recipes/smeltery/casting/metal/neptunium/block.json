@@ -9,7 +9,7 @@
   "cooling_time": 194,
   "fluid": {
     "amount": 810,
-    "tag": "tcintegrations:molten_neptunium"
+    "tag": "forge:molten_neptunium"
   },
   "result": {
     "tag": "forge:storage_blocks/neptunium"

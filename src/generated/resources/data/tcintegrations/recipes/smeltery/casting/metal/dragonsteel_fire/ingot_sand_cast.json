@@ -13,7 +13,7 @@
   "cooling_time": 79,
   "fluid": {
     "amount": 90,
-    "tag": "tcintegrations:molten_dragonsteel_fire"
+    "tag": "forge:molten_dragonsteel_fire"
   },
   "result": {
     "tag": "forge:ingots/dragonsteel_fire"

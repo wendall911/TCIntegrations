@@ -8,7 +8,7 @@
   ],
   "fluid": {
     "amount": 90,
-    "tag": "tcintegrations:molten_neptunium"
+    "tag": "forge:molten_neptunium"
   },
   "output": "tcintegrations:neptunium",
   "temperature": 950

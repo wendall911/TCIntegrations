@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 810,
-    "fluid": "tcintegrations:molten_dragonsteel_fire"
+    "tag": "forge:molten_dragonsteel_fire"
   },
   "temperature": 1450,
   "time": 237

@@ -8,7 +8,7 @@
   ],
   "fluid": {
     "amount": 90,
-    "tag": "tcintegrations:molten_manasteel"
+    "tag": "forge:molten_manasteel"
   },
   "output": "tcintegrations:manasteel",
   "temperature": 950

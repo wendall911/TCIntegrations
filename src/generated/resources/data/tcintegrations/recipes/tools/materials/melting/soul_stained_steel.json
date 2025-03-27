@@ -9,7 +9,7 @@
   "input": "tcintegrations:soul_stained_steel",
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:molten_soul_stained_steel"
+    "tag": "forge:molten_soul_stained_steel"
   },
   "temperature": 950
 }

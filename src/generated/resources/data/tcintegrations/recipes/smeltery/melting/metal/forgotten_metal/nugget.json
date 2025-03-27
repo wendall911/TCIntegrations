@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 10,
-    "fluid": "tcintegrations:molten_forgotten_metal"
+    "tag": "forge:molten_forgotten_metal"
   },
   "temperature": 900,
   "time": 21

@@ -9,7 +9,7 @@
   "input": "tcintegrations:ostrum",
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:molten_ostrum"
+    "tag": "forge:molten_ostrum"
   },
   "temperature": 500
 }

@@ -9,7 +9,7 @@
   "cooling_time": 237,
   "fluid": {
     "amount": 810,
-    "tag": "tcintegrations:molten_dragonsteel_lightning"
+    "tag": "forge:molten_dragonsteel_lightning"
   },
   "result": {
     "tag": "forge:storage_blocks/dragonsteel_lightning"

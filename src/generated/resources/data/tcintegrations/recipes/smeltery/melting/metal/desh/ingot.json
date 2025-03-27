@@ -2,8 +2,17 @@
   "type": "tconstruct:melting",
   "conditions": [
     {
-      "type": "mantle:tag_filled",
-      "tag": "forge:ingots/desh"
+      "type": "forge:or",
+      "values": [
+        {
+          "type": "forge:mod_loaded",
+          "modid": "ad_astra"
+        },
+        {
+          "type": "forge:mod_loaded",
+          "modid": "beyond_earth"
+        }
+      ]
     }
   ],
   "ingredient": {
@@ -11,7 +20,7 @@
   },
   "result": {
     "amount": 90,
-    "fluid": "tcintegrations:molten_desh"
+    "tag": "forge:molten_desh"
   },
   "temperature": 500,
   "time": 50

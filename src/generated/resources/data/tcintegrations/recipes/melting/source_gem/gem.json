@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 100,
-    "fluid": "tcintegrations:molten_source_gem"
+    "tag": "forge:molten_source_gem"
   },
   "temperature": 980,
   "time": 66

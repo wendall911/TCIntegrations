@@ -11,7 +11,7 @@
   },
   "result": {
     "amount": 810,
-    "fluid": "tcintegrations:molten_cloggrum"
+    "tag": "forge:molten_cloggrum"
   },
   "temperature": 900,
   "time": 190

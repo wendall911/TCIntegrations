@@ -8,7 +8,7 @@
   ],
   "fluid": {
     "amount": 90,
-    "tag": "tcintegrations:molten_desh"
+    "tag": "forge:molten_desh"
   },
   "output": "tcintegrations:desh",
   "temperature": 500

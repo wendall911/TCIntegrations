@@ -1,0 +1,33 @@
+{
+  "block_effects": [
+    {
+      "type": "tconstruct:mob_effect_cloud",
+      "effects": [
+        {
+          "effect": "ars_nouveau:recovery",
+          "level": 2,
+          "time": 120
+        }
+      ]
+    }
+  ],
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "ars_nouveau"
+    }
+  ],
+  "entity_effects": [
+    {
+      "type": "tconstruct:mob_effect",
+      "action": "set",
+      "effect": "ars_nouveau:recovery",
+      "level": 2,
+      "time": 120
+    }
+  ],
+  "fluid": {
+    "amount": 25,
+    "tag": "forge:molten_source_gem"
+  }
+}

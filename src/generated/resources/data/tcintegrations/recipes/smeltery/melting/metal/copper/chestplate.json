@@ -1,5 +1,11 @@
 {
   "type": "tconstruct:damagable_melting",
+  "conditions": [
+    {
+      "type": "forge:mod_loaded",
+      "modid": "iceandfire"
+    }
+  ],
   "ingredient": {
     "item": "iceandfire:armor_copper_metal_chestplate"
   },
