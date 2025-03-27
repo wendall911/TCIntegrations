@@ -17,6 +17,7 @@ import tcintegrations.data.loot.ModLootTables;
 import tcintegrations.data.recipes.ModRecipesProvider;
 import tcintegrations.data.tcon.EnchantmentToModifierProvider;
 import tcintegrations.data.tcon.ModifierTagProvider;
+import tcintegrations.data.tcon.fluid.FluidEffectProvider;
 import tcintegrations.data.tcon.fluid.FluidTagProvider;
 import tcintegrations.data.tcon.fluid.FluidTextureProvider;
 import tcintegrations.data.tcon.ModifierProvider;
@@ -66,6 +67,7 @@ public final class DataGenerators {
         gen.addProvider(client, new FluidTextureProvider(packOutput));
         gen.addProvider(client, new FluidBlockstateModelProvider(packOutput, TCIntegrations.MODID));
         gen.addProvider(client, new FluidBucketModelProvider(packOutput, TCIntegrations.MODID));
+        gen.addProvider(server, new FluidEffectProvider(packOutput, TCIntegrations.MODID));
         gen.addProvider(server, new ModifierTagProvider(packOutput, TCIntegrations.MODID, existingFileHelper));
         gen.addProvider(server, new EnchantmentToModifierProvider(packOutput));
     }
