@@ -49,49 +49,49 @@ import static tcintegrations.util.ResourceLocationHelper.resource;
 public class SoulStained extends NoLevelsModifier implements ProjectileHitModifierHook, EquipmentChangeModifierHook, MeleeHitModifierHook, TooltipModifierHook {
 
     private static final AttributeModifier HELMET_MAGIC_RESISTANCE = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.HEAD.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.HELMET),
             "Helmet Magic Resistance",
             1.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier CHESTPLATE_MAGIC_RESISTANCE = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.CHEST.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.CHESTPLATE),
             "Chestplate Magic Resistance",
             1.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier LEGGINGS_MAGIC_RESISTANCE = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.LEGS.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.LEGGINGS),
             "Leggings Magic Resistance",
             1.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier BOOTS_MAGIC_RESISTANCE = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.FEET.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.BOOTS),
             "Boots Magic Resistance",
             1.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier HELMET_SOUL_WARD_CAP = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.HEAD.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.HELMET),
             "Helmet Soul Ward Cap",
             3.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier CHESTPLATE_SOUL_WARD_CAP = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.CHEST.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.CHESTPLATE),
             "Chestplate Soul Ward Cap",
             3.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier LEGGINGS_SOUL_WARD_CAP = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.LEGS.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.LEGGINGS),
             "Leggings Soul Ward Cap",
             3.0F,
             AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier BOOTS_SOUL_WARD_CAP = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.FEET.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.BOOTS),
             "Boots Soul Ward Cap",
             3.0F,
             AttributeModifier.Operation.ADDITION

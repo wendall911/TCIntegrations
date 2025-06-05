@@ -50,28 +50,28 @@ public class AlfheimModifier extends Modifier implements IArmorJumpModifier, Equ
     private static final int MANA_PER_DAMAGE = 110;
 
     private static final AttributeModifier HELMET_REACH_DISTANCE = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.HEAD.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.HELMET),
             "Helmet Reach Distance",
             MythicConfig.alftools.reach_modifier,
             AttributeModifier.Operation.ADDITION
     );
 
     private static final AttributeModifier CHESTPLATE_KNOCKBACK_RESISTANCE = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.CHEST.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.CHESTPLATE),
             "Chestplate Knockback Resistance",
             MythicConfig.alftools.knockback_resistance_modifier,
             AttributeModifier.Operation.ADDITION
     );
 
     private static final AttributeModifier LEGGINGS_MOVEMENT_SPEED = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.LEGS.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.LEGGINGS),
             "Leggings Movement Speed",
             MythicConfig.alftools.speed_modifier,
             AttributeModifier.Operation.ADDITION
     );
 
     private static final AttributeModifier LEGGINGS_SWIM_SPEED = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(EquipmentSlot.LEGS.getIndex()),
+            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.LEGGINGS),
             "Leggings Swim Speed",
             MythicConfig.alftools.speed_modifier,
             AttributeModifier.Operation.ADDITION
