@@ -18,6 +18,9 @@ public class TciModifierIds {
     public static final ModifierId engineersGoggles = id("engineers_goggles");
     public static final ModifierId multiVision = id("multivision");
     public static final ModifierId dragonScales = id("dragonscales");
+    public static final ModifierId flamed = id("flamed");
+    public static final ModifierId iced = id("iced");
+    public static final ModifierId zapped = id("zapped");
 
     private TciModifierIds() {}
 

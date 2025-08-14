@@ -7,6 +7,9 @@ import slimeknights.tconstruct.library.data.material.AbstractMaterialTraitDataPr
 import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.data.ModifierIds;
 
+import static slimeknights.tconstruct.library.materials.MaterialRegistry.ARMOR;
+import static slimeknights.tconstruct.library.materials.MaterialRegistry.MELEE_HARVEST;
+
 public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvider {
 
     public MaterialTraitsDataProvider(PackOutput packOutput, AbstractMaterialDataProvider materials) {
@@ -31,9 +34,12 @@ public class MaterialTraitsDataProvider extends AbstractMaterialTraitDataProvide
         addDefaultTraits(MaterialIds.calorite, TciModifierIds.oxygenated);
         addDefaultTraits(MaterialIds.ostrum, TciModifierIds.oxygenated);
         addDefaultTraits(MaterialIds.pendoriteAlloy, TciModifierIds.hellish);
-        addDefaultTraits(MaterialIds.dragonsteelFire, ModifierIds.ductile, TciModifierIds.dragonScales);
-        addDefaultTraits(MaterialIds.dragonsteelIce, ModifierIds.ductile, TciModifierIds.dragonScales);
-        addDefaultTraits(MaterialIds.dragonsteelLightning, ModifierIds.ductile, TciModifierIds.dragonScales);
+        addTraits(MaterialIds.dragonsteelFire, ARMOR, ModifierIds.ductile, TciModifierIds.dragonScales);
+        addTraits(MaterialIds.dragonsteelIce, ARMOR, ModifierIds.ductile, TciModifierIds.dragonScales);
+        addTraits(MaterialIds.dragonsteelLightning, ARMOR, ModifierIds.ductile, TciModifierIds.dragonScales);
+        addTraits(MaterialIds.dragonsteelFire, MELEE_HARVEST, TciModifierIds.flamed);
+        addTraits(MaterialIds.dragonsteelIce, MELEE_HARVEST, TciModifierIds.iced);
+        addTraits(MaterialIds.dragonsteelLightning, MELEE_HARVEST, TciModifierIds.zapped);
     }
 
 }
