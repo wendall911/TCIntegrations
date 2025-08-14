@@ -92,12 +92,12 @@ public class CrocodileModifier extends NoLevelsModifier implements EquipmentChan
             }
 
             if (armor != null
-                    && !armor.hasModifier(INCREASED_ARMOR)) {
+                    && armor.hasModifier(INCREASED_ARMOR)) {
                 armor.removeModifier(INCREASED_ARMOR);
             }
 
             if (armorToughness != null
-                    && !armorToughness.hasModifier(INCREASED_ARMOR_TOUGHNESS)) {
+                    && armorToughness.hasModifier(INCREASED_ARMOR_TOUGHNESS)) {
                 armorToughness.removeModifier(INCREASED_ARMOR_TOUGHNESS);
             }
         }
