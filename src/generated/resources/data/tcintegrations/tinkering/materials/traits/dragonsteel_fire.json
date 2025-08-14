@@ -1,12 +1,20 @@
 {
-  "default": [
-    {
-      "level": 1,
-      "name": "tconstruct:ductile"
-    },
-    {
-      "level": 1,
-      "name": "tcintegrations:dragonscales"
-    }
-  ]
+  "perStat": {
+    "tconstruct:armor": [
+      {
+        "level": 1,
+        "name": "tconstruct:ductile"
+      },
+      {
+        "level": 1,
+        "name": "tcintegrations:dragonscales"
+      }
+    ],
+    "tconstruct:melee_harvest": [
+      {
+        "level": 1,
+        "name": "tcintegrations:flamed"
+      }
+    ]
+  }
 }
