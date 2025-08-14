@@ -5,7 +5,7 @@ plugins {
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'org.spongepowered.mixin' version '0.7.+'
     id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
-    id 'io.freefair.lombok' version '6.3.0'
+    id 'io.freefair.lombok' version '8.14'
     id 'me.modmuss50.mod-publish-plugin' version '0.7.3'
 }
 
