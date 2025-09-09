@@ -266,6 +266,7 @@ publishMods {
         modrinth {
             accessToken = project.modrinthKey
             projectId = project.tiModrinthId
+            minecraftVersions.addAll("${release_versions}".split(','))
             requires('mantle')
             requires('tinkers-construct')
             optional('immersiveengineering')
