@@ -4,10 +4,11 @@ plugins {
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     id 'org.spongepowered.mixin' version '0.7.+'
-    id 'net.darkhax.curseforgegradle' version '1.+'
-    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
-    id 'com.modrinth.minotaur' version '2.+'
-    id 'io.freefair.lombok' version '6.3.0'
+    // https://plugins.gradle.org/plugin/me.modmuss50.mod-publish-plugin
+    id 'me.modmuss50.mod-publish-plugin' version '1.0.0'
+    // https://plugins.gradle.org/plugin/se.bjurr.gitchangelog.git-changelog-gradle-plugin
+    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '3.0.7'
+    id 'io.freefair.lombok' version '8.14.2'
 }
 
 repositories {
@@ -16,22 +17,23 @@ repositories {
         name = 'Progwml6 maven'
         url = 'https://dvs1.progwml6.com/files/maven'
     }
+    maven {
+        name = 'BlameJared Maven (CrT / Bookshelf / JEI (Newer) / vazkii / xyz)'
+        url = 'https://maven.blamejared.com'
+    }
     maven { // TOP
         name 'McJty maven'
         url "https://maven.k-4u.nl"
     }
     maven {
-        name = "C4"
-        url = "https://maven.theillusivec4.top/"
-    }
-    flatDir {
-        dirs 'libs'
+        name = 'Illusive Soulworks'
+        url = 'https://maven.theillusivec4.top/'
     }
     maven {
-        name = "Curse Maven"
-        url = "https://cursemaven.com"
+        name = 'Curse Maven'
+        url = 'https://cursemaven.com'
         content {
-            includeGroup "curse.maven"
+            includeGroup 'curse.maven'
         }
     }
     maven {
@@ -53,7 +55,7 @@ def modid = "${modid}"
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '17'
 
 minecraft {
-    mappings channel: "${mappings_channel}", version: mappings_version
+    mappings channel: 'parchment', version: "${mappings_version}-${minecraft_version}"
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -106,8 +108,8 @@ dependencies {
     implementation fg.deobf("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tic_version}")
     implementation fg.deobf("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}")
 
-    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 
     runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_short_version}-${probe_version}") {
         transitive = false
@@ -137,8 +139,6 @@ dependencies {
     implementation fg.deobf("curse.maven:mythicbotany-400058:${mythicbotany_version}")
     runtimeOnly fg.deobf('io.github.noeppi_noeppi.mods:LibX:1.18.2-3.2.18')
     implementation fg.deobf("curse.maven:iceandfire-264231:${iceandfire_version}")
-
-    implementation fg.deobf(fileTree(dir: 'libs', include: '*.jar'))
 }
 
 def commonManifest = {
@@ -163,9 +163,9 @@ def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
 def replaceProperties = [ 'version': version,
     'issue_tracker': issue_tracker, 'license': license, 'modid': modid, 'display_name': display_name,
     'description': description, 'display_url': display_url, 'update_url': update_url, 'authors': authors,
-    'credits': credits, 'logo_file': logo_file, 'minecraft_version_range': minecraft_version_range,
-    'forge_version_range': forge_version_range, "loader_version_range": loader_version_range,
-    'malum_minimum_version': malum_minimum_version, 'create_min_version': create_min_version
+    'credits': credits, 'logo_file': logo_file, 'forge_mc_version_range':forge_mc_version_range,
+    'forge_version_range': forge_version_range, 'malum_minimum_version': malum_minimum_version,
+    'create_min_version': create_min_version
 ]
 
 processResources {
@@ -179,7 +179,7 @@ processResources {
     }
 }
 
-jar.finalizedBy('reobfJar', 'signJar')
+jar.finalizedBy('reobfJar')
 
 def reobfFile = file("$buildDir/reobfJar/output.jar")
 def reobfArtifact = artifacts.add('default', reobfFile) {
@@ -213,96 +213,69 @@ def updates = tasks.register("generateUpdates", Copy) {
     it.into 'files/'
 }
 
-def changelogFile = 'build/libs/' + project.getName() + '-' + version + '-changelog.txt'
-
 task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
-    file = new File(changelogFile);
-    templateContent = file('files/templates/changelog.mustache').getText('UTF-8');
-    fromRepo = file("$projectDir");
-    toRef = "HEAD";
-    fromRef = "${minecraft_version}-${last_mod_version}";
+    file.set(new File(project(":").projectDir.toString() + '/build/libs/changelog.txt'));
+    templateContent.set(file(project(":").projectDir.toString() + '/files/templates/changelog.mustache').getText('UTF-8'));
+    toRevision.set('HEAD');
+    fromRevision.set("${minecraft_version}-${last_mod_version}");
 }
 
 tasks.build.dependsOn('changelog', 'generateUpdates')
 
-// Jar Signing
-import net.minecraftforge.gradle.common.tasks.SignJar
+def changelogFile = project(":").projectDir.toString() + '/build/libs/changelog.txt'
+def publishFile = project(":").projectDir.toString() + "/build/libs/${archivesBaseName}-${version}.jar"
 
-task signJar(type: SignJar, dependsOn: jar) {
-    dependsOn 'reobfJar'
-
-    // Skip the task if our secret data isn't available
-    onlyIf {
-        project.hasProperty('keyStore')
+publishMods {
+    file = file(publishFile)
+    if (file(changelogFile).exists()) {
+        changelog = file(changelogFile).text
     }
+    type = "${release_type}".startsWith("release") ? STABLE : ("${release_type}".startsWith("beta") ? BETA : ALPHA)
+    modLoaders.addAll(['forge'])
 
-    keyStore = project.keyStore // This needs to be a path to the keystore file
-    alias = project.keyStoreAlias
-    storePass = project.keyStorePass
-    keyPass = project.keyStoreKeyPass
-    inputFile = jar.archiveFile
-    outputFile = jar.archiveFile
-}
-
-task curseforge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge) {
     if (project.hasProperty('ticurseApiKey')) {
-        apiToken = project.ticurseApiKey
-        def mainFile = upload(project.ticurseId, file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
-        mainFile.changelog = file('build/libs/' + project.getName() + '-' + version + '-changelog.txt')
-        mainFile.addJavaVersion('Java 17')
-        mainFile.addModLoader('Forge')
-        mainFile.releaseType = "${release_type}"
-        "${release_versions}".split(',').each {
-            mainFile.addGameVersion("${it}")
+        curseforge {
+            accessToken = project.ticurseApiKey
+            projectId = project.ticurseId
+            javaVersions.add(JavaVersion.toVersion("${java_version}"))
+            clientRequired = true
+            serverRequired = true
+            minecraftVersions.addAll("${release_versions}".split(','))
+            requires('mantle')
+            requires('tinkers-construct')
+            optional('configured')
+            optional('catalogue')
+            optional('immersive-engineering')
+            optional('botania')
+            optional('create')
+            optional('ars-nouveau')
+            optional('tinkersurvival')
+            optional('aquaculture')
+            optional('alexs-mobs')
+            optional('malum')
+            optional('the-undergarden')
+            optional('projecte')
+            optional('beyond-earth')
+            optional('oh-the-biomes-youll-go')
+            optional('mekanism')
+            optional('mythicbotany')
+            optional('ice-and-fire-dragons')
         }
-        mainFile.addRequirement('mantle')
-        mainFile.addRequirement('tinkers-construct')
-        mainFile.addOptional('configured')
-        mainFile.addOptional('catalogue')
-        mainFile.addOptional('immersive-engineering')
-        mainFile.addOptional('botania')
-        mainFile.addOptional('create')
-        mainFile.addOptional('ars-nouveau')
-        mainFile.addOptional('tinkersurvival')
-        mainFile.addOptional('aquaculture')
-        mainFile.addOptional('alexs-mobs')
-        mainFile.addOptional('malum')
-        mainFile.addOptional('the-undergarden')
-        mainFile.addOptional('projecte')
-        mainFile.addOptional('beyond-earth')
-        mainFile.addOptional('oh-the-biomes-youll-go')
-        mainFile.addOptional('mekanism')
-        mainFile.addOptional('mythicbotany')
-        mainFile.addOptional('ice-and-fire-dragons')
     }
-}
-
-tasks.curseforge.dependsOn build
-
-modrinth {
     if (project.hasProperty('tiModrinthId')) {
-        token = project.modrinthKey
-        projectId = project.tiModrinthId
-        version = getVersion()
-        versionType = "${release_type}"
-        if (file(changelogFile).exists()) {
-            changelog = file(changelogFile).text
-        }
-        uploadFile = file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar")
-        gameVersions = "${release_versions}".split(",") as List<String>
-        dependencies {
-            required.project 'mantle'
-            required.project 'tinkers-construct'
-            optional.project 'immersiveengineering'
-            optional.project 'botania'
-            optional.project 'create'
-            optional.project 'tinkersurvival'
-            optional.project 'beyond-earth'
-			optional.project "biomesyougo"
-            optional.project 'mekanism'
-            optional.project 'mythicbotany'
+        modrinth {
+            accessToken = project.modrinthKey
+            projectId = project.tiModrinthId
+            requires('mantle')
+            requires('tinkers-construct')
+            optional('immersiveengineering')
+            optional('botania')
+            optional('create')
+            optional('tinkersurvival')
+            optional('beyond-earth')
+            optional('biomesyougo')
+            optional('mekanism')
+            optional('mythicbotany')
         }
     }
 }
-
-tasks.modrinth.dependsOn build
