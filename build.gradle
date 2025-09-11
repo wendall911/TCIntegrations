@@ -3,10 +3,11 @@ plugins {
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
-    id 'org.spongepowered.mixin' version '0.7.+'
-    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
-    id 'io.freefair.lombok' version '6.3.0'
-    id 'me.modmuss50.mod-publish-plugin' version '0.7.3'
+    // https://plugins.gradle.org/plugin/me.modmuss50.mod-publish-plugin
+    id 'me.modmuss50.mod-publish-plugin' version '1.0.0'
+    // https://plugins.gradle.org/plugin/se.bjurr.gitchangelog.git-changelog-gradle-plugin
+    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '3.0.7'
+    id 'io.freefair.lombok' version '8.14.2'
 }
 
 repositories {
@@ -15,22 +16,23 @@ repositories {
         name = 'Progwml6 maven'
         url = 'https://dvs1.progwml6.com/files/maven'
     }
+    maven {
+        name = 'BlameJared Maven (CrT / Bookshelf / JEI (Newer) / vazkii / xyz)'
+        url = 'https://maven.blamejared.com'
+    }
     maven { // TOP
         name 'McJty maven'
         url "https://maven.k-4u.nl"
     }
     maven {
-        name = "C4"
-        url = "https://maven.theillusivec4.top/"
-    }
-    flatDir {
-        dirs 'libs'
+        name = 'Illusive Soulworks'
+        url = 'https://maven.theillusivec4.top/'
     }
     maven {
-        name = "Curse Maven"
-        url = "https://cursemaven.com"
+        name = 'Curse Maven'
+        url = 'https://cursemaven.com'
         content {
-            includeGroup "curse.maven"
+            includeGroup 'curse.maven'
         }
     }
     maven {
@@ -41,27 +43,9 @@ repositories {
         name 'LibX maven'
         url = 'https://maven.melanx.de/'
     }
-    maven { url 'https://plugins.gradle.org/m2/' }
-    maven { url = 'https://maven.moddingx.org/' }
-    maven { // CraftTweaker, Immersive Engineering, JEI
-        name 'BlameJared Maven'
-        url 'https://maven.blamejared.com'
-    }
-	maven {
-        name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/wendall911/SurvivalistEssentials")
-        credentials {
-            username = project.githubusername
-            password = project.githubtoken
-        }
-    }
-	maven {
-        name = "GitHubPackages"
-        url = uri("https://maven.pkg.github.com/wendall911/TinkerSurvival")
-        credentials {
-            username = project.githubusername
-            password = project.githubtoken
-        }
+    maven {
+        name 'ModdingX maven'
+        url = 'https://maven.moddingx.org/'
     }
 }
 
@@ -74,7 +58,7 @@ def modid = "${modid}"
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '17'
 
 minecraft {
-    mappings channel: "${mappings_channel}", version: "${mappings_version}-${minecraft_version}"
+    mappings channel: 'parchment', version: "${mappings_version}-${minecraft_version}"
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -82,7 +66,6 @@ minecraft {
         client {
             workingDirectory project.file("run").canonicalPath
             property 'forge.logging.console.level', 'debug'
-
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
@@ -96,7 +79,6 @@ minecraft {
         server {
             workingDirectory project.file('run')
             property 'forge.logging.console.level', 'debug'
-
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
@@ -110,7 +92,6 @@ minecraft {
         data {
             workingDirectory project.file('run')
             property 'forge.logging.console.level', 'debug'
-
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
@@ -145,18 +126,14 @@ dependencies {
     compileOnly fg.deobf("curse.maven:consecration-284001:${consecration_version}")
 
     implementation fg.deobf("curse.maven:projecte-226410:${projecte_version}")
-    runtimeOnly fg.deobf("curse.maven:placebo-283644:${placebo_version}")
-    implementation fg.deobf("curse.maven:apotheosis-313970:${apotheosis_version}")
-
-    implementation fg.deobf(fileTree(dir: 'libs', include: '*.jar'))
+    // Crashing as of latest build ... not sure why, built against MC incorrectly is my guess
+    // runtimeOnly fg.deobf("curse.maven:placebo-283644:${placebo_version}")
+    compileOnly fg.deobf("curse.maven:apotheosis-313970:${apotheosis_version}")
 
     if (System.getenv('DATA_GEN') == null) {
-        runtimeOnly fg.deobf("com.github.wendall911.survivalistessentials:survivalistessentials:${se_version}") {
-            transitive = false
-        }
-        runtimeOnly fg.deobf("com.github.wendall911.tinkersurvival:tinkersurvival:${minecraft_version}-${ts_version}") {
-            transitive = false
-        }
+        runtimeOnly fg.deobf("curse.maven:placebo-283644:${placebo_version}")
+        runtimeOnly fg.deobf("curse.maven:survivalistessentials-676800:${se_version}")
+        runtimeOnly fg.deobf("curse.maven:tinkersurvival-294667:${tinkersurvival_version}")
         runtimeOnly fg.deobf("curse.maven:geckolib-388172:${geckolib_version}")
         implementation fg.deobf("curse.maven:arsnouveau-401955:${arsnouveau_version}")
         implementation fg.deobf("curse.maven:iceandfire-264231:${iceandfire_version}")
@@ -218,6 +195,8 @@ dependencies {
         compileOnly fg.deobf("curse.maven:mekanism-268560:${mekanism_version}")
         compileOnly fg.deobf("curse.maven:botania-225643:${botania_version}")
         compileOnly fg.deobf("curse.maven:lodestone-616457:${lodestone_version}")
+        runtimeOnly fg.deobf("curse.maven:placebo-283644:${placebo_version}")
+        runtimeOnly fg.deobf("curse.maven:apotheosis-313970:${apotheosis_version}")
     }
 }
 
@@ -243,10 +222,9 @@ def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
 def replaceProperties = [ 'version': version,
     'issue_tracker': issue_tracker, 'license': license, 'modid': modid, 'display_name': display_name,
     'description': description, 'display_url': display_url, 'update_url': update_url, 'authors': authors,
-    'credits': credits, 'logo_file': logo_file, 'minecraft_version_range': minecraft_version_range,
-    'forge_version_range': forge_version_range, "loader_version_range": loader_version_range,
-    'malum_minimum_version': malum_minimum_version, 'create_min_version': create_min_version,
-    'tic_version_range': tic_version_range
+    'credits': credits, 'logo_file': logo_file, 'forge_mc_version_range': forge_mc_version_range,
+    'forge_version_range': forge_version_range, 'malum_minimum_version': malum_minimum_version,
+    'create_min_version': create_min_version, 'tic_version_range': tic_version_range
 ]
 
 processResources {
@@ -254,32 +232,12 @@ processResources {
     inputs.properties replaceProperties
     exclude '.cache'
     replaceProperties.put 'project', project
-
     filesMatching(resourceTargets) {
         expand replaceProperties
     }
 }
 
-jar.finalizedBy('reobfJar', 'signJar')
-
-def reobfFile = file("$buildDir/reobfJar/output.jar")
-def reobfArtifact = artifacts.add('default', reobfFile) {
-    type 'jar'
-    builtBy 'reobfJar'
-}
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact reobfArtifact
-        }
-    }
-    repositories {
-        maven {
-            url "file://" + System.getenv("local_maven")
-        }
-    }
-}
+jar.finalizedBy('reobfJar')
 
 def updates = tasks.register("generateUpdates", Copy) {
     it.outputs.upToDateWhen {
@@ -294,37 +252,16 @@ def updates = tasks.register("generateUpdates", Copy) {
     it.into 'files/'
 }
 
-def changelogFile = project(":").projectDir.toString() + '/build/libs/' + project.getName() + '-' + version + '-changelog.txt'
-
 task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
-    file = new File(changelogFile);
-    templateContent = file('files/templates/changelog.mustache').getText('UTF-8');
-    fromRepo = file("$projectDir");
-    toRef = "HEAD";
-    fromRef = "${minecraft_version}-${last_mod_version}";
+    file.set(new File(project(":").projectDir.toString() + '/build/libs/changelog.txt'));
+    templateContent.set(file(project(":").projectDir.toString() + '/files/templates/changelog.mustache').getText('UTF-8'));
+    toRevision.set('HEAD');
+    fromRevision.set("${minecraft_version}-${last_mod_version}");
 }
 
 tasks.build.dependsOn('changelog', 'generateUpdates')
 
-// Jar Signing
-import net.minecraftforge.gradle.common.tasks.SignJar
-
-task signJar(type: SignJar, dependsOn: jar) {
-    dependsOn 'reobfJar'
-
-    // Skip the task if our secret data isn't available
-    onlyIf {
-        project.hasProperty('keyStore')
-    }
-
-    keyStore = project.keyStore // This needs to be a path to the keystore file
-    alias = project.keyStoreAlias
-    storePass = project.keyStorePass
-    keyPass = project.keyStoreKeyPass
-    inputFile = jar.archiveFile
-    outputFile = jar.archiveFile
-}
-
+def changelogFile = project(":").projectDir.toString() + '/build/libs/changelog.txt'
 def publishFile = project(":").projectDir.toString() + "/build/libs/${archivesBaseName}-${version}.jar"
 
 publishMods {
@@ -334,6 +271,7 @@ publishMods {
     }
     type = "${release_type}".startsWith("release") ? STABLE : ("${release_type}".startsWith("beta") ? BETA : ALPHA)
     modLoaders.addAll(['forge'])
+    dryRun = providers.environmentVariable('DO_RELEASE').getOrNull() == null
 
     if (project.hasProperty('ticurseApiKey')) {
         curseforge {
@@ -343,7 +281,6 @@ publishMods {
             clientRequired = true
             serverRequired = true
             minecraftVersions.addAll("${release_versions}".split(','))
-            embeds('spectrelib')
             requires('mantle')
             requires('tinkers-construct')
             optional('configured')
@@ -387,7 +324,7 @@ publishMods {
             optional('alexs-mobs')
             optional('the-undergarden')
             optional('beyond-earth')
-			optional('biomesyougo')
+            optional('biomesyougo')
             optional('mekanism')
             optional('mythicbotany')
             optional('ice-and-fire-dragons')
@@ -395,7 +332,5 @@ publishMods {
             optional('ad-astra')
             optional('deeperdarker')
         }
-    }
-    if (project.hasProperty('tiGithubToken')) {
     }
 }

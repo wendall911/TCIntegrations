@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="${loader_version_range}"
+loaderVersion="${forge_version_range}"
 license="${license}"
 issueTrackerURL="${issue_tracker}"
 
@@ -23,7 +23,7 @@ issueTrackerURL="${issue_tracker}"
 [[dependencies.tcintegrations]]
     modId="minecraft"
     mandatory=true
-    versionRange="${minecraft_version_range}"
+    versionRange="${forge_mc_version_range}"
     ordering="NONE"
     side="BOTH"
 [[dependencies.tcintegrations]]
