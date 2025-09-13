@@ -3,10 +3,11 @@ plugins {
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
-    id 'org.spongepowered.mixin' version '0.7.+'
-    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '1.71.8'
-    id 'io.freefair.lombok' version '8.14'
-    id 'me.modmuss50.mod-publish-plugin' version '0.7.3'
+    // https://plugins.gradle.org/plugin/me.modmuss50.mod-publish-plugin
+    id 'me.modmuss50.mod-publish-plugin' version '1.0.0'
+    // https://plugins.gradle.org/plugin/se.bjurr.gitchangelog.git-changelog-gradle-plugin
+    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '3.0.7'
+    id 'io.freefair.lombok' version '8.14.2'
 }
 
 repositories {
@@ -15,22 +16,15 @@ repositories {
         name = 'Progwml6 maven'
         url = 'https://dvs1.progwml6.com/files/maven'
     }
-    maven { // TOP
-        name 'McJty maven'
-        url "https://maven.k-4u.nl"
-    }
     maven {
-        name = "C4"
+        name = 'Illusive Soulworks'
         url = "https://maven.theillusivec4.top/"
     }
-    flatDir {
-        dirs 'libs'
-    }
     maven {
-        name = "Curse Maven"
-        url = "https://cursemaven.com"
+        name = 'Curse Maven'
+        url = 'https://cursemaven.com'
         content {
-            includeGroup "curse.maven"
+            includeGroup 'curse.maven'
         }
     }
     maven {
@@ -41,15 +35,14 @@ repositories {
         name 'LibX maven'
         url = 'https://maven.melanx.de/'
     }
-	maven {
-		name = "C4's Maven"
-		url = "https://maven.theillusivec4.top/"
-	}
-    maven { url 'https://plugins.gradle.org/m2/' }
     maven { url = 'https://maven.moddingx.org/' }
     maven { // CraftTweaker, Immersive Engineering, JEI
         name 'BlameJared Maven'
         url 'https://maven.blamejared.com'
+    }
+    maven {
+        name = 'wendall911 maven' // Library for wendall911 mods
+        url = 'https://raw.githubusercontent.com/wendall911/maven/main/'
     }
 }
 
@@ -62,7 +55,7 @@ def modid = "${modid}"
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '17'
 
 minecraft {
-    mappings channel: "${mappings_channel}", version: "${mappings_version}-${minecraft_version}"
+    mappings channel: 'parchment', version: "${mappings_version}-${minecraft_version}"
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -70,7 +63,6 @@ minecraft {
         client {
             workingDirectory project.file("run").canonicalPath
             property 'forge.logging.console.level', 'debug'
-
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
@@ -84,7 +76,6 @@ minecraft {
         server {
             workingDirectory project.file('run')
             property 'forge.logging.console.level', 'debug'
-
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
@@ -98,10 +89,8 @@ minecraft {
         data {
             workingDirectory project.file('run')
             property 'forge.logging.console.level', 'debug'
-
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
             args '--mod', 'tcintegrations',
                     '--all',
                     '--output', file('src/generated/resources/'),
@@ -150,17 +139,15 @@ dependencies {
     compileOnly fg.deobf("curse.maven:lodestone-616457:${lodestone_version}")
 
     if (System.getenv('DATA_GEN') == null) {
-        runtimeOnly fg.deobf("mcjty.theoneprobe:theoneprobe:${minecraft_version}-${probe_version}") {
-            transitive = false
-        }
+        runtimeOnly fg.deobf("curse.maven:top-245211:${probe_version}")
         runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
         runtimeOnly fg.deobf("curse.maven:placebo-283644:${placebo_version}")
         runtimeOnly fg.deobf("curse.maven:attributeslib-898963:${attributeslib_version}")
         runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}-FORGE")
         runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}+${minecraft_version}")
         runtimeOnly fg.deobf("curse.maven:geckolib-388172:${geckolib_version}")
-        runtimeOnly fg.deobf("curse.maven:se-676800:${se_version}")
-        runtimeOnly fg.deobf("curse.maven:ts-294667:${ts_version}")
+        runtimeOnly fg.deobf(group: 'com.github.wendall911.survivalistessentials', name: 'SurvivalistEssentials', version: "${se_version}")
+        runtimeOnly fg.deobf(group: 'com.github.wendall911.tinkersurvival', name: 'TinkerSurvival', version: "${ts_version}")
         runtimeOnly fg.deobf("curse.maven:projecte-226410:${projecte_version}")
         runtimeOnly fg.deobf("curse.maven:apotheosis-313970:${apotheosis_version}")
         runtimeOnly fg.deobf("curse.maven:consecration-284001:${consecration_version}")
@@ -227,9 +214,9 @@ jar {
 def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
 def replaceProperties = [ 'version': version,
     'issue_tracker': issue_tracker, 'license': license, 'modid': modid, 'display_name': display_name,
-    'description': description, 'display_url': display_url, 'update_url': update_url, 'authors': authors,
-    'credits': credits, 'logo_file': logo_file, 'minecraft_version_range': minecraft_version_range,
-    'forge_version_range': forge_version_range, "loader_version_range": loader_version_range,
+    'description': description, 'display_url': display_url, 'mod_update_branch': mod_update_branch, 'authors': authors,
+    'credits': credits, 'logo_file': logo_file, 'forge_mc_version_range': forge_mc_version_range,
+    'forge_version_range': forge_version_range,
     'malum_minimum_version': malum_minimum_version, 'create_min_version': create_min_version,
     'tic_version_range': tic_version_range
 ]
@@ -245,25 +232,14 @@ processResources {
     }
 }
 
-jar.finalizedBy('reobfJar', 'signJar')
+jar.finalizedBy('reobfJar')
 
-def reobfFile = file("$buildDir/reobfJar/output.jar")
-def reobfArtifact = artifacts.add('default', reobfFile) {
-    type 'jar'
-    builtBy 'reobfJar'
-}
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact reobfArtifact
-        }
-    }
-    repositories {
-        maven {
-            url "file://" + System.getenv("local_maven")
-        }
-    }
+task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
+    file.set(new File(project(":").projectDir.toString() + '/build/libs/changelog.txt'));
+    templateContent.set(file(project(":").projectDir.toString() + '/files/templates/changelog.mustache').getText('UTF-8'));
+    toRevision.set('HEAD');
+    fromRevision.set("${minecraft_version}-${last_mod_version}");
 }
 
 def updates = tasks.register("generateUpdates", Copy) {
@@ -273,43 +249,15 @@ def updates = tasks.register("generateUpdates", Copy) {
 
     it.from("./files/templates/") {
         include 'updates.json'
-        expand 'mod_version': mod_version
+        expand 'mod_version': mod_version, 'minecraft_version': minecraft_version
     }
 
     it.into 'files/'
 }
 
-def changelogFile = project(":").projectDir.toString() + '/build/libs/' + project.getName() + '-' + version + '-changelog.txt'
-
-task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
-    file = new File(changelogFile);
-    templateContent = file('files/templates/changelog.mustache').getText('UTF-8');
-    fromRepo = file("$projectDir");
-    toRef = "HEAD";
-    fromRef = "${minecraft_version}-${last_mod_version}";
-}
-
 tasks.build.dependsOn('changelog', 'generateUpdates')
 
-// Jar Signing
-import net.minecraftforge.gradle.common.tasks.SignJar
-
-task signJar(type: SignJar, dependsOn: jar) {
-    dependsOn 'reobfJar'
-
-    // Skip the task if our secret data isn't available
-    onlyIf {
-        project.hasProperty('keyStore')
-    }
-
-    keyStore = project.keyStore // This needs to be a path to the keystore file
-    alias = project.keyStoreAlias
-    storePass = project.keyStorePass
-    keyPass = project.keyStoreKeyPass
-    inputFile = jar.archiveFile
-    outputFile = jar.archiveFile
-}
-
+def changelogFile = project(":").projectDir.toString() + '/build/libs/changelog.txt'
 def publishFile = project(":").projectDir.toString() + "/build/libs/${archivesBaseName}-${version}.jar"
 
 publishMods {
@@ -319,6 +267,7 @@ publishMods {
     }
     type = "${release_type}".startsWith("release") ? STABLE : ("${release_type}".startsWith("beta") ? BETA : ALPHA)
     modLoaders.addAll(['forge'])
+    dryRun = providers.environmentVariable('DO_RELEASE').getOrNull() == null
 
     if (project.hasProperty('ticurseApiKey')) {
         curseforge {
@@ -328,7 +277,6 @@ publishMods {
             clientRequired = true
             serverRequired = true
             minecraftVersions.addAll("${release_versions}".split(','))
-            embeds('spectrelib')
             requires('mantle')
             requires('tinkers-construct')
             optional('configured')
@@ -371,7 +319,7 @@ publishMods {
             optional('alexs-mobs')
             optional('the-undergarden')
             optional('beyond-earth')
-			optional('biomesyougo')
+            optional('biomesyougo')
             optional('mekanism')
             optional('mythicbotany')
             optional('ice-and-fire-dragons')
@@ -379,7 +327,5 @@ publishMods {
             optional('ad-astra')
             optional('deeperdarker')
         }
-    }
-    if (project.hasProperty('tiGithubToken')) {
     }
 }

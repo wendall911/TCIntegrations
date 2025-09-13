@@ -1,62 +1,62 @@
 modLoader="javafml"
-loaderVersion="${loader_version_range}"
+loaderVersion="${forge_version_range}"
 license="${license}"
+logoBlur=false
 issueTrackerURL="${issue_tracker}"
 
 [[mods]]
-  modId="${modid}"
-  displayName="${display_name}"
-  description="${description}"
-  version="${version}"
-  displayURL="${display_url}"
-  updateJSONURL="${update_url}"
-  authors="${authors}"
-  credits="${credits}"
-  logoFile="${logo_file}"
-
-[[dependencies.tcintegrations]]
+    modId="${modid}"
+    displayName="${display_name}"
+    description="${description}"
+    version="${version}"
+    displayURL="${display_url}"
+    updateJSONURL="https://raw.githubusercontent.com/wendall911/TCIntegrations/${mod_update_branch}/files/updates.json"
+    authors="${authors}"
+    credits="${credits}"
+    logoFile="${logo_file}"
+[[dependencies.${modid}]]
     modId="forge"
     mandatory=true
     versionRange="${forge_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.tcintegrations]]
+[[dependencies.${modid}]]
     modId="minecraft"
     mandatory=true
-    versionRange="${minecraft_version_range}"
+    versionRange="${forge_mc_version_range}"
     ordering="NONE"
     side="BOTH"
-[[dependencies.tcintegrations]]
+[[dependencies.${modid}]]
     modId="tconstruct"
     mandatory=true
     versionRange="${tic_version_range}"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tcintegrations]]
+[[dependencies.${modid}]]
     modId="immersiveengineering"
     mandatory=false
     versionRange="[0,]"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tcintegrations]]
+[[dependencies.${modid}]]
     modId="botania"
     mandatory=false
     versionRange="[0,]"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tcintegrations]]
+[[dependencies.${modid}]]
     modId="aquaculture"
     mandatory=false
     versionRange="[0,]"
     ordering="AFTER"
     side="BOTH"
-[[dependencies.tcintegrations]]
+[[dependencies.${modid}]]
     modId="malum"
     mandatory=false
     versionRange="[${malum_minimum_version},]"
     ordering="NONE"
     side="BOTH"
-[[dependencies.tcintegrations]]
+[[dependencies.${modid}]]
     modId="create"
     mandatory=false
     versionRange="[${create_min_version},]"
