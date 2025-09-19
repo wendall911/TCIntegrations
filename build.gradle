@@ -47,10 +47,9 @@ repositories {
 }
 
 group = 'com.github.wendall911.tcintegrations'
-version = "${minecraft_version}-${mod_version}"
+def actualVersion = version
+version = "${minecraft_version}-${version}"
 archivesBaseName = "${mod_name}"
-def mcversion = "${minecraft_version}"
-def modid = "${modid}"
 
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '17'
 
@@ -212,13 +211,12 @@ jar {
 }
 
 def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
-def replaceProperties = [ 'version': version,
-    'issue_tracker': issue_tracker, 'license': license, 'modid': modid, 'display_name': display_name,
-    'description': description, 'display_url': display_url, 'mod_update_branch': mod_update_branch, 'authors': authors,
-    'credits': credits, 'logo_file': logo_file, 'forge_mc_version_range': forge_mc_version_range,
-    'forge_version_range': forge_version_range,
-    'malum_minimum_version': malum_minimum_version, 'create_min_version': create_min_version,
-    'tic_version_range': tic_version_range
+def replaceProperties = [
+    'version': actualVersion, 'forge_mc_version_range': forge_mc_version_range, 'forge_version_range': forge_version_range,
+    'license': license, 'mod_id': mod_id, 'mod_author': mod_author, 'mod_description': mod_description,
+    'mod_name': mod_name, 'issue_tracker': issue_tracker, 'mod_credits': mod_credits,
+    'mod_update_branch': mod_update_branch, 'malum_minimum_version': malum_minimum_version,
+    'create_min_version': create_min_version, 'tic_version_range': tic_version_range
 ]
 
 processResources {
@@ -249,7 +247,7 @@ def updates = tasks.register("generateUpdates", Copy) {
 
     it.from("./files/templates/") {
         include 'updates.json'
-        expand 'mod_version': mod_version, 'minecraft_version': minecraft_version
+        expand 'version': actualVersion, 'minecraft_version': minecraft_version
     }
 
     it.into 'files/'
