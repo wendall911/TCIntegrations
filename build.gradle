@@ -2,6 +2,7 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     // https://plugins.gradle.org/plugin/me.modmuss50.mod-publish-plugin
     id 'me.modmuss50.mod-publish-plugin' version '1.0.0'
@@ -13,13 +14,10 @@ plugins {
 repositories {
     maven {
         // location of the maven that hosts Mantle and JEI files
-        name = 'Progwml6 maven'
-        url = 'https://dvs1.progwml6.com/files/maven'
+        name = 'Old JEI, Tinkers and Mantle'
+        url 'https://dvs1.progwml6.com/files/maven/'
     }
-    maven {
-        name = 'Illusive Soulworks'
-        url = "https://maven.theillusivec4.top/"
-    }
+
     maven {
         name = 'Curse Maven'
         url = 'https://cursemaven.com'
@@ -27,21 +25,32 @@ repositories {
             includeGroup 'curse.maven'
         }
     }
+
     maven {
         name 'tterrag maven'
         url 'https://maven.tterrag.com'
     }
+
     maven {
         name 'LibX maven'
         url = 'https://maven.melanx.de/'
     }
+
     maven { url = 'https://maven.moddingx.org/' }
-    maven { // CraftTweaker, Immersive Engineering, JEI
-        name 'BlameJared Maven'
-        url 'https://maven.blamejared.com'
-    }
+
     maven {
-        name = 'wendall911 maven' // Library for wendall911 mods
+        // Patchouli && Provider
+        name = 'BlameJared Maven (CrT / Bookshelf / JEI (Newer) / vazkii / xyz)'
+        url = 'https://maven.blamejared.com'
+    }
+
+    maven {
+        name = 'Illusive Soulworks'
+        url = 'https://maven.theillusivec4.top/'
+    }
+
+    maven {
+        name = 'wendall911 maven'
         url = 'https://raw.githubusercontent.com/wendall911/maven/main/'
     }
 }
@@ -111,6 +120,7 @@ sourceSets.main.resources {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    annotationProcessor "org.spongepowered:mixin:${mixin_version}:processor"
 
     implementation fg.deobf("slimeknights.mantle:Mantle:${minecraft_version}-${mantle_version}")
     implementation fg.deobf("slimeknights.tconstruct:TConstruct:${minecraft_version}-${tic_version}")
@@ -145,6 +155,7 @@ dependencies {
         runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}-FORGE")
         runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}+${minecraft_version}")
         runtimeOnly fg.deobf("curse.maven:geckolib-388172:${geckolib_version}")
+        runtimeOnly fg.deobf(group: 'technology.roughness.whitenoise', name: "whitenoise-${minecraft_version}-forge", version: "${whitenoise_version}")
         runtimeOnly fg.deobf(group: 'com.github.wendall911.survivalistessentials', name: 'SurvivalistEssentials', version: "${se_version}")
         runtimeOnly fg.deobf(group: 'com.github.wendall911.tinkersurvival', name: 'TinkerSurvival', version: "${ts_version}")
         runtimeOnly fg.deobf("curse.maven:projecte-226410:${projecte_version}")
@@ -212,18 +223,30 @@ jar {
 
 def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
 def replaceProperties = [
-    'version': actualVersion, 'forge_mc_version_range': forge_mc_version_range, 'forge_version_range': forge_version_range,
-    'license': license, 'mod_id': mod_id, 'mod_author': mod_author, 'mod_description': mod_description,
-    'mod_name': mod_name, 'issue_tracker': issue_tracker, 'mod_credits': mod_credits,
-    'mod_update_branch': mod_update_branch, 'malum_minimum_version': malum_minimum_version,
-    'create_min_version': create_min_version, 'tic_version_range': tic_version_range
+    'version': actualVersion,
+    'minecraft_version': minecraft_version,
+    'forge_mc_version_range': forge_mc_version_range,
+    'forge_version_range': forge_version_range,
+    'malum_minimum_version': malum_minimum_version,
+    'create_min_version': create_min_version,
+    'tic_version_range': tic_version_range,
+    'license': license,
+    'mod_id': mod_id,
+    'mod_author': mod_author,
+    'mod_description': mod_description,
+    'mod_display_name': mod_display_name,
+    'mod_name': mod_name,
+    'mod_credits': mod_credits,
+    'mod_update_branch': mod_update_branch,
+    'pack_format': pack_format,
+    'curseforge_slug': curseforge_slug
 ]
 
 processResources {
     duplicatesStrategy(DuplicatesStrategy.FAIL)
     inputs.properties replaceProperties
-    exclude '.cache'
     replaceProperties.put 'project', project
+    exclude '.cache'
 
     filesMatching(resourceTargets) {
         expand replaceProperties
@@ -231,7 +254,6 @@ processResources {
 }
 
 jar.finalizedBy('reobfJar')
-
 
 task changelog(type: se.bjurr.gitchangelog.plugin.gradle.GitChangelogTask) {
     file.set(new File(project(":").projectDir.toString() + '/build/libs/changelog.txt'));
@@ -247,7 +269,7 @@ def updates = tasks.register("generateUpdates", Copy) {
 
     it.from("./files/templates/") {
         include 'updates.json'
-        expand 'version': actualVersion, 'minecraft_version': minecraft_version
+        expand replaceProperties
     }
 
     it.into 'files/'
@@ -264,26 +286,35 @@ publishMods {
         changelog = file(changelogFile).text
     }
     type = "${release_type}".startsWith("release") ? STABLE : ("${release_type}".startsWith("beta") ? BETA : ALPHA)
-    modLoaders.addAll(['forge'])
+    modLoaders.addAll(['neoforge', 'forge'])
     dryRun = providers.environmentVariable('DO_RELEASE').getOrNull() == null
 
-    if (project.hasProperty('ticurseApiKey')) {
+    if (project.hasProperty("${curseforge_api_key_prop}")) {
         curseforge {
-            accessToken = project.ticurseApiKey
-            projectId = project.ticurseId
+            accessToken = project.property("${curseforge_api_key_prop}")
+            projectId = "${curseforge_id}"
+            projectSlug = "${curseforge_slug}"
             javaVersions.add(JavaVersion.toVersion("${java_version}"))
             clientRequired = true
             serverRequired = true
             minecraftVersions.addAll("${release_versions}".split(','))
             requires('mantle')
             requires('tinkers-construct')
+            optional('actually-harvest')
+            optional('betterdays')
+            optional('charged-charms')
+            optional('creeper-fireworks')
+            optional('homeostatic')
+            optional('magical-psi-revival')
+            optional('simpletextoverlay')
+            optional('tinkersurvival')
+            optional('ready-player-fun')
             optional('configured')
             optional('catalogue')
             optional('immersive-engineering')
             optional('botania')
             optional('create')
             optional('ars-nouveau')
-            optional('tinkersurvival')
             optional('aquaculture')
             optional('alexs-mobs')
             optional('malum')
@@ -301,13 +332,22 @@ publishMods {
             optional('deeperdarker')
         }
     }
-    if (project.hasProperty('tiModrinthId')) {
+    if (project.hasProperty("${modrinth_api_key_prop}")) {
         modrinth {
-            accessToken = project.modrinthKey
-            projectId = project.tiModrinthId
+            accessToken = project.property("${modrinth_api_key_prop}")
+            projectId = "${modrinth_id}"
             minecraftVersions.addAll("${release_versions}".split(','))
             requires('mantle')
             requires('tinkers-construct')
+            optional('actually-harvest')
+            optional('betterdays')
+            optional('charged-charms')
+            optional('creeper-fireworks-mod')
+            optional('homeostatic')
+            optional('magical-psi-revival')
+            optional('simpletextoverlay')
+            optional('tinkersurvival')
+            optional('ready-player-fun')
             optional('immersiveengineering')
             optional('botania')
             optional('create')
@@ -324,6 +364,16 @@ publishMods {
             optional('consecration')
             optional('ad-astra')
             optional('deeperdarker')
+        }
+    }
+    if (project.hasProperty("${discord_webhook_prop}")) {
+        discord {
+            webhookUrl = project.property("${discord_webhook_prop}")
+            dryRunWebhookUrl = project.property("${discord_dryrun_webhook_prop}")
+            username = "${mod_author}"
+            content = changelog.map {
+                "# A new version of ${mod_display_name} for Forge ${minecraft_version} has been released! \n" + it
+            }
         }
     }
 }
