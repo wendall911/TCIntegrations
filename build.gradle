@@ -352,7 +352,6 @@ publishMods {
             optional('botania')
             optional('create')
             optional('ars-nouveau')
-            optional('tinkersurvival')
             optional('aquaculture')
             optional('alexs-mobs')
             optional('the-undergarden')
