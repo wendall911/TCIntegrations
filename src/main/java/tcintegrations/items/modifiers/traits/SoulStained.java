@@ -78,11 +78,23 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
             3.0F,
             AttributeModifier.Operation.ADDITION
     );
+    private static final AttributeModifier HELMET_SOUL_WARD_RECOVERY = new AttributeModifier(
+        ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.HELMET),
+        "Helmet Soul Ward Recovery",
+        0.15F,
+        AttributeModifier.Operation.ADDITION
+    );
     private static final AttributeModifier CHESTPLATE_SOUL_WARD_CAP = new AttributeModifier(
             ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.CHESTPLATE),
             "Chestplate Soul Ward Cap",
             3.0F,
             AttributeModifier.Operation.ADDITION
+    );
+    private static final AttributeModifier CHESTPLATE_SOUL_WARD_RECOVERY = new AttributeModifier(
+        ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.CHESTPLATE),
+        "Chestplate Soul Ward Recovery",
+        0.15F,
+        AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier LEGGINGS_SOUL_WARD_CAP = new AttributeModifier(
             ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.LEGGINGS),
@@ -90,11 +102,23 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
             3.0F,
             AttributeModifier.Operation.ADDITION
     );
+    private static final AttributeModifier LEGGINGS_SOUL_WARD_RECOVERY = new AttributeModifier(
+        ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.LEGGINGS),
+        "Leggings Soul Ward Recovery",
+        0.15F,
+        AttributeModifier.Operation.ADDITION
+    );
     private static final AttributeModifier BOOTS_SOUL_WARD_CAP = new AttributeModifier(
             ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.BOOTS),
             "Boots Soul Ward Cap",
             3.0F,
             AttributeModifier.Operation.ADDITION
+    );
+    private static final AttributeModifier BOOTS_SOUL_WARD_RECOVERY = new AttributeModifier(
+        ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.BOOTS),
+        "Boots Soul Ward Recovery",
+        0.15F,
+        AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier MELEE_PRIMARY_MAGIC_DAMAGE = new AttributeModifier(
             UUID.fromString("cd509ae0-3479-4665-b402-04e66c0ef3fd"),
@@ -136,6 +160,8 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
             Util.makeDescriptionId("modifier", resource("soul_stained.magic_resistance")));
     private static final Component SOUL_WARD_CAPACITY = Component.translatable(
             Util.makeDescriptionId("modifier", resource("soul_stained.soul_ward_capacity")));
+    private static final Component SOUL_WARD_RECOVERY_RATE = Component.translatable(
+        Util.makeDescriptionId("modifier", resource("soul_stained.soul_ward_recovery_rate")));
     private static final Component PRIMARY_MAGIC_DAMAGE = Component.translatable(
             Util.makeDescriptionId("modifier", resource("soul_stained.primary_magic_damage")));
     private static final Component OFFHAND_MAGIC_DAMAGE = Component.translatable(
@@ -195,24 +221,29 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     public void addTooltip(IToolStackView tool, ModifierEntry modifier, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
         double magicResistance = 0.0;
         double soulWardCap = 0.0;
+        double soulWardRecoveryRate = 0.0;
         double primaryMagicDamage = 0.0;
         double offhandMagicDamage = 0.0;
 
         if (tool.hasTag(TinkerTags.Items.HELMETS)) {
             magicResistance = HELMET_MAGIC_RESISTANCE.getAmount();
             soulWardCap = HELMET_SOUL_WARD_CAP.getAmount();
+            soulWardRecoveryRate = HELMET_SOUL_WARD_RECOVERY.getAmount();
         }
         else if (tool.hasTag(TinkerTags.Items.CHESTPLATES)) {
             magicResistance = CHESTPLATE_MAGIC_RESISTANCE.getAmount();
             soulWardCap = CHESTPLATE_SOUL_WARD_CAP.getAmount();
+            soulWardRecoveryRate = CHESTPLATE_SOUL_WARD_RECOVERY.getAmount();
         }
         else if (tool.hasTag(TinkerTags.Items.LEGGINGS)) {
             magicResistance = LEGGINGS_MAGIC_RESISTANCE.getAmount();
             soulWardCap = LEGGINGS_SOUL_WARD_CAP.getAmount();
+            soulWardRecoveryRate = LEGGINGS_SOUL_WARD_RECOVERY.getAmount();
         }
         else if (tool.hasTag(TinkerTags.Items.BOOTS)) {
             magicResistance = BOOTS_MAGIC_RESISTANCE.getAmount();
             soulWardCap = BOOTS_SOUL_WARD_CAP.getAmount();
+            soulWardRecoveryRate = BOOTS_SOUL_WARD_RECOVERY.getAmount();
         }
         else if (tool.hasTag(TinkerTags.Items.MELEE) || tool.hasTag(TinkerTags.Items.HARVEST)) {
             if (tool.getItem().equals(TinkerTools.broadAxe.asItem())) {
@@ -235,6 +266,9 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
         if (soulWardCap != 0.0) {
             TooltipModifierHook.addFlatBoost(modifier.getModifier(), SOUL_WARD_CAPACITY, soulWardCap, tooltip);
         }
+        if (soulWardRecoveryRate != 0.0) {
+            TooltipModifierHook.addPercentBoost(modifier.getModifier(), SOUL_WARD_RECOVERY_RATE, soulWardRecoveryRate, tooltip);
+        }
         if (primaryMagicDamage != 0.0) {
             TooltipModifierHook.addFlatBoost(modifier.getModifier(), PRIMARY_MAGIC_DAMAGE, primaryMagicDamage, tooltip);
         }
@@ -246,10 +280,12 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     public void changeEquipment(ServerPlayer sp, EquipmentChangeContext context, boolean remove) {
         final AttributeInstance magicResistance = sp.getAttribute(LodestoneAttributeRegistry.MAGIC_RESISTANCE.get());
         final AttributeInstance soulWardCap = sp.getAttribute(AttributeRegistry.SOUL_WARD_CAP.get());
+        final AttributeInstance soulWardRecovery = sp.getAttribute(AttributeRegistry.SOUL_WARD_RECOVERY_RATE.get());
         final AttributeInstance magicDamage = sp.getAttribute(LodestoneAttributeRegistry.MAGIC_DAMAGE.get());
         ItemStack stack;
         AttributeModifier magicResistanceModifier = null;
         AttributeModifier soulWardCapModifier = null;
+        AttributeModifier soulWardRecoveryModifier = null;
         AttributeModifier magicDamageModifier = null;
         boolean isArmor = false;
         boolean isTool = false;
@@ -266,21 +302,25 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
                 isArmor = true;
                 magicResistanceModifier = BOOTS_MAGIC_RESISTANCE;
                 soulWardCapModifier = BOOTS_SOUL_WARD_CAP;
+                soulWardRecoveryModifier = BOOTS_SOUL_WARD_RECOVERY;
             }
             case LEGS -> {
                 isArmor = true;
                 magicResistanceModifier = LEGGINGS_MAGIC_RESISTANCE;
                 soulWardCapModifier = LEGGINGS_SOUL_WARD_CAP;
+                soulWardRecoveryModifier = LEGGINGS_SOUL_WARD_RECOVERY;
             }
             case CHEST -> {
                 isArmor = true;
                 magicResistanceModifier = CHESTPLATE_MAGIC_RESISTANCE;
                 soulWardCapModifier = CHESTPLATE_SOUL_WARD_CAP;
+                soulWardRecoveryModifier = CHESTPLATE_SOUL_WARD_RECOVERY;
             }
             case HEAD -> {
                 isArmor = true;
                 magicResistanceModifier = HELMET_MAGIC_RESISTANCE;
                 soulWardCapModifier = HELMET_SOUL_WARD_CAP;
+                soulWardRecoveryModifier = HELMET_SOUL_WARD_RECOVERY;
             }
             case OFFHAND, MAINHAND -> {
                 if (stack.is(TinkerTags.Items.MELEE) || stack.is(TinkerTags.Items.HARVEST)) {
@@ -304,6 +344,14 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
                 }
                 else if (!soulWardCap.hasModifier(soulWardCapModifier)){
                     soulWardCap.addPermanentModifier(soulWardCapModifier);
+                }
+            }
+            if (soulWardRecovery != null) {
+                if (remove && soulWardRecovery.hasModifier(soulWardRecoveryModifier)) {
+                    soulWardRecovery.removeModifier(soulWardRecoveryModifier);
+                }
+                else if (!soulWardRecovery.hasModifier(soulWardRecoveryModifier)){
+                    soulWardRecovery.addPermanentModifier(soulWardRecoveryModifier);
                 }
             }
         }

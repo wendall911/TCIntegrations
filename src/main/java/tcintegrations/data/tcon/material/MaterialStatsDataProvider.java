@@ -99,6 +99,12 @@ public class MaterialStatsDataProvider extends AbstractMaterialStatsDataProvider
             new GripMaterialStats(0.1F, -0.05F, 2.75F),
             HandleMaterialStats.multipliers().durability(1.05F).miningSpeed(1.05F).attackSpeed(1.05F).build(),
             StatlessMaterialStats.BINDING);
+        addArmorShieldStats(MaterialIds.soulStainedSteel,
+            PlatingMaterialStats.builder()
+                .durabilityFactor(29)
+                .armor(2, 6, 7, 3)
+                .toughness(2),
+            StatlessMaterialStats.MAILLE);
         addMaterialStats(MaterialIds.manaString, StatlessMaterialStats.BINDING);
 
         // tier 4 (mod integration)
