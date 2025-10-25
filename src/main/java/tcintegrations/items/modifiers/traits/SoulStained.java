@@ -3,6 +3,7 @@ package tcintegrations.items.modifiers.traits;
 import java.util.List;
 import java.util.UUID;
 
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import com.sammy.malum.common.capability.MalumLivingEntityDataCapability;
@@ -48,35 +49,11 @@ import static tcintegrations.util.ResourceLocationHelper.resource;
 
 public class SoulStained extends NoLevelsModifier implements ProjectileHitModifierHook, EquipmentChangeModifierHook, MeleeHitModifierHook, TooltipModifierHook {
 
-    private static final AttributeModifier HELMET_MAGIC_RESISTANCE = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.HELMET),
-            "Helmet Magic Resistance",
-            1.0F,
-            AttributeModifier.Operation.ADDITION
-    );
-    private static final AttributeModifier CHESTPLATE_MAGIC_RESISTANCE = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.CHESTPLATE),
-            "Chestplate Magic Resistance",
-            1.0F,
-            AttributeModifier.Operation.ADDITION
-    );
-    private static final AttributeModifier LEGGINGS_MAGIC_RESISTANCE = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.LEGGINGS),
-            "Leggings Magic Resistance",
-            1.0F,
-            AttributeModifier.Operation.ADDITION
-    );
-    private static final AttributeModifier BOOTS_MAGIC_RESISTANCE = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.BOOTS),
-            "Boots Magic Resistance",
-            1.0F,
-            AttributeModifier.Operation.ADDITION
-    );
     private static final AttributeModifier HELMET_SOUL_WARD_CAP = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.HELMET),
-            "Helmet Soul Ward Cap",
-            3.0F,
-            AttributeModifier.Operation.ADDITION
+        ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.HELMET),
+        "Helmet Soul Ward Cap",
+        3.0F,
+        AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier HELMET_SOUL_WARD_RECOVERY = new AttributeModifier(
         ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.HELMET),
@@ -85,10 +62,10 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
         AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier CHESTPLATE_SOUL_WARD_CAP = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.CHESTPLATE),
-            "Chestplate Soul Ward Cap",
-            3.0F,
-            AttributeModifier.Operation.ADDITION
+        ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.CHESTPLATE),
+        "Chestplate Soul Ward Cap",
+        3.0F,
+        AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier CHESTPLATE_SOUL_WARD_RECOVERY = new AttributeModifier(
         ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.CHESTPLATE),
@@ -97,10 +74,10 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
         AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier LEGGINGS_SOUL_WARD_CAP = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.LEGGINGS),
-            "Leggings Soul Ward Cap",
-            3.0F,
-            AttributeModifier.Operation.ADDITION
+        ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.LEGGINGS),
+        "Leggings Soul Ward Cap",
+        3.0F,
+        AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier LEGGINGS_SOUL_WARD_RECOVERY = new AttributeModifier(
         ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.LEGGINGS),
@@ -109,10 +86,10 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
         AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier BOOTS_SOUL_WARD_CAP = new AttributeModifier(
-            ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.BOOTS),
-            "Boots Soul Ward Cap",
-            3.0F,
-            AttributeModifier.Operation.ADDITION
+        ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.BOOTS),
+        "Boots Soul Ward Cap",
+        3.0F,
+        AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier BOOTS_SOUL_WARD_RECOVERY = new AttributeModifier(
         ARMOR_MODIFIER_UUID_PER_TYPE.get(ArmorItem.Type.BOOTS),
@@ -121,60 +98,58 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
         AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier MELEE_PRIMARY_MAGIC_DAMAGE = new AttributeModifier(
-            UUID.fromString("cd509ae0-3479-4665-b402-04e66c0ef3fd"),
-            "Primary Magic Damage",
-            3,
-            AttributeModifier.Operation.ADDITION
+        UUID.fromString("cd509ae0-3479-4665-b402-04e66c0ef3fd"),
+        "Primary Magic Damage",
+        3,
+        AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier AXE_MAGIC_DAMAGE = new AttributeModifier(
-            UUID.fromString("353ec372-c40f-452b-8152-abace67ca5fd"),
-            "Axe Magic Damage",
-            4,
-            AttributeModifier.Operation.ADDITION
+        UUID.fromString("353ec372-c40f-452b-8152-abace67ca5fd"),
+        "Axe Magic Damage",
+        4,
+        AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier HARVEST_MAGIC_DAMAGE = new AttributeModifier(
-            UUID.fromString("4afa8ad7-bbb3-4c75-89c9-e488190790ba"),
-            "Harvest Magic Damage",
-            2,
-            AttributeModifier.Operation.ADDITION
+        UUID.fromString("4afa8ad7-bbb3-4c75-89c9-e488190790ba"),
+        "Harvest Magic Damage",
+        2,
+        AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier OFFHAND_MELEE_PRIMARY_MAGIC_DAMAGE = new AttributeModifier(
-            UUID.fromString("39dc8581-cbc0-4e3b-a7cd-2a016685c7a7"),
-            "Offhand Primary Magic Damage",
-            3,
-            AttributeModifier.Operation.ADDITION
+        UUID.fromString("39dc8581-cbc0-4e3b-a7cd-2a016685c7a7"),
+        "Offhand Primary Magic Damage",
+        3,
+        AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier OFFHAND_AXE_MAGIC_DAMAGE = new AttributeModifier(
-            UUID.fromString("1d4c724e-3797-463f-9e82-3e881f3511c7"),
-            "Offhand Axe Magic Damage",
-            4,
-            AttributeModifier.Operation.ADDITION
+        UUID.fromString("1d4c724e-3797-463f-9e82-3e881f3511c7"),
+        "Offhand Axe Magic Damage",
+        4,
+        AttributeModifier.Operation.ADDITION
     );
     private static final AttributeModifier OFFHAND_HARVEST_MAGIC_DAMAGE = new AttributeModifier(
-            UUID.fromString("8c109bf8-ed6e-4949-92cb-470c5e7b446f"),
-            "Offhand Harvest Magic Damage",
-            2,
-            AttributeModifier.Operation.ADDITION
+        UUID.fromString("8c109bf8-ed6e-4949-92cb-470c5e7b446f"),
+        "Offhand Harvest Magic Damage",
+        2,
+        AttributeModifier.Operation.ADDITION
     );
-    private static final Component MAGIC_RESISTANCE = Component.translatable(
-            Util.makeDescriptionId("modifier", resource("soul_stained.magic_resistance")));
     private static final Component SOUL_WARD_CAPACITY = Component.translatable(
-            Util.makeDescriptionId("modifier", resource("soul_stained.soul_ward_capacity")));
+        Util.makeDescriptionId("modifier", resource("soul_stained.soul_ward_capacity")));
     private static final Component SOUL_WARD_RECOVERY_RATE = Component.translatable(
         Util.makeDescriptionId("modifier", resource("soul_stained.soul_ward_recovery_rate")));
     private static final Component PRIMARY_MAGIC_DAMAGE = Component.translatable(
-            Util.makeDescriptionId("modifier", resource("soul_stained.primary_magic_damage")));
+        Util.makeDescriptionId("modifier", resource("soul_stained.primary_magic_damage")));
     private static final Component OFFHAND_MAGIC_DAMAGE = Component.translatable(
-            Util.makeDescriptionId("modifier", resource("soul_stained.offhand_magic_damage")));
+        Util.makeDescriptionId("modifier", resource("soul_stained.offhand_magic_damage")));
 
     @Override
-    protected void registerHooks(Builder hookBuilder) {
+    protected void registerHooks(@NotNull Builder hookBuilder) {
         super.registerHooks(hookBuilder);
         hookBuilder.addHook(this, ModifierHooks.PROJECTILE_HIT, ModifierHooks.EQUIPMENT_CHANGE, ModifierHooks.MELEE_HIT, ModifierHooks.TOOLTIP);
     }
 
     @Override
-    public void onEquip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
+    public void onEquip(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level().isClientSide) {
@@ -185,7 +160,7 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     }
 
     @Override
-    public void onUnequip(IToolStackView tool, ModifierEntry modifier, EquipmentChangeContext context) {
+    public void onUnequip(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier, EquipmentChangeContext context) {
         final Player player = context.getEntity() instanceof Player ? (Player) context.getEntity() : null;
 
         if (player != null && !player.level().isClientSide) {
@@ -196,14 +171,17 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     }
 
     @Override
-    public float beforeMeleeHit(IToolStackView tool, ModifierEntry modifier, ToolAttackContext context, float damage, float baseKnockback, float knockback) {
+    public float beforeMeleeHit(@NotNull IToolStackView tool, @NotNull ModifierEntry modifier,
+            ToolAttackContext context, float damage, float baseKnockback, float knockback) {
         applyExposedSoulDuration(context.getLivingTarget());
 
         return MeleeHitModifierHook.super.beforeMeleeHit(tool, modifier, context, damage, baseKnockback, knockback);
     }
 
     @Override
-    public boolean onProjectileHitEntity(ModifierNBT modifiers, ModDataNBT persistentData, ModifierEntry modifier, Projectile projectile, EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
+    public boolean onProjectileHitEntity(@NotNull ModifierNBT modifiers, @NotNull ModDataNBT persistentData,
+            @NotNull ModifierEntry modifier, @NotNull Projectile projectile,
+            EntityHitResult hit, @Nullable LivingEntity attacker, @Nullable LivingEntity target) {
         if (hit.getEntity() instanceof LivingEntity living) {
             applyExposedSoulDuration(living);
         }
@@ -218,30 +196,26 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     }
 
     @Override
-    public void addTooltip(IToolStackView tool, ModifierEntry modifier, @Nullable Player player, List<Component> tooltip, TooltipKey tooltipKey, TooltipFlag tooltipFlag) {
-        double magicResistance = 0.0;
+    public void addTooltip(IToolStackView tool, @NotNull ModifierEntry modifier, @Nullable Player player,
+            @NotNull List<Component> tooltip, @NotNull TooltipKey tooltipKey, @NotNull TooltipFlag tooltipFlag) {
         double soulWardCap = 0.0;
         double soulWardRecoveryRate = 0.0;
         double primaryMagicDamage = 0.0;
         double offhandMagicDamage = 0.0;
 
         if (tool.hasTag(TinkerTags.Items.HELMETS)) {
-            magicResistance = HELMET_MAGIC_RESISTANCE.getAmount();
             soulWardCap = HELMET_SOUL_WARD_CAP.getAmount();
             soulWardRecoveryRate = HELMET_SOUL_WARD_RECOVERY.getAmount();
         }
         else if (tool.hasTag(TinkerTags.Items.CHESTPLATES)) {
-            magicResistance = CHESTPLATE_MAGIC_RESISTANCE.getAmount();
             soulWardCap = CHESTPLATE_SOUL_WARD_CAP.getAmount();
             soulWardRecoveryRate = CHESTPLATE_SOUL_WARD_RECOVERY.getAmount();
         }
         else if (tool.hasTag(TinkerTags.Items.LEGGINGS)) {
-            magicResistance = LEGGINGS_MAGIC_RESISTANCE.getAmount();
             soulWardCap = LEGGINGS_SOUL_WARD_CAP.getAmount();
             soulWardRecoveryRate = LEGGINGS_SOUL_WARD_RECOVERY.getAmount();
         }
         else if (tool.hasTag(TinkerTags.Items.BOOTS)) {
-            magicResistance = BOOTS_MAGIC_RESISTANCE.getAmount();
             soulWardCap = BOOTS_SOUL_WARD_CAP.getAmount();
             soulWardRecoveryRate = BOOTS_SOUL_WARD_RECOVERY.getAmount();
         }
@@ -260,9 +234,6 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
             }
         }
 
-        if (magicResistance != 0.0) {
-            TooltipModifierHook.addFlatBoost(modifier.getModifier(), MAGIC_RESISTANCE, magicResistance, tooltip);
-        }
         if (soulWardCap != 0.0) {
             TooltipModifierHook.addFlatBoost(modifier.getModifier(), SOUL_WARD_CAPACITY, soulWardCap, tooltip);
         }
@@ -278,12 +249,10 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
     }
 
     public void changeEquipment(ServerPlayer sp, EquipmentChangeContext context, boolean remove) {
-        final AttributeInstance magicResistance = sp.getAttribute(LodestoneAttributeRegistry.MAGIC_RESISTANCE.get());
         final AttributeInstance soulWardCap = sp.getAttribute(AttributeRegistry.SOUL_WARD_CAP.get());
         final AttributeInstance soulWardRecovery = sp.getAttribute(AttributeRegistry.SOUL_WARD_RECOVERY_RATE.get());
         final AttributeInstance magicDamage = sp.getAttribute(LodestoneAttributeRegistry.MAGIC_DAMAGE.get());
         ItemStack stack;
-        AttributeModifier magicResistanceModifier = null;
         AttributeModifier soulWardCapModifier = null;
         AttributeModifier soulWardRecoveryModifier = null;
         AttributeModifier magicDamageModifier = null;
@@ -300,25 +269,21 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
         switch(context.getChangedSlot()) {
             case FEET -> {
                 isArmor = true;
-                magicResistanceModifier = BOOTS_MAGIC_RESISTANCE;
                 soulWardCapModifier = BOOTS_SOUL_WARD_CAP;
                 soulWardRecoveryModifier = BOOTS_SOUL_WARD_RECOVERY;
             }
             case LEGS -> {
                 isArmor = true;
-                magicResistanceModifier = LEGGINGS_MAGIC_RESISTANCE;
                 soulWardCapModifier = LEGGINGS_SOUL_WARD_CAP;
                 soulWardRecoveryModifier = LEGGINGS_SOUL_WARD_RECOVERY;
             }
             case CHEST -> {
                 isArmor = true;
-                magicResistanceModifier = CHESTPLATE_MAGIC_RESISTANCE;
                 soulWardCapModifier = CHESTPLATE_SOUL_WARD_CAP;
                 soulWardRecoveryModifier = CHESTPLATE_SOUL_WARD_RECOVERY;
             }
             case HEAD -> {
                 isArmor = true;
-                magicResistanceModifier = HELMET_MAGIC_RESISTANCE;
                 soulWardCapModifier = HELMET_SOUL_WARD_CAP;
                 soulWardRecoveryModifier = HELMET_SOUL_WARD_RECOVERY;
             }
@@ -330,14 +295,6 @@ public class SoulStained extends NoLevelsModifier implements ProjectileHitModifi
         }
 
         if (isArmor) {
-            if (magicResistance != null) {
-                if (remove && magicResistance.hasModifier(magicResistanceModifier)) {
-                    magicResistance.removeModifier(magicResistanceModifier);
-                }
-                else if (!magicResistance.hasModifier(magicResistanceModifier)) {
-                    magicResistance.addPermanentModifier(magicResistanceModifier);
-                }
-            }
             if (soulWardCap != null) {
                 if (remove && soulWardCap.hasModifier(soulWardCapModifier)) {
                     soulWardCap.removeModifier(soulWardCapModifier);
