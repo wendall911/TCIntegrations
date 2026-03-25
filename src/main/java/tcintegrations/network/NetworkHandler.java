@@ -9,6 +9,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 
 import tcintegrations.data.integration.ModIntegration;
+import tcintegrations.util.IfdWorkaroundHelper;
 
 import static tcintegrations.util.ResourceLocationHelper.resource;
 
@@ -29,7 +30,7 @@ public final class NetworkHandler {
         if (ModList.get().isLoaded(ModIntegration.BOTANIA_MODID)) {
             registerMessage(id++, BotaniaSetData.class, BotaniaSetData::new);
         }
-        if (ModList.get().isLoaded(ModIntegration.IFD_MODID)) {
+        if (IfdWorkaroundHelper.isLoaded()) {
             registerMessage(id++, LaunchGhostSword.class, LaunchGhostSword::new);
         }
         if (ModList.get().isLoaded(ModIntegration.ARS_ELEMENTAL_MODID)) {

@@ -50,6 +50,7 @@ import tcintegrations.items.modifiers.traits.ManaModifier;
 import tcintegrations.items.modifiers.traits.OxygenatedModifier;
 import tcintegrations.items.modifiers.traits.SoulStained;
 import tcintegrations.items.modifiers.traits.WaterPowered;
+import tcintegrations.util.IfdWorkaroundHelper;
 
 import static tcintegrations.util.ResourceLocationHelper.resource;
 
@@ -159,7 +160,7 @@ public class TCIntegrationsModifiers  extends TCIntegrationsModule {
             ALF_MODIFIER = MODIFIERS_REGISTRY.register("alf", AlfModifier::new);
         }
 
-        if (ModIntegration.canLoad(ModIntegration.IFD_MODID)) {
+        if (IfdWorkaroundHelper.isLoaded() && ModIntegration.canLoad(ModIntegration.IFD_MODID)) {
             FLAMED_MODIFIER = MODIFIERS_REGISTRY.register("flamed", FlamedModifier::new);
             ICED_MODIFIER = MODIFIERS_REGISTRY.register("iced", IcedModifier::new);
             ZAPPED_MODIFIER = MODIFIERS_REGISTRY.register("zapped", ZappedModifier::new);

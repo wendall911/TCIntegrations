@@ -12,7 +12,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 
 import slimeknights.tconstruct.common.TinkerTags;
@@ -21,12 +20,12 @@ import slimeknights.tconstruct.library.tools.capability.TinkerDataCapability;
 import slimeknights.tconstruct.library.tools.nbt.ToolStack;
 
 import tcintegrations.TCIntegrations;
-import tcintegrations.data.integration.ModIntegration;
 import tcintegrations.items.TCIntegrationHooks;
 import tcintegrations.items.TCIntegrationsModifiers;
 import tcintegrations.items.modifiers.hooks.IArmorCrouchModifier;
 import tcintegrations.network.LaunchGhostSword;
 import tcintegrations.network.NetworkHandler;
+import tcintegrations.util.IfdWorkaroundHelper;
 
 import static tcintegrations.util.ResourceLocationHelper.resource;
 
@@ -95,7 +94,7 @@ public class ToolEventHandler {
             List<ModifierEntry> modifiers = tool.getModifierList();
 
             modifiers.forEach(modifierEntry -> {
-                if (ModList.get().isLoaded(ModIntegration.IFD_MODID) && modifierEntry.getId().equals(TCIntegrationsModifiers.PHANTASMAL_MODIFIER.getId())) {
+                if (IfdWorkaroundHelper.isLoaded() && modifierEntry.getId().equals(TCIntegrationsModifiers.PHANTASMAL_MODIFIER.getId())) {
                     player.playSound(SoundEvents.ZOMBIE_INFECT, 1, 1);
 
                     NetworkHandler.INSTANCE.sendToServer(new LaunchGhostSword());
