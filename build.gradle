@@ -217,7 +217,8 @@ publishMods {
     if (project.hasProperty('ticurseApiKey')) {
         curseforge {
             accessToken = project.ticurseApiKey
-            projectId = project.ticurseId
+            projectId = project.curseforge_id
+            projectSlug = curseforge_slug
             javaVersions.add(JavaVersion.toVersion("${java_version}"))
             clientRequired = true
             serverRequired = true
@@ -243,10 +244,10 @@ publishMods {
             optional('ice-and-fire-dragons')
         }
     }
-    if (project.hasProperty('tiModrinthId')) {
+    if (project.hasProperty('modrinth_id')) {
         modrinth {
             accessToken = project.modrinthKey
-            projectId = project.tiModrinthId
+            projectId = project.modrinth_id
             minecraftVersions.addAll("${release_versions}".split(','))
             requires('mantle')
             requires('tinkers-construct')
