@@ -261,4 +261,15 @@ publishMods {
             optional('mythicbotany')
         }
     }
+    if (project.hasProperty('tiDiscordWebhook')) {
+        discord {
+            webhookUrl = project.tiDiscordWebhook
+            dryRunWebhookUrl = project.discordDryrunWebhook
+            username = "wendall911"
+            content = changelog.map {
+                "# A new version of Tinkers' Integrations and Tweaks for Forge ${minecraft_version} has been released! \n" + it
+            }
+        }
+    }
+
 }
