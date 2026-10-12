@@ -5,9 +5,9 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7-SNAPSHOT'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
     // https://plugins.gradle.org/plugin/me.modmuss50.mod-publish-plugin
-    id 'me.modmuss50.mod-publish-plugin' version '1.0.0'
+    id 'me.modmuss50.mod-publish-plugin' version '2.2.1'
     // https://plugins.gradle.org/plugin/se.bjurr.gitchangelog.git-changelog-gradle-plugin
-    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '3.0.7'
+    id 'se.bjurr.gitchangelog.git-changelog-gradle-plugin' version '3.4.2'
     id 'io.freefair.lombok' version '8.14.2'
 }
 
@@ -127,7 +127,6 @@ dependencies {
 
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
     compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
-    //compileOnly fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
     implementation fg.deobf(fileTree(dir: 'libs', include: '*.jar'))
 
     // Integration Deps
