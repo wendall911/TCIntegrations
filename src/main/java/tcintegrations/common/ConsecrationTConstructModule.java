@@ -20,6 +20,9 @@ import net.minecraftforge.fml.InterModComms;
 
 import slimeknights.tconstruct.library.materials.definition.MaterialVariantId;
 import slimeknights.tconstruct.library.tools.nbt.MaterialIdNBT;
+import slimeknights.tconstruct.tools.entity.ModifiableArrow;
+import slimeknights.tconstruct.tools.entity.ThrownShuriken;
+import slimeknights.tconstruct.tools.entity.ThrownTool;
 
 import tcintegrations.TCIntegrations;
 import tcintegrations.data.integration.ModIntegration;
@@ -54,11 +57,26 @@ public class ConsecrationTConstructModule extends AbstractCompatibilityModule {
         InterModComms.sendTo(ModIntegration.CONSECRATION_MODID, ConsecrationImc.HOLY_ATTACK.getId(),
             () -> (BiFunction<LivingEntity, DamageSource, Boolean>) (livingEntity, damageSource) -> {
                 Entity source = damageSource.getDirectEntity();
+                MaterialIdNBT nbt = null;
 
                 if (source instanceof LivingEntity) {
                     ItemStack stack = ((LivingEntity) source).getMainHandItem();
-                    MaterialIdNBT nbt = MaterialIdNBT.from(stack);
+                    nbt = MaterialIdNBT.from(stack);
+                }
+                else if (source instanceof ThrownTool) {
+                    ItemStack stack = ((ThrownTool) source).getDisplayTool();
+                    nbt = MaterialIdNBT.from(stack);
+                }
+                else if (source instanceof ModifiableArrow) {
+                    ItemStack stack = ((ModifiableArrow) source).getDisplayTool();
+                    nbt = MaterialIdNBT.from(stack);
+                }
+                else if (source instanceof ThrownShuriken) {
+                    ItemStack stack = ((ThrownShuriken) source).getDisplayTool();
+                    nbt = MaterialIdNBT.from(stack);
+                }
 
+                if (nbt != null) {
                     for (MaterialVariantId material : nbt.getMaterials()) {
                         if (ConsecrationApi.getInstance().isHolyMaterial(material.getId().getPath())) {
                             return true;
